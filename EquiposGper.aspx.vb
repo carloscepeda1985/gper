@@ -79,6 +79,11 @@ Partial Class EquiposGper
 
             End If
 
+            conn2.Close()
+            dr2.Close()
+            comm2.Dispose()
+            conn2.Dispose()
+
             I = I + 1
         End While
 
@@ -111,6 +116,7 @@ Partial Class EquiposGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
     End Sub
 
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
@@ -155,7 +161,7 @@ Partial Class EquiposGper
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "insert Into equipos_m(id_mall,tipo,ubicacion,fecha_instalacion,ultima_mantencion,ultimo_checklist,estado) Values('" & Session("idcond_pro") & "','" & DropDownList1.SelectedValue.ToString() & "','" & TextBox4.Text & "','" & RadDatePicker2.SelectedDate.ToString() & "','','','1')"
+        sql = "insert Into equipos_m(id_mall,tipo,foto,ubicacion,fecha_instalacion,ultima_mantencion,ultimo_checklist,estado) Values('" & Session("idcond_pro") & "','" & DropDownList1.SelectedValue.ToString() & "','no','" & TextBox4.Text & "','" & RadDatePicker2.SelectedDate.ToString() & "','','','1')"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
 
@@ -166,4 +172,93 @@ Partial Class EquiposGper
 
     End Sub
 
+    Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
+        Dim dt As New DataTable()
+
+        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+        conector += "Pwd=90VEporefi;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "SELECT id,tipo, ubicacion, fecha_instalacion, ultima_mantencion, ultimo_checklist FROM equipos_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1' and ubicacion Like '%" & TextBox5.Text & "%'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        I = 0
+        While (dr.Read())
+
+            If dt.Columns.Count = 0 Then
+                dt.Columns.Add(" N° Ficha ", GetType(String))
+                dt.Columns.Add(" Tipo Equipo ", GetType(String))
+                dt.Columns.Add(" Ubicación ", GetType(String))
+                dt.Columns.Add(" Instalación ", GetType(String))
+                dt.Columns.Add(" Última Mantencion ", GetType(String))
+                dt.Columns.Add(" Mantencion Cada ", GetType(String))
+                dt.Columns.Add(" Último Checklist ", GetType(String))
+                dt.Columns.Add(" Checklist Cada ", GetType(String))
+            End If
+
+            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+            conector2 += "Pwd=90VEporefi;Option=3;"
+
+            conn2 = New OdbcConnection(conector2)
+            conn2.Open()
+            sql2 = "SELECT des10, des11 FROM ficha_m where estado = '1' and tipo='" & dr.GetValue(1).ToString() & "'"
+            comm2 = New OdbcCommand(sql2, conn2)
+            dr2 = comm2.ExecuteReader()
+
+            If dr2.Read() Then
+
+                Dim NewRow As DataRow = dt.NewRow()
+                NewRow(0) = dr.GetValue(0).ToString()
+                NewRow(1) = dr.GetValue(1).ToString()
+                NewRow(2) = dr.GetValue(2).ToString()
+                NewRow(3) = dr.GetValue(3).ToString()
+                NewRow(4) = dr.GetValue(4).ToString()
+                NewRow(5) = dr2.GetValue(0).ToString()
+                NewRow(6) = dr.GetValue(5).ToString()
+                NewRow(7) = dr2.GetValue(1).ToString()
+                dt.Rows.Add(NewRow)
+
+            End If
+
+            conn2.Close()
+            dr2.Close()
+            comm2.Dispose()
+            conn2.Dispose()
+
+            I = I + 1
+        End While
+
+        If I = 0 Then
+
+            If dt.Columns.Count = 0 Then
+                dt.Columns.Add(" N° Equipo ", GetType(String))
+                dt.Columns.Add(" Tipo ", GetType(String))
+                dt.Columns.Add(" Ubicación ", GetType(String))
+                dt.Columns.Add(" Instalación ", GetType(String))
+                dt.Columns.Add(" Última Mantencion ", GetType(String))
+                dt.Columns.Add(" Mantencion Cada ", GetType(String))
+                dt.Columns.Add(" Último Checklist ", GetType(String))
+                dt.Columns.Add(" Checklist Cada ", GetType(String))
+            End If
+
+            Dim NewRow As DataRow = dt.NewRow()
+
+            dt.Rows.Add(NewRow)
+            GridView1.DataSource = dt
+            GridView1.DataBind()
+
+        Else
+            GridView1.DataSource = dt
+            GridView1.DataBind()
+
+        End If
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+    End Sub
 End Class

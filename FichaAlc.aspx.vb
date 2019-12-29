@@ -53,7 +53,26 @@ Partial Class FichaAlc
         comm.Dispose()
         conn.Dispose()
 
-        Image1.ImageUrl = "http://yousoft.cl/login/mobile/Data/" & Request.QueryString("id") & "/"
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "SELECT foto FROM equipos_m where estado = '1' and id='" & Request.QueryString("id") & "'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        I = 0
+        If (dr.Read()) Then
+            If dr.GetValue(0).ToString() = "no" Then
+                If Request.QueryString("tipo") = "Extintor" Then
+                    Image1.ImageUrl = "extintor.jpg"
+                End If                
+            Else
+                Image1.ImageUrl = "http://yousoft.cl/login/mobile/Data/" & Request.QueryString("tipo") & "/" & dr.GetValue(0).ToString()
+            End If
+        End If
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
 
         llena_checklists()
         llena_mantenciones()
@@ -208,5 +227,37 @@ Partial Class FichaAlc
         End If
 
         Response.Redirect("HomeCheck.aspx?usuario=16199919-9&codigo=MAD231&checked=si&desde=ficha")
+    End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
+        If Not File1.PostedFile Is Nothing And File1.PostedFile.ContentLength > 0 Then
+
+            Dim fn As String = System.IO.Path.GetExtension(File1.PostedFile.FileName)
+            System.IO.Directory.CreateDirectory(Server.MapPath("Data\" & Request.QueryString("tipo")))
+            Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("tipo") & "\" & Request.QueryString("id") & fn
+            Try
+                File1.PostedFile.SaveAs(SaveLocation)
+                Response.Write("The file has been uploaded.")
+
+                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+                conector += "Pwd=90VEporefi;Option=3;"
+
+                conn = New OdbcConnection(conector)
+                conn.Open()
+                sql = "Update equipos_m Set foto='" & Request.QueryString("id") & fn & "' Where id='" & Request.QueryString("id") & "'"
+                comm = New OdbcCommand(sql, conn)
+                dr = comm.ExecuteReader()
+
+                conn.Close()
+                dr.Close()
+
+                Response.Redirect("FichaAlc.aspx?id=" & Request.QueryString("id") & "&tipo=" & Request.QueryString("tipo") & "&ubicacion=" & Request.QueryString("ubicacion") & "&instalacion=" & Request.QueryString("instalacion"))
+            Catch Exc As Exception
+                Response.Write("Error: " & Exc.Message)
+            End Try
+        Else
+            Response.Write("Please select a file to upload.")
+        End If
     End Sub
 End Class

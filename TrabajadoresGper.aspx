@@ -227,10 +227,9 @@ fieldset[disabled] .btn-sample.active {
     <div container>
      <div>
      <button style="float: right"; type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">+Agregar</button>
-   
-      <label for="mail" style="float:left; margin-top: 7px;" >Nombre:</label>
+  
       <div class="input-group">
-      <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" CssClass="form-control" Width="100"></asp:TextBox>&nbsp
+      <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150" placeholder="Ingrese Nombre"></asp:TextBox>&nbsp
       <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-warning"/>
      
       </div>

@@ -4,16 +4,6 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
- <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-		<Scripts>
-			<%--Needed for JavaScript IntelliSense in VS2010--%>
-			<%--For VS2008 replace RadScriptManager with ScriptManager--%>
-			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
-			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
-			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
-		</Scripts>
-	</telerik:RadScriptManager>
-    
 	<script type="text/javascript">
 	    //Put your JavaScript code here.
     </script>
@@ -1589,6 +1579,7 @@ body{margin-top:20px;}
 							</span>
                             <br/>
                                <div container>
+                               <br/>
      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Actualizar Foto</button>
        
      <!-- Modal -->
@@ -1612,7 +1603,7 @@ body{margin-top:20px;}
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             <formaction id="Form1" enctype="multipart/form-data"   runat="server" CssClass="btn btn-danger">    
-             <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-danger" />
+             <asp:Button ID="Button1" runat="server" Text="Subir Foto" CssClass="btn btn-danger" />
             <%--<input type="submit" id="Submit1" value="Subir" runat="server" name="Submit1" CssClass="btn btn-danger"/> --%>       
     </formaction>
         </div>

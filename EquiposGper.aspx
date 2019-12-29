@@ -230,8 +230,15 @@ fieldset[disabled] .btn-sample.active {
     </div>
    
     <div container>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="float:right;">Agregar Equipo</button>
-       
+    <div>
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="float:right;">+Agregar</button>
+      <div class="input-group">
+      <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150"  placeholder="Ingrese Ubicación"></asp:TextBox>&nbsp
+      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-warning"/>
+     
+      </div>
+     
+     </div>  
      <!-- Modal -->
   <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -246,8 +253,7 @@ fieldset[disabled] .btn-sample.active {
           <p>
           Tipo Equipo:<asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                  <asp:ListItem Enabled="true" Text="Seleccione un tipo..." Value=""></asp:ListItem>
-                 <asp:ListItem Enabled="true" Text="Extintor" Value="extintor"></asp:ListItem>    
-                 <asp:ListItem Enabled="true" Text="Detector de humo" Value="2"></asp:ListItem>          
+                 <asp:ListItem Enabled="true" Text="Extintor" Value="Extintor"></asp:ListItem>           
               </asp:DropDownList><br/>
           Ubicación:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox> <br/>
           Fecha de Instalación:<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large"></telerik:RadDatePicker><br/><br/>
@@ -265,8 +271,6 @@ fieldset[disabled] .btn-sample.active {
     </div>
       
       <br />
-<br />
-
 
     <div class="table-responsive">
         <asp:GridView ID="GridView1" runat="server" Width="100%" 
