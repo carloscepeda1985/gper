@@ -111,6 +111,7 @@ Partial Class _Default
             End If
 
             conn.Close()
+            dr.Close()
         End If
 
     End Sub

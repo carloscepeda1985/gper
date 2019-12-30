@@ -153,20 +153,43 @@ Partial Class EquiposGper
         End If
         If RadDatePicker2.SelectedDate.ToString() = "" Then
             RadDatePicker2.Focus()
+            Exit Sub
         End If
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+        conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+        conector2 += "Pwd=90VEporefi;Option=3;"
 
-        conn = New OdbcConnection(conector)
-        conn.Open()
-        sql = "insert Into equipos_m(id_mall,tipo,foto,ubicacion,fecha_instalacion,ultima_mantencion,ultimo_checklist,estado) Values('" & Session("idcond_pro") & "','" & DropDownList1.SelectedValue.ToString() & "','no','" & TextBox4.Text & "','" & RadDatePicker2.SelectedDate.ToString() & "','','','1')"
-        comm = New OdbcCommand(sql, conn)
-        dr = comm.ExecuteReader()
+        conn2 = New OdbcConnection(conector2)
+        conn2.Open()
+        sql2 = "SELECT Max(id_local) FROM equipos_m where id_mall='" & Session("idcond_pro") & "'"
+        comm2 = New OdbcCommand(sql2, conn2)
+        dr2 = comm2.ExecuteReader()
 
-        conn.Close()
-        dr.Close()
+        If dr2.Read() Then
+            Dim id_local As Integer
+            id_local = dr2.GetValue(0).ToString()
+            id_local = id_local + 1
+
+            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+            conector += "Pwd=90VEporefi;Option=3;"
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "insert Into equipos_m(id_local,id_mall,tipo,foto,ubicacion,fecha_instalacion,ultima_mantencion,ultimo_checklist,estado) Values('" & id_local.ToString & "','" & Session("idcond_pro") & "','" & DropDownList1.SelectedValue.ToString() & "','no','" & TextBox4.Text & "','" & RadDatePicker2.SelectedDate.ToString() & "','','','1')"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
+        End If
+        conn2.Close()
+        dr2.Close()
+        comm2.Dispose()
+        conn2.Dispose()
 
         Response.Redirect("EquiposGper.aspx")
 

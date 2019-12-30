@@ -57,21 +57,25 @@
                             <div class="form-bottom">
 			                    <form id="form1" runat="server">
 			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">RUT</label>
+			                    		<label>RUT</label>
                                       
                                         <asp:TextBox 
-                                        ID="TextBox1" runat="server" CssClass="form-control"  value="12345678-9" onfocus="if(this.value=='12345678-9') this.value=''"
-onblur="if(this.value=='') this.value='12345678-9'"></asp:TextBox>
+                                        ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+<br/>
+<label>CLAVE</label>
+                                      
+<asp:TextBox ID="TextBox2" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>	
+
 			                        </div>
 
 	                	                      
 <asp:Button ID="Button1" runat="server" Text="Ingresar" cssclass="btn btn-primary btn-lg btn-block"/>
 			                      
-                </br>
-                  <center> <img src="Logo.png"> </center>
+                <br/>
+                  <center> <img src="Logo-Gper.png"> </center>
 
           
-          <br>
+          <br/>
                    <center><h5><span class="glyphicon glyphicon-earphone"></span>  (+569) 8281 2431</h5>
                    <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@yousoft.cl<asp:Label 
                            ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
