@@ -1746,7 +1746,7 @@ body{margin-top:20px;}
             CssClass="table table-bordered bs-table" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver" />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
@@ -1773,7 +1773,7 @@ body{margin-top:20px;}
             CssClass="table table-bordered bs-table" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver" />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>'/>
             </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>

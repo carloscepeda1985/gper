@@ -277,7 +277,7 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ficha" />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ficha" HeaderText='<span class="glyphicon glyphicon-list-alt" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
