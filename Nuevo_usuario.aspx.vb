@@ -31,5 +31,8 @@ Partial Class Nuevo_usuario
 
         conn.Close()
         dr.Close()
+        Response.Redirect("ChecklistGper.aspx?rut=" + Request.QueryString("rut") + "&codigo=" + Request.QueryString("codigo"))
+
+
     End Sub
 End Class

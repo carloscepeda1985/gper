@@ -47,7 +47,7 @@ Partial Class Default2
                 If dr.GetValue(6).ToString() = "2" Then
                     Session("rut") = TextBox1.Text
                     Session.Timeout = 50
-                    Response.Redirect("Nuevo_usuario.aspx?nombres=" + dr.GetValue(3).ToString() + "&apellidos=" + dr.GetValue(4).ToString() + "&telefono=" + dr.GetValue(5).ToString() + "&rut=" + TextBox1.Text)
+                    Response.Redirect("Nuevo_usuario.aspx?nombres=" + dr.GetValue(3).ToString() + "&apellidos=" + dr.GetValue(4).ToString() + "&telefono=" + dr.GetValue(5).ToString() + "&rut=" + TextBox1.Text + "&codigo=" + Request.QueryString("codigo"))
                 Else
                     Dim Cooki As HttpCookie = New HttpCookie("YouSoftKeyUser")
                     Dim exp As New Date
@@ -58,7 +58,7 @@ Partial Class Default2
                     Cooki.Expires = exp
                     Response.Cookies.Add(Cooki)
                     Session("rut") = dr.GetValue(1).ToString()
-                    Response.Redirect("HomeCheck.aspx?rut=" + rut + "&codigo=" + Request.QueryString("codigo"))
+                    Response.Redirect("ChecklistGper.aspx?rut=" + rut + "&codigo=" + Request.QueryString("codigo"))
                 End If
             Else
                 ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut o Clave No Coinciden');", True)
