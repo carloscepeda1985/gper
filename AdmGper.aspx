@@ -219,14 +219,16 @@ fieldset[disabled] .btn-sample.active {
                 <div class="media">
                 <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
+                   <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Mis Contratistas</span></a></li>
                    <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Mis Trabajadores</span></a></li>
                    <li><a href="EquiposGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-scale" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Mis Equipos</span></a></li>
                    <li><a href="ChecklistsAlc.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-list" style="color:white"></span>
-                       <span class="nuevoEstilo6">&nbsp;Checklists</span></a></li>
+                       <span class="nuevoEstilo6">&nbsp;Mis Checklists</span></a></li>
                    <li><a href="MantencionesAlc.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-wrench" style="color:white"></span>
-                       <span class="nuevoEstilo7">&nbsp;Mantenciones</span></a></li>
+                       <span class="nuevoEstilo7">&nbsp;Mis Mantenciones</span></a></li>
                 </ul>               
               </div>
               <hr/>
