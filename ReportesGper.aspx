@@ -228,8 +228,6 @@ fieldset[disabled] .btn-sample.active {
     <e class="letracolor"><span class="glyphicon2 glyphicon-dashboard" style="color:white"></span>&nbsp;Reportes</e>
     
     </div>
-      
-    <br />
 
 
      <div class="widget-box transparent">
