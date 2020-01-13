@@ -61,9 +61,9 @@ Partial Class FichaAlc
         I = 0
         If (dr.Read()) Then
             If dr.GetValue(0).ToString() = "no" Then
-                If Request.QueryString("tipo") = "Extintor" Then
+                If Request.QueryString("tipo") = "Contra Incendio" Then
                     Image1.ImageUrl = "extintor.jpg"
-                End If                
+                End If
             Else
                 Image1.ImageUrl = "http://yousoft.cl/login/mobile/Data/" & Request.QueryString("tipo") & "/" & dr.GetValue(0).ToString()
             End If

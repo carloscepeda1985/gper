@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="FichaAlc.aspx.vb" Inherits="FichaAlc" Title="Gper" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="FichaContratista.aspx.vb" Inherits="FichaContratista" Title="Gper" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -1580,7 +1580,7 @@ body{margin-top:20px;}
                             <br/>
                                <div container>
                                <br/>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Actualizar Foto</button>
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Actualizar Logo</button>
        
      <!-- Modal -->
   <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
@@ -1628,7 +1628,7 @@ body{margin-top:20px;}
 
 							<div class="profile-user-info">
 								<div class="profile-info-row">
-									<div class="profile-info-name"> N° Ficha </div>
+									<div class="profile-info-name"> Rut </div>
 
 									<div class="profile-info-value">
 										<span>
@@ -1637,7 +1637,7 @@ body{margin-top:20px;}
 								</div>
 
 								<div class="profile-info-row">
-									<div class="profile-info-name"> Ubicación </div>
+									<div class="profile-info-name"> Contacto </div>
 
 									<div class="profile-info-value">
 										<i class="fa fa-map-marker light-orange bigger-110"></i>
@@ -1647,7 +1647,7 @@ body{margin-top:20px;}
 								</div>
 
 								<div class="profile-info-row">
-									<div class="profile-info-name"> Capacidad </div>
+									<div class="profile-info-name"> Teléfono </div>
 
 									<div class="profile-info-value">
 										<span>
@@ -1655,53 +1655,6 @@ body{margin-top:20px;}
 									</div>
 								</div>
 
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Gas propulsor </div>
-
-									<div class="profile-info-value">
-										<span>
-                                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></span>
-									</div>
-								</div>
-
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Masa aprox. cargado </div>
-
-									<div class="profile-info-value">
-										<span>
-                                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></span>
-									</div>
-								</div>
-
-
-                                 <div class="profile-info-row">
-									<div class="profile-info-name"> Masa aprox. Descargado </div>
-
-									<div class="profile-info-value">
-										<span>
-                                            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label></span>
-									</div>
-								</div>
-
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Para fuegos clases </div>
-
-									<div class="profile-info-value">
-										<i class="fa fa-map-marker light-orange bigger-110"></i>
-										<span>
-                                            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></span>
-									</div>
-								</div>
-                                
-                                <div class="profile-info-row">
-									<div class="profile-info-name"> Potencial de extincion </div>
-
-									<div class="profile-info-value">
-										<i class="fa fa-map-marker light-orange bigger-110"></i>
-										<span>
-                                            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></span>
-									</div>
-								</div>
 							</div>                      
 
 
@@ -1710,33 +1663,14 @@ body{margin-top:20px;}
 
 					<div class="space-20"></div>
 
-					<div class="row">
-						
-							<div class="widget-box transparent">
-								<div class="widget-header widget-header-small">
-									<h4 class="widget-title smaller">
-										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-										Requeriemientos Técnicos
-									</h4>
-								</div>
 
-								<div class="widget-body">
-									<div class="widget-main">
-										<p>
-                                            <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
-										</p>
-									</div>
-								</div>
-						
-						</div>
-					</div>
                     <div class="row">
 					
 							<div class="widget-box transparent">
 								<div class="widget-header widget-header-small">
 									<h4 class="widget-title smaller">
 										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-										Listado de Checklists
+										Listado de Trabajadores
 									</h4>
 								</div>
 
@@ -1756,32 +1690,6 @@ body{margin-top:20px;}
 					
 					</div>
 
-
-                    <div class="row">
-						
-							<div class="widget-box transparent">
-								<div class="widget-header widget-header-small">
-									<h4 class="widget-title smaller">
-										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-										Listado de Mantenciones 
-									</h4>
-								</div>
-
-						
-    <div class="table-responsive">
-        <asp:GridView ID="GridView2" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table" >
-            <Columns>
-                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>'/>
-            </Columns>
-            <HeaderStyle BackColor="#185189" ForeColor="White" />
-        </asp:GridView>
- </div>
-
-							</div>
-					
-					</div>
 
                   <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-danger btn-lg btn-block"  width="40%" /> </center>
 

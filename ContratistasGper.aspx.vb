@@ -82,21 +82,24 @@ Partial Class ContratistasGper
 
     End Sub
 
-    'Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
-    '    If Session("rut_pro") = "" Then
-    '        Response.Redirect("Default.aspx")
-    '        Exit Sub
-    '    End If
+    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
+        If Session("rut_pro") = "" Then
+            Response.Redirect("Default.aspx")
+            Exit Sub
+        End If
 
-    '    Dim x As Integer
-    '    Dim dato As String
+        Dim x As Integer
+        Dim rut, nombre, contacto, telefono As String
 
-    '    x = GridView1.SelectedIndex()
+        x = GridView1.SelectedIndex()
 
-    '    dato = GridView1.Rows(x).Cells(1).Text
+        rut = GridView1.Rows(x).Cells(1).Text
+        nombre = GridView1.Rows(x).Cells(2).Text
+        contacto = GridView1.Rows(x).Cells(3).Text
+        telefono = GridView1.Rows(x).Cells(4).Text
 
-    '    Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + dato)
-    'End Sub
+        Response.Redirect("FichaContratista.aspx?rut=" & rut & "&nombre=" & nombre & "&contacto=" & contacto & "&telefono=" & telefono)
+    End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
         If Session("rut_pro") = "" Then
