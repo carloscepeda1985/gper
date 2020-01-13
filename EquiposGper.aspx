@@ -253,7 +253,8 @@ fieldset[disabled] .btn-sample.active {
           <p>
           Tipo Equipo:<asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
                  <asp:ListItem Enabled="true" Text="Seleccione un tipo..." Value=""></asp:ListItem>
-                 <asp:ListItem Enabled="true" Text="Extintor" Value="Extintor"></asp:ListItem>           
+                 <asp:ListItem Enabled="true" Text="Contra Incendio" Value="Contra Incendio"></asp:ListItem>     
+                 <asp:ListItem Enabled="true" Text="Evacuación" Value="Evacuación"></asp:ListItem>      
               </asp:DropDownList><br/>
           Ubicación:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox> <br/>
           Fecha de Instalación:<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large"></telerik:RadDatePicker><br/><br/>
