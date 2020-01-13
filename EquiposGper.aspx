@@ -293,14 +293,14 @@ fieldset[disabled] .btn-sample.active {
 
                    <li><a href="AdmGper.aspx" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
-                   <li><a href="TrabajadoresGper.aspx" class="btn btn-warning btn-lg btn-s"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
-                       <span class="nuevoEstilo6">&nbsp;Trabajadores</span></a></li>
-                   <li><a href="EquiposGper.aspx" class="btn btn-warning btn-lg btn-s"><span class="glyphicon glyphicon-scale" style="color:white"></span>
-                       <span class="nuevoEstilo6">&nbsp;Equipos</span></a></li>
-                   <li><a href="ChecklistsAlc.aspx" class="btn btn-warning btn-lg btn-danger"><span class="glyphicon glyphicon-list" style="color:white"></span>
-                       <span class="nuevoEstilo6">&nbsp;Checklists</span></a></li>
-                   <li><a href="MantencionesAlc.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-wrench" style="color:white"></span>
-                       <span class="nuevoEstilo7">&nbsp;Mantenciones</span></a></li>
+                   <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
+                   <li><a href="EquiposGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-scale" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
+                   <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
+                   <li><a href="ReportesGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>
          
                </ul>
 				   
