@@ -1655,6 +1655,16 @@ body{margin-top:20px;}
 									</div>
 								</div>
 
+                                <div class="profile-info-row">
+									<div class="profile-info-name"> Email </div>
+
+									<div class="profile-info-value">
+										<span>
+                                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></span>
+									</div>
+								</div>
+
+
 							</div>                      
 
 

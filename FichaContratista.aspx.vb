@@ -27,6 +27,7 @@ Partial Class FichaContratista
             Label1.Text = Request.QueryString("rut")
             Label2.Text = Request.QueryString("contacto")
             Label3.Text = Request.QueryString("telefono")
+            Label4.Text = Request.QueryString("email")
 
             Image1.ImageUrl = "default_logo.png"
 

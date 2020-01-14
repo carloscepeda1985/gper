@@ -31,42 +31,42 @@ Partial Class ContratistasGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1'"
+            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
             Dim D1, D2, D3, D4, D5 As String
 
-            dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
+            dt.Columns.AddRange(New DataColumn(10) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
             While (dr.Read())
-                If dr.GetValue(6).ToString() = "no" Then
+                If dr.GetValue(7).ToString() = "no" Then
                     D1 = "A"
                 Else
                     D1 = "P"
                 End If
-                If dr.GetValue(7).ToString() = "no" Then
+                If dr.GetValue(8).ToString() = "no" Then
                     D2 = "A"
                 Else
                     D2 = "P"
                 End If
-                If dr.GetValue(8).ToString() = "no" Then
+                If dr.GetValue(9).ToString() = "no" Then
                     D3 = "A"
                 Else
                     D3 = "P"
                 End If
-                If dr.GetValue(9).ToString() = "no" Then
+                If dr.GetValue(10).ToString() = "no" Then
                     D4 = "A"
                 Else
                     D4 = "P"
                 End If
-                If dr.GetValue(10).ToString() = "no" Then
+                If dr.GetValue(11).ToString() = "no" Then
                     D5 = "A"
                 Else
                     D5 = "P"
                 End If
 
-                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), D1, D2, D3, D4, D5, dr.GetValue(11).ToString())
+                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), D1, D2, D3, D4, D5, dr.GetValue(12).ToString())
             End While
 
             GridView1.DataSource = dt
@@ -89,7 +89,7 @@ Partial Class ContratistasGper
         End If
 
         Dim x As Integer
-        Dim rut, nombre, contacto, telefono As String
+        Dim rut, nombre, contacto, telefono, email As String
 
         x = GridView1.SelectedIndex()
 
@@ -97,8 +97,9 @@ Partial Class ContratistasGper
         nombre = GridView1.Rows(x).Cells(2).Text
         contacto = GridView1.Rows(x).Cells(3).Text
         telefono = GridView1.Rows(x).Cells(4).Text
+        email = GridView1.Rows(x).Cells(5).Text
 
-        Response.Redirect("FichaContratista.aspx?rut=" & rut & "&nombre=" & nombre & "&contacto=" & contacto & "&telefono=" & telefono)
+        Response.Redirect("FichaContratista.aspx?rut=" & rut & "&nombre=" & nombre & "&contacto=" & contacto & "&telefono=" & telefono & "&email=" & email)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
