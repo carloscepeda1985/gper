@@ -94,7 +94,7 @@ Partial Class TrabajadoresGper
 
         dato = GridView1.Rows(x).Cells(1).Text
 
-        Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + dato)
+        Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + dato + "&desde=trabajadores")
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click

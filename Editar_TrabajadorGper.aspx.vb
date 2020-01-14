@@ -187,7 +187,12 @@ Partial Class Editar_TrabajadorGper
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
-        Response.Redirect("TrabajadoresGper.aspx")
+        If Request.QueryString("desde") = "trabajadores" Then
+            Response.Redirect("TrabajadoresGper.aspx")
+        Else
+            Response.Redirect("FichaContratista.aspx?rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
+        End If
+
     End Sub
 
  

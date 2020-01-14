@@ -29,7 +29,20 @@ Partial Class FichaContratista
             Label3.Text = Request.QueryString("telefono")
             Label4.Text = Request.QueryString("email")
 
-            Image1.ImageUrl = "default_logo.png"
+            If Request.QueryString("nombre") = "Calderas Anwo" Then
+                Image1.ImageUrl = "anwo_logo.png"
+            Else
+                If Request.QueryString("nombre") = "Ascensores Schindler" Then
+                    Image1.ImageUrl = "logo_schindler.png"
+                Else
+                    Image1.ImageUrl = "default_logo.png"
+                End If
+            End If
+            
+
+
+
+
 
             conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
             conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
@@ -37,7 +50,7 @@ Partial Class FichaContratista
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_m where estado = '1'"
+            sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -84,10 +97,27 @@ Partial Class FichaContratista
             comm.Dispose()
             conn.Dispose()
 
+
         End If
 
     End Sub
+    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
+        If Session("rut_pro") = "" Then
+            Response.Redirect("Default.aspx")
+            Exit Sub
+        End If
 
+        Dim x As Integer
+        Dim dato As String
 
+        x = GridView1.SelectedIndex()
 
+        dato = GridView1.Rows(x).Cells(1).Text
+
+        Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + dato + "&desde=ficha" + "&nombre=" + Request.QueryString("nombre") + "&rut=" + Request.QueryString("rut") + "&contacto=" + Request.QueryString("contacto") + "&telefono=" + Request.QueryString("telefono") + "&email=" + Request.QueryString("email"))
+    End Sub
+
+    Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
+        Response.Redirect("ContratistasGper.aspx")
+    End Sub
 End Class
