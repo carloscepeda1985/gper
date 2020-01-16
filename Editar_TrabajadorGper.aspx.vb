@@ -143,7 +143,7 @@ Partial Class Editar_TrabajadorGper
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato") + "&desde=" + Request.QueryString("desde") + "&rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -176,7 +176,7 @@ Partial Class Editar_TrabajadorGper
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato") + "&desde=" + Request.QueryString("desde") + "&rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -218,7 +218,7 @@ Partial Class Editar_TrabajadorGper
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato") + "&desde=" + Request.QueryString("desde") + "&rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -251,7 +251,7 @@ Partial Class Editar_TrabajadorGper
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato") + "&desde=" + Request.QueryString("desde") + "&rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
@@ -283,7 +283,7 @@ Partial Class Editar_TrabajadorGper
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato") + "&desde=" + Request.QueryString("desde") + "&rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
@@ -345,6 +345,6 @@ Partial Class Editar_TrabajadorGper
         conn.Close()
         dr.Close()
 
-        Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato"))
+        Response.Redirect("Editar_TrabajadorGper.aspx?dato=" + Request.QueryString("dato") + "&desde=" + Request.QueryString("desde") + "&rut=" & Request.QueryString("rut") & "&nombre=" & Request.QueryString("nombre") & "&contacto=" & Request.QueryString("contacto") & "&telefono=" & Request.QueryString("telefono") & "&email=" & Request.QueryString("email"))
     End Sub
 End Class

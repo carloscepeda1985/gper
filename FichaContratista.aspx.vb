@@ -29,6 +29,8 @@ Partial Class FichaContratista
             Label3.Text = Request.QueryString("telefono")
             Label4.Text = Request.QueryString("email")
 
+            TextBox8.Text = Request.QueryString("nombre")
+
             If Request.QueryString("nombre") = "Calderas Anwo" Then
                 Image1.ImageUrl = "anwo_logo.png"
             Else

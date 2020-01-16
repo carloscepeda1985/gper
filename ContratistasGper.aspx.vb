@@ -31,42 +31,42 @@ Partial Class ContratistasGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1'"
+            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
             Dim D1, D2, D3, D4, D5 As String
 
-            dt.Columns.AddRange(New DataColumn(10) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
+            dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
             While (dr.Read())
-                If dr.GetValue(7).ToString() = "no" Then
+                If dr.GetValue(8).ToString() = "no" Then
                     D1 = "A"
                 Else
                     D1 = "P"
                 End If
-                If dr.GetValue(8).ToString() = "no" Then
+                If dr.GetValue(9).ToString() = "no" Then
                     D2 = "A"
                 Else
                     D2 = "P"
                 End If
-                If dr.GetValue(9).ToString() = "no" Then
+                If dr.GetValue(10).ToString() = "no" Then
                     D3 = "A"
                 Else
                     D3 = "P"
                 End If
-                If dr.GetValue(10).ToString() = "no" Then
+                If dr.GetValue(11).ToString() = "no" Then
                     D4 = "A"
                 Else
                     D4 = "P"
                 End If
-                If dr.GetValue(11).ToString() = "no" Then
+                If dr.GetValue(12).ToString() = "no" Then
                     D5 = "A"
                 Else
                     D5 = "P"
                 End If
 
-                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), D1, D2, D3, D4, D5, dr.GetValue(12).ToString())
+                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5, dr.GetValue(13).ToString())
             End While
 
             GridView1.DataSource = dt
@@ -123,15 +123,19 @@ Partial Class ContratistasGper
 
             If TextBox6.Text = "" Then
                 TextBox6.Focus()
+                Exit Sub
             Else
                 If TextBox2.Text = "" Then
                     TextBox2.Focus()
+                    Exit Sub
                 Else
                     If TextBox3.Text = "" Then
                         TextBox3.Focus()
+                        Exit Sub
                     Else
                         If TextBox4.Text = "" Then
                             TextBox4.Focus()
+                            Exit Sub
                         Else
                             conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
                             conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
@@ -139,14 +143,14 @@ Partial Class ContratistasGper
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
-                            sql = "insert Into trabajadores_m(id_condominio,rut,nombre,apellido,telefono,funcion,empresa,CDT,CAFP,AFC,INP,CCAF,estado,updates,deleted) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1','" & Now.ToString & "','1')"
+                            sql = "insert Into contratistas_m(id_mall,rut,nombre,contacto,telefono,email,pass,D1,D2,D3,D4,D5,estado) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1')"
                             comm = New OdbcCommand(sql, conn)
                             dr = comm.ExecuteReader()
 
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("TrabajadoresGper.aspx")
+                            Response.Redirect("ContratistasGper.aspx")
                         End If
                     End If
                 End If
@@ -248,42 +252,42 @@ Partial Class ContratistasGper
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and nombre Like '%" & TextBox5.Text & "%'"
+        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "' and nombre Like '%" & TextBox5.Text() & "%'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
         Dim D1, D2, D3, D4, D5 As String
 
-        dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("estado")})
+        dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
         While (dr.Read())
-            If dr.GetValue(6).ToString() = "no" Then
+            If dr.GetValue(8).ToString() = "no" Then
                 D1 = "A"
             Else
                 D1 = "P"
             End If
-            If dr.GetValue(7).ToString() = "no" Then
+            If dr.GetValue(9).ToString() = "no" Then
                 D2 = "A"
             Else
                 D2 = "P"
             End If
-            If dr.GetValue(8).ToString() = "no" Then
+            If dr.GetValue(10).ToString() = "no" Then
                 D3 = "A"
             Else
                 D3 = "P"
             End If
-            If dr.GetValue(9).ToString() = "no" Then
+            If dr.GetValue(11).ToString() = "no" Then
                 D4 = "A"
             Else
                 D4 = "P"
             End If
-            If dr.GetValue(10).ToString() = "no" Then
+            If dr.GetValue(12).ToString() = "no" Then
                 D5 = "A"
             Else
                 D5 = "P"
             End If
 
-            dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), D1, D2, D3, D4, D5, dr.GetValue(11).ToString())
+            dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5, dr.GetValue(13).ToString())
         End While
 
         GridView1.DataSource = dt

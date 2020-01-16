@@ -1664,6 +1664,16 @@ body{margin-top:20px;}
 									</div>
 								</div>
 
+                                <div class="profile-info-row">
+									<div class="profile-info-name"> Contraseña </div>
+
+									<div class="profile-info-value">
+										<span>
+                                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></span>
+									</div>
+								</div>
+
+
 
 							</div>                      
 
@@ -1671,20 +1681,63 @@ body{margin-top:20px;}
 						</div><!-- /.col -->
 					</div><!-- /.row -->
 
+                    <hr/>
+
+
 					<div class="space-20"></div>
 
 
                     <div class="row">
 					
 							<div class="widget-box transparent">
-								<div class="widget-header widget-header-small">
-									<h4 class="widget-title smaller">
-										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+
+                             <div container>
+     <div>
+     <button style="float: right"; type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">+Agregar</button>
+  
+      <div class="input-group">
+<div class="widget-header widget-header-small">
+                                      <h4 class="widget-title smaller">
 										Listado de Trabajadores
 									</h4>
 								</div>
+     
+      </div>
+      </div>
+     <!-- Modal -->
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Ingrese datos del Trabajador</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+          Rut:<asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox> 
+          Nombre:<asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox> 
+          Apellido:<asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox> 
+          Teléfono:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+          Cargo:<asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+          Empresa:<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+          <br/>
+          </p>
+         
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <asp:Button ID="Button4" runat="server" Text="Aceptar" CssClass="btn btn-danger" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
-						
+    </div>
+											
     <div class="table-responsive">
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">

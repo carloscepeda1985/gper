@@ -247,10 +247,10 @@ fieldset[disabled] .btn-sample.active {
           <p>
           Rut:<asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox> 
           Nombre:<asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox> 
-          Apellido:<asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox> 
+          Contacto:<asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox> 
           Teléfono:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
-          Cargo:<asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
-          Empresa:<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+          Email:<asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+          Contraseña:<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
           <br/>
           </p>
          
@@ -278,6 +278,7 @@ fieldset[disabled] .btn-sample.active {
             <asp:BoundField DataField="Contacto" HeaderText="Contacto" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:TemplateField HeaderText="D1" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D1").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
