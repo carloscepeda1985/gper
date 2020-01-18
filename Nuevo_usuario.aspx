@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="Nuevo_usuario.aspx.vb" Inherits="Nuevo_usuario" Title="Gper" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="Nuevo_usuario.aspx.vb" Inherits="Nuevo_usuario" Title="GPER" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

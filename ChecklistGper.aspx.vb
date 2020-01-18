@@ -81,6 +81,29 @@ Partial Class ChecklistGper
             dr2.Close()
 
         End If
+        If RadioButton2.Checked = True Then
+
+
+
+            Label4.Text = Label4.Text + 1
+            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+            conector2 += "Pwd=90VEporefi;Option=3;"
+            conn2 = New OdbcConnection(conector2)
+            conn2.Open()
+            sql2 = "SELECT id,pregunta FROM preguntas_check where tipo = '" & Label5.Text & "' and id = '" & Label4.Text & "' ORDER BY id LIMIT 1"
+            comm2 = New OdbcCommand(sql2, conn2)
+            dr2 = comm2.ExecuteReader()
+
+            If (dr2.Read()) Then
+                Label3.Text = dr2.GetValue(1).ToString
+            End If
+
+            conn2.Close()
+            dr2.Close()
+
+        End If
+
     End Sub
 
     Protected Sub RadioButton2_CheckedChanged(sender As Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged

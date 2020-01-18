@@ -10,7 +10,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>YouSoft</title>
+        <title>GPER - Acceso Clientes</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -28,7 +28,7 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="shortcut icon" href="assets/ico/Logo-Gper-2.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -83,8 +83,8 @@ onblur="if(this.value=='') this.value='contacto@yousoft.cl'"></asp:TextBox>
 
           
           <br>
-                   <center><h5><span class="glyphicon glyphicon-earphone"></span>  (+569) 8281 2431</h5>
-                   <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@yousoft.cl<asp:Label 
+                   <center><h5><span class="glyphicon glyphicon-earphone"></span>  (+56) 98281 2431</h5>
+                   <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@gper.cl<asp:Label 
                            ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                        </h5></center>
                    </form>

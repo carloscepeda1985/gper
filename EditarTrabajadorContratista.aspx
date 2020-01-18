@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="Editar_TrabajadorGper.aspx.vb" Inherits="Editar_TrabajadorGper" Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="EditarTrabajadorContratista.aspx.vb" Inherits="EditarTrabajadorContratista" Title="GPER" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

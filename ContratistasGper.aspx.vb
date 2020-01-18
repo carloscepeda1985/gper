@@ -89,17 +89,13 @@ Partial Class ContratistasGper
         End If
 
         Dim x As Integer
-        Dim rut, nombre, contacto, telefono, email As String
+        Dim rut As String
 
         x = GridView1.SelectedIndex()
 
         rut = GridView1.Rows(x).Cells(1).Text
-        nombre = GridView1.Rows(x).Cells(2).Text
-        contacto = GridView1.Rows(x).Cells(3).Text
-        telefono = GridView1.Rows(x).Cells(4).Text
-        email = GridView1.Rows(x).Cells(5).Text
 
-        Response.Redirect("FichaContratista.aspx?rut=" & rut & "&nombre=" & nombre & "&contacto=" & contacto & "&telefono=" & telefono & "&email=" & email)
+        Response.Redirect("FichaContratista.aspx?rut=" & rut)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click

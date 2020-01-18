@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" AutoEventWireup="false" CodeFile="ContratistasGper.aspx.vb" Inherits="ContratistasGper" Title="Gper" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" AutoEventWireup="false" CodeFile="ContratistasGper.aspx.vb" Inherits="ContratistasGper" Title="GPER" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
