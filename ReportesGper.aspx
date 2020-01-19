@@ -241,7 +241,7 @@ fieldset[disabled] .btn-sample.active {
 						
     <div class="table-responsive">
         <asp:GridView ID="GridView1" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table" >
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
                     SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
@@ -264,7 +264,7 @@ fieldset[disabled] .btn-sample.active {
 						
     <div class="table-responsive">
         <asp:GridView ID="GridView2" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table" >
+            CssClass="table table-bordered bs-table"  AllowPaging="True" PageSize="6" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
                     SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />

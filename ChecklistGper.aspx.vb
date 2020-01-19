@@ -118,6 +118,7 @@ Partial Class ChecklistGper
         Dim porciento As Integer
 
         If RadioButton1.Checked = True Then
+
             Label11.Text = Label11.Text + 1
             porcentaje = Integer.Parse(Label11.Text)
             Dim n_preguntas As Integer = Integer.Parse(Label12.Text)
@@ -127,7 +128,7 @@ Partial Class ChecklistGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "insert Into respuestas_check(id_mall, id_checklists, id_preguntas, respuesta, comentario, foto, estado) Values('" & Session("idcond_pro") & "','" & Label8.Text & "','" & Label4.Text() & "','1','" & TextBox1.Text & "','no','1')"
+            sql = "insert Into respuestas_check(id_mall, id_checklists, id_preguntas, respuesta, comentario, foto, estado) Values('" & Session("idcond_pro") & "','" & Label8.Text & "','" & Label13.Text() & "','1','" & TextBox1.Text & "','no','1')"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
 
@@ -170,9 +171,25 @@ Partial Class ChecklistGper
             conn2.Close()
             dr2.Close()
 
+            TextBox1.Text = ""
+
         End If
 
         If RadioButton2.Checked = True Then
+
+            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+            conector += "Pwd=90VEporefi;Option=3;"
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "insert Into respuestas_check(id_mall, id_checklists, id_preguntas, respuesta, comentario, foto, estado) Values('" & Session("idcond_pro") & "','" & Label8.Text & "','" & Label13.Text() & "','0','" & TextBox1.Text & "','no','1')"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+
+            conn.Close()
+            dr.Close()
+
 
             conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
             conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
@@ -189,6 +206,8 @@ Partial Class ChecklistGper
 
             conn2.Close()
             dr2.Close()
+
+            TextBox1.Text = ""
 
         End If
 

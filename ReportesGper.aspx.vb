@@ -40,14 +40,14 @@ Partial Class ReportesGper
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id_equipo, fecha, rut_usuario, porcentaje, comentario FROM checklists_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1'"
+        sql = "SELECT id, fecha, rut_usuario, porcentaje, comentario FROM checklists_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
         While (dr.Read())
 
             If dt.Columns.Count = 0 Then
-                dt.Columns.Add(" N° Equipo ", GetType(String))
+                dt.Columns.Add(" ID ", GetType(String))
                 dt.Columns.Add(" Fecha ", GetType(String))
                 dt.Columns.Add(" Rut Usuario ", GetType(String))
                 dt.Columns.Add(" Porcentaje ", GetType(String))
@@ -68,7 +68,7 @@ Partial Class ReportesGper
         If I = 0 Then
 
             If dt.Columns.Count = 0 Then
-                dt.Columns.Add(" N° Ficha ", GetType(String))
+                dt.Columns.Add(" ID ", GetType(String))
                 dt.Columns.Add(" Fecha ", GetType(String))
                 dt.Columns.Add(" Rut Usuario ", GetType(String))
                 dt.Columns.Add(" Porcentaje ", GetType(String))

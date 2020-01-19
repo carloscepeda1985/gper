@@ -55,7 +55,7 @@ Partial Class FichaAlc
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT foto FROM equipos_m where estado = '1' and id='" & Request.QueryString("id") & "'"
+        sql = "SELECT foto FROM equipos_m where estado = '1' and id='" & Label1.Text & "'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
@@ -87,14 +87,14 @@ Partial Class FichaAlc
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id_equipo, fecha, rut_usuario, porcentaje, comentario FROM checklists_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1'"
+        sql = "SELECT id, fecha, rut_usuario, porcentaje, comentario FROM checklists_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1' and id_equipo='" & Label1.Text & "'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
         While (dr.Read())
 
             If dt.Columns.Count = 0 Then
-                dt.Columns.Add(" N° Ficha ", GetType(String))
+                dt.Columns.Add(" ID ", GetType(String))
                 dt.Columns.Add(" Fecha ", GetType(String))
                 dt.Columns.Add(" Rut Usuario ", GetType(String))
                 dt.Columns.Add(" Porcentaje ", GetType(String))
@@ -115,7 +115,7 @@ Partial Class FichaAlc
         If I = 0 Then
 
             If dt.Columns.Count = 0 Then
-                dt.Columns.Add(" N° Ficha ", GetType(String))
+                dt.Columns.Add(" ID ", GetType(String))
                 dt.Columns.Add(" Fecha ", GetType(String))
                 dt.Columns.Add(" Rut Usuario ", GetType(String))
                 dt.Columns.Add(" Porcentaje ", GetType(String))
@@ -225,8 +225,19 @@ Partial Class FichaAlc
             Response.Redirect("Default.aspx")
             Exit Sub
         End If
+        Dim x As Integer
 
-        Response.Redirect("HomeCheck.aspx?usuario=16199919-9&codigo=MAD231&checked=si&desde=ficha")
+        Dim id, fecha, rut_usuario, porcentaje, comentario As String
+
+        x = GridView1.SelectedIndex()
+
+        id = GridView1.Rows(x).Cells(1).Text
+        fecha = GridView1.Rows(x).Cells(2).Text
+        rut_usuario = GridView1.Rows(x).Cells(3).Text
+        porcentaje = GridView1.Rows(x).Cells(4).Text
+        comentario = GridView1.Rows(x).Cells(5).Text
+
+        Response.Redirect("HomeCheck.aspx?id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
