@@ -168,10 +168,19 @@ Partial Class ReportesGper
             Response.Redirect("Default.aspx")
             Exit Sub
         End If
-        Dim dato As String
-        dato = "si"
 
-        Response.Redirect("HomeCheck.aspx?usuario=16199919-9&codigo=MAD231&checked=" + dato)
+        Dim x As Integer
+        Dim id, fecha, rut_usuario, porcentaje, comentario As String
+
+        x = GridView1.SelectedIndex()
+
+        id = GridView1.Rows(x).Cells(1).Text
+        fecha = GridView1.Rows(x).Cells(2).Text
+        rut_usuario = GridView1.Rows(x).Cells(3).Text
+        porcentaje = GridView1.Rows(x).Cells(4).Text
+        comentario = GridView1.Rows(x).Cells(5).Text
+
+        Response.Redirect("HomeCheck.aspx?id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
     End Sub
 
 

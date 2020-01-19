@@ -50,7 +50,7 @@ Partial Class HomeCheck
         Dim respuesta As String
 
         Dim dt As New DataTable()
-        dt.Columns.AddRange(New DataColumn(2) {New DataColumn("Respuesta"), New DataColumn("Comentario"), New DataColumn("Pregunta")})
+        dt.Columns.AddRange(New DataColumn(1) {New DataColumn("Respuesta"), New DataColumn("Pregunta")})
 
         While (dr.Read())
             If dr.GetValue(1).ToString() = "0" Then
@@ -71,7 +71,7 @@ Partial Class HomeCheck
 
             If (dr2.Read()) Then
 
-                dt.Rows.Add(respuesta, dr.GetValue(2).ToString(), dr2.GetValue(0).ToString())
+                dt.Rows.Add(respuesta, dr2.GetValue(0).ToString())
 
             End If
 
@@ -91,4 +91,13 @@ Partial Class HomeCheck
     End Sub
 
 
+    Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
+
+        If Request.QueryString("desde") = "ficha" Then
+            Response.Redirect("FichaAlc.aspx?id=" & Request.QueryString("id_equipo") & "&tipo=" & Request.QueryString("tipo") & "&ubicacion=" & Request.QueryString("ubicacion") & "&instalacion=" & Request.QueryString("instalacion"))
+        Else
+            Response.Redirect("ReportesGper.aspx")
+        End If
+
+    End Sub
 End Class
