@@ -278,12 +278,14 @@ fieldset[disabled] .btn-sample.active {
     </center>
     <br/>
     <asp:Panel ID="Panel1" runat="server" Visible = "false">
-      <strong><asp:Label ID="Label7" runat="server" AutoPostBack="True" Font-Size="Medium" >&nbsp&nbsp Ingrese Foto*</asp:Label></strong>
-      <center><input type="file" id="File1" name="File1" runat="server" onclick="return File1_onclick()" /></center>
-      <br/>
     <strong><asp:Label ID="Label6" runat="server" Font-Size="Medium">&nbsp&nbsp Ingrese Comentario*</asp:Label></strong>
     &nbsp&nbsp <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True" TextMode="MultiLine" CssClass="form-control" OnTextChanged="TextBox1_TextChanged" ></asp:TextBox>
   
+           <br/>
+            <strong><asp:Label ID="Label7" runat="server" AutoPostBack="True" Font-Size="Medium" >&nbsp&nbsp Ingrese Foto</asp:Label></strong>
+      <center><input type="file" id="File1" name="File1" runat="server" onclick="return File1_onclick()" /></center>
+
+    
     </asp:Panel>
     <br/>
     <br/>
@@ -304,8 +306,17 @@ fieldset[disabled] .btn-sample.active {
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 &nbsp;- Usuario:
     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+&nbsp;- ID:
+    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+&nbsp;- Tipo:
+    <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+&nbsp;- Porcentaje:
+    <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
     <asp:Label ID="Label4" runat="server" Text="Label" Visible="false"></asp:Label>
     <asp:Label ID="Label5" runat="server" Text="Label" Visible="false"></asp:Label>
+    <asp:Label ID="Label11" runat="server" Text="Label" Visible="false"></asp:Label>
+    <asp:Label ID="Label12" runat="server" Text="Label" Visible="false"></asp:Label>
+    <asp:Label ID="Label13" runat="server" Text="Label" Visible="false"></asp:Label>
 </strong>
 </div>
     
