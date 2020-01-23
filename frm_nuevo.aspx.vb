@@ -16,7 +16,38 @@ Partial Class frm_nuevo
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
         Button2.Attributes.Add("onclick", "history.back(); return false;")
-    
+        Session("rut_pro") = Request.QueryString("dato")
+
+        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+        conector += "Pwd=90VEporefi;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "SELECT id, rut, status, email, id_condominio, nombre, apellido_p, departamento, sitio, telefono, clave FROM propietario_m where rut = '" & Session("rut_pro") & "' and deleted = '1'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+
+        If (dr.Read()) Then
+
+            Session("rut_pro") = dr.GetValue(1).ToString()
+            Session("mail_pro") = dr.GetValue(3).ToString()
+            Session("idcond_pro") = dr.GetValue(4).ToString()
+            Session("nombr_pro") = dr.GetValue(5).ToString()
+            Session("apelli_pro") = dr.GetValue(6).ToString()
+            Session("depto_pro") = dr.GetValue(7).ToString()
+            Session("sitio_pro") = dr.GetValue(8).ToString()
+            Session("tele_pro") = dr.GetValue(9).ToString()
+            Session("clave_pro") = dr.GetValue(10).ToString()
+            Session.Timeout = 50
+
+        End If
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
@@ -46,6 +77,11 @@ Partial Class frm_nuevo
             Exit Sub
         End If
 
+        If TextBox7.Text = "" Then
+            TextBox7.Focus()
+            Exit Sub
+        End If
+
 
             Dim dt As New DataTable()
 
@@ -72,7 +108,7 @@ Partial Class frm_nuevo
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT id, rut, status, email, id_condominio, nombre, apellido_p, departamento, sitio, telefono FROM propietario_m where rut = '" & TextBox1.Text & "' and email = '" & TextBox2.Text & "' and deleted = '1'"
+        sql = "SELECT id, rut, status, email, id_condominio, nombre, apellido_p, departamento, sitio, telefono, clave FROM propietario_m where rut = '" & Session("rut_pro") & "' and email = '" & TextBox3.Text & "' and deleted = '1'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
 
@@ -97,7 +133,7 @@ Partial Class frm_nuevo
             conn.Dispose()
 
 
-            Response.Redirect("frm_menuprincipal.aspx")
+        Response.Redirect("AdmGper.aspx")
 
 
     End Sub

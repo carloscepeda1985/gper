@@ -52,37 +52,28 @@
                         			<i class="fa fa-lock"></i>
                         		</div>
                             </div>
-                            <div class="form-bottom">
+          <div class="form-bottom">
 			                    <form id="form1" runat="server">
 			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">Username</label>
+			                    		<label>EMAIL</label>
+                                      
                                         <asp:TextBox 
-                                        ID="TextBox1" runat="server" CssClass="form-control"  value="12345678-9" onfocus="if(this.value=='12345678-9') this.value=''"
-onblur="if(this.value=='') this.value='12345678-9'"></asp:TextBox>
+                                        ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+<br/>
+<label>CLAVE</label>
+                                      
+<asp:TextBox ID="TextBox2" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>	
+
 			                        </div>
 
-                                <asp:RadioButton ID="RadioButton1" runat="server" AutoPostBack="True" 
-                                        Checked="True" GroupName="accediendo" Text="Email" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:RadioButton ID="RadioButton2" runat="server" AutoPostBack="True" 
-                                        GroupName="accediendo" Text="Clave" />
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        
-    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"  value="contacto@yousoft.cl" onfocus="if(this.value=='contacto@yousoft.cl') this.value=''"
-onblur="if(this.value=='') this.value='contacto@yousoft.cl'"></asp:TextBox>	
-
-<asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" TextMode="Password" Visible="False"></asp:TextBox>	
-			                            
-			                        </div>
 	                	                      
 <asp:Button ID="Button1" runat="server" Text="Ingresar" cssclass="btn btn-primary btn-lg btn-block"/>
 			                      
-                </br>
+                <br/>
                   <center> <img src="Logo-Gper.png"> </center>
 
           
-          <br>
+          <br/>
                    <center><h5><span class="glyphicon glyphicon-earphone"></span>  (+56) 98281 2431</h5>
                    <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@gper.cl<asp:Label 
                            ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>

@@ -202,7 +202,7 @@ fieldset[disabled] .btn-sample.active {
 <fieldset>
 
 <!-- Form Name -->
-<legend>Cuenta de Usuario YouSoft</legend>
+<legend>Cuenta de Usuario GPER</legend>
 
 <!-- Text input-->
 
@@ -259,7 +259,7 @@ fieldset[disabled] .btn-sample.active {
 <!-- Text input-->
       
 <div class="form-group">
-  <label class="col-md-4 control-label">Sitio/Torre</label>  
+  <label class="col-md-4 control-label">Cargo</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -272,7 +272,7 @@ fieldset[disabled] .btn-sample.active {
 <!-- Text input-->
       
 <div class="form-group">
-  <label class="col-md-4 control-label">Nº Casa/Depto.</label>  
+  <label class="col-md-4 control-label">Empresa</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -282,7 +282,7 @@ fieldset[disabled] .btn-sample.active {
 </div>
 </br>
 <div class="form-group">
-  <label class="col-md-4 control-label">Clave(opcional)</label>  
+  <label class="col-md-4 control-label">Clave*</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

@@ -30,7 +30,7 @@ Partial Class TrabajadoresGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_m where estado = '1'"
+            sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_m where estado = '1' and id_condominio='" & Session("idcond_pro") & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0

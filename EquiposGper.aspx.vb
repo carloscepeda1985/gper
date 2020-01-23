@@ -167,8 +167,15 @@ Partial Class EquiposGper
         dr2 = comm2.ExecuteReader()
 
         If dr2.Read() Then
+
             Dim id_local As Integer
-            id_local = dr2.GetValue(0).ToString()
+
+            Try
+                id_local = dr2.GetValue(0).ToString()
+            Catch ex As Exception
+                id_local = 0
+            End Try
+
             id_local = id_local + 1
 
             conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"

@@ -27,92 +27,75 @@ Partial Class _Default
             Exit Sub
         End If
 
-        TextBox1.Text = Replace(TextBox1.Text, ".", "")
-
-        separa_Rut(TextBox1.Text)
-
-        If valRutError = False Then
-            TextBox1.Focus()
-            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('El Rut Ingresado no es Válido');", True)
-            Exit Sub
-        Else
-
-            'Acceso Propietarios
-
-            TextBox1.Text = mRutguion
+        'Acceso Propietarios
 
 
-            Dim dt As New DataTable()
+        Dim dt As New DataTable()
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+        conector += "Pwd=90VEporefi;Option=3;"
 
-            conn = New OdbcConnection(conector)
-            conn.Open()
-            sql = "SELECT id, rut, status, email, id_condominio, nombre, apellido_p, departamento, sitio, telefono, clave FROM propietario_m where rut = '" & TextBox1.Text & "' and email = '" & TextBox2.Text & "' and clave = '" & TextBox3.Text & "' and deleted = '1'"
-            comm = New OdbcCommand(sql, conn)
-            dr = comm.ExecuteReader()
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "SELECT id, rut, status, email, id_condominio, nombre, apellido_p, departamento, sitio, telefono, clave FROM propietario_m where email = '" & TextBox1.Text & "' and clave = '" & TextBox2.Text & "' and deleted = '1'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
 
-            If (dr.Read()) Then
+        If (dr.Read()) Then
 
-                Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey")
-                Dim exp As New Date
-                exp = Date.Now
-                exp = exp.AddDays(30.0)
-                Cooki.Values.Add("Rut", TextBox1.Text)
-                Cooki.Values.Add("Mail", TextBox2.Text)
-                Cooki.Expires = exp
-                Response.Cookies.Add(Cooki)
+            Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
+            Dim exp As New Date
+            exp = Date.Now
+            exp = exp.AddDays(30.0)
+            Cooki.Values.Set("Email", TextBox1.Text)
+            Cooki.Values.Set("Contraseña", TextBox2.Text)
+            Cooki.Expires = exp
+            Response.Cookies.Add(Cooki)
 
-                If Label1.Text <> "" Then
-                    sql2 = "UPDATE propietario_m set imei = '" & Label1.Text & "' where rut = '" & TextBox1.Text & "'"
-                    comm2 = New OdbcCommand(sql2, conn)
-                    dr2 = comm2.ExecuteReader()
-                End If
-                
-
-                If dr.GetValue(2).ToString() = "1" Then
-                    Session("rut_pro") = dr.GetValue(1).ToString()
-                    Session("mail_pro") = dr.GetValue(3).ToString()
-                    Session("idcond_pro") = dr.GetValue(4).ToString()
-                    Session("nombr_pro") = dr.GetValue(5).ToString()
-                    Session("apelli_pro") = dr.GetValue(6).ToString()
-                    Session("depto_pro") = dr.GetValue(7).ToString()
-                    Session("sitio_pro") = dr.GetValue(8).ToString()
-                    Session("tele_pro") = dr.GetValue(9).ToString()
-                    Session("clave_pro") = dr.GetValue(10).ToString()
-
-                    Session.Timeout = 50
-                    Response.Redirect("frm_nuevo.aspx")
-                Else
-                    Session("rut_pro") = dr.GetValue(1).ToString()
-                    Session("mail_pro") = dr.GetValue(3).ToString()
-                    Session("idcond_pro") = dr.GetValue(4).ToString()
-                    Session("nombr_pro") = dr.GetValue(5).ToString()
-                    Session("apelli_pro") = dr.GetValue(6).ToString()
-                    Session("depto_pro") = dr.GetValue(7).ToString()
-                    Session("sitio_pro") = dr.GetValue(8).ToString()
-                    Session("tele_pro") = dr.GetValue(9).ToString()
-                    Session("clave_pro") = dr.GetValue(10).ToString()
-                    Session.Timeout = 50
-
-                    If Session("idcond_pro") = "1" Then
-                        Response.Redirect("AdmGper.aspx")
-                    Else
-                        Response.Redirect("frm_menuprincipal.aspx")
-                    End If
-
-
-                End If
-
-            Else
-                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+            If Label1.Text <> "" Then
+                sql2 = "UPDATE propietario_m set imei = '" & Label1.Text & "' where rut = '" & TextBox1.Text & "'"
+                comm2 = New OdbcCommand(sql2, conn)
+                dr2 = comm2.ExecuteReader()
             End If
 
-            conn.Close()
-            dr.Close()
-        End If
+
+            If dr.GetValue(2).ToString() = "1" Then
+                Session("rut_pro") = dr.GetValue(1).ToString()
+                Session("mail_pro") = dr.GetValue(3).ToString()
+                Session("idcond_pro") = dr.GetValue(4).ToString()
+                Session("nombr_pro") = dr.GetValue(5).ToString()
+                Session("apelli_pro") = dr.GetValue(6).ToString()
+                Session("depto_pro") = dr.GetValue(7).ToString()
+                Session("sitio_pro") = dr.GetValue(8).ToString()
+                Session("tele_pro") = dr.GetValue(9).ToString()
+                Session("clave_pro") = dr.GetValue(10).ToString()
+
+                Session.Timeout = 50
+                Response.Redirect("frm_nuevo.aspx")
+            Else
+                Session("rut_pro") = dr.GetValue(1).ToString()
+                Session("mail_pro") = dr.GetValue(3).ToString()
+                Session("idcond_pro") = dr.GetValue(4).ToString()
+                Session("nombr_pro") = dr.GetValue(5).ToString()
+                Session("apelli_pro") = dr.GetValue(6).ToString()
+                Session("depto_pro") = dr.GetValue(7).ToString()
+                Session("sitio_pro") = dr.GetValue(8).ToString()
+                Session("tele_pro") = dr.GetValue(9).ToString()
+                Session("clave_pro") = dr.GetValue(10).ToString()
+                Session.Timeout = 50
+
+                Response.Redirect("AdmGper.aspx")
+
+
+            End If
+
+        Else
+            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+            End If
+
+        conn.Close()
+        dr.Close()
 
     End Sub
 
@@ -202,9 +185,9 @@ Partial Class _Default
 
         Label1.Text = Request.QueryString("dato")
 
-        If Not Request.Cookies("YouSoftKey") Is Nothing Then
-            TextBox1.Text = Request.Cookies("YouSoftKey").Item("Rut").ToString.Trim
-            TextBox2.Text = Request.Cookies("YouSoftKey").Item("Mail").ToString.Trim
+        If Not Request.Cookies("YouSoftKey02") Is Nothing Then
+            TextBox1.Text = Request.Cookies("YouSoftKey02").Item("Email").ToString.Trim
+            TextBox2.Text = Request.Cookies("YouSoftKey02").Item("Contraseña").ToString.Trim
 
         End If
 
@@ -212,24 +195,13 @@ Partial Class _Default
 
     Protected Sub TextBox2_TextChanged(sender As Object, e As System.EventArgs) Handles TextBox2.TextChanged
 
-        Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey")
+        Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
         Dim exp As New Date
         exp = Date.Now
         exp = exp.AddDays(-60)
         Cooki.Expires = exp
         Response.Cookies.Add(Cooki)
 
-    End Sub
-
-    Protected Sub RadioButton1_CheckedChanged(sender As Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
-        TextBox2.Visible = True
-        TextBox3.Visible = False
-    End Sub
-
-    Protected Sub RadioButton2_CheckedChanged(sender As Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
-        TextBox2.Visible = False
-        TextBox3.Visible = True
-        TextBox3.Focus()
     End Sub
 
    
