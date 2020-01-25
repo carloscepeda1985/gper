@@ -2,7 +2,10 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 
+<meta name="google" content="notranslate" />
+
 <style>
+    
     
 .user-row {
     margin-bottom: 14px;
@@ -34,322 +37,219 @@
 .table-user-information > tbody > tr > td {
     border-top: 0;
 }
+.bar
+{
+list-style-type:none;
+height:38px;
+background-image: -webkit-linear-gradient(top,#185189 0,#112f60 0%);
+background-image: linear-gradient(to bottom,#185189 0,#112f60 0%);
+font-size:40px;
+font: 26px Tahoma, Verdana, Arial, sans-serif;
+border-radius:4px;
+margin-bottom:11px;
+}
+e.letracolor{
+padding-left:20px;
+color: #fff;
+
+}
+
+.input-group
+{
+        display: inline-table;
+    }
 
 </style>
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" rel="stylesheet nofollow">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js" rel="stylesheet nofollow"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js" rel="stylesheet nofollow"></script>
-<!------ Include the above in your HEAD tag ---------->
+<div class="bar">
+    <e class="letracolor">&nbsp;Solicitud #56129873 </e>
+</div>
+<div class="alert alert-success">
+								<strong>Atención</strong> Esta Solicitud se encuentra Aceptada.
+							</div>
 
-<br><br>
-<div class="container">
-    <div class="panel panel-default">
-        <div class="row user-row">      
-            <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                <img class="img-circle"
-                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                     alt="User Pic">
-            </div>
-            <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                <strong>Cyruxx</strong><br>
-                <span class="text-muted">User level: Administrator</span>
-            </div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".cyruxx">
-                <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-            </div>
-           </div>
-        </div>
-        <div class="row user-infos cyruxx">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">User information</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                                <img class="img-circle"
-                                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-                                     alt="User Pic">
-                            </div>
-                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                                <img class="img-circle"
-                                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                                     alt="User Pic">
-                            </div>
-                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
-                                <strong>Cyruxx</strong><br>
-                                <dl>
-                                    <dt>User level:</dt>
-                                    <dd>Administrator</dd>
-                                    <dt>Registered since:</dt>
-                                    <dd>11/12/2013</dd>
-                                    <dt>Topics</dt>
-                                    <dd>15</dd>
-                                    <dt>Warnings</dt>
-                                    <dd>0</dd>
-                                </dl>
-                            </div>
-                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                                <strong>Cyruxx</strong><br>
-                                <table class="table table-user-information">
-                                    <tbody>
-                                    <tr>
-                                        <td>User level:</td>
-                                        <td>Administrator</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Registered since:</td>
-                                        <td>11/12/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Topics</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warnings</td>
-                                        <td>0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-sm btn-primary" type="button"
-                                data-toggle="tooltip"
-                                data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
-                        <span class="pull-right">
-                            <button class="btn btn-sm btn-warning" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
-                            <button class="btn btn-sm btn-danger" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Remove this user"><i class="glyphicon glyphicon-remove"></i></button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="portlet-body">
 
-      <div class="panel panel-default">
-        <div class="row user-row">
-            <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                <img class="img-circle"
-                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                     alt="User Pic">
-            </div>
-            <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                <strong>User 2</strong><br>
-                <span class="text-muted">User level: Registered</span>
-            </div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".user2">
-                <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-            </div>
-        </div>
-       </div>
-        <div class="row user-infos user2">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">User information</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                                <img class="img-circle"
-                                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-                                     alt="User Pic">
-                            </div>
-                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                                <img class="img-circle"
-                                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                                     alt="User Pic">
-                            </div>
-                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
-                                <strong>Cyruxx</strong><br>
-                                <dl>
-                                    <dt>User level:</dt>
-                                    <dd>Administrator</dd>
-                                    <dt>Registered since:</dt>
-                                    <dd>11/12/2013</dd>
-                                    <dt>Topics</dt>
-                                    <dd>15</dd>
-                                    <dt>Warnings</dt>
-                                    <dd>0</dd>
-                                </dl>
-                            </div>
-                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                                <strong>Cyruxx</strong><br>
-                                <table class="table table-user-information">
-                                    <tbody>
-                                    <tr>
-                                        <td>User level:</td>
-                                        <td>Administrator</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Registered since:</td>
-                                        <td>11/12/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Topics</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warnings</td>
-                                        <td>0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-sm btn-primary" type="button"
-                                data-toggle="tooltip"
-                                data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
-                        <span class="pull-right">
-                            <button class="btn btn-sm btn-warning" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
-                            <button class="btn btn-sm btn-danger" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Remove this user"><i class="glyphicon glyphicon-remove"></i></button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-      <div class="panel panel-default">
-        <div class="row user-row">
-            <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                <img class="img-circle"
-                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                     alt="User Pic">
-            </div>
-            <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                <strong>Cyruxx</strong><br>
-                <span class="text-muted">User level: Administrator</span>
-            </div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".user3">
-                <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-            </div>
-        </div>
-       </div>
-        <div class="row user-infos user3">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">User information</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                                <img class="img-circle"
-                                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-                                     alt="User Pic">
-                            </div>
-                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                                <img class="img-circle"
-                                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                                     alt="User Pic">
-                            </div>
-                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
-                                <strong>Cyruxx</strong><br>
-                                <dl>
-                                    <dt>User level:</dt>
-                                    <dd>Administrator</dd>
-                                    <dt>Registered since:</dt>
-                                    <dd>11/12/2013</dd>
-                                    <dt>Topics</dt>
-                                    <dd>15</dd>
-                                    <dt>Warnings</dt>
-                                    <dd>0</dd>
-                                </dl>
-                            </div>
-                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                                <strong>Cyruxx</strong><br>
-                                <table class="table table-user-information">
-                                    <tbody>
-                                    <tr>
-                                        <td>User level:</td>
-                                        <td>Administrator</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Registered since:</td>
-                                        <td>11/12/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Topics</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warnings</td>
-                                        <td>0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-sm btn-primary" type="button"
-                                data-toggle="tooltip"
-                                data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
-                        <span class="pull-right">
-                            <button class="btn btn-sm btn-warning" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
-                            <button class="btn btn-sm btn-danger" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Remove this user"><i class="glyphicon glyphicon-remove"></i></button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+							<div class="panel-group accordion" id="accordion1">
+								<div class="panel panel-default" >
+									 <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
+									<div class="panel-heading"; style="background-color:#185189";>
+                              
+                                  		<h4 class="panel-title" style="color:white">
+		
+										Solicitud de Trabajo
+										</h4>
+									</div>
+                                </a>
+                                 
+									<div id="collapse_1" class="panel-collapse in">
+										<div class="panel-body">
 
-        <script type ="text/javascript">
-
-            $(document).ready(function () {
-                var panels = $('.user-infos');
-                var panelsButton = $('.dropdown-user');
-                panels.hide();
-
-                //Click dropdown
-                panelsButton.click(function () {
-                    //get data-for attribute
-                    var dataFor = $(this).attr('data-for');
-                    var idFor = $(dataFor);
-
-                    //current button
-                    var currentButton = $(this);
-                    idFor.slideToggle(400, function () {
-                        //Completed slidetoggle
-                        if (idFor.is(':visible')) {
-                            currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-                        }
-                        else {
-                            currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
-                        }
-                    })
-                });
+                                        <div class="table-responsive">
+<center>
+<fieldset>
 
 
-                $('[data-toggle="tooltip"]').tooltip();
+									<div class="form-group">
+										<label class="col-md-3 control-label">Empresa Contratista</label>
+										<div class="col-md-9">
+											 <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-hand-right"></i></span>
+  <asp:TextBox 
+                                        ID="TextBox10" runat="server" CssClass="form-control" ></asp:TextBox>
+     </div>
+										</div>
+									</div>
+                        
+									<div class="form-group">
+										<label class="col-md-3 control-label">Resumen del trabajo</label>
+										<div class="col-md-9">
+											<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+  <asp:TextBox 
+                                        ID="TextBox11" runat="server" class="form-control" rows="3" TextMode="MultiLine"></asp:TextBox>
+   </div>
+										</div>
+									</div>
+                          
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Sector</label>
+										<div class="col-md-9">
+											 <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span>
+  <asp:TextBox 
+                                        ID="TextBox12" runat="server" CssClass="form-control" style="width:50%" ></asp:TextBox>
+   </div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Fecha Inicio</label>
+										<div class="col-md-9">
+											 <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+  <asp:TextBox 
+                                        ID="TextBox13" runat="server" CssClass="form-control" style="width:50%"></asp:TextBox>
+   </div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Fecha Fin</label>
+										<div class="col-md-9">
+											<div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+  <asp:TextBox  ID="TextBox14" runat="server" CssClass="form-control" style="width:50%"></asp:TextBox>
+    </div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Hora Entrada</label>
+										<div class="col-md-9">
+											<div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+  <asp:TextBox  ID="TextBox15" runat="server" CssClass="form-control" style="width:50%"></asp:TextBox>
+   </div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Duración</label>
+										<div class="col-md-9">
+											<div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-hourglass"></i></span>
+  <asp:TextBox  ID="TextBox16" runat="server" CssClass="form-control" style="width:50%"></asp:TextBox>
+    </div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Teléfono Empergencia</label>
+										<div class="col-md-9">
+											<div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+  <asp:TextBox  ID="TextBox17" runat="server" CssClass="form-control" style="width:50%"></asp:TextBox>
+    </div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" style="float:left">Email</label>
+										<div class="col-md-9">
+										<div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <asp:TextBox  ID="TextBox18" runat="server" CssClass="form-control" style="width:50%"></asp:TextBox>
+    </div>
+										</div>
+									</div>
 
-                $('button').click(function (e) {
-                    e.preventDefault();
-                    alert("This is a demo.\n :-)");
-                });
-            }); 
- 
-</script>
+<br/>
 
+<br/>
+
+
+</fieldset>
+</center>
+ <br/>
+                
+
+</div>
+                                            
+
+
+
+
+
+
+                                  	    </div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+                                <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
+									<div class="panel-heading"; style="background-color:#185189";>
+                              
+                                  		<h4 class="panel-title" style="color:white">
+		
+										Encargado
+										</h4>
+									</div>
+                                </a>
+                                 
+									<div id="collapse_2" class="panel-collapse collapse">
+										<div class="panel-body">
+											<p>
+												 Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
+											</p>
+											<p>
+												 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+											</p>
+                                            	<class="btn btn-info" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2" >Activate this section via URL
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_3">
+									<div class="panel-heading"; style="background-color:#185189";>
+                              
+                                  		<h4 class="panel-title" style="color:white">
+		
+										Trabajadores
+										</h4>
+									</div>
+                                </a>
+                                 
+									<div id="collapse_3" class="panel-collapse collapse">
+										<div class="panel-body">
+											<p>
+												 Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.
+											</p>
+											<p>
+												 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+											</p>
+                                            	<class="btn btn-info" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2" >Activate this section via URL
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
 
 
 
