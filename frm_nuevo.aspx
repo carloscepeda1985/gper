@@ -296,7 +296,6 @@ fieldset[disabled] .btn-sample.active {
 <div class="form-group" runat="server">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4">
-  <asp:Button ID="Button2" runat="server" Text="Cancelar" cssclass="btn btn-warning" width="40%"/>
   &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Enviar Datos" cssclass="btn btn-success" width="40%"/>
   </div>
 </div>

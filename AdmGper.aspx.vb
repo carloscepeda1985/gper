@@ -40,7 +40,7 @@ Partial Class AdmGper
             Exit Sub
         End If
 
-        Response.Redirect("frm_nuevo.aspx")
+        Response.Redirect("frm_nuevo.aspx?dato=" + Session("rut_pro"))
     End Sub
 
 End Class

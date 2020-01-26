@@ -49,18 +49,17 @@ color: #fff;
 
  .btn-info {
  color: #FFFFFF;
-  background-color: #009456;
-  border-color: #009456;
+  background-color: #f4841a;
+  border-color: #f4841a;
 }
 
 
 .btn-info:focus,
 .btn-info:active,
-.btn-info.active,
-.open .dropdown-toggle.btn-info {
+.btn-info.active {
   color: #FFFFFF;
-  background-color: #72CFBF;
-  border-color: #009456;
+  background-color: #f4841a;
+  border-color: #f4841a;
 }
 
 
