@@ -5,15 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
 
-<link rel="shortcut icon" type="image/x-icon" href="assets/ico/Logo-Gper-2.png">
+<link rel="shortcut icon" type="image/x-icon" href="assets/ico/Logo-Gper-2.png"/>
 <telerik:RadStyleSheetManager id="RadStyleSheetManager1" runat="server" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>GPER</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
 
 
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -21,17 +21,37 @@
 
 </head>
 <body>
+
+<style type="text/css">
+    
+    .btn-info {
+ color: #FFFFFF;
+  background-color: #f4841a;
+  border-color: #f4841a;
+}
+
+
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active {
+  color: #FFFFFF;
+  background-color: #f4841a;
+  border-color: #f4841a;
+}
+    
+</style>
+
     <form id="Form1" runat="server">
     <div class="page">
         <div class="header_Gper" style="border-bottom: 5px solid #112f60;">
             <div class="title">
               
-                  &nbsp &nbsp &nbsp &nbsp &nbsp<img src="Logo-Gper.png">
+                  &nbsp &nbsp &nbsp &nbsp &nbsp<img src="Logo-Gper.png" />
                
             </div>
             <div class="loginDisplay">
                  <asp:Button ID="Button1" runat="server" Text="Cerrar Sesión" 
-                     CssClass="btn btn-danger" Font-Bold="True" /> 
+                     CssClass="btn btn-info" Font-Bold="True" /> 
             </div>
             <div class="clear hideSkiplink">
             </div>
