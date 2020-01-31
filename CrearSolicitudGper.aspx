@@ -13,12 +13,14 @@
                         <div class="portlet-body form">
 		
                             <asp:Button ID="myBtn" runat="server" OnClick="myBtn_Click" useSubmitBehavior="false" style="display:none;" />
-                           
+                                <div class="bar">
+                                    <e class="letracolor">&nbsp;Solicitud #56129873 </e>
+                                </div>
 								<div class="form-wizard">
 									<div class="form-body">
-										<ul class="nav nav-pills nav-justified steps">
+										<ul class="nav nav-pills nav-justified steps" style="padding: 0px 0;">
 											<li>
-												<a href="#tab1" data-toggle="tab" class="step">
+												<a href="#tab1" data-toggle="tab" class="step" style="margin-bottom: 0px; padding: 5px 15px;">
 												<span class="number">
 													 1
 												</span>
@@ -28,7 +30,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="#tab2" data-toggle="tab" class="step">
+												<a href="#tab2" data-toggle="tab" class="step" style="margin-bottom: 0px; padding: 5px 15px;">
 												<span class="number">
 													 2
 												</span>
@@ -38,7 +40,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="#tab3" data-toggle="tab" class="step active">
+												<a href="#tab3" data-toggle="tab" class="step active" style="margin-bottom: 0px; padding: 5px 15px;">
 												<span class="number">
 													 3
 												</span>
@@ -48,7 +50,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="#tab4" data-toggle="tab" class="step">
+												<a href="#tab4" data-toggle="tab" class="step" style="margin-bottom: 0px; padding: 5px 15px;">
 												<span class="number">
 													 4
 												</span>

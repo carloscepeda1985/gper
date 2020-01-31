@@ -87,6 +87,25 @@
   border-color: #f4841a;
 }
 
+.bar
+{
+list-style-type:none;
+height:38px;
+background-image: -webkit-linear-gradient(top,#185189 0,#112f60 0%);
+background-image: linear-gradient(to bottom,#185189 0,#112f60 0%);
+font-size:40px;
+font: 26px Tahoma, Verdana, Arial, sans-serif;
+border-radius:4px;
+margin-bottom:11px;
+margin-left: -2px;
+margin-right:-2px;
+}
+e.letracolor{
+padding-left:20px;
+color: #fff;
+
+}
+
 
 </style>
     <form action="#" class="form-horizontal" id="submit_form" runat="server">
