@@ -75,6 +75,7 @@ color: #fff;
         display: inline-table;
     }
 
+
 </style>
 
 </asp:Content>
@@ -131,7 +132,7 @@ color: #fff;
 										<div class="col-md-9">
 											 <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-hand-right"></i></span>
-  <asp:TextBox 
+  <asp:TextBox  ReadOnly ="true" 
                                         ID="TextBox10" runat="server" CssClass="form-control"  Font-Size="12pt" ></asp:TextBox>
      </div>
 										</div>
@@ -155,7 +156,7 @@ color: #fff;
 											 <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span>
   <asp:TextBox 
-                                        ID="TextBox12" runat="server" CssClass="form-control" style="width:340px"  Font-Size="12pt" ></asp:TextBox>
+                                        ID="TextBox12" runat="server" CssClass="form-control" style="width:220px"  Font-Size="12pt" ></asp:TextBox>
    </div>
 										</div>
 									</div>
@@ -213,7 +214,9 @@ color: #fff;
          <asp:ListItem Enabled="true" Text="21" Value="21"></asp:ListItem> 
          <asp:ListItem Enabled="true" Text="22" Value="22"></asp:ListItem> 
          <asp:ListItem Enabled="true" Text="23" Value="23"></asp:ListItem> 
-        </asp:DropDownList>:
+        </asp:DropDownList>
+        <div style="border-top: 6px solid transparent; border-left: 4px solid transparent; border-right: 4px solid transparent; float:left;"> <strong>: </strong> 
+        </div>
          <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control" style="width:76px"  Font-Size="12pt">
          <asp:ListItem Enabled="true" Text="0" Value="0"></asp:ListItem>
          <asp:ListItem Enabled="true" Text="15" Value="15"></asp:ListItem>     
@@ -265,7 +268,7 @@ color: #fff;
 										<div class="col-md-9">
 											<div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-  <asp:TextBox  ID="TextBox17" runat="server" CssClass="form-control" style="width:340px"  Font-Size="12pt"></asp:TextBox>
+  <asp:TextBox  ID="TextBox17" runat="server" CssClass="form-control" style="width:220px"  Font-Size="12pt"></asp:TextBox>
     </div>
 										</div>
 									</div>
@@ -274,7 +277,7 @@ color: #fff;
 										<div class="col-md-9">
 										<div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <asp:TextBox  ID="TextBox18" runat="server" CssClass="form-control" style="width:340px" Font-Size="12pt"></asp:TextBox>
+  <asp:TextBox  ID="TextBox18" runat="server" CssClass="form-control" style="width:220px" Font-Size="12pt"></asp:TextBox>
     </div>
 										</div>
 									</div>
@@ -327,7 +330,7 @@ color: #fff;
 											 <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <asp:TextBox 
-                                        ID="TextBox2" runat="server" CssClass="form-control"  Font-Size="12pt" style="width:340px" ></asp:TextBox>
+                                        ID="TextBox2" runat="server" CssClass="form-control"  Font-Size="12pt" style="width:220px" ></asp:TextBox>
      </div>
 										</div>
 									</div>
@@ -339,7 +342,7 @@ color: #fff;
 											 <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <asp:TextBox 
-                                        ID="TextBox3" runat="server" CssClass="form-control"  Font-Size="12pt" style="width:340px"  ></asp:TextBox>
+                                        ID="TextBox3" runat="server" CssClass="form-control"  Font-Size="12pt" style="width:220px"  ></asp:TextBox>
      </div>
 										</div>
 									</div>
@@ -378,7 +381,7 @@ color: #fff;
 											 <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
   <asp:TextBox 
-                                        ID="TextBox6" runat="server" CssClass="form-control"  Font-Size="12pt" style="width:340px" ></asp:TextBox>
+                                        ID="TextBox6" runat="server" CssClass="form-control"  Font-Size="12pt" style="width:220px" ></asp:TextBox>
      </div>
 										</div>
 									</div>

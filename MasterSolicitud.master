@@ -1,0 +1,213 @@
+﻿<%@ Master Language="VB" CodeFile="MasterSolicitud.master.vb" Inherits="MasterSolicitud" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+
+<meta charset="utf-8"/>
+<title>Conquer | Form Stuff - Form Components</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<meta name="MobileOptimized" content="320">
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="assets2/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets2/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-fileupload/bootstrap-fileupload.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/gritter/css/jquery.gritter.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/select2/select2_conquer.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/clockface/css/clockface.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-timepicker/compiled/timepicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/jquery-multi-select/css/multi-select.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-switch/static/stylesheets/bootstrap-switch-conquer.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="assets2/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN THEME STYLES -->
+<link href="assets2/css/style-conquer.css" rel="stylesheet" type="text/css"/>
+<link href="assets2/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="assets2/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="assets2/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="assets2/css/themes/default.css" rel="stylesheet" type="text/css" id="Link1"/>
+<link href="assets2/css/custom.css" rel="stylesheet" type="text/css"/>
+
+
+
+
+<link href="assets2/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+<link rel="shortcut icon" href="assets/ico/Logo-Gper-2.ico"/>
+
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+</head>
+<body>
+
+<style type="text/css">
+    
+    .header_Gper{
+    height: 50px;
+ 
+    
+    position: relative;
+    margin: 0px;
+    border-bottom: 5px solid #112f60;
+    padding: 0px;
+    background: #ffffff;
+    width: 100%;
+    top: 10px;
+    left: 0px;
+}
+     .btn-info {
+ color: #FFFFFF;
+  background-color: #f4841a;
+  border-color: #f4841a;
+}
+
+
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active {
+  color: #FFFFFF;
+  background-color: #f4841a;
+  border-color: #f4841a;
+}
+
+
+</style>
+    <form action="#" class="form-horizontal" id="submit_form" runat="server">
+
+        <div class="header_Gper" style="border-bottom: 5px solid #112f60;">
+                <div class="loginDisplay" style="float:right;margin-right: 15px;">
+                 <input type="submit" name="ctl00$Button1" value="Cerrar Sesión" id="Button1" class="btn btn-info" style="font-weight:bold;border-left: 51px;"> 
+            </div>
+            <div class="title">
+              
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="Logo-Gper.png">
+               
+            </div>
+
+            <div class="clear hideSkiplink">
+            </div>
+        </div>
+       
+
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+
+    
+        <div class="clear">
+        </div>
+
+         <div class="footer" style="background-color: #112f60;">
+        <div class="container-fluid" style="background-color: #112f60;">
+        <div class="jumbotron" style="background-color: #112f60;">
+
+        <div class="container">
+             <center>
+             <h4><font color="white">Información de Contacto</font></h4>
+             <h4><span class="glyphicon glyphicon-earphone" style="color:white"></span><font color="white">  (+56) 
+                 98281 2431</font></h4>
+              <h4><span class="glyphicon glyphicon-envelope" style="color:white"></span><font color="white">   soporte@gper.cl</font></h4>
+         
+              <h6><font color="white">Copyright © 2020 yousoft</font></h6>
+             
+              </center>
+            
+          </div>
+
+
+        </div>
+       
+        </div>
+
+    </div>
+ </form>
+
+
+
+<script src="assets2/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="assets2/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="assets2/plugins/fuelux/js/spinner.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="assets2/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="assets2/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="assets2/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets2/plugins/jquery-multi-select/js/jquery.quicksearch.js"></script>
+<script src="assets2/plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" type="text/javascript"></script>
+<script src="assets2/plugins/bootstrap-switch/static/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+<script src="assets2/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+<script src="assets2/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="assets2/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
+
+<script src="assets2/scripts/app.js"></script>
+<script src="assets2/scripts/form-components.js"></script>
+
+
+
+
+
+<script type="text/javascript" src="assets2/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/jquery-validation/dist/additional-methods.min.js"></script>
+<script type="text/javascript" src="assets2/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+
+
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        App.init();
+        FormComponents.init();
+    });
+</script>
+
+
+<script src="assets2/scripts/form-wizard.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        App.init();
+        FormWizard.init();
+    });
+</script>
+
+
+</body>
+</html>
+
+

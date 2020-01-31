@@ -49,7 +49,6 @@ Partial Class _Default
             exp = Date.Now
             exp = exp.AddDays(30.0)
             Cooki.Values.Set("Email", TextBox1.Text)
-            Cooki.Values.Set("Contraseña", TextBox2.Text)
             Cooki.Expires = exp
             Response.Cookies.Add(Cooki)
 
@@ -187,7 +186,6 @@ Partial Class _Default
 
         If Not Request.Cookies("YouSoftKey02") Is Nothing Then
             TextBox1.Text = Request.Cookies("YouSoftKey02").Item("Email").ToString.Trim
-            TextBox2.Text = Request.Cookies("YouSoftKey02").Item("Contraseña").ToString.Trim
 
         End If
 
