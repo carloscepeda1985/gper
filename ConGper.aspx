@@ -234,12 +234,11 @@ fieldset[disabled] .btn-sample.active {
               <div class="well" style="background-color: #185189;">
                     <font color="white"><center><h4>Tu Perfil</h4></center>
                     <div class="input-group">
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Nombres:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Apellidos :   <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-envelope"></span>     Email    :   <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone"></span>     Teléfono    :   <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>     Cargo   :   <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>     Depto.   :   <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Rut:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Nombre :   <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-envelope"></span>     Contacto    :   <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone"></span>     Telefono    :   <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>     Email   :   <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h5>
                        <br/>
                     </font>
                </div>

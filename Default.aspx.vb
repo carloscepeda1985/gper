@@ -8,10 +8,16 @@ Partial Class _Default
     Inherits System.Web.UI.Page
 
     Dim conn As OdbcConnection
-    Dim comm, comm2 As OdbcCommand
-    Dim dr, dr2 As OdbcDataReader
+    Dim comm As OdbcCommand
+    Dim dr As OdbcDataReader
     Dim conector As String
-    Dim sql, sql2 As String
+    Dim sql As String
+
+    Dim conn2 As OdbcConnection
+    Dim comm2 As OdbcCommand
+    Dim dr2 As OdbcDataReader
+    Dim conector2 As String
+    Dim sql2 As String
 
     Public dv_p As String 'digito validador
     Public msRutSinDig As String 'rut sin guion, punto y digito validador para realizar consultas
@@ -44,13 +50,13 @@ Partial Class _Default
 
         If (dr.Read()) Then
 
-            Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
-            Dim exp As New Date
-            exp = Date.Now
-            exp = exp.AddDays(30.0)
-            Cooki.Values.Set("Email", TextBox1.Text)
-            Cooki.Expires = exp
-            Response.Cookies.Add(Cooki)
+            'Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
+            'Dim exp As New Date
+            'exp = Date.Now
+            'exp = exp.AddDays(30.0)
+            'Cooki.Values.Set("Email", TextBox1.Text)
+            'Cooki.Expires = exp
+            'Response.Cookies.Add(Cooki)
 
             If Label1.Text <> "" Then
                 sql2 = "UPDATE propietario_m set imei = '" & Label1.Text & "' where rut = '" & TextBox1.Text & "'"
@@ -90,11 +96,48 @@ Partial Class _Default
             End If
 
         Else
-            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+
+            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+            conector2 += "Pwd=90VEporefi;Option=3;"
+
+            conn2 = New OdbcConnection(conector2)
+            conn2.Open()
+            sql2 = "SELECT id, id_mall, rut, nombre, contacto, telefono, email FROM contratistas_m where email = '" & TextBox1.Text & "' and pass = '" & TextBox2.Text & "' and estado = '1'"
+            comm2 = New OdbcCommand(sql2, conn2)
+            dr2 = comm2.ExecuteReader()
+
+            If (dr2.Read()) Then
+
+                'Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
+                'Dim exp As New Date
+                'exp = Date.Now
+                'exp = exp.AddDays(30.0)
+                'Cooki.Values.Set("Email", TextBox1.Text)
+                'Cooki.Expires = exp
+                'Response.Cookies.Add(Cooki)
+
+                Session("id_contratista") = dr2.GetValue(0).ToString()
+                Session("id_mall") = dr2.GetValue(1).ToString()
+                Session("rut_contratista") = dr2.GetValue(2).ToString()
+                Session("nombre_contratista") = dr2.GetValue(3).ToString()
+                Session("contacto_contratista") = dr2.GetValue(4).ToString()
+                Session("telefono_contratista") = dr2.GetValue(5).ToString()
+                Session("email_contratista") = dr2.GetValue(6).ToString()
+                Session.Timeout = 50
+
+                Response.Redirect("ConGper.aspx")
+
+            Else
+                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
             End If
+
+        End If
 
         conn.Close()
         dr.Close()
+        conn2.Close()
+        dr2.Close()
 
     End Sub
 
@@ -182,25 +225,13 @@ Partial Class _Default
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
-        Label1.Text = Request.QueryString("dato")
+        'Label1.Text = Request.QueryString("dato")
 
-        If Not Request.Cookies("YouSoftKey02") Is Nothing Then
-            TextBox1.Text = Request.Cookies("YouSoftKey02").Item("Email").ToString.Trim
+        'If Not Request.Cookies("YouSoftKey02") Is Nothing Then
+        '    TextBox1.Text = Request.Cookies("YouSoftKey02").Item("Email").ToString.Trim
 
-        End If
-
-    End Sub
-
-    Protected Sub TextBox2_TextChanged(sender As Object, e As System.EventArgs) Handles TextBox2.TextChanged
-
-        Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
-        Dim exp As New Date
-        exp = Date.Now
-        exp = exp.AddDays(-60)
-        Cooki.Expires = exp
-        Response.Cookies.Add(Cooki)
+        'End If
 
     End Sub
 
-   
 End Class

@@ -218,13 +218,15 @@ fieldset[disabled] .btn-sample.active {
                 <div class="media">
                 <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                   <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+                    <li><a href="SolicitudesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
+                   <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
-                   <li><a href="EquiposGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-scale" style="color:white"></span>
+                   <li><a href="EquiposGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
-                   <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                   <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
-                   <li><a href="ReportesGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
+                   <li><a href="ReportesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>     
                 </ul>               
               </div>

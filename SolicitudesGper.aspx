@@ -1,18 +1,8 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="ReportesGper.aspx.vb" Inherits="ReportesGper" Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="SolicitudesGper.aspx.vb" Inherits="SolicitudesGper" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-
-    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
-		<Scripts>
-			<%--Needed for JavaScript IntelliSense in VS2010--%>
-			<%--For VS2008 replace RadScriptManager with ScriptManager--%>
-			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
-			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
-			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
-		</Scripts>
-	</telerik:RadScriptManager>
     
 	<script type="text/javascript">
 	    //Put your JavaScript code here.
@@ -226,64 +216,84 @@ fieldset[disabled] .btn-sample.active {
     <div class="col-md-9">
     <div class="bar">
 
-    <e class="letracolor"><span class="glyphicon2 glyphicon-dashboard" style="color:white"></span>&nbsp;Reportes</e>
+    <e class="letracolor"><span class="glyphicon glyphicon-log-in" style="color:white"></span>&nbsp;Solicitudes</e>
     
+
     </div>
+   
+   
+    <div container>
+     <div>
+     <button style="float: right"; type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">+Agregar</button>
+  
+      <div class="input-group">
+      <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150" placeholder="Ingrese Nombre"></asp:TextBox>&nbsp
+      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-warning"/>
+     
+      </div>
+      </div>
+     <!-- Modal -->
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Ingrese datos del Trabajador</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+          Rut:<asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox> 
+          Nombre:<asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox> 
+          Apellido:<asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox> 
+          Teléfono:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+          Cargo:<asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+          Empresa:<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+          <br/>
+          </p>
+         
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-danger" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
-
-     <div class="widget-box transparent">
-			<div class="widget-header widget-header-small">
-				<h4 class="widget-title smaller">
-					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-					Listado de Checklists
-					</h4>
-			</div>
-
-						
+    </div>
+      
+      <br />
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6" >
+        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
-                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
-            </Columns>
+
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" />
+
+            <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "M", "M.png", If(Eval("Estado").ToString() = "P", "P.png", "A.png"))) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="130" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora Entrada" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />     
+
+    </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
-    </div>
-
-	</div>
-
-
-     <div class="widget-box transparent">
-			<div class="widget-header widget-header-small">
-				<h4 class="widget-title smaller">
-					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-					Listado de Mantenciones
-					</h4>
-			</div>
-
-						
-    <div class="table-responsive">
-        <asp:GridView ID="GridView2" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table"  AllowPaging="True" PageSize="6" >
-            <Columns>
-                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
-            </Columns>
-            <HeaderStyle BackColor="#185189" ForeColor="White" />
-        </asp:GridView>
-    </div>
-
-	</div>
-
-
-
-
-
-
-
-
-
+ </div>
+ 
    </div>
 
     <div class="col-md-3">
@@ -303,7 +313,8 @@ fieldset[disabled] .btn-sample.active {
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
                    <li><a href="ReportesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li> 
-         
+                  
+
                </ul>
 				   
     </div>

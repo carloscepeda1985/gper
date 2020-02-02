@@ -22,6 +22,13 @@ Partial Class SolicitudGper
     Dim dt As New DataTable()
     Dim dt2 As New DataTable()
 
+    Dim conn3 As OdbcConnection
+    Dim comm3 As OdbcCommand
+    Dim dr3 As OdbcDataReader
+    Dim conector3 As String
+    Dim sql3 As String
+
+
     Public dv_p As String 'digito validador
     Public msRutSinDig As String 'rut sin guion, punto y digito validador para realizar consultas
     Public valRutError As Boolean = True 'retorna verdadero o falso si el rut es correcto o correcto 
@@ -96,56 +103,21 @@ Partial Class SolicitudGper
 
         conn2 = New OdbcConnection(conector2)
         conn2.Open()
-        sql2 = "SELECT id_equipo, fecha, rut_empresa, nombre_empresa, tipo, SUBSTR( descripcion, 1, 20 ) FROM mantenciones_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1' ORDER BY fecha DESC"
+        sql2 = "SELECT id, id_mall, id_contratista, id_encargado, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, fecha_fin, hora_entrada, duracion, telefono_emergencia, email, estado FROM solicitud_m where id = '" & Request.QueryString("dato") & "'"
         comm2 = New OdbcCommand(sql2, conn2)
         dr2 = comm2.ExecuteReader()
         I2 = 0
-        While (dr2.Read())
+        If (dr2.Read()) Then
 
-            If dt2.Columns.Count = 0 Then
-                dt2.Columns.Add(" Fecha ", GetType(String))
-                dt2.Columns.Add(" Rut ", GetType(String))
-                dt2.Columns.Add(" Nombre  ", GetType(String))
-                dt2.Columns.Add(" Apellido ", GetType(String))
-                dt2.Columns.Add(" Estado ", GetType(String))
-            End If
-
-
-            Dim NewRow As DataRow = dt2.NewRow()
-            NewRow(0) = dr2.GetValue(0).ToString()
-            NewRow(1) = dr2.GetValue(1).ToString()
-            NewRow(2) = dr2.GetValue(2).ToString()
-            NewRow(3) = dr2.GetValue(3).ToString()
-            NewRow(4) = dr2.GetValue(4).ToString()
-            NewRow(5) = dr2.GetValue(5).ToString() & "..."
-            dt2.Rows.Add(NewRow)
-
-            I2 = I2 + 1
-        End While
-
-        If I2 = 0 Then
-
-            If dt2.Columns.Count = 0 Then
-                dt2.Columns.Add(" Fecha ", GetType(String))
-                dt2.Columns.Add(" Rut ", GetType(String))
-                dt2.Columns.Add(" Nombre  ", GetType(String))
-                dt2.Columns.Add(" Apellido ", GetType(String))
-                dt2.Columns.Add(" Estado ", GetType(String))
-            End If
-
-            Dim NewRow As DataRow = dt2.NewRow()
-
-            dt2.Rows.Add(NewRow)
-            GridView2.DataSource = dt2
-            GridView2.DataBind()
-
-
-        Else
-            GridView2.DataSource = dt2
-            GridView2.DataBind()
-
-
-
+            TextBox10.Text = dr2.GetValue(4).ToString()
+            TextBox11.Text = dr2.GetValue(5).ToString()
+            TextBox12.Text = dr2.GetValue(6).ToString()
+            RadDatePicker2.SelectedDate = dr2.GetValue(7).ToString()
+            RadDatePicker1.SelectedDate = dr2.GetValue(8).ToString()
+            DropDownList2.Text = dr2.GetValue(9).ToString()
+            DropDownList1.Text = dr2.GetValue(10).ToString()
+            TextBox17.Text = dr2.GetValue(11).ToString()
+            TextBox18.Text = dr2.GetValue(12).ToString()
         End If
 
 
@@ -154,9 +126,36 @@ Partial Class SolicitudGper
         comm2.Dispose()
         conn2.Dispose()
 
+        '____________________________________________________________-
 
 
+        'conector3 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
+        'conector3 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+        'conector3 += "Pwd=90VEporefi;Option=3;"
 
+        'conn3 = New OdbcConnection(conector3)
+        'conn3.Open()
+        'sql3 = "SELECT id, id_mall, id_contratista, id_encargado, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, fecha_fin, hora_entrada, duracion, telefono_emergencia, email, estado FROM solicitud_m where id = '" & Request.QueryString("dato") & "'"
+        'comm3 = New OdbcCommand(sql3, conn3)
+        'dr3 = comm2.ExecuteReader()
+        'If (dr3.Read()) Then
+
+        '    TextBox10.Text = dr.GetValue(4).ToString()
+        '    TextBox11.Text = dr.GetValue(5).ToString()
+        '    TextBox12.Text = dr.GetValue(6).ToString()
+        '    RadDatePicker2.SelectedDate = dr.GetValue(7).ToString()
+        '    RadDatePicker1.SelectedDate = dr.GetValue(8).ToString()
+        '    DropDownList2.Text = dr.GetValue(9).ToString()
+        '    DropDownList1.Text = dr.GetValue(10).ToString()
+        '    TextBox17.Text = dr.GetValue(11).ToString()
+        '    TextBox18.Text = dr.GetValue(12).ToString()
+        'End If
+
+
+        'conn3.Close()
+        'dr3.Close()
+        'comm3.Dispose()
+        'conn3.Dispose()
 
     End Sub
 End Class

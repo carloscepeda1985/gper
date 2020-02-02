@@ -132,7 +132,7 @@ color: #fff;
 										<div class="col-md-9">
 											 <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-hand-right"></i></span>
-  <asp:TextBox  ReadOnly ="true" 
+  <asp:TextBox
                                         ID="TextBox10" runat="server" CssClass="form-control"  Font-Size="12pt" ></asp:TextBox>
      </div>
 										</div>
@@ -151,7 +151,7 @@ color: #fff;
 									</div>
                           
 									<div class="form-group">
-										<label class="col-md-3 control-label" style="float:left">&nbsp&nbsp&nbsp Sector</label>
+										<label class="col-md-3 control-label" style="float:left">&nbsp&nbsp&nbsp Lugar</label>
 										<div class="col-md-9">
 											 <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span>
