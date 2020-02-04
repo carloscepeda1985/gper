@@ -109,13 +109,6 @@ Partial Class _Default
 
             If (dr2.Read()) Then
 
-                'Dim Cooki As HttpCookie = New HttpCookie("YouSoftKey02")
-                'Dim exp As New Date
-                'exp = Date.Now
-                'exp = exp.AddDays(30.0)
-                'Cooki.Values.Set("Email", TextBox1.Text)
-                'Cooki.Expires = exp
-                'Response.Cookies.Add(Cooki)
 
                 Session("id_contratista") = dr2.GetValue(0).ToString()
                 Session("id_mall") = dr2.GetValue(1).ToString()

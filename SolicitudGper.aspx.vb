@@ -103,7 +103,7 @@ Partial Class SolicitudGper
 
         conn2 = New OdbcConnection(conector2)
         conn2.Open()
-        sql2 = "SELECT id, id_mall, id_contratista, id_encargado, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, fecha_fin, hora_entrada, duracion, telefono_emergencia, email, estado FROM solicitud_m where id = '" & Request.QueryString("dato") & "'"
+        sql2 = "SELECT id, id_mall, id_contratista, id_encargado, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, fecha_fin, hora_entrada, duracion, telefono_emergencia, email, estado FROM solicitud_m where id = " & Request.QueryString("dato")
         comm2 = New OdbcCommand(sql2, conn2)
         dr2 = comm2.ExecuteReader()
         I2 = 0
@@ -135,20 +135,20 @@ Partial Class SolicitudGper
 
         'conn3 = New OdbcConnection(conector3)
         'conn3.Open()
-        'sql3 = "SELECT id, id_mall, id_contratista, id_encargado, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, fecha_fin, hora_entrada, duracion, telefono_emergencia, email, estado FROM solicitud_m where id = '" & Request.QueryString("dato") & "'"
+        'sql3 = "SELECT id, id_mall, id_contratista, id_encargado, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, fecha_fin, hora_entrada, duracion, telefono_emergencia, email, estado FROM solicitud_m where id = " & Request.QueryString("dato")
         'comm3 = New OdbcCommand(sql3, conn3)
-        'dr3 = comm2.ExecuteReader()
+        'dr3 = comm3.ExecuteReader()
         'If (dr3.Read()) Then
 
-        '    TextBox10.Text = dr.GetValue(4).ToString()
-        '    TextBox11.Text = dr.GetValue(5).ToString()
-        '    TextBox12.Text = dr.GetValue(6).ToString()
-        '    RadDatePicker2.SelectedDate = dr.GetValue(7).ToString()
-        '    RadDatePicker1.SelectedDate = dr.GetValue(8).ToString()
-        '    DropDownList2.Text = dr.GetValue(9).ToString()
-        '    DropDownList1.Text = dr.GetValue(10).ToString()
-        '    TextBox17.Text = dr.GetValue(11).ToString()
-        '    TextBox18.Text = dr.GetValue(12).ToString()
+        '    TextBox10.Text = dr3.GetValue(4).ToString()
+        '    TextBox11.Text = dr3.GetValue(5).ToString()
+        '    TextBox12.Text = dr3.GetValue(6).ToString()
+        '    RadDatePicker2.SelectedDate = dr3.GetValue(7).ToString()
+        '    RadDatePicker1.SelectedDate = dr3.GetValue(8).ToString()
+        '    DropDownList2.Text = dr3.GetValue(9).ToString()
+        '    DropDownList1.Text = dr3.GetValue(10).ToString()
+        '    TextBox17.Text = dr3.GetValue(11).ToString()
+        '    TextBox18.Text = dr3.GetValue(12).ToString()
         'End If
 
 

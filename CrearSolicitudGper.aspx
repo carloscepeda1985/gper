@@ -2,6 +2,8 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 
+    
+
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -14,7 +16,7 @@
 		
                             <asp:Button ID="myBtn" runat="server" OnClick="myBtn_Click" useSubmitBehavior="false" style="display:none;" />
                                 <div class="bar">
-                                    <e class="letracolor">&nbsp;Solicitud #56129873 </e>
+                                    <e class="letracolor">&nbsp;Solicitud #<asp:Label ID="Label9" runat="server" Text="Label"></asp:Label> </e>
                                 </div>
 								<div class="form-wizard">
 									<div class="form-body">
@@ -92,9 +94,16 @@
 												</div>
 
                                                 <div class="form-group">
-													<label class="control-label col-md-3">Resumen del trabajo</label>
+													<label class="control-label col-md-3">Resumen del trabajo
+                                                    <span class="required">
+														 *
+													</span>
+                                                    </label>
 													<div class="col-md-4">
 														<textarea class="form-control" rows="3" name="restra" id="restra"></textarea>
+                                                        <span class="help-block">
+															 Ingrese resumen del trabajo
+														</span>
 													</div>
 												</div>
 
@@ -113,7 +122,11 @@
 												</div>
 
                                                 <div class="form-group">
-										            <label class="control-label col-md-3">Fecha Inicio</label>
+										            <label class="control-label col-md-3">Fecha Inicio
+                                                    <span class="required">
+														 *
+													</span>
+										            </label>
 										            <div class="col-md-3">
 											        <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
 												    <input type="text" class="form-control" readonly  name="fecini" id="fecini"/>
@@ -129,7 +142,11 @@
 									            </div>
 
                                                 <div class="form-group">
-										            <label class="control-label col-md-3">Fecha Fin</label>
+										            <label class="control-label col-md-3">Fecha Fin
+                                                    <span class="required">
+														 *
+													</span>
+										            </label>
 										            <div class="col-md-3">
 											        <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d" >
 												    <input type="text" class="form-control" readonly name="fecfin" id="fecfin" />
@@ -145,7 +162,11 @@
 									            </div>
 
                                                 <div class="form-group">
-										            <label class="control-label col-md-3">Hora Entrada</label>
+										            <label class="control-label col-md-3">Hora Entrada
+                                                    <span class="required">
+														 *
+													</span>
+										            </label>
 										            <div class="col-md-3">
 											        <div class="input-group bootstrap-timepicker">
 												    <input type="text" class="form-control timepicker-24" name="horent" id="horent"/>
@@ -157,7 +178,11 @@
 									            </div>
 
                                                 <div class="form-group">
-										            <label class="control-label col-md-3">Duración</label>
+										            <label class="control-label col-md-3">Duración
+                                                    <span class="required">
+														 *
+													</span>
+										            </label>
 										            <div class="col-md-9">
 											        <div id="spinner3">
 												    <div class="input-group" style="width:130px;">
@@ -303,13 +328,23 @@
 
 
 											<div class="tab-pane" id="tab3">
-												<h3 class="block">Ingrese Trabajadores</h3>
+												<h3 class="block">Seleccione Trabajadores</h3>
 
                                                      <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
+
+                                                         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
+          
+                <asp:TemplateField>
+    
+                    <ItemTemplate>
+                        <asp:CheckBox ID="chkSelect" runat="server" />
+                        <asp:HiddenField ID="hdnSubId" runat="server" Value='<%#Eval("Rut") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -324,31 +359,56 @@
 
             <asp:TemplateField HeaderText="CAFP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CAFP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+                <asp:Image ID="Image2" ImageUrl='<%# "~/Images/" & (If(Eval("CAFP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="AFC" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("AFC").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+                <asp:Image ID="Image3" ImageUrl='<%# "~/Images/" & (If(Eval("AFC").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="INP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("INP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+                <asp:Image ID="Image4" ImageUrl='<%# "~/Images/" & (If(Eval("INP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
             <asp:TemplateField HeaderText="CCAF" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CCAF").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+                <asp:Image ID="Image5" ImageUrl='<%# "~/Images/" & (If(Eval("CCAF").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
     </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
+
+
+
+<%--    <div>
+        <h4>
+            Get selected row's hiddenfield values in asp.net</h4>
+        <asp:GridView ID="grdResult" runat="server">
+            <HeaderStyle Font-Bold="true" BackColor="#9a9a9a" BorderColor="#222" ForeColor="White"
+                Height="30" />
+            <Columns>
+                <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox ID="chkSelectAll" runat="server" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="chkSelect" runat="server" />
+                        <asp:HiddenField ID="hdnSubId" runat="server" Value='<%#Eval("SubjectName") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+        <br />
+        <asp:Button ID="btnGetSelected" runat="server" Text="Get Selected" />
+    </div>--%>
+        
  </div>								
 										
 											</div>
@@ -477,7 +537,8 @@
 
 												<h4 class="form-section">Trabajadores</h4>
 												<div class="form-group">
-													<label class="control-label col-md-3">Listado de Trabajadores:</label>
+													&nbsp&nbsp<a href="javascript:;" class="btn btn-default button-previous" style="margin-left: 20px;">
+													<i class="m-icon-swapleft"  ></i> Ver Trabajadores Seleccionados </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 													<div class="col-md-4">
                                                         <asp:HiddenField ID="Hempcon" runat="server" />	
                                                         <asp:HiddenField ID="Hrestra" runat="server" />		
@@ -494,7 +555,10 @@
                                                         <asp:HiddenField ID="Hmutenc" runat="server" />	
                                                         <asp:HiddenField ID="Hcelenc" runat="server" />	
                                                         <asp:HiddenField ID="Hemaenc" runat="server" />	
-                                                  										
+                                                        <asp:HiddenField ID="Htra" runat="server" />	
+                                                        <asp:Label ID="LabelIdMall" runat="server" Visible="False"></asp:Label>
+                                                        <asp:Label ID="LabelIdContratista" runat="server" Visible="False"></asp:Label>	
+                                                        							
 													</div>
 												</div>
 
@@ -564,65 +628,66 @@
                            errorClass: 'help-block', // default input error message class
                            focusInvalid: false, // do not focus the last invalid input
                            rules: {
-                               //account
-                               username: {
-                                   minlength: 5,
-                                   required: false
+                               //Solicitud
+                               empcon: {
+                                   required: true
                                },
-                               password: {
-                                   minlength: 5,
-                                   required: false
+                               restra: {
+                                   required: true
                                },
-                               rpassword: {
-                                   minlength: 5,
-                                   required: false,
-                                   equalTo: "#submit_form_password"
+                               lug: {
+                                   required: true
                                },
-                               //profile
-                               fullname: {
-                                   required: false
+                               fecini: {
+                                   required: true
                                },
-                               email: {
-                                   required: false,
+                               fecfin: {
+                                   required: true
+                               },
+                               horent: {
+                                   required: true
+                               },
+                               dur: {
+                                   required: true
+                               },
+                               teleme: {
+                                   required: true,
+                                   digits: true,
+                                   minlength: 8,
+                                   maxlength: 11
+                               },
+                               ema: {
+                                   required: true,
                                    email: true
                                },
-                               phone: {
-                                   required: false
+                               //Encargado
+                               rutenc: {
+                                   required: true,
+                                   minlength: 8,
+                                   maxlength: 14
                                },
-                               gender: {
-                                   required: false
+                               nomenc: {
+                                   required: true,
+                                  
                                },
-                               address: {
-                                   required: false
+                               apeenc: {
+                                   required: true,
+
                                },
-                               city: {
-                                   required: false
+                               mutenc: {
+                                   required: true
                                },
-                               country: {
-                                   required: false
-                               },
-                               //payment
-                               card_name: {
-                                   required: false
-                               },
-                               card_number: {
-                                   minlength: 16,
-                                   maxlength: 16,
-                                   required: false
-                               },
-                               card_cvc: {
+                               celenc: {
+                                   required: true,
                                    digits: true,
-                                   required: false,
-                                   minlength: 3,
-                                   maxlength: 4
+                                   minlength: 8,
+                                   maxlength: 11
                                },
-                               card_expiry_date: {
-                                   required: false
+                               emaenc: {
+                                   required: true,
+                                   email: true
                                },
-                               'payment[]': {
-                                   required: false,
-                                   minlength: 1
-                               }
+                               
                            },
 
                            messages: { // custom messages for radio buttons and checkboxes
@@ -787,13 +852,21 @@
                            document.getElementById('<%= Hcelenc.ClientID %>').value = document.getElementById("celenc").value;
                            document.getElementById('<%= Hemaenc.ClientID %>').value = document.getElementById("emaenc").value;
 
+                           var numero = 0;
+                           var id_mall = document.getElementById('MainContent_LabelIdMall').textContent;
+                           var id_contratista = document.getElementById('MainContent_LabelIdContratista').textContent;
+                           var id_solicitud = document.getElementById('MainContent_Label9').textContent;
+                           $("input[name$=chkSelect]").each(function () {
+                               if (document.getElementById("MainContent_GridView1_chkSelect_" + numero).checked == true) {
+                                   document.getElementById('<%= Htra.ClientID %>').value = document.getElementById('<%= Htra.ClientID %>').value + "('" + id_mall + "','" + id_contratista + "','" + id_solicitud + "','" + document.getElementById("MainContent_GridView1_hdnSubId_" + numero).value + "','1'),";
+                               }
+                               numero = numero + 1;
+                           });
                            document.getElementById('MainContent_myBtn').click();
                            return false;
                        }).hide();
                    }
-
                };
-
            } ();
    </script>
 
