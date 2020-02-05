@@ -91,7 +91,7 @@ Partial Class CrearSolicitudGper
         conn.Close()
         dr.Close()
 
-        Response.Redirect("SolicitudGper.aspx?dato='" & Label9.Text() + 1 & "'")
+        Response.Redirect("SolicitudesCon.aspx")
 
     End Sub
 

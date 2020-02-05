@@ -556,8 +556,8 @@
                                                         <asp:HiddenField ID="Hcelenc" runat="server" />	
                                                         <asp:HiddenField ID="Hemaenc" runat="server" />	
                                                         <asp:HiddenField ID="Htra" runat="server" />	
-                                                        <asp:Label ID="LabelIdMall" runat="server" Visible="False"></asp:Label>
-                                                        <asp:Label ID="LabelIdContratista" runat="server" Visible="False"></asp:Label>	
+                                                        <asp:Label ID="LabelIdMall" runat="server" style="color:white"></asp:Label>
+                                                        <asp:Label ID="LabelIdContratista" runat="server" style="color:white"></asp:Label>	
                                                         							
 													</div>
 												</div>
