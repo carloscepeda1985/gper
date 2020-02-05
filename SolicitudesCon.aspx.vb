@@ -65,7 +65,7 @@ Partial Class SolicitudesCon
     End Sub
 
     Private Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
-        If Session("rut_pro") = "" Then
+        If Session("id_contratista") = "" Then
             Response.Redirect("Default.aspx")
             Exit Sub
         End If
@@ -77,6 +77,6 @@ Partial Class SolicitudesCon
 
         dato = GridView1.Rows(x).Cells(2).Text
 
-        Response.Redirect("SolicitudGper.aspx?dato=" + dato)
+        Response.Redirect("SolicitudCon.aspx?dato=" + dato)
     End Sub
 End Class
