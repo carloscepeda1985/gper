@@ -110,10 +110,10 @@ color: #fff;
 
         <div class="header_Gper" style="border-bottom: 5px solid #112f60;">
                 <div class="loginDisplay" style="float:right;margin-right: 15px;">
-                <asp:Button ID="Button1" runat="server" Text="Cerrar Sesión" 
+                <asp:Button ID="Button1" runat="server" useSubmitBehavior="false"  Text="Cerrar Sesión" 
                      CssClass="btn btn-info" Font-Bold="True" /> 
                                 </div>
-            <div class="title">
+            <div class="title"> 
               
                   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="Logo-Gper.png">
                

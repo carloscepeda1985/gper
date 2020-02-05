@@ -15,10 +15,6 @@ Partial Class EditarTrabajadorContratista
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
-        If Session("rut_pro") = "" Then
-            Response.Redirect("Default.aspx")
-            Exit Sub
-        End If
 
         If (IsPostBack = False) Then
 

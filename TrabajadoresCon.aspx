@@ -1,4 +1,5 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="SolicitudesGper.aspx.vb" Inherits="SolicitudesGper" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="TrabajadoresCon.aspx.vb" Inherits="TrabajadoresCon" %>
+
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -216,13 +217,13 @@ fieldset[disabled] .btn-sample.active {
     <div class="col-md-9">
     <div class="bar">
 
-    <e class="letracolor"><span class="glyphicon glyphicon-log-in" style="color:white"></span>&nbsp;Solicitudes</e>
+    <e class="letracolor"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>&nbsp;Trabajadores</e>
     
 
     </div>
    
    
-<%--    <div container>
+    <div container>
      <div>
      <button style="float: right"; type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">+Agregar</button>
   
@@ -232,7 +233,7 @@ fieldset[disabled] .btn-sample.active {
      
       </div>
       </div>
-     <!-- Modal -->
+        <!-- Modal -->
   <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -266,28 +267,47 @@ fieldset[disabled] .btn-sample.active {
 
     </div>
       
-      <br />--%>
+      <br />
     <div class="table-responsive">
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
-
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" />
-
-            <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
+            <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Numero" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Cargo" HeaderText="Cargo" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+ 
+            <asp:TemplateField HeaderText="CDT" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "M", "M.png", If(Eval("Estado").ToString() = "P", "P.png", "A.png"))) %>' runat="server" Height = "25" Width = "25" />
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CDT").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora Entrada" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />     
+            <asp:TemplateField HeaderText="CAFP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CAFP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="AFC" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("AFC").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="INP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("INP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="CCAF" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CCAF").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
 
     </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
@@ -301,19 +321,19 @@ fieldset[disabled] .btn-sample.active {
 
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                   <li><a href="AdmGper.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+
+                     <li><a href="ConGper.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
-                   <li><a href="SolicitudesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+
+                    <li><a href="CrearSolicitudGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>
+
+                    <li><a href="SolicitudesCon.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
-                   <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+
+                   <li><a href="TrabajadoresCon.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
-                   <li><a href="EquiposGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
-                   <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
-                   <li><a href="ReportesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li> 
-                  
+         
 
                </ul>
 				   

@@ -589,6 +589,8 @@
                 </div>
             </div>
           </div>
+           <center> <asp:Button ID="Button2" runat="server" useSubmitBehavior="false" Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> </center>                   
+    <br/>
         </div>
 
        <script type="text/javascript">

@@ -1,6 +1,6 @@
 ﻿Imports System.Data
 Imports System.Data.Odbc
-Partial Class SolicitudesGper
+Partial Class SolicitudesCon
     Inherits System.Web.UI.Page
     Dim conn As OdbcConnection
     Dim comm As OdbcCommand
@@ -25,15 +25,15 @@ Partial Class SolicitudesGper
         If Not Me.IsPostBack Then
 
             conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
+            conector += "Pwd=90VEporefi;Option=3;"
 
-                conn = New OdbcConnection(conector)
-                conn.Open()
-            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado >='0'"
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("id_mall") & "' and id_contratista = '" & Session("id_contratista") & "' and estado >='0'"
             comm = New OdbcCommand(sql, conn)
-                dr = comm.ExecuteReader()
-                I = 0
+            dr = comm.ExecuteReader()
+            I = 0
             Dim Estado As String
 
             Dim dt As New DataTable()
@@ -53,14 +53,14 @@ Partial Class SolicitudesGper
                 dt.Rows.Add(Estado, dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
             End While
 
-                GridView1.DataSource = dt
-                GridView1.DataBind()
+            GridView1.DataSource = dt
+            GridView1.DataBind()
 
-                conn.Close()
-                dr.Close()
-                comm.Dispose()
-                conn.Dispose()
-            End If
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
+        End If
 
     End Sub
 

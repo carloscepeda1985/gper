@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterSolicitud.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="ConGper.aspx.vb" Inherits="ConGper"  Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="ConGper.aspx.vb" Inherits="ConGper"  Title="GPER" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -211,19 +211,21 @@ fieldset[disabled] .btn-sample.active {
 
  </style>
 
-   <div class="container" style="margin-top: 25px;">
+   <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="media">
                 <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                    <li><a href="CrearSolicitudGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-share" style="color:white"></span>
+                     
+
+                    <li><a href="CrearSolicitudGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>
 
-                    <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                    <li><a href="SolicitudesCon.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
 
-                   <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+                   <li><a href="TrabajadoresCon.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
          
                 </ul>               

@@ -158,4 +158,8 @@ Partial Class SolicitudGper
         'conn3.Dispose()
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Response.Redirect("SolicitudesGper.aspx")
+    End Sub
 End Class

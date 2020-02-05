@@ -504,9 +504,9 @@ color: #fff;
                                 						
 							</div>
 						</div>
-
+                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> </center>
                         
-
+    <br/>
 
 </asp:Content>
 
