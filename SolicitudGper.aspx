@@ -92,18 +92,83 @@ color: #fff;
 
 
 <div class="bar">
-    <e class="letracolor">&nbsp;Solicitud #56129873 </e>
+    <e class="letracolor">&nbsp;Solicitud #<asp:Label ID="LabelNumero" runat="server"></asp:Label> </e>
 </div>
-<div class="alert alert-warning" style="font-size=12pt">
+<div id="alerta" style="font-size=12pt" runat="server">
 <p>
-		<strong>Atención:</strong> Esta Solicitud se encuentra <strong>Pendiente</strong>
+		<strong>Atención:</strong> Esta Solicitud se encuentra <strong><asp:Label ID="LabelEstado" runat="server"></asp:Label></strong>
         </p>
         <br/>
-        <p>
-									<a class="btn btn-success">Aceptar Solicitud</a>
-									<a class="btn btn-danger">Rechazar Solicitud</a>
+        <p id="panel_boton" runat="server">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal_Acepto">Aceptar Solicitud</button>
+
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal_Rechazo">Rechazar Solicitud</button>
+
 								</p>
 </div>
+
+            <!-- Modal Aceptar -->
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal_Acepto" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Aceptar Solicitud</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+          Comentario:<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+  <asp:TextBox 
+                                        ID="TextBox4" runat="server" class="form-control" rows="3" TextMode="MultiLine"  Font-Size="12pt"></asp:TextBox>
+   </div>
+          <br/>
+          </p>
+         
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <asp:Button ID="Button4" runat="server" Text="Aceptar Solicitud" CssClass="btn btn-success" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+                <!-- Modal Rechazo -->
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal_Rechazo" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Rechazar Solicitud</h4>
+        </div>
+        <div class="modal-body">
+                    <p>
+          Comentario:<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+  <asp:TextBox 
+                                        ID="TextBox7" runat="server" class="form-control" rows="3" TextMode="MultiLine"  Font-Size="12pt"></asp:TextBox>
+   </div>
+          <br/>
+          </p>
+         
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <asp:Button ID="Button1" runat="server" Text="Rechazar Solicitud" CssClass="btn btn-danger" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 
 <div class="portlet-body">
 
@@ -463,11 +528,75 @@ color: #fff;
 </div>
 									</div>
 								</div>	
+
+
+                                <div class="panel panel-default">
+									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
+									<div class="panel-heading"; style="background-color:#185189";>
+                              
+                                  		<h4 class="panel-title" style="color:white">
+		
+						                Aprobaciones
+										</h4>
+									</div>
+                                </a>
+                                 
+									<div id="collapse_4" class="panel-collapse collapse">
+										<div class="panel-body">
+											
+     <div class="table-responsive">
+        <asp:GridView ID="GridView3" runat="server" Width="100%" AutoGenerateColumns="false" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
+            <Columns>
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
+            <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Numero" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Cargo" HeaderText="Cargo" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+ 
+            <asp:TemplateField HeaderText="CDT" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CDT").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="CAFP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CAFP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="AFC" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("AFC").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="INP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("INP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="CCAF" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CCAF").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+    </Columns>
+            <HeaderStyle BackColor="#185189" ForeColor="White" />
+        </asp:GridView>
+ </div>
+</div>
+									</div>
+								</div>	
                                 
                                 
                                 
 								<div class="panel panel-default">
-									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
+									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_5">
 									<div class="panel-heading"; style="background-color:#185189";>
                               
                                   		<h4 class="panel-title" style="color:white">
@@ -477,7 +606,7 @@ color: #fff;
 									</div>
                                 </a>
                                  
-									<div id="collapse_4" class="panel-collapse collapse">
+									<div id="collapse_5" class="panel-collapse collapse">
 										<div class="panel-body">
 
 

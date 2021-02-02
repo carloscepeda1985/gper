@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGper.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="SolicitudesGper.aspx.vb" Inherits="SolicitudesGper" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="SolicitudesGper.aspx.vb" Inherits="SolicitudesGper" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -268,26 +268,49 @@ fieldset[disabled] .btn-sample.active {
       
       <br />--%>
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
+        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
 
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" >
+
+<ControlStyle CssClass="btn btn-info"></ControlStyle>
+                </asp:CommandField>
 
             <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "M", "M.png", If(Eval("Estado").ToString() = "P", "P.png", "A.png"))) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center" Width="100px"></ItemStyle>
             </asp:TemplateField>
 
-            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora Entrada" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />     
+            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+                <HeaderStyle Wrap="False" />
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="130px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" >     
+
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
 
     </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
@@ -301,18 +324,16 @@ fieldset[disabled] .btn-sample.active {
 
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                   <li><a href="AdmGper.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+                   <li><a href="AdmEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
                    <li><a href="SolicitudesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
-                   <li><a href="TrabajadoresGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
-                   <li><a href="EquiposGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
+                   <li><a href="TiendasGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Tiendas</span></a></li>
                    <li><a href="ContratistasGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
                    <li><a href="ReportesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li> 
+                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>   
                   
 
                </ul>

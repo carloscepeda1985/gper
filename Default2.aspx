@@ -72,7 +72,7 @@
 <asp:Button ID="Button1" runat="server" Text="Ingresar" cssclass="btn btn-primary btn-lg btn-block"/>
 			                      
                 <br/>
-                  <center> <img src="Logo-Gper.png"> </center>
+                  <center> <img src="explor-k.png"> </center>
 
           
           <br/>

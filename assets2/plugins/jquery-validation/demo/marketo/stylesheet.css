@@ -23,7 +23,7 @@ a {
 
 a:hover {
 	outline: 0px;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 img {
@@ -121,7 +121,7 @@ img {
 
 .login a:hover {
 	color: #000000;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 div.login a span {
@@ -624,7 +624,7 @@ div.more a {
 }
 
 div.more a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 /* sX.0 - Left Nav */

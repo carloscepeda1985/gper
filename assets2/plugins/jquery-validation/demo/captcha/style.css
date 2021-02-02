@@ -9,13 +9,13 @@ body {
 a:link, a:visited {
 	background-color: #fff;
 	color: #333;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 a:hover, a:focus, a:active {
 	background-color: #ffb;
 	color: #454545;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 h1 {

@@ -11,21 +11,6 @@ body
     color: #696969;
 }
 
-a:link, a:visited
-{
-    color: #034af3;
-}
-
-a:hover
-{
-    color: #1d60ff;
-    text-decoration: none;
-}
-
-a:active
-{
-    color: #034af3;
-}
 
 p
 {
@@ -104,11 +89,10 @@ first child of the left and right table columns */
     left: 0px;
 }
 
-.header_alc
-{
+.header_alc {
     position: relative;
     margin: 0px;
-    border-bottom: 5px solid #185189;
+    border-bottom: 5px solid #a9a2a6;
     padding: 0px;
     background: #ffffff;
     width: 100%;
@@ -116,11 +100,10 @@ first child of the left and right table columns */
     left: 0px;
 }
 
-.header_kapa
-{
+.header_kapa {
     position: relative;
     margin: 0px;
-    border-bottom: 5px solid #185189;
+    border-bottom: 5px solid #a9a2a6;
     padding: 0px;
     background: #ffffff;
     width: 100%;
@@ -128,11 +111,10 @@ first child of the left and right table columns */
     left: 0px;
 }
 
-.header_Gper
-{
+.header_Gper {
     position: relative;
     margin: 0px;
-    border-bottom: 5px solid #185189;
+    border-bottom: 5px solid #a9a2a6;
     padding: 0px;
     background: #ffffff;
     width: 100%;
@@ -210,19 +192,17 @@ div.menu ul li a, div.menu ul li a:visited
     white-space: nowrap;
 }
 
-div.menu ul li a:hover
-{
-    background-color: #bfcbd6;
-    color: #465c71;
-    text-decoration: none;
-}
+    div.menu ul li a:hover {
+        background-color: #a9a2a6;
+        color: #a9a2a6;
+        text-decoration: none;
+    }
 
-div.menu ul li a:active
-{
-    background-color: #465c71;
-    color: #cfdbe6;
-    text-decoration: none;
-}
+    div.menu ul li a:active {
+        background-color: #a9a2a6;
+        color: #a9a2a6;
+        text-decoration: none;
+    }
 
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/

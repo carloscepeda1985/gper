@@ -2,7 +2,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
 #HTMLReporter { font-size: 11px; font-family: Monaco, "Lucida Console", monospace; line-height: 14px; color: #333333; }
 #HTMLReporter a { text-decoration: none; }
-#HTMLReporter a:hover { text-decoration: underline; }
+#HTMLReporter a:hover { text-decoration: none; }
 #HTMLReporter p, #HTMLReporter h1, #HTMLReporter h2, #HTMLReporter h3, #HTMLReporter h4, #HTMLReporter h5, #HTMLReporter h6 { margin: 0; line-height: 14px; }
 #HTMLReporter .banner, #HTMLReporter .symbolSummary, #HTMLReporter .summary, #HTMLReporter .resultMessage, #HTMLReporter .specDetail .description, #HTMLReporter .alert .bar, #HTMLReporter .stackTrace { padding-left: 9px; padding-right: 9px; }
 #HTMLReporter #jasmine_content { position: fixed; right: 100%; }
@@ -23,7 +23,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 #HTMLReporter .runningAlert { background-color: #666666; }
 #HTMLReporter .skippedAlert { background-color: #aaaaaa; }
 #HTMLReporter .skippedAlert:first-child { background-color: #333333; }
-#HTMLReporter .skippedAlert:hover { text-decoration: none; color: white; text-decoration: underline; }
+#HTMLReporter .skippedAlert:hover { text-decoration: none; color: white; text-decoration: none; }
 #HTMLReporter .passingAlert { background-color: #a6b779; }
 #HTMLReporter .passingAlert:first-child { background-color: #5e7d00; }
 #HTMLReporter .failingAlert { background-color: #cf867e; }
@@ -32,11 +32,11 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 #HTMLReporter #details { display: none; }
 #HTMLReporter .resultsMenu, #HTMLReporter .resultsMenu a { background-color: #fff; color: #333333; }
 #HTMLReporter.showDetails .summaryMenuItem { font-weight: normal; text-decoration: inherit; }
-#HTMLReporter.showDetails .summaryMenuItem:hover { text-decoration: underline; }
-#HTMLReporter.showDetails .detailsMenuItem { font-weight: bold; text-decoration: underline; }
+#HTMLReporter.showDetails .summaryMenuItem:hover { text-decoration: none; }
+#HTMLReporter.showDetails .detailsMenuItem { font-weight: bold; text-decoration: none; }
 #HTMLReporter.showDetails .summary { display: none; }
 #HTMLReporter.showDetails #details { display: block; }
-#HTMLReporter .summaryMenuItem { font-weight: bold; text-decoration: underline; }
+#HTMLReporter .summaryMenuItem { font-weight: bold; text-decoration: none; }
 #HTMLReporter .summary { margin-top: 14px; }
 #HTMLReporter .summary .suite .suite, #HTMLReporter .summary .specSummary { margin-left: 14px; }
 #HTMLReporter .summary .specSummary.passed a { color: #5e7d00; }

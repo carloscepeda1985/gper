@@ -26,7 +26,7 @@ a {
 
 a:hover {
 	color: #3e4255;
-	text-decoration: underline;
+	text-decoration: none;
 	background: inherit;
 }
 
@@ -547,7 +547,7 @@ body .mainText {
 
 .mainText .linkPar a {
 	color: #000033;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .mainText .linkPar a:hover {
