@@ -111,8 +111,8 @@ color: #fff;
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #FFFFFF;
-  background-color: #72CFBF;
-  border-color: #f94007;
+  background-color: #f4841a;
+  border-color: #f4841a;
 }
 
 
@@ -233,7 +233,7 @@ fieldset[disabled] .btn-sample.active {
               <hr/>
             </div>
             <div class="col-md-4">
-              <div class="well" style="background-color: #185189;">
+              <div class="well" style="background-color: #a9a2a6;">
                     <font color="white"><center><h4>Tu Perfil</h4></center>
                     <div class="input-group">
                     <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Rut:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>

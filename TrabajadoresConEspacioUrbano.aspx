@@ -15,8 +15,8 @@
 {
 list-style-type:none;
 height:38px;
-background-image: -webkit-linear-gradient(top,#112f60  0,#112f60  0%);
-background-image: linear-gradient(to bottom,#112f60  0,#112f60  0%);
+background-image: -webkit-linear-gradient(top,#746464  0,#746464  0%);
+background-image: linear-gradient(to bottom,#746464  0,#746464  0%);
 font-size:40px;
 font: 26px Tahoma, Verdana, Arial, sans-serif;
 border-radius:4px;
@@ -34,8 +34,8 @@ color: #fff;
 <style type="text/css">
     .btn-sample {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -44,14 +44,14 @@ color: #fff;
 .btn-sample.active,
 .open .dropdown-toggle.btn-sample {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
  .btn-info {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -60,16 +60,16 @@ color: #fff;
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
 
  .btn-primary {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -78,16 +78,16 @@ color: #fff;
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
 
  .btn-warning {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -96,16 +96,16 @@ color: #fff;
 .btn-warning.active,
 .open .dropdown-toggle.btn-warning {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
 
  .btn-danger {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -114,8 +114,8 @@ color: #fff;
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -310,7 +310,7 @@ fieldset[disabled] .btn-sample.active {
             </asp:TemplateField>
 
     </Columns>
-            <HeaderStyle BackColor="#185189" ForeColor="White" />
+            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
         </asp:GridView>
  </div>
  

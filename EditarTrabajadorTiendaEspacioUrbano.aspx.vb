@@ -311,7 +311,7 @@ Partial Class EditarTrabajadorContratista
 
         While (dr.Read())
             If dr.GetValue(0).ToString() <> "no" Then
-                Response.Redirect("http://yousoft.cl/login/mobile/Data/" & Request.QueryString("dato") & "/Doc/" & dr.GetValue(0).ToString())
+                Response.Redirect("http://yousoft.cl/espaciourbano/Data/" & Request.QueryString("dato") & "/Doc/" & dr.GetValue(0).ToString())
             End If
 
         End While

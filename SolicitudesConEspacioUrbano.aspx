@@ -15,8 +15,8 @@
 {
 list-style-type:none;
 height:38px;
-background-image: -webkit-linear-gradient(top,#112f60  0,#112f60  0%);
-background-image: linear-gradient(to bottom,#112f60  0,#112f60  0%);
+background-image: -webkit-linear-gradient(top,#746464  0,#746464  0%);
+background-image: linear-gradient(to bottom,#746464  0,#746464  0%);
 font-size:40px;
 font: 26px Tahoma, Verdana, Arial, sans-serif;
 border-radius:4px;
@@ -50,8 +50,8 @@ color: #fff;
 
  .btn-info {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -60,16 +60,16 @@ color: #fff;
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
 
  .btn-primary {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -78,16 +78,16 @@ color: #fff;
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
 
  .btn-warning {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -96,16 +96,16 @@ color: #fff;
 .btn-warning.active,
 .open .dropdown-toggle.btn-warning {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
 
  .btn-danger {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -114,15 +114,15 @@ color: #fff;
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
  .btn-success {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -131,8 +131,8 @@ color: #fff;
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #fb7c0d;
+  border-color: #fb7c0d;
 }
 
 
@@ -282,17 +282,35 @@ fieldset[disabled] .btn-sample.active {
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora Entrada" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />     
+            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+                <HeaderStyle Wrap="False" />
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="130px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" >     
+
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
 
     </Columns>
-            <HeaderStyle BackColor="#185189" ForeColor="White" />
+            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
         </asp:GridView>
  </div>
  
