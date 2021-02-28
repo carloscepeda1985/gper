@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" AutoEventWireup="false" CodeFile="TiendasGper.aspx.vb" Inherits="TiendasGper" Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" AutoEventWireup="false" CodeFile="TiendasGper.aspx.vb" Inherits="TiendasGper" Title="Glink" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -278,7 +278,7 @@ fieldset[disabled] .btn-sample.active {
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contacto" HeaderText="Contacto" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Telefono" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:TemplateField HeaderText="D1" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
@@ -325,7 +325,7 @@ fieldset[disabled] .btn-sample.active {
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
                 <li><a href="AdmEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
                    <li><a href="SolicitudesGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
                    <li><a href="TiendasGper.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>

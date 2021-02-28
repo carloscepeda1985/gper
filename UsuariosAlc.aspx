@@ -274,7 +274,7 @@ fieldset[disabled] .btn-sample.active {
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
                    <li><a href="AdmGper.aspx" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-home" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
                    <li><a href="TrabajadoresGper.aspx" class="btn btn-warning btn-lg btn-s"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo6">&nbsp;Trabajadores</span></a></li>
                    <li><a href="EquiposGper.aspx" class="btn btn-warning btn-lg btn-s"><span class="glyphicon glyphicon-scale" style="color:white"></span>

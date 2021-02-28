@@ -25,9 +25,9 @@ Partial Class ChecklistGper
             Label11.Text = "0"
             Label13.Text = "0"
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -38,9 +38,9 @@ Partial Class ChecklistGper
             conn.Close()
             dr.Close()
 
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
             sql2 = "SELECT MAX(id) FROM checklists_m"
@@ -54,9 +54,9 @@ Partial Class ChecklistGper
             conn2.Close()
             dr2.Close()
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
             conn = New OdbcConnection(conector)
             conn.Open()
             sql = "SELECT id_local, tipo FROM equipos_m where id = '" & Request.QueryString("codigo") & "'"
@@ -67,9 +67,9 @@ Partial Class ChecklistGper
 
                 Label9.Text = dr.GetValue(1).ToString()
 
-                conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector2 += "Pwd=90VEporefi;Option=3;"
+                conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector2 += "Database=w230416_glink;User=w230416_glink;"
+                conector2 += "Pwd=Gorilla1985;Option=3;"
                 conn2 = New OdbcConnection(conector2)
                 conn2.Open()
                 sql2 = "SELECT id,pregunta FROM preguntas_check where tipo = '" & dr.GetValue(1).ToString & "' ORDER BY id LIMIT 1"
@@ -85,9 +85,9 @@ Partial Class ChecklistGper
                 conn2.Close()
                 dr2.Close()
 
-                conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector2 += "Pwd=90VEporefi;Option=3;"
+                conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector2 += "Database=w230416_glink;User=w230416_glink;"
+                conector2 += "Pwd=Gorilla1985;Option=3;"
                 conn2 = New OdbcConnection(conector2)
                 conn2.Open()
                 sql2 = "SELECT COUNT(pregunta) FROM preguntas_check where tipo = '" & dr.GetValue(1).ToString & "' ORDER BY id LIMIT 1"
@@ -122,9 +122,9 @@ Partial Class ChecklistGper
             Label11.Text = Label11.Text + 1
             porcentaje = Integer.Parse(Label11.Text)
             Dim n_preguntas As Integer = Integer.Parse(Label12.Text)
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -140,9 +140,9 @@ Partial Class ChecklistGper
 
             porciento = Convert.ToInt32(Math.Round(porcentaje))
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -155,9 +155,9 @@ Partial Class ChecklistGper
 
             Label10.Text = porciento & "%"
 
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
             sql2 = "SELECT id,pregunta FROM preguntas_check where tipo = '" & Label5.Text & "' and id = '" & Label4.Text & "' ORDER BY id LIMIT 1"
@@ -177,9 +177,9 @@ Partial Class ChecklistGper
 
         If RadioButton2.Checked = True Then
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -191,9 +191,9 @@ Partial Class ChecklistGper
             dr.Close()
 
 
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
             sql2 = "SELECT id,pregunta FROM preguntas_check where tipo = '" & Label5.Text & "' and id = '" & Label4.Text & "' ORDER BY id LIMIT 1"

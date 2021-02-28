@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="SolicitudesConEspacioUrbano.aspx.vb" Inherits="SolicitudesCon" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="SolicitudesConEspacioUrbano.aspx.vb" Inherits="SolicitudesCon" Title="Glink" %>
 
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -301,7 +301,7 @@ fieldset[disabled] .btn-sample.active {
             <asp:BoundField DataField="Hora Entrada" HeaderText="Hora" ItemStyle-Width="150" ItemStyle-Wrap="false" >
 <ItemStyle Wrap="False" Width="150px"></ItemStyle>
                 </asp:BoundField>
-            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+            <asp:BoundField DataField="Telefono" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" >
 <ItemStyle Wrap="False" Width="150px"></ItemStyle>
                 </asp:BoundField>
             <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" >     
@@ -323,7 +323,7 @@ fieldset[disabled] .btn-sample.active {
 
 
                      <li><a href="ConEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
 
                     <li><a href="CrearSolicitudEspacioUrbano.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>

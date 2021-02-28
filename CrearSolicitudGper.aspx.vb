@@ -28,9 +28,9 @@ Partial Class CrearSolicitudGper
 
         valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
@@ -41,9 +41,9 @@ Partial Class CrearSolicitudGper
         conn.Close()
         dr.Close()
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
@@ -52,9 +52,9 @@ Partial Class CrearSolicitudGper
         dr = comm.ExecuteReader()
 
         If dr.Read() Then
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
@@ -62,9 +62,9 @@ Partial Class CrearSolicitudGper
             comm2 = New OdbcCommand(sql2, conn2)
             dr2 = comm2.ExecuteReader()
         Else
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
@@ -78,9 +78,9 @@ Partial Class CrearSolicitudGper
         conn.Close()
         dr.Close()
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
@@ -101,9 +101,9 @@ Partial Class CrearSolicitudGper
 
             'Crear Solicitud
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -116,9 +116,9 @@ Partial Class CrearSolicitudGper
 
             'Buscar ID
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -137,9 +137,9 @@ Partial Class CrearSolicitudGper
 
             'Buscar Trabajadores
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()

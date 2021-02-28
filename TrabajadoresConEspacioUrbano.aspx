@@ -323,7 +323,7 @@ fieldset[disabled] .btn-sample.active {
 
 
                      <li><a href="ConEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
 
                     <li><a href="CrearSolicitudEspacioUrbano.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>

@@ -28,9 +28,9 @@ Partial Class FichaContratista
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
 
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
@@ -58,9 +58,9 @@ Partial Class FichaContratista
                     End If
                 End If
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -175,9 +175,9 @@ Partial Class FichaContratista
                             TextBox4.Focus()
                             Exit Sub
                         Else
-                            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                            conector += "Pwd=90VEporefi;Option=3;"
+                            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                            conector += "Database=w230416_glink;User=w230416_glink;"
+                            conector += "Pwd=Gorilla1985;Option=3;"
 
                             conn = New OdbcConnection(conector)
                             conn.Open()

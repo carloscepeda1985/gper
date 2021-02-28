@@ -22,9 +22,9 @@ Partial Class EditarTrabajadorContratista
 
             Dim dt As New DataTable()
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -48,9 +48,9 @@ Partial Class EditarTrabajadorContratista
             comm.Dispose()
             conn.Dispose()
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -126,9 +126,9 @@ Partial Class EditarTrabajadorContratista
                 File6.PostedFile.SaveAs(SaveLocation)
                 Response.Write("The file has been uploaded.")
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -160,9 +160,9 @@ Partial Class EditarTrabajadorContratista
                 File7.PostedFile.SaveAs(SaveLocation)
                 Response.Write("The file has been uploaded.")
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -199,9 +199,9 @@ Partial Class EditarTrabajadorContratista
                 File8.PostedFile.SaveAs(SaveLocation)
                 Response.Write("The file has been uploaded.")
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -231,9 +231,9 @@ Partial Class EditarTrabajadorContratista
                 File9.PostedFile.SaveAs(SaveLocation)
                 Response.Write("The file has been uploaded.")
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -263,9 +263,9 @@ Partial Class EditarTrabajadorContratista
                 File10.PostedFile.SaveAs(SaveLocation)
                 Response.Write("The file has been uploaded.")
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -298,9 +298,9 @@ Partial Class EditarTrabajadorContratista
 
         codigo = GridView1.Rows(x).Cells(2).Text
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
@@ -325,9 +325,9 @@ Partial Class EditarTrabajadorContratista
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()

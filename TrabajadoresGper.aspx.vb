@@ -24,9 +24,9 @@ Partial Class TrabajadoresGper
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -128,9 +128,9 @@ Partial Class TrabajadoresGper
                         If TextBox4.Text = "" Then
                             TextBox4.Focus()
                         Else
-                            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                            conector += "Pwd=90VEporefi;Option=3;"
+                            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                            conector += "Database=w230416_glink;User=w230416_glink;"
+                            conector += "Pwd=Gorilla1985;Option=3;"
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
@@ -237,9 +237,9 @@ Partial Class TrabajadoresGper
         dt.Clear()
         GridView1.DataSource = dt
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()

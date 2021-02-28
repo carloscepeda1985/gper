@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" AutoEventWireup="false" CodeFile="TiendasEspacioUrbano.aspx.vb" Inherits="TiendasGper" Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" AutoEventWireup="false" CodeFile="TiendasEspacioUrbano.aspx.vb" Inherits="TiendasGper" Title="Glink" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -243,7 +243,7 @@ fieldset[disabled] .btn-sample.active {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ingrese datos del Contratista</h4>
+          <h4 class="modal-title">Ingrese datos de la Tienda</h4>
         </div>
         <div class="modal-body">
           <p>
@@ -278,7 +278,7 @@ fieldset[disabled] .btn-sample.active {
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contacto" HeaderText="Contacto" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Telefono" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:TemplateField HeaderText="D1" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
@@ -310,7 +310,7 @@ fieldset[disabled] .btn-sample.active {
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D5").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="Estado" HeaderText="Estado" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+           
 
     </Columns>
             <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
@@ -325,7 +325,7 @@ fieldset[disabled] .btn-sample.active {
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
                 <li><a href="AdmEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Menu Principal</span></a></li>
+                       <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
                    <li><a href="SolicitudesEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
                    <li><a href="TiendasEspacioUrbano.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>

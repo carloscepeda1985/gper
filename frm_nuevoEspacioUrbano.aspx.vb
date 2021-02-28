@@ -17,9 +17,9 @@ Partial Class frm_nuevo
 
         Session("rut_pro") = Request.QueryString("dato")
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
@@ -84,9 +84,9 @@ Partial Class frm_nuevo
 
             Dim dt As New DataTable()
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
@@ -101,9 +101,9 @@ Partial Class frm_nuevo
 
             'Acceso Propietarios
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()

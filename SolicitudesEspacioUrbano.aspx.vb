@@ -24,13 +24,13 @@ Partial Class SolicitudesGper
     Private Sub SolicitudesGper_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado >='0'"
+            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado >='0' order by fecha_inicio desc"
             comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
                 I = 0

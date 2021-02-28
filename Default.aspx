@@ -10,7 +10,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>GPER - Acceso Clientes</title>
+        <title>Glink - Acceso Clientes</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -28,7 +28,7 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/ico/Logo-Gper-2.png">
+        <link rel="shortcut icon" href="assets/ico/Logo-Glink.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -70,12 +70,12 @@
 <asp:Button ID="Button1" runat="server" Text="Ingresar" cssclass="btn btn-primary btn-lg btn-block"/>
 			                      
                 <br/>
-                  <center> <img src="espaciourbano.svg"> </center>
+                  <center> <img src="Logo-Glink.png" style="height: 108px;"> </center>
 
           
           <br/>
-                   <center><h5><span class="glyphicon glyphicon-earphone"></span>  (+56) 98281 2431</h5>
-                   <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@gper.cl<asp:Label 
+                   <center>
+                   <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@glink.cl<asp:Label 
                            ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                        </h5></center>
                    </form>

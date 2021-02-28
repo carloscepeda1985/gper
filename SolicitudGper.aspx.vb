@@ -45,9 +45,9 @@ Partial Class SolicitudGper
 
             LabelNumero.Text = Request.QueryString("dato")
 
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
@@ -84,9 +84,9 @@ Partial Class SolicitudGper
 
                 'Encargado
 
-                conector3 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector3 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector3 += "Pwd=90VEporefi;Option=3;"
+                conector3 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector3 += "Database=w230416_glink;User=w230416_glink;"
+                conector3 += "Pwd=Gorilla1985;Option=3;"
 
                 conn3 = New OdbcConnection(conector3)
                 conn3.Open()
@@ -124,9 +124,9 @@ Partial Class SolicitudGper
             Dim dt As New DataTable()
             dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
 
-            conector2 = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector2 += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector2 += "Pwd=90VEporefi;Option=3;"
+            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector2 += "Database=w230416_glink;User=w230416_glink;"
+            conector2 += "Pwd=Gorilla1985;Option=3;"
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
@@ -136,9 +136,9 @@ Partial Class SolicitudGper
             I2 = 0
             While (dr2.Read())
 
-                conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                conector += "Pwd=90VEporefi;Option=3;"
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
@@ -203,9 +203,9 @@ Partial Class SolicitudGper
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
@@ -221,9 +221,9 @@ Partial Class SolicitudGper
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()

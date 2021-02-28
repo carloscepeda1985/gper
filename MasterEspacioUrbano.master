@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
 
-<link rel="shortcut icon" type="image/x-icon" href="assets/ico/Logo-Gper-2.png"/>
+<link rel="shortcut icon" type="image/x-icon" href="assets/ico/Logo-Glink.png"/>
 <telerik:RadStyleSheetManager id="RadStyleSheetManager1" runat="server" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>GPER</title>
+    <title>Glink</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
  
@@ -69,11 +69,10 @@
         <div class="container">
              <center>
              <h4><font color="white">Información de Contacto</font></h4>
-             <h4><span class="glyphicon glyphicon-earphone"></span><font color="white">  (+56) 
-                 98281 2431</font></h4>
-              <h4><span class="glyphicon glyphicon-envelope"></span><font color="white">   soporte@gper.cl</font></h4>
+             
+              <h4><span class="glyphicon glyphicon-envelope"></span><font color="white">   soporte@glink.cl</font></h4>
          
-              <h6><font color="white">Copyright © 2020 yousoft</font></h6>
+              <h6><font color="white">Copyright © 2021 Glink</font></h6>
              
               </center>
             

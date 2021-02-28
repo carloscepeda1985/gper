@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="AdmEspacioUrbano.aspx.vb" Inherits="AdmGper" Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="AdmEspacioUrbano.aspx.vb" Inherits="AdmGper" Title="Glink" %>
 
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -11,6 +11,14 @@
 	
 
 <style>
+
+body
+{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #444444;
+    font-size: 9pt;
+    background-color: #FAFAFA;
+}
 .bar
 {
 list-style-type:none;
@@ -18,7 +26,6 @@ height:38px;
 background-image: -webkit-linear-gradient(top,#009456 0,#009456 0%);
 background-image: linear-gradient(to bottom,#009456 0,#009456 0%);
 font-size:40px;
-font: 26px Tahoma, Verdana, Arial, sans-serif;
 border-radius:4px;
 margin-bottom:11px;
 }
@@ -232,14 +239,14 @@ fieldset[disabled] .btn-sample.active {
             </div>
             <div class="col-md-4">
               <div class="well" style="background-color: #a9a2a6;">
-                    <font color="white"><center><h4>Tu Perfil</h4></center>
+                    <font color="white";><center><h4>Tu Perfil</h4></center>
                     <div class="input-group">
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Nombres:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Apellidos :   <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-envelope"></span>     Email    :   <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone"></span>     Teléfono    :   <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>     Cargo   :   <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>     Depto.   :   <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span> &nbsp    Nombres:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>  &nbsp   Apellidos :   <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-envelope"></span> &nbsp    Email    :   <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone"></span> &nbsp    Teléfono    :   <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span> &nbsp    Cargo   :   <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h5>
+                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>  &nbsp   Depto.   :   <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></h5>
                        <br/>
                     </font>
                </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterSolicitud.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="CrearSolicitudGper.aspx.vb" Inherits="CrearSolicitudGper" Title="GPER" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterSolicitud.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="CrearSolicitudGper.aspx.vb" Inherits="CrearSolicitudGper" Title="Glink" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 

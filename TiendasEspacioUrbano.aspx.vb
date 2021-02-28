@@ -25,13 +25,13 @@ Partial Class TiendasGper
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
 
-            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-            conector += "Pwd=90VEporefi;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "'"
+            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -66,7 +66,7 @@ Partial Class TiendasGper
                     D5 = "P"
                 End If
 
-                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5, dr.GetValue(13).ToString())
+                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5)
             End While
 
             GridView1.DataSource = dt
@@ -133,13 +133,13 @@ Partial Class TiendasGper
                             TextBox4.Focus()
                             Exit Sub
                         Else
-                            conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-                            conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-                            conector += "Pwd=90VEporefi;Option=3;"
+                            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                            conector += "Database=w230416_glink;User=w230416_glink;"
+                            conector += "Pwd=Gorilla1985;Option=3;"
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
-                            sql = "insert Into contratistas_m(id_mall,rut,nombre,contacto,telefono,email,pass,D1,D2,D3,D4,D5,estado) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1')"
+                            sql = "insert Into tiendas_m(id_mall,rut,nombre,contacto,telefono,email,pass,D1,D2,D3,D4,D5,estado) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1')"
                             comm = New OdbcCommand(sql, conn)
                             dr = comm.ExecuteReader()
 
@@ -242,13 +242,13 @@ Partial Class TiendasGper
         dt.Clear()
         GridView1.DataSource = dt
 
-        conector = "driver={MySQL ODBC 3.51 Driver};Server=localhost;"
-        conector += "Database=v0081532_yousoft;User=v0081532_yousoft;"
-        conector += "Pwd=90VEporefi;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "' and nombre Like '%" & TextBox5.Text() & "%'"
+        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "' and nombre Like '%" & TextBox5.Text() & "%'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
