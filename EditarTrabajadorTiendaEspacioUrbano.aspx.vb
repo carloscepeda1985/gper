@@ -28,7 +28,7 @@ Partial Class EditarTrabajadorContratista
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_contratista_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1'"
+            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -54,7 +54,7 @@ Partial Class EditarTrabajadorContratista
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where rut = '" & Request.QueryString("dato") & "'"
+            sql = "SELECT CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -132,7 +132,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-                sql = "Update trabajadores_contratista_m Set CDT='CDT" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
+                sql = "Update trabajadores_tienda_m Set CDT='CDT" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
 
@@ -166,7 +166,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-                sql = "Update trabajadores_contratista_m Set CAFP='CAFP" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
+                sql = "Update trabajadores_tienda_m Set CAFP='CAFP" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
 
@@ -205,7 +205,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-                sql = "Update trabajadores_contratista_m Set AFC='AFC" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
+                sql = "Update trabajadores_tienda_m Set AFC='AFC" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
 
@@ -237,7 +237,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-                sql = "Update trabajadores_contratista_m Set INP='INP" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
+                sql = "Update trabajadores_tienda_m Set INP='INP" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
 
@@ -269,7 +269,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-                sql = "Update trabajadores_contratista_m Set CCAF='CCAF" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
+                sql = "Update trabajadores_tienda_m Set CCAF='CCAF" & fn & "' Where rut='" & Request.QueryString("dato") & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
 
@@ -304,14 +304,14 @@ Partial Class EditarTrabajadorContratista
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT " & codigo & " FROM trabajadores_contratista_m where rut = '" & Request.QueryString("dato") & "'"
+        sql = "SELECT " & codigo & " FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
 
         While (dr.Read())
             If dr.GetValue(0).ToString() <> "no" Then
-                Response.Redirect("http://yousoft.cl/espaciourbano/Data/" & Request.QueryString("dato") & "/Doc/" & dr.GetValue(0).ToString())
+                Response.Redirect("https://glink.cl/login/Data/" & Request.QueryString("dato") & "/Doc/" & dr.GetValue(0).ToString())
             End If
 
         End While
@@ -331,7 +331,7 @@ Partial Class EditarTrabajadorContratista
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "Update trabajadores_contratista_m Set nombre='" & TextBox1.Text() & "', apellido='" & TextBox2.Text() & "',telefono='" & TextBox3.Text() & "', funcion='" & TextBox4.Text() & "', empresa='" & TextBox5.Text() & "' Where rut='" & Request.QueryString("dato") & "'"
+        sql = "Update trabajadores_tienda_m Set nombre='" & TextBox1.Text() & "', apellido='" & TextBox2.Text() & "',telefono='" & TextBox3.Text() & "', funcion='" & TextBox4.Text() & "', empresa='" & TextBox5.Text() & "' Where rut='" & Request.QueryString("dato") & "'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
 

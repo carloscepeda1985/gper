@@ -281,31 +281,31 @@ fieldset[disabled] .btn-sample.active {
             <asp:BoundField DataField="Telefono" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contraseña" HeaderText="Contraseña" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:TemplateField HeaderText="D1" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="CONT" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D1").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="D2" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="CPHS" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D2").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="D3" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="TRAL" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D3").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="D4" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="CRSO" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D4").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="D5" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="TECE" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D5").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
