@@ -43,18 +43,37 @@ Partial Class _Default
                 Session.Timeout = 50
                 Response.Redirect("frm_nuevo.aspx")
             Else
-                Session("rut_pro") = dr.GetValue(1).ToString()
-                Session("mail_pro") = dr.GetValue(3).ToString()
-                Session("idcond_pro") = dr.GetValue(4).ToString()
-                Session("nombr_pro") = dr.GetValue(5).ToString()
-                Session("apelli_pro") = dr.GetValue(6).ToString()
-                Session("depto_pro") = dr.GetValue(7).ToString()
-                Session("sitio_pro") = dr.GetValue(8).ToString()
-                Session("tele_pro") = dr.GetValue(9).ToString()
-                Session("clave_pro") = dr.GetValue(10).ToString()
+                If dr.GetValue(4).ToString() = "1" Then
+                    Session("rut_pro") = dr.GetValue(1).ToString()
+                    Session("mail_pro") = dr.GetValue(3).ToString()
+                    Session("idcond_pro") = dr.GetValue(4).ToString()
+                    Session("nombr_pro") = dr.GetValue(5).ToString()
+                    Session("apelli_pro") = dr.GetValue(6).ToString()
+                    Session("depto_pro") = dr.GetValue(7).ToString()
+                    Session("sitio_pro") = dr.GetValue(8).ToString()
+                    Session("tele_pro") = dr.GetValue(9).ToString()
+                    Session("clave_pro") = dr.GetValue(10).ToString()
 
-                Session.Timeout = 50
-                Response.Redirect("AdmEspacioUrbano.aspx")
+                    Session.Timeout = 50
+                    Response.Redirect("AdmGlink.aspx")
+
+                End If
+
+                If dr.GetValue(4).ToString() = "2" Then
+                    Session("rut_pro") = dr.GetValue(1).ToString()
+                    Session("mail_pro") = dr.GetValue(3).ToString()
+                    Session("idcond_pro") = dr.GetValue(4).ToString()
+                    Session("nombr_pro") = dr.GetValue(5).ToString()
+                    Session("apelli_pro") = dr.GetValue(6).ToString()
+                    Session("depto_pro") = dr.GetValue(7).ToString()
+                    Session("sitio_pro") = dr.GetValue(8).ToString()
+                    Session("tele_pro") = dr.GetValue(9).ToString()
+                    Session("clave_pro") = dr.GetValue(10).ToString()
+
+                    Session.Timeout = 50
+                    Response.Redirect("AdmEspacioUrbano.aspx")
+
+                End If
 
             End If
 
