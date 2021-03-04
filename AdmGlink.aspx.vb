@@ -22,7 +22,7 @@ Partial Class AdmGper
             Exit Sub
         End If
 
-        Response.Redirect("frm_nuevoEspacioUrbano.aspx?dato=" + Session("rut_pro"))
+        Response.Redirect("frm_nuevoGlink.aspx?dato=" + Session("rut_pro"))
     End Sub
 
 End Class

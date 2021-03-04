@@ -3,7 +3,7 @@ Imports System.IO
 Imports System.Data
 Imports System.Data.Odbc
 Imports System.Xml
-Partial Class FichaContratista
+Partial Class TiendasGper
     Inherits System.Web.UI.Page
     Dim conn As OdbcConnection
     Dim comm As OdbcCommand
@@ -12,11 +12,6 @@ Partial Class FichaContratista
     Dim sql As String
     Dim I As Integer
 
-    Dim conn2 As OdbcConnection
-    Dim comm2 As OdbcCommand
-    Dim dr2 As OdbcDataReader
-    Dim conector2 As String
-    Dim sql2 As String
     Public dv_p As String 'digito validador
     Public msRutSinDig As String 'rut sin guion, punto y digito validador para realizar consultas
     Public valRutError As Boolean = True 'retorna verdadero o falso si el rut es correcto o correcto 
@@ -24,102 +19,69 @@ Partial Class FichaContratista
     Public mRutguion As String
     Public msApe As String 'apellido 
     Public va As String
+    Dim dt As New DataTable()
+
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
 
-            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector2 += "Database=w230416_glink;User=w230416_glink;"
-            conector2 += "Pwd=Gorilla1985;Option=3;"
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
-            conn2 = New OdbcConnection(conector2)
-            conn2.Open()
-            sql2 = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where rut = '" & Request.QueryString("rut") & "'"
-            comm2 = New OdbcCommand(sql2, conn2)
-            dr2 = comm2.ExecuteReader()
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "'"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+            I = 0
+            Dim D1, D2, D3, D4, D5 As String
 
-            If (dr2.Read()) Then
-                Session("id_contratista") = dr2.GetValue(0).ToString()
-                Label10.Text = dr2.GetValue(3).ToString()
-                Label1.Text = dr2.GetValue(2).ToString()
-                Label2.Text = dr2.GetValue(4).ToString()
-                Label3.Text = dr2.GetValue(5).ToString()
-                Label4.Text = dr2.GetValue(6).ToString()
-                Label5.Text = dr2.GetValue(7).ToString()
-                TextBox8.Text = dr2.GetValue(3).ToString()
+            dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
-                If dr2.GetValue(3).ToString() = "Calderas Anwo" Then
-                    Image1.ImageUrl = "anwo_logo.png"
+            While (dr.Read())
+                If dr.GetValue(8).ToString() = "no" Then
+                    D1 = "A"
                 Else
-                    If dr2.GetValue(3).ToString() = "Ascensores Schindler" Then
-                        Image1.ImageUrl = "logo_schindler.png"
-                    Else
-                        Image1.ImageUrl = "default_logo.png"
-                    End If
+                    D1 = "P"
+                End If
+                If dr.GetValue(9).ToString() = "no" Then
+                    D2 = "A"
+                Else
+                    D2 = "P"
+                End If
+                If dr.GetValue(10).ToString() = "no" Then
+                    D3 = "A"
+                Else
+                    D3 = "P"
+                End If
+                If dr.GetValue(11).ToString() = "no" Then
+                    D4 = "A"
+                Else
+                    D4 = "P"
+                End If
+                If dr.GetValue(12).ToString() = "no" Then
+                    D5 = "A"
+                Else
+                    D5 = "P"
                 End If
 
-                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-                conector += "Database=w230416_glink;User=w230416_glink;"
-                conector += "Pwd=Gorilla1985;Option=3;"
+                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5)
+            End While
 
-                conn = New OdbcConnection(conector)
-                conn.Open()
-                sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
-                comm = New OdbcCommand(sql, conn)
-                dr = comm.ExecuteReader()
-                I = 0
-                Dim CDT, CAFP, AFC, INP, CCAF As String
+            GridView1.DataSource = dt
+            GridView1.DataBind()
 
-                Dim dt As New DataTable()
-                dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
-
-                While (dr.Read())
-                    If dr.GetValue(5).ToString() = "no" Then
-                        CDT = "A"
-                    Else
-                        CDT = "P"
-                    End If
-                    If dr.GetValue(6).ToString() = "no" Then
-                        CAFP = "A"
-                    Else
-                        CAFP = "P"
-                    End If
-                    If dr.GetValue(7).ToString() = "no" Then
-                        AFC = "A"
-                    Else
-                        AFC = "P"
-                    End If
-                    If dr.GetValue(8).ToString() = "no" Then
-                        INP = "A"
-                    Else
-                        INP = "P"
-                    End If
-                    If dr.GetValue(9).ToString() = "no" Then
-                        CCAF = "A"
-                    Else
-                        CCAF = "P"
-                    End If
-
-                    dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
-                End While
-
-                GridView1.DataSource = dt
-                GridView1.DataBind()
-
-                conn.Close()
-                dr.Close()
-                comm.Dispose()
-                conn.Dispose()
-            End If
-
-            conn2.Close()
-            dr2.Close()
-            comm2.Dispose()
-            conn2.Dispose()
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
+            dt.Clear()
 
         End If
 
     End Sub
+
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
         If Session("rut_pro") = "" Then
             Response.Redirect("Default.aspx")
@@ -127,20 +89,16 @@ Partial Class FichaContratista
         End If
 
         Dim x As Integer
-        Dim dato As String
+        Dim rut As String
 
         x = GridView1.SelectedIndex()
 
-        dato = GridView1.Rows(x).Cells(1).Text
+        rut = GridView1.Rows(x).Cells(1).Text
 
-        Response.Redirect("EditarTrabajadorTiendaEspacioUrbano.aspx?dato=" + dato + "&rut=" + Request.QueryString("rut"))
+        Response.Redirect("TiendaGlink.aspx?rut=" & rut)
     End Sub
 
-    Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
-        Response.Redirect("TiendasEspacioUrbano.aspx")
-    End Sub
-
-    Protected Sub Button4_Click(sender As Object, e As System.EventArgs) Handles Button4.Click
+    Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
         If Session("rut_pro") = "" Then
             Response.Redirect("Default.aspx")
             Exit Sub
@@ -181,19 +139,20 @@ Partial Class FichaContratista
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
-                            sql = "insert Into trabajadores_tienda_m(id_condominio, id_contratista, rut, nombre, apellido, telefono, funcion, empresa, CDT, CAFP, AFC, INP, CCAF, estado, updates, deleted) Values('" & Session("idcond_pro") & "','" & Session("id_contratista") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1','2','1')"
+                            sql = "insert Into tiendas_m(id_mall,rut,nombre,contacto,telefono,email,pass,D1,D2,D3,D4,D5,estado) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1')"
                             comm = New OdbcCommand(sql, conn)
                             dr = comm.ExecuteReader()
 
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("TiendaEspacioUrbano.aspx?rut=" & Request.QueryString("rut"))
+                            Response.Redirect("TiendasGlink.aspx")
                         End If
                     End If
                 End If
             End If
         End If
+
     End Sub
     Public Sub separa_Rut(ByVal cedula As String)
         Try
@@ -276,4 +235,65 @@ Partial Class FichaContratista
         va = DVRUT1
         Return va
     End Function
+
+    Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
+
+        Dim dt As New DataTable()
+        dt.Clear()
+        GridView1.DataSource = dt
+
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "' and nombre Like '%" & TextBox5.Text() & "%'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        I = 0
+        Dim D1, D2, D3, D4, D5 As String
+
+        dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
+
+        While (dr.Read())
+            If dr.GetValue(8).ToString() = "no" Then
+                D1 = "A"
+            Else
+                D1 = "P"
+            End If
+            If dr.GetValue(9).ToString() = "no" Then
+                D2 = "A"
+            Else
+                D2 = "P"
+            End If
+            If dr.GetValue(10).ToString() = "no" Then
+                D3 = "A"
+            Else
+                D3 = "P"
+            End If
+            If dr.GetValue(11).ToString() = "no" Then
+                D4 = "A"
+            Else
+                D4 = "P"
+            End If
+            If dr.GetValue(12).ToString() = "no" Then
+                D5 = "A"
+            Else
+                D5 = "P"
+            End If
+
+            dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5, dr.GetValue(13).ToString())
+        End While
+
+        GridView1.DataSource = dt
+        GridView1.DataBind()
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+        dt.Clear()
+
+    End Sub
 End Class

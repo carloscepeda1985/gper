@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterEspacioUrbano.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="frm_nuevoEspacioUrbano.aspx.vb" Inherits="frm_nuevo" Title="Glink" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGlink.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="frm_nuevoGlink.aspx.vb" Inherits="frm_nuevo" Title="Glink" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -27,8 +27,8 @@ color: #fff;
 <style type="text/css">
     .btn-sample {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -37,14 +37,14 @@ color: #fff;
 .btn-sample.active,
 .open .dropdown-toggle.btn-sample {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
  .btn-info {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -53,16 +53,16 @@ color: #fff;
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
 
  .btn-primary {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -71,16 +71,16 @@ color: #fff;
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
 
  .btn-warning {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -89,16 +89,16 @@ color: #fff;
 .btn-warning.active,
 .open .dropdown-toggle.btn-warning {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
 
  .btn-danger {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -107,8 +107,8 @@ color: #fff;
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -116,8 +116,8 @@ color: #fff;
 
  .btn-success {
  color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -126,8 +126,8 @@ color: #fff;
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: #FFFFFF;
-  background-color: #f4841a;
-  border-color: #f4841a;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 

@@ -34,7 +34,7 @@ Partial Class FichaContratista
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
-            sql2 = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where rut = '" & Request.QueryString("rut") & "'"
+            sql2 = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where rut = '" & Request.QueryString("rut") & "'"
             comm2 = New OdbcCommand(sql2, conn2)
             dr2 = comm2.ExecuteReader()
 
@@ -64,7 +64,7 @@ Partial Class FichaContratista
 
                 conn = New OdbcConnection(conector)
                 conn.Open()
-                sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
+                sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
                 I = 0
@@ -133,11 +133,11 @@ Partial Class FichaContratista
 
         dato = GridView1.Rows(x).Cells(1).Text
 
-        Response.Redirect("EditarTrabajadorTiendaEspacioUrbano.aspx?dato=" + dato + "&rut=" + Request.QueryString("rut"))
+        Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + dato + "&rut=" + Request.QueryString("rut"))
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
-        Response.Redirect("TiendasEspacioUrbano.aspx")
+        Response.Redirect("ContratistasGlink.aspx")
     End Sub
 
     Protected Sub Button4_Click(sender As Object, e As System.EventArgs) Handles Button4.Click
@@ -181,14 +181,14 @@ Partial Class FichaContratista
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
-                            sql = "insert Into trabajadores_tienda_m(id_condominio, id_contratista, rut, nombre, apellido, telefono, funcion, empresa, CDT, CAFP, AFC, INP, CCAF, estado, updates, deleted) Values('" & Session("idcond_pro") & "','" & Session("id_contratista") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1','2','1')"
+                            sql = "insert Into trabajadores_contratista_m(id_condominio, id_contratista, rut, nombre, apellido, telefono, funcion, empresa, CDT, CAFP, AFC, INP, CCAF, estado, updates, deleted) Values('" & Session("idcond_pro") & "','" & Session("id_contratista") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1','2','1')"
                             comm = New OdbcCommand(sql, conn)
                             dr = comm.ExecuteReader()
 
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("TiendaEspacioUrbano.aspx?rut=" & Request.QueryString("rut"))
+                            Response.Redirect("ContratistaGlink.aspx?rut=" & Request.QueryString("rut"))
                         End If
                     End If
                 End If

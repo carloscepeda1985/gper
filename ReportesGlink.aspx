@@ -1,9 +1,18 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGlink.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="AdmGlink.aspx.vb" Inherits="AdmGper" Title="Glink" %>
-
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGlink.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="ReportesGlink.aspx.vb" Inherits="ReportesGper" Title="Glink" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+		<Scripts>
+			<%--Needed for JavaScript IntelliSense in VS2010--%>
+			<%--For VS2008 replace RadScriptManager with ScriptManager--%>
+			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+			<asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+		</Scripts>
+	</telerik:RadScriptManager>
     
 	<script type="text/javascript">
 	    //Put your JavaScript code here.
@@ -11,24 +20,18 @@
 	
 
 <style>
-
-body
-{
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    color: #444444;
-    font-size: 9pt;
-    background-color: #FAFAFA;
-}
 .bar
 {
 list-style-type:none;
 height:38px;
-background-image: -webkit-linear-gradient(top,#01203c 0,#01203c 0%);
-background-image: linear-gradient(to bottom,#01203c 0,#01203c 0%);
+background-image: -webkit-linear-gradient(top,#01203c  0,#01203c  0%);
+background-image: linear-gradient(to bottom,#01203c  0,#01203c  0%);
 font-size:40px;
+font: 26px Tahoma, Verdana, Arial, sans-serif;
 border-radius:4px;
 margin-bottom:11px;
 }
+
 e.letracolor{
 padding-left:20px;
 color: #fff;
@@ -40,8 +43,8 @@ color: #fff;
 <style type="text/css">
     .btn-sample {
  color: #FFFFFF;
-  background-color: #123740;
-  border-color: #123740;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -50,8 +53,8 @@ color: #fff;
 .btn-sample.active,
 .open .dropdown-toggle.btn-sample {
   color: #FFFFFF;
-  background-color: #72CFBF;
-  border-color: #123740;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
  .btn-info {
@@ -63,7 +66,8 @@ color: #fff;
 
 .btn-info:focus,
 .btn-info:active,
-.btn-info.active {
+.btn-info.active,
+.open .dropdown-toggle.btn-info {
   color: #FFFFFF;
   background-color: #0559a2;
   border-color: #0559a2;
@@ -162,14 +166,14 @@ fieldset[disabled] .btn-sample:active,
 .btn-sample[disabled].active,
 fieldset[disabled] .btn-sample.active {
  color: #FFFFFF;
-  background-color: #72CFBF;
-  border-color: #3BBFA5;
+  background-color: #f4841a;
+  border-color: #f4841a;
 }
 
 .btn-sample .badge {
  color: #FFFFFF;
-  background-color: #72CFBF;
-  border-color: #3BBFA5;
+  background-color: #f4841a;
+  border-color: #f4841a;
 }
      .nuevoEstilo1
      {
@@ -219,13 +223,77 @@ fieldset[disabled] .btn-sample.active {
 
  </style>
 
-   <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="media">
-                <ul class="nav nav-pills nav-stacked" background="#E9801E">
+    <div class="col-md-9">
+    <div class="bar">
 
-                    <li><a href="SolicitudesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+    <e class="letracolor"><span class="glyphicon2 glyphicon-dashboard" style="color:white"></span>&nbsp;Reportes</e>
+    
+    </div>
+
+
+     <div class="widget-box transparent">
+			<div class="widget-header widget-header-small">
+				<h4 class="widget-title smaller">
+					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+					Trabajos del día
+					</h4>
+			</div>
+
+						
+    <div class="table-responsive">
+        <asp:GridView ID="GridView1" runat="server" Width="100%" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6" >
+            <Columns>
+                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
+            </Columns>
+            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+        </asp:GridView>
+    </div>
+
+	</div>
+
+
+     <div class="widget-box transparent">
+			<div class="widget-header widget-header-small">
+				<h4 class="widget-title smaller">
+					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+					Accesos del día
+					</h4>
+			</div>
+
+						
+    <div class="table-responsive">
+        <asp:GridView ID="GridView2" runat="server" Width="100%" 
+            CssClass="table table-bordered bs-table"  AllowPaging="True" PageSize="6" >
+            <Columns>
+                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
+            </Columns>
+            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+        </asp:GridView>
+    </div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+   </div>
+
+    <div class="col-md-3">
+
+
+     <ul class="nav nav-pills nav-stacked" background="#E9801E">
+
+                   <li><a href="AdmGlink.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+                       <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
+                   <li><a href="SolicitudesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
                    <li><a href="TiendasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Tiendas</span></a></li>
@@ -234,27 +302,9 @@ fieldset[disabled] .btn-sample.active {
                     <li><a href="EquiposGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
                    <li><a href="ReportesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>  
-                </ul>               
-              </div>
-              <hr/>
-            </div>
-            <div class="col-md-4">
-              <div class="well" style="background-color: #103b65;">
-                    <font color="white";><center><h4>Tu Perfil</h4></center>
-                    <div class="input-group">
-                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span> &nbsp    Nombres:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>  &nbsp   Apellidos :   <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-envelope"></span> &nbsp    Email    :   <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone"></span> &nbsp    Teléfono    :   <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span> &nbsp    Cargo   :   <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h5>
-                    <h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-home"></span>  &nbsp   Depto.   :   <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></h5>
-                       <br/>
-                    </font>
-               </div>
-                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-danger" width="80%" /></center>
-             </div>
-           </div>
-         </div>
-  
+                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>
+               </ul>
+				   
+    </div>
+
 </asp:Content>

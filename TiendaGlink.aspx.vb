@@ -133,11 +133,11 @@ Partial Class FichaContratista
 
         dato = GridView1.Rows(x).Cells(1).Text
 
-        Response.Redirect("EditarTrabajadorTiendaEspacioUrbano.aspx?dato=" + dato + "&rut=" + Request.QueryString("rut"))
+        Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + dato + "&rut=" + Request.QueryString("rut"))
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
-        Response.Redirect("TiendasEspacioUrbano.aspx")
+        Response.Redirect("TiendasGlink.aspx")
     End Sub
 
     Protected Sub Button4_Click(sender As Object, e As System.EventArgs) Handles Button4.Click
@@ -188,7 +188,7 @@ Partial Class FichaContratista
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("TiendaEspacioUrbano.aspx?rut=" & Request.QueryString("rut"))
+                            Response.Redirect("TiendaGlink.aspx?rut=" & Request.QueryString("rut"))
                         End If
                     End If
                 End If

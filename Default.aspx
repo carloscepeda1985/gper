@@ -312,10 +312,10 @@
 								</div>-->
 								<div class="plan-features">
 									<ul>
-										<li>-</li>
-										<li>-</li>
-										<li>-</li>
-										<li>-</li>
+										<p  class="mb-0" style="text-align: justify;">Esta solución está enfocada en establecimientos con una alta demanda (High Demand
+Facilities HDF) de solicitudes de terceros, dónde la velocidad de chequeo y control sobre
+éstos es clave. Dentro de esta categoría aplican shopping malls, aeropuertos o centros
+logísticos de gran envergadura.</p>
 									</ul>
 								</div>
 								<div class="plan-footer rounded-bottom">
@@ -331,10 +331,10 @@
 
 								<div class="plan-features">
 									<ul>
-										<li>-</li>
-										<li>-</li>
-										<li>-</li>
-										<li>-</li>
+										<p  class="mb-0" style="text-align: justify;">El enfoque de esta solución son establecimientos con una demanda media (Mid Demand
+Facilities MDF) de solicitudes de terceros ya sea por el menor número de tiendas o un
+número menor de tipos de terceros involucrados en la operación. Dentro de esta categoría
+aplican strip centers, galerías cerradas, hoteles o casinos.</p>
 									</ul>
 								</div>
 								<div class="plan-footer rounded-bottom">
@@ -350,10 +350,10 @@
 
 								<div class="plan-features">
 									<ul>
-										<li>-</li>
-										<li>-</li>
-										<li>-</li>
-										<li>-</li>
+										<p  class="mb-0" style="text-align: justify;">La más simple de nuestras soluciones está enfocada en tiendas únicas de alto flujo
+pertenecientes cadenas cuyo departamento de operaciones busca tener un control más
+cercano y estandarizado del acceso de terceros. Dentro de esta categoría convenience
+stores, farmacias, colegios, entre otros.</p>
 									</ul>
 								</div>
 								<div class="plan-footer rounded-bottom">

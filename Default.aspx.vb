@@ -97,20 +97,87 @@ Partial Class _Default
 
             If (dr.Read()) Then
 
+                If dr.GetValue(1).ToString() = "1" Then
 
-                Session("id_contratista") = dr.GetValue(0).ToString()
-                Session("id_mall") = dr.GetValue(1).ToString()
-                Session("rut_contratista") = dr.GetValue(2).ToString()
-                Session("nombre_contratista") = dr.GetValue(3).ToString()
-                Session("contacto_contratista") = dr.GetValue(4).ToString()
-                Session("telefono_contratista") = dr.GetValue(5).ToString()
-                Session("email_contratista") = dr.GetValue(6).ToString()
-                Session.Timeout = 50
+                    Session("id_contratista") = dr.GetValue(0).ToString()
+                    Session("id_mall") = dr.GetValue(1).ToString()
+                    Session("rut_contratista") = dr.GetValue(2).ToString()
+                    Session("nombre_contratista") = dr.GetValue(3).ToString()
+                    Session("contacto_contratista") = dr.GetValue(4).ToString()
+                    Session("telefono_contratista") = dr.GetValue(5).ToString()
+                    Session("email_contratista") = dr.GetValue(6).ToString()
+                    Session.Timeout = 50
 
-                Response.Redirect("ConEspacioUrbano.aspx")
+                    Response.Redirect("ConGlink.aspx")
+
+                End If
+
+                If dr.GetValue(1).ToString() = "2" Then
+
+                    Session("id_contratista") = dr.GetValue(0).ToString()
+                    Session("id_mall") = dr.GetValue(1).ToString()
+                    Session("rut_contratista") = dr.GetValue(2).ToString()
+                    Session("nombre_contratista") = dr.GetValue(3).ToString()
+                    Session("contacto_contratista") = dr.GetValue(4).ToString()
+                    Session("telefono_contratista") = dr.GetValue(5).ToString()
+                    Session("email_contratista") = dr.GetValue(6).ToString()
+                    Session.Timeout = 50
+
+                    Response.Redirect("ConEspacioUrbano.aspx")
+
+                End If
 
             Else
-                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+
+                conn.Close()
+                dr.Close()
+
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
+
+                conn = New OdbcConnection(conector)
+                conn.Open()
+                sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email FROM tiendas_m where email = '" & TextBox1.Text & "' and pass = '" & TextBox2.Text & "' and estado = '1'"
+                comm = New OdbcCommand(sql, conn)
+                dr = comm.ExecuteReader()
+
+                If (dr.Read()) Then
+
+                    If dr.GetValue(1).ToString() = "1" Then
+
+                        Session("id_contratista") = dr.GetValue(0).ToString()
+                        Session("id_mall") = dr.GetValue(1).ToString()
+                        Session("rut_contratista") = dr.GetValue(2).ToString()
+                        Session("nombre_contratista") = dr.GetValue(3).ToString()
+                        Session("contacto_contratista") = dr.GetValue(4).ToString()
+                        Session("telefono_contratista") = dr.GetValue(5).ToString()
+                        Session("email_contratista") = dr.GetValue(6).ToString()
+                        Session.Timeout = 50
+
+                        Response.Redirect("TieGlink.aspx")
+
+                    End If
+
+                    If dr.GetValue(1).ToString() = "2" Then
+
+                        Session("id_contratista") = dr.GetValue(0).ToString()
+                        Session("id_mall") = dr.GetValue(1).ToString()
+                        Session("rut_contratista") = dr.GetValue(2).ToString()
+                        Session("nombre_contratista") = dr.GetValue(3).ToString()
+                        Session("contacto_contratista") = dr.GetValue(4).ToString()
+                        Session("telefono_contratista") = dr.GetValue(5).ToString()
+                        Session("email_contratista") = dr.GetValue(6).ToString()
+                        Session.Timeout = 50
+
+                        Response.Redirect("TieEspacioUrbano.aspx")
+
+                    End If
+
+                Else
+                    ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+                End If
+
             End If
 
             conn.Close()
