@@ -219,13 +219,13 @@ fieldset[disabled] .btn-sample.active {
 
                      
 
-                    <li><a href="CrearSolicitudEspacioUrbano.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
+                    <li><a href="CrearSolicitudConGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>
 
-                    <li><a href="SolicitudesConEspacioUrbano.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                    <li><a href="SolicitudesConGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
 
-                   <li><a href="TrabajadoresConEspacioUrbano.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+                   <li><a href="TrabajadoresConGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
          
                 </ul>               

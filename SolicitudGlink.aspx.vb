@@ -145,46 +145,109 @@ Partial Class SolicitudGper
                 sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and rut='" & dr2.GetValue(0).ToString() & "'"
                 comm = New OdbcCommand(sql, conn)
                 dr = comm.ExecuteReader()
-                I = 0
 
                 If (dr.Read()) Then
-                    If dr.GetValue(5).ToString() = "no" Then
-                        CDT = "A"
-                    Else
-                        CDT = "P"
-                    End If
-                    If dr.GetValue(6).ToString() = "no" Then
-                        CAFP = "A"
-                    Else
-                        CAFP = "P"
-                    End If
-                    If dr.GetValue(7).ToString() = "no" Then
-                        AFC = "A"
-                    Else
-                        AFC = "P"
-                    End If
-                    If dr.GetValue(8).ToString() = "no" Then
-                        INP = "A"
-                    Else
-                        INP = "P"
-                    End If
-                    If dr.GetValue(9).ToString() = "no" Then
-                        CCAF = "A"
-                    Else
-                        CCAF = "P"
+                    I = 0
+
+                    If (dr.Read()) Then
+                        If dr.GetValue(5).ToString() = "no" Then
+                            CDT = "A"
+                        Else
+                            CDT = "P"
+                        End If
+                        If dr.GetValue(6).ToString() = "no" Then
+                            CAFP = "A"
+                        Else
+                            CAFP = "P"
+                        End If
+                        If dr.GetValue(7).ToString() = "no" Then
+                            AFC = "A"
+                        Else
+                            AFC = "P"
+                        End If
+                        If dr.GetValue(8).ToString() = "no" Then
+                            INP = "A"
+                        Else
+                            INP = "P"
+                        End If
+                        If dr.GetValue(9).ToString() = "no" Then
+                            CCAF = "A"
+                        Else
+                            CCAF = "P"
+                        End If
+
+                        dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
+
                     End If
 
-                    dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
+                    GridView1.DataSource = dt
+                    GridView1.DataBind()
+
+                    conn.Close()
+                    dr.Close()
+                    comm.Dispose()
+                    conn.Dispose()
+
+                Else
+
+                    conn.Close()
+                    dr.Close()
+                    comm.Dispose()
+                    conn.Dispose()
+
+                    conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                    conector += "Database=w230416_glink;User=w230416_glink;"
+                    conector += "Pwd=Gorilla1985;Option=3;"
+
+                    conn = New OdbcConnection(conector)
+                    conn.Open()
+                    sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and rut='" & dr2.GetValue(0).ToString() & "'"
+                    comm = New OdbcCommand(sql, conn)
+                    dr = comm.ExecuteReader()
+
+                    I = 0
+
+                    If (dr.Read()) Then
+                        If dr.GetValue(5).ToString() = "no" Then
+                            CDT = "A"
+                        Else
+                            CDT = "P"
+                        End If
+                        If dr.GetValue(6).ToString() = "no" Then
+                            CAFP = "A"
+                        Else
+                            CAFP = "P"
+                        End If
+                        If dr.GetValue(7).ToString() = "no" Then
+                            AFC = "A"
+                        Else
+                            AFC = "P"
+                        End If
+                        If dr.GetValue(8).ToString() = "no" Then
+                            INP = "A"
+                        Else
+                            INP = "P"
+                        End If
+                        If dr.GetValue(9).ToString() = "no" Then
+                            CCAF = "A"
+                        Else
+                            CCAF = "P"
+                        End If
+
+                        dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
+
+                    End If
+
+                    GridView1.DataSource = dt
+                    GridView1.DataBind()
+
+                    conn.Close()
+                    dr.Close()
+                    comm.Dispose()
+                    conn.Dispose()
+
 
                 End If
-
-                GridView1.DataSource = dt
-                GridView1.DataBind()
-
-                conn.Close()
-                dr.Close()
-                comm.Dispose()
-                conn.Dispose()
 
             End While
 
@@ -198,7 +261,7 @@ Partial Class SolicitudGper
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Response.Redirect("SolicitudesEspacioUrbano.aspx")
+        Response.Redirect("SolicitudesGlink.aspx")
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -216,7 +279,7 @@ Partial Class SolicitudGper
         conn.Close()
         dr.Close()
 
-        Response.Redirect("SolicitudEspacioUrbano.aspx?dato=" + LabelNumero.Text)
+        Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -234,7 +297,7 @@ Partial Class SolicitudGper
         conn.Close()
         dr.Close()
 
-        Response.Redirect("SolicitudEspacioUrbano.aspx?dato=" + LabelNumero.Text)
+        Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
 
     End Sub
 End Class

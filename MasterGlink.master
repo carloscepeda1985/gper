@@ -26,8 +26,8 @@
     
     .btn-info {
  color: #FFFFFF;
-  background-color: #fb7c0d;
-  border-color: #fb7c0d;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
 
 
@@ -35,8 +35,8 @@
 .btn-info:active,
 .btn-info.active {
   color: #FFFFFF;
-  background-color: #fb7c0d;
-  border-color: #fb7c0d;
+  background-color: #0559a2;
+  border-color: #0559a2;
 }
     
 </style>

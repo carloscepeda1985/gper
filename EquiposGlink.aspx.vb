@@ -134,7 +134,7 @@ Partial Class EquiposGper
         tipo = GridView1.Rows(x).Cells(2).Text
         ubicacion = GridView1.Rows(x).Cells(3).Text
         instalacion = GridView1.Rows(x).Cells(4).Text
-        Response.Redirect("FichaAlc.aspx?id=" & id & "&tipo=" & tipo & "&ubicacion=" & ubicacion & "&instalacion=" & instalacion)
+        Response.Redirect("FichaEquipoGlink.aspx?id=" & id & "&tipo=" & tipo & "&ubicacion=" & ubicacion & "&instalacion=" & instalacion)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
@@ -198,7 +198,7 @@ Partial Class EquiposGper
         comm2.Dispose()
         conn2.Dispose()
 
-        Response.Redirect("EquiposGper.aspx")
+        Response.Redirect("EquiposGlink.aspx")
 
     End Sub
 
