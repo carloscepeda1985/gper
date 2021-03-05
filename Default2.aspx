@@ -28,7 +28,7 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/ico/Logo-Gper-2.png">
+        <link rel="shortcut icon" href="assets/ico/Logo-Gper-2(cambiar).png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -72,12 +72,12 @@
 <asp:Button ID="Button1" runat="server" Text="Ingresar" cssclass="btn btn-primary btn-lg btn-block"/>
 			                      
                 <br/>
-                  <center> <img src="explor-k.png"> </center>
+                  <center> <img src="Logo_Glink.png"> </center>
 
           
           <br/>
-                   <center><h5><span class="glyphicon glyphicon-earphone"></span>  (+56) 98281 2431</h5>
-                   <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@gper.cl<asp:Label 
+                   <center>
+                   <h5><span class="glyphicon glyphicon-envelope"></span>   soporte@glink.cl<asp:Label 
                            ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                        </h5></center>
                    </form>

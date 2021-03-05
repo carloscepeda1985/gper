@@ -58,7 +58,7 @@ Partial Class Default2
                     Cooki.Expires = exp
                     Response.Cookies.Add(Cooki)
                     Session("rut") = dr.GetValue(1).ToString()
-                    Response.Redirect("ChecklistGper.aspx?rut=" + rut + "&codigo=" + Request.QueryString("codigo"))
+                    Response.Redirect("ChecklistGlink.aspx?rut=" + rut + "&codigo=" + Request.QueryString("codigo"))
                 End If
             Else
                 ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut o Clave No Coinciden');", True)
