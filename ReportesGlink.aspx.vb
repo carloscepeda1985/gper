@@ -180,7 +180,7 @@ Partial Class ReportesGper
         porcentaje = GridView1.Rows(x).Cells(4).Text
         comentario = GridView1.Rows(x).Cells(5).Text
 
-        Response.Redirect("HomeCheck.aspx?id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
+        Response.Redirect("HomeCheckGlink.aspx?id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
     End Sub
 
 

@@ -139,7 +139,7 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -172,7 +172,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -211,7 +211,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -244,7 +244,7 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
@@ -276,7 +276,7 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
@@ -338,6 +338,6 @@ Partial Class EditarTrabajadorContratista
         conn.Close()
         dr.Close()
 
-        Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+        Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
     End Sub
 End Class

@@ -139,7 +139,7 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorConGlink.aspx?dato=" + Request.QueryString("dato"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -172,7 +172,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorConGlink.aspx?dato=" + Request.QueryString("dato"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -211,7 +211,7 @@ Partial Class EditarTrabajadorContratista
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorConGlink.aspx?dato=" + Request.QueryString("dato"))
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
@@ -244,7 +244,7 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorConGlink.aspx?dato=" + Request.QueryString("dato"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
@@ -276,7 +276,7 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+                Response.Redirect("EditarTrabajadorConGlink.aspx?dato=" + Request.QueryString("dato"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
@@ -286,7 +286,7 @@ Partial Class EditarTrabajadorContratista
     End Sub
 
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
-        If Session("rut_pro") = "" Then
+        If Session("rut_contratista") = "" Then
             Response.Redirect("Default.aspx")
             Exit Sub
         End If
@@ -338,6 +338,6 @@ Partial Class EditarTrabajadorContratista
         conn.Close()
         dr.Close()
 
-        Response.Redirect("EditarTrabajadorContratistaGlink.aspx?dato=" + Request.QueryString("dato"))
+        Response.Redirect("EditarTrabajadorConGlink.aspx?dato=" + Request.QueryString("dato"))
     End Sub
 End Class

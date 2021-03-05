@@ -82,9 +82,23 @@ Partial Class CrearSolicitudGper
         conector += "Database=w230416_glink;User=w230416_glink;"
         conector += "Pwd=Gorilla1985;Option=3;"
 
+        Dim fecha_ini, fecha_dia, fecha_mes, fecha_ano, fecha_fin As String
+
+        fecha_dia = Mid(Hfecini.Value, 1, 2)
+        fecha_mes = Mid(Hfecini.Value, 4, 2)
+        fecha_ano = Mid(Hfecini.Value, 7, 4)
+
+        fecha_ini = fecha_mes + "-" + fecha_dia + "-" + fecha_ano
+
+        fecha_dia = Mid(Hfecfin.Value, 1, 2)
+        fecha_mes = Mid(Hfecfin.Value, 4, 2)
+        fecha_ano = Mid(Hfecfin.Value, 7, 4)
+
+        fecha_fin = fecha_mes + "-" + fecha_dia + "-" + fecha_ano
+
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "UPDATE solicitud_m set id_encargado= '" & Hrutenc.Value & "',empresa_contratista='" & Hempcon.Value & "',resumen_trabajo='" & Hrestra.Value & "',lugar='" & Hlug.Value & "',fecha_inicio='" & Hfecini.Value & "',fecha_fin='" & Hfecfin.Value & "',hora_entrada='" & Hhorent.Value & "',duracion='" & Hdur.Value & "',telefono_emergencia='" & Hteleme.Value & "',email='" & Hema.Value & "', estado='0' WHERE id='" & Label9.Text & "'"
+        sql = "UPDATE solicitud_m set id_encargado= '" & Hrutenc.Value & "',empresa_contratista='" & Hempcon.Value & "',resumen_trabajo='" & Hrestra.Value & "',lugar='" & Hlug.Value & "',fecha_inicio='" & fecha_ini & "',fecha_fin='" & fecha_fin & "',hora_entrada='" & Hhorent.Value & "',duracion='" & Hdur.Value & "',telefono_emergencia='" & Hteleme.Value & "',email='" & Hema.Value & "', estado='0' WHERE id='" & Label9.Text & "'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
 

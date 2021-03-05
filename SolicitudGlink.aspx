@@ -232,7 +232,7 @@ color: #fff;
 										<div class="col-md-9">
 											 <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        <telerik:RadDatePicker ID="RadDatePicker2" runat="server" DateInput-Font-Size="12" Skin="Metro" Style="float:left" ></telerik:RadDatePicker>
+        <telerik:RadDatePicker ID="RadDatePicker2" runat="server" DateInput-Font-Size="12" Skin="Metro" Style="float:left" lang="en"></telerik:RadDatePicker>
  
    </div>
 										</div>
@@ -243,7 +243,7 @@ color: #fff;
 										<div class="col-md-9">
 											 <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-        <telerik:RadDatePicker ID="RadDatePicker1" runat="server" DateInput-Font-Size="12" Skin="Metro" Style="float:left" ></telerik:RadDatePicker>
+        <telerik:RadDatePicker ID="RadDatePicker1" runat="server" DateInput-Font-Size="12" Skin="Metro" Style="float:left" lang="en"></telerik:RadDatePicker>
  
    </div>
 										</div>

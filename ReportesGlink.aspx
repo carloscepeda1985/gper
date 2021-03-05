@@ -235,7 +235,7 @@ fieldset[disabled] .btn-sample.active {
 			<div class="widget-header widget-header-small">
 				<h4 class="widget-title smaller">
 					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-					Trabajos del día
+					Últimos Checklists 
 					</h4>
 			</div>
 

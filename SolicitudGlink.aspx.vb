@@ -149,36 +149,34 @@ Partial Class SolicitudGper
                 If (dr.Read()) Then
                     I = 0
 
-                    If (dr.Read()) Then
-                        If dr.GetValue(5).ToString() = "no" Then
-                            CDT = "A"
-                        Else
-                            CDT = "P"
-                        End If
-                        If dr.GetValue(6).ToString() = "no" Then
-                            CAFP = "A"
-                        Else
-                            CAFP = "P"
-                        End If
-                        If dr.GetValue(7).ToString() = "no" Then
-                            AFC = "A"
-                        Else
-                            AFC = "P"
-                        End If
-                        If dr.GetValue(8).ToString() = "no" Then
-                            INP = "A"
-                        Else
-                            INP = "P"
-                        End If
-                        If dr.GetValue(9).ToString() = "no" Then
-                            CCAF = "A"
-                        Else
-                            CCAF = "P"
-                        End If
 
-                        dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
-
+                    If dr.GetValue(5).ToString() = "no" Then
+                        CDT = "A"
+                    Else
+                        CDT = "P"
                     End If
+                    If dr.GetValue(6).ToString() = "no" Then
+                        CAFP = "A"
+                    Else
+                        CAFP = "P"
+                    End If
+                    If dr.GetValue(7).ToString() = "no" Then
+                        AFC = "A"
+                    Else
+                        AFC = "P"
+                    End If
+                    If dr.GetValue(8).ToString() = "no" Then
+                        INP = "A"
+                    Else
+                        INP = "P"
+                    End If
+                    If dr.GetValue(9).ToString() = "no" Then
+                        CCAF = "A"
+                    Else
+                        CCAF = "P"
+                    End If
+
+                    dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
 
                     GridView1.DataSource = dt
                     GridView1.DataBind()

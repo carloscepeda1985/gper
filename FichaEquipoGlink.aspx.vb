@@ -237,7 +237,7 @@ Partial Class FichaAlc
         porcentaje = GridView1.Rows(x).Cells(4).Text
         comentario = GridView1.Rows(x).Cells(5).Text
 
-        Response.Redirect("HomeCheck.aspx?desde=ficha&id_equipo=" + Request.QueryString("id") + "&tipo=" + Request.QueryString("tipo") + "&ubicacion=" + Request.QueryString("ubicacion") + "&instalacion=" + Request.QueryString("instalacion") + "&id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
+        Response.Redirect("HomeCheckGlink.aspx?desde=ficha&id_equipo=" + Request.QueryString("id") + "&tipo=" + Request.QueryString("tipo") + "&ubicacion=" + Request.QueryString("ubicacion") + "&instalacion=" + Request.QueryString("instalacion") + "&id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
@@ -263,7 +263,7 @@ Partial Class FichaAlc
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("FichaAlc.aspx?id=" & Request.QueryString("id") & "&tipo=" & Request.QueryString("tipo") & "&ubicacion=" & Request.QueryString("ubicacion") & "&instalacion=" & Request.QueryString("instalacion"))
+                Response.Redirect("FichaEquipoGlink.aspx?id=" & Request.QueryString("id") & "&tipo=" & Request.QueryString("tipo") & "&ubicacion=" & Request.QueryString("ubicacion") & "&instalacion=" & Request.QueryString("instalacion"))
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
