@@ -75,6 +75,11 @@ Partial Class HomeCheck
 
             End If
 
+            conn2.Close()
+            dr2.Close()
+            comm2.Dispose()
+            conn2.Dispose()
+
         End While
 
         GridView1.DataSource = dt
