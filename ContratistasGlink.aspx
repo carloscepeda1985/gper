@@ -252,6 +252,13 @@ fieldset[disabled] .btn-sample.active {
           Teléfono:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
           Email:<asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
           Contraseña:<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+          Contraseña:<asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox><br />
+          Seleccione los documentos <br/><br/>
+          <asp:CheckBox ID="CheckBox1" runat="server" />  CONT - Contrato&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <asp:CheckBox ID="CheckBox2" runat="server" /> EXPR - Exámenes Preocupasionsles<br/>
+          <asp:CheckBox ID="CheckBox3" runat="server" /> ALGF - Altura Geográfica&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <asp:CheckBox ID="CheckBox4" runat="server" />  ODI - Explicación sigla<br />
+          <asp:CheckBox ID="CheckBox5" runat="server" />  PSIC - Psicosensometrico:
           <br/>
           </p>
          
@@ -286,25 +293,25 @@ fieldset[disabled] .btn-sample.active {
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="CPHS" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="EXPR" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D2").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="TRAL" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="ALGF" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D3").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="CRSO" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="ODI" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D4").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="TECE" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <asp:TemplateField HeaderText="PSIC" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("D5").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
