@@ -175,7 +175,7 @@ color: #fff;
 							<div class="panel-group accordion" id="accordion1">
 								<div class="panel panel-default" >
 									 <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
-									<div class="panel-heading"; style="background-color:#a9a2a6";>
+									<div class="panel-heading"; style="background-color:#185189";>
                               
                                   		<h4 class="panel-title" style="color:white; text-decoration:none">
 		
@@ -359,7 +359,7 @@ color: #fff;
 								</div>
 								<div class="panel panel-default">
                                 <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
-									<div class="panel-heading"; style="background-color:#a9a2a6";>
+									<div class="panel-heading"; style="background-color:#185189";>
                               
                                   		<h4 class="panel-title" style="color:white;text-decoration: none;">
 		
@@ -468,7 +468,7 @@ color: #fff;
 
 								<div class="panel panel-default">
 									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_3">
-									<div class="panel-heading"; style="background-color:#a9a2a6";>
+									<div class="panel-heading"; style="background-color:#185189";>
                               
                                   		<h4 class="panel-title" style="color:white">
 		
@@ -521,7 +521,7 @@ color: #fff;
             </asp:TemplateField>
 
     </Columns>
-            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+            <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
  </div>
 </div>
@@ -531,7 +531,7 @@ color: #fff;
 
                                 <div class="panel panel-default">
 									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
-									<div class="panel-heading"; style="background-color:#a9a2a6";>
+									<div class="panel-heading"; style="background-color:#185189";>
                               
                                   		<h4 class="panel-title" style="color:white">
 		
@@ -596,7 +596,7 @@ color: #fff;
                                 
 								<div class="panel panel-default">
 									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_5">
-									<div class="panel-heading"; style="background-color:#a9a2a6";>
+									<div class="panel-heading"; style="background-color:#185189";>
                               
                                   		<h4 class="panel-title" style="color:white">
 		

@@ -1779,7 +1779,7 @@ fieldset[disabled] .btn-sample.active {
             </asp:TemplateField>
 
     </Columns>
-            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+            <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
  </div>
 
