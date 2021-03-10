@@ -67,7 +67,7 @@
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo">
-										<a href="index.html">
+										<a href="https://glink.cl">
 											<img alt="Glink" width="120" height="115" data-sticky-width="60" data-sticky-height="60" src="img/iconos/logo/logoglink.png">
 										</a>
 									</div>
@@ -200,7 +200,7 @@
 										</div>
 										<div class="feature-box-info">
 											<h4 class="font-weight-bold mb-2">Estandarización de Procesos</h4>
-											<p class="mb-0"style="text-align: justify;">Visibilidad estandarizada de todos los recintos de su empresa.</p>
+											<p class="mb-0"style="text-align: justify;">El ingreso de terceros a tus recintos tendrá claras pautas de ejecución, eliminando factores subjetivos y errores humanos.</p>
 										</div>
 									</div>
 								</div>
@@ -225,7 +225,7 @@
 										</div>
 										<div class="feature-box-info">
 											<h4 class="font-weight-bold mb-2">Transformación Digital</h4>
-											<p class="mb-0">La implementación de tecnología es clave para imagen corporativa de su empresa.</p>
+											<p class="mb-0"style="text-align: justify;">La adopción de tecnología digital para el reemplazo de actividades manuales es proceso clave para nuevos estandares de eficiencia en su empresa.</p>
 										</div>
 									</div>
 								</div>
@@ -297,14 +297,11 @@
 					</div>
 
 					<div class="pricing-table mb-4">
-						<div class="col-md-6 col-lg-2">
-							<div class="plan appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="650">
 
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-3">
+		
+						<div class="col-md-6 col-lg-4">
 							<div class="plan appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="850">
-								<div class="plan-header bg-primary rounded-top">
+								<div class="plan-header bg-gplus rounded-top">
 									<h3>Glink Plus</h3>
 								</div>
 								<!--<div class="plan-price">
@@ -312,10 +309,14 @@
 								</div>-->
 								<div class="plan-features">
 									<ul>
-										<p  class="mb-0" style="text-align: justify;">Esta solución está enfocada en establecimientos con una alta demanda (High Demand
-Facilities HDF) de solicitudes de terceros, dónde la velocidad de chequeo y control sobre
-éstos es clave. Dentro de esta categoría aplican shopping malls, aeropuertos o centros
-logísticos de gran envergadura.</p>
+
+										<li  class="mb-0" style="text-align: justify;">Enfocado para recintos que tienen un flujo alto de ingreso de terceros.</li>
+
+										<li  class="mb-0" style="text-align: justify;">Reportes Standard + AdHoc.</li>
+										<li  class="mb-0" style="text-align: justify;">Incluye horas adicionales de desarrollo.</li>
+										<li  class="mb-0" style="text-align: justify;">Funcionamiento con PAD.</li>
+										<li  class="mb-0" style="text-align: justify;">Storage Ilimitado.</li>
+
 									</ul>
 								</div>
 								<div class="plan-footer rounded-bottom">
@@ -323,37 +324,45 @@ logísticos de gran envergadura.</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-lg-3 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1050">
-							<div class="plan plan-featured custom-plan-featured-style-1">
-								<div class="plan-header bg-primary rounded-top">
+						<div class="col-md-6 col-lg-4">
+							<div class="plan appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="850">
+								<div class="plan-header bg-gmid rounded-top">
 									<h3>Glink Mid</h3>
 								</div>
-
+								<!--<div class="plan-price">
+									<span class="price"><span class="price-unit">$</span>29</span>
+								</div>-->
 								<div class="plan-features">
 									<ul>
-										<p  class="mb-0" style="text-align: justify;">El enfoque de esta solución son establecimientos con una demanda media (Mid Demand
-Facilities MDF) de solicitudes de terceros ya sea por el menor número de tiendas o un
-número menor de tipos de terceros involucrados en la operación. Dentro de esta categoría
-aplican strip centers, galerías cerradas, hoteles o casinos.</p>
+
+										<li  class="mb-0" style="text-align: justify;">Solución que se ajusta a recintos con un flujo medio de ingreso de terceros.</li>
+
+										<li  class="mb-0" style="text-align: justify;">Reportes Standard.</li>
+										<li  class="mb-0" style="text-align: justify;">Horas extra de desarrollo opcional.</li>
+										<li  class="mb-0" style="text-align: justify;">Funcionamiento con PAD.</li>
+                                        </br></br>
 									</ul>
 								</div>
 								<div class="plan-footer rounded-bottom">
-									<a href="#demo-form" class="popup-with-form btn btn-primary btn-rounded font-weight-semibold text-2 btn-px-4 btn-py-2">Solicitar</a>
+									<a href="#demo-form" class="popup-with-form btn btn-primary btn-outline btn-rounded font-weight-semibold text-3 btn-px-4 btn-py-2">Solicitar</a>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-lg-3">
+						<div class="col-md-6 col-lg-4">
 							<div class="plan appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1250">
-								<div class="plan-header bg-primary rounded-top">
+								<div class="plan-header bg-gbasic rounded-top">
 									<h3>Glink Basic</h3>
 								</div>
 
 								<div class="plan-features">
 									<ul>
-										<p  class="mb-0" style="text-align: justify;">La más simple de nuestras soluciones está enfocada en tiendas únicas de alto flujo
-pertenecientes cadenas cuyo departamento de operaciones busca tener un control más
-cercano y estandarizado del acceso de terceros. Dentro de esta categoría convenience
-stores, farmacias, colegios, entre otros.</p>
+										<li  class="mb-0" style="text-align: justify;">Para recintos que si bien tienen un flujo bajo de ingreso de terceros, buscan un mayor control sobre éstos.</li>
+
+										<li  class="mb-0" style="text-align: justify;">Reportes Standard.
+										</li>
+										
+									</br></br></br>
+										
 									</ul>
 								</div>
 								<div class="plan-footer rounded-bottom">
@@ -361,6 +370,7 @@ stores, farmacias, colegios, entre otros.</p>
 								</div>
 							</div>
 						</div>
+
 					</div>
 
 				</div>
@@ -434,11 +444,15 @@ stores, farmacias, colegios, entre otros.</p>
 
 			</div> 
 
+
+			<a class="fab" href="https://api.whatsapp.com/send?l=es&amp;phone=+56982812431&amp;text=Contacto desde web glink.cl">
+                <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-icone-1.png" style="width:100px; max-width: 60px; position: fixed; right: 10px; top: 40%; z-index: 999;"></a>
+
 			<footer id="footer" class="mt-0">
 				<div class="container my-4">
 					<div class="row py-5">
 						<div class="col-lg-2 align-self-center mb-5 mb-lg-0">
-							<a href="index.html">
+							<a href="https://glink.cl">
 								<img src="img/iconos/logo/logoglink.png" class="img-fluid" alt="Glink" width="120" />
 							</a>
 						</div>

@@ -123,16 +123,25 @@ Partial Class TiendasGper
             Else
                 If TextBox2.Text = "" Then
                     TextBox2.Focus()
+                    ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Debe ingresar el Nombre');", True)
                     Exit Sub
                 Else
                     If TextBox3.Text = "" Then
                         TextBox3.Focus()
+                        ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Debe ingresar Apellido');", True)
                         Exit Sub
                     Else
                         If TextBox4.Text = "" Then
                             TextBox4.Focus()
+                            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Debe ingresar Teléfono');", True)
                             Exit Sub
                         Else
+
+                            If Not IsNumeric(TextBox4.Text) Or Len(TextBox4.Text) < 8 Or Len(TextBox4.Text) > 12 Then
+                                TextBox4.Focus()
+                                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('El teléfono no es valido');", True)
+                                Exit Sub
+                            End If
                             conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                             conector += "Database=w230416_glink;User=w230416_glink;"
                             conector += "Pwd=Gorilla1985;Option=3;"
@@ -168,6 +177,7 @@ Partial Class TiendasGper
                 ':::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
                 ' rut solo sin digito este valida cuando un rut se ingresa manual
                 Dim v1 As Integer
+                Dim olddg As String
                 dv_p = Mid(pistola, Len(pistola), 1) 'extraigo el digito validador
                 msRutSinDig = Mid(pistola, 1, Len(pistola) - 1) ' rut sin digito validador y guardo el rut, variable global 
                 pr1 = Mid(msRutSinDig, Len(msRutSinDig) - 2, 3) 'rut sin digito, ultimos 3 numeros
@@ -185,8 +195,12 @@ Partial Class TiendasGper
                 ' msRutSinDig = pr3 & pr2 & pr1 'rut sin digito validador
                 ' msRut = pr3 & "." & pr2 & "." & pr1 & "-" & valida_cedula(msRutSinDig) 'rut completo con puntuaciones
                 mRutguion = pr3 & "" & pr2 & "" & pr1 & "-" & dv_p
-                ' dv_p = valida_cedula(msRutSinDig)
-                If dv_p <> valida_cedula(msRutSinDig) Then
+                olddg = dv_p
+                dv_p = valida_cedula(msRutSinDig)
+                If olddg = "k" Then
+                    olddg = "K"
+                End If
+                If dv_p <> olddg Then
                     valRutError = False
                 Else
                     If IsNumeric(CInt(msRutSinDig)) And Len(msRutSinDig) = 8 Or IsNumeric(CInt(msRutSinDig)) And Len(msRutSinDig) = 7 Then
@@ -195,7 +209,8 @@ Partial Class TiendasGper
                         valRutError = False
                     End If
                 End If
-
+            Else
+                valRutError = False
             End If
 
         Catch ex As Exception
