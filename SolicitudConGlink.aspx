@@ -417,7 +417,6 @@ color: #fff;
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -461,7 +460,70 @@ color: #fff;
 </div>
 									</div>
 								</div>	
+                                 <div class="panel panel-default">
+									   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
+									<div class="panel-heading"; style="background-color:#185189";>
+                              
+                                  		<h4 class="panel-title" style="color:white">
+		
+						                Aprobaciones
+										</h4>
+									</div>
+                                </a>
+                                 
+									<div id="collapse_4" class="panel-collapse collapse">
+										<div class="panel-body">
+											
+     <div class="table-responsive">
+        <asp:GridView ID="GridView3" runat="server" Width="100%" AutoGenerateColumns="false" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
+            <Columns>
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
+            <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Numero" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Cargo" HeaderText="Cargo" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+ 
+            <asp:TemplateField HeaderText="CDT" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CDT").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="CAFP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CAFP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="AFC" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("AFC").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="INP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("INP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="CCAF" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CCAF").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField>
+
+    </Columns>
+            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+        </asp:GridView>
+ </div>
+</div>
+									</div>
+								</div>	
                                 
+                                  
                                 
                                 
 								<div class="panel panel-default">
