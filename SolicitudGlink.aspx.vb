@@ -109,6 +109,33 @@ Partial Class SolicitudGper
                 comm3.Dispose()
                 conn3.Dispose()
 
+                'Aprobaciones
+
+                conector3 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector3 += "Database=w230416_glink;User=w230416_glink;"
+                conector3 += "Pwd=Gorilla1985;Option=3;"
+
+                conn3 = New OdbcConnection(conector3)
+                conn3.Open()
+                sql3 = "SELECT id, rut, nombre, apellido, mutual, celular, email, estado FROM encargado_m where rut = '" & dr2.GetValue(3).ToString() & "'"
+                comm3 = New OdbcCommand(sql3, conn3)
+                dr3 = comm3.ExecuteReader()
+                If (dr3.Read()) Then
+
+                    TextBox1.Text = dr3.GetValue(1).ToString()
+                    TextBox2.Text = dr3.GetValue(2).ToString()
+                    TextBox3.Text = dr3.GetValue(3).ToString()
+                    DropDownList4.SelectedValue = dr3.GetValue(4).ToString()
+                    TextBox5.Text = dr3.GetValue(5).ToString()
+                    TextBox6.Text = dr3.GetValue(6).ToString()
+
+                End If
+
+                conn3.Close()
+                dr3.Close()
+                comm3.Dispose()
+                conn3.Dispose()
+
             End If
 
             conn2.Close()
