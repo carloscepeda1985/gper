@@ -48,6 +48,90 @@ Partial Class FichaContratista
                 Label5.Text = dr2.GetValue(7).ToString()
                 TextBox8.Text = dr2.GetValue(3).ToString()
 
+                Dim Estado As String
+                Dim dt As New DataTable()
+
+                dt.Columns.AddRange(New DataColumn(2) {New DataColumn("Estado"), New DataColumn("Codigo"), New DataColumn("Detalle")})
+
+
+                If dr2.GetValue(8).ToString() = "no" Then
+                    Estado = "A"
+                    dt.Rows.Add(Estado, "CONT", "Contrato de Trabajo Vigente")
+                Else
+                    If dr2.GetValue(8).ToString() = "bl" Then
+                        Estado = "B"
+                        dt.Rows.Add(Estado, "CONT", "No Requerido")
+                    Else
+                        Estado = "P"
+                        dt.Rows.Add(Estado, "CONT", "Contrato de Trabajo Vigente")
+                    End If
+
+                End If
+
+                If dr2.GetValue(9).ToString() = "no" Then
+                    Estado = "A"
+                    dt.Rows.Add(Estado, "EXPR", "Exámenes Preocupasionsles")
+                Else
+                    If dr2.GetValue(9).ToString() = "bl" Then
+                        Estado = "B"
+                        dt.Rows.Add(Estado, "EXPR", "No Requerido")
+                    Else
+                        Estado = "P"
+                        dt.Rows.Add(Estado, "EXPR", "Exámenes Preocupasionsles")
+                    End If
+
+                End If
+
+                If dr2.GetValue(10).ToString() = "no" Then
+                    Estado = "A"
+                    dt.Rows.Add(Estado, "ALGF", "Altura Geográfica")
+                Else
+                    If dr2.GetValue(10).ToString() = "bl" Then
+                        Estado = "B"
+                        dt.Rows.Add(Estado, "ALGF", "No Requerido")
+                    Else
+                        Estado = "P"
+                        dt.Rows.Add(Estado, "ALGF", "Altura Geográfica")
+                    End If
+
+                End If
+
+                If dr2.GetValue(11).ToString() = "no" Then
+                    Estado = "A"
+                    dt.Rows.Add(Estado, "ODI", "Explicación sigla")
+                Else
+                    If dr2.GetValue(11).ToString() = "bl" Then
+                        Estado = "B"
+                        dt.Rows.Add(Estado, "ODI", "No Requerido")
+                    Else
+                        Estado = "P"
+                        dt.Rows.Add(Estado, "ODI", "Explicación sigla")
+                    End If
+
+                End If
+
+                If dr2.GetValue(12).ToString() = "no" Then
+                    Estado = "A"
+                    dt.Rows.Add(Estado, "PSIC", "Psicosensometrico")
+                Else
+                    If dr2.GetValue(12).ToString() = "bl" Then
+                        Estado = "B"
+                        dt.Rows.Add(Estado, "PSIC", "No Requerido")
+                    Else
+                        Estado = "P"
+                        dt.Rows.Add(Estado, "PSIC", "Psicosensometrico")
+                    End If
+
+                End If
+
+
+                GridView2.DataSource = dt
+                GridView2.DataBind()
+                dt.Clear()
+
+
+
+
                 If dr2.GetValue(3).ToString() = "Calderas Anwo" Then
                     Image1.ImageUrl = "anwo_logo.png"
                 Else
@@ -70,8 +154,8 @@ Partial Class FichaContratista
                 I = 0
                 Dim CDT, CAFP, AFC, INP, CCAF As String
 
-                Dim dt As New DataTable()
-                dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
+                Dim dt2 As New DataTable()
+                dt2.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
 
                 While (dr.Read())
                     If dr.GetValue(5).ToString() = "no" Then
@@ -100,16 +184,17 @@ Partial Class FichaContratista
                         CCAF = "P"
                     End If
 
-                    dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
+                    dt2.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
                 End While
 
-                GridView1.DataSource = dt
+                GridView1.DataSource = dt2
                 GridView1.DataBind()
 
                 conn.Close()
                 dr.Close()
                 comm.Dispose()
                 conn.Dispose()
+                dt2.Clear()
             End If
 
             conn2.Close()

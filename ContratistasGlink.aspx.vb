@@ -43,27 +43,47 @@ Partial Class ContratistasGper
                 If dr.GetValue(8).ToString() = "no" Then
                     D1 = "A"
                 Else
-                    D1 = "P"
+                    If dr.GetValue(8).ToString() = "bl" Then
+                        D1 = "B"
+                    Else
+                        D1 = "P"
+                    End If
                 End If
                 If dr.GetValue(9).ToString() = "no" Then
                     D2 = "A"
                 Else
-                    D2 = "P"
+                    If dr.GetValue(9).ToString() = "bl" Then
+                        D2 = "B"
+                    Else
+                        D2 = "P"
+                    End If
                 End If
                 If dr.GetValue(10).ToString() = "no" Then
                     D3 = "A"
                 Else
-                    D3 = "P"
+                    If dr.GetValue(10).ToString() = "bl" Then
+                        D3 = "B"
+                    Else
+                        D3 = "P"
+                    End If
                 End If
                 If dr.GetValue(11).ToString() = "no" Then
                     D4 = "A"
                 Else
-                    D4 = "P"
+                    If dr.GetValue(11).ToString() = "bl" Then
+                        D4 = "B"
+                    Else
+                        D4 = "P"
+                    End If
                 End If
                 If dr.GetValue(12).ToString() = "no" Then
                     D5 = "A"
                 Else
-                    D5 = "P"
+                    If dr.GetValue(12).ToString() = "bl" Then
+                        D5 = "B"
+                    Else
+                        D1 = "P"
+                    End If
                 End If
 
                 dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5)
@@ -142,13 +162,42 @@ Partial Class ContratistasGper
                                 ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('El teléfono no es valido');", True)
                                 Exit Sub
                             End If
+
+                            Dim D1, D2, D4, D3, D5 As String
+
+                            If CheckBox1.Checked = True Then
+                                D1 = "no"
+                            Else
+                                D1 = "bl"
+                            End If
+                            If CheckBox2.Checked = True Then
+                                D2 = "no"
+                            Else
+                                D2 = "bl"
+                            End If
+                            If CheckBox3.Checked = True Then
+                                D3 = "no"
+                            Else
+                                D3 = "bl"
+                            End If
+                            If CheckBox4.Checked = True Then
+                                D4 = "no"
+                            Else
+                                D4 = "bl"
+                            End If
+                            If CheckBox5.Checked = True Then
+                                D5 = "no"
+                            Else
+                                D5 = "bl"
+                            End If
+
                             conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                             conector += "Database=w230416_glink;User=w230416_glink;"
                             conector += "Pwd=Gorilla1985;Option=3;"
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
-                            sql = "insert Into contratistas_m(id_mall,rut,nombre,contacto,telefono,email,pass,D1,D2,D3,D4,D5,estado) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1')"
+                            sql = "insert Into contratistas_m(id_mall,rut,nombre,contacto,telefono,email,pass,D1,D2,D3,D4,D5,estado) Values('" & Session("idcond_pro") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','" & D1 & "','" & D2 & "','" & D3 & "','" & D4 & "','" & D5 & "','1')"
                             comm = New OdbcCommand(sql, conn)
                             dr = comm.ExecuteReader()
 

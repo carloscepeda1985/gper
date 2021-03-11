@@ -1579,10 +1579,10 @@ fieldset[disabled] .btn-sample.active {
                             <br/>
                                <div container>
                                <br/>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Actualizar Logo</button>
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">Actualizar Logo</button>
        
      <!-- Modal -->
-  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal2" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -1683,7 +1683,107 @@ fieldset[disabled] .btn-sample.active {
                     <hr/>
 
 
-					<div class="space-20"></div>
+					<div class="space-20">
+                        <center>
+<fieldset>
+
+<!-- Form Name -->
+<legend>Actualizar Documentos del Contratista</legend>
+
+<div class="form-group">
+<label class="col-md-4 control-label">CONT</label>  
+    <div class="col-md-5 inputGroupContainer">
+    <input type="file" id="File6" name="File1" runat="server" style="float: left" />
+     <formaction id="Formaction1" enctype="multipart/form-data"   runat="server" style="float: right">    
+            <input type="submit" id="Submit6" value="Subir" runat="server" name="Submit1" style="float: right" cssclass="btn btn-success" />        
+    </formaction>
+ </div>
+ </div>
+ <br/>
+<div class="form-group">
+<label class="col-md-4 control-label">EXPR</label>  
+    <div class="col-md-5 inputGroupContainer">
+    <input type="file" id="File7" name="File1" runat="server" style="float: left" />
+     <formaction id="Form2" enctype="multipart/form-data"   runat="server" style="float: right">    
+            <input type="submit" id="Submit7" value="Subir" runat="server" name="Submit1" style="float: right" cssclass="btn btn-success" />        
+    </formaction>
+ </div>
+ </div>
+ <br/>
+ <div class="form-group">
+<label class="col-md-4 control-label">ALGF</label>  
+    <div class="col-md-5 inputGroupContainer">
+    <input type="file" id="File8" name="File1" runat="server" style="float: left" />
+     <formaction id="Form3" enctype="multipart/form-data"   runat="server" style="float: right">    
+            <input type="submit" id="Submit8" value="Subir" runat="server" name="Submit1" style="float: right" cssclass="btn btn-success" />        
+    </formaction>
+ </div>
+ </div>
+ <br/>
+ <div class="form-group">
+<label class="col-md-4 control-label">ODI</label>  
+    <div class="col-md-5 inputGroupContainer">
+    <input type="file" id="File9" name="File1" runat="server" style="float: left" />
+     <formaction id="Form4" enctype="multipart/form-data"   runat="server" style="float: right">    
+            <input type="submit" id="Submit9" value="Subir" runat="server" name="Submit1" style="float: right" cssclass="btn btn-success" />        
+    </formaction>
+ </div>
+ </div>
+ <br/>
+ <div class="form-group">
+<label class="col-md-4 control-label">PSIC</label>  
+    <div class="col-md-5 inputGroupContainer">
+    <input type="file" id="File10" name="File1" runat="server" style="float: left" />
+     <formaction id="Form5" enctype="multipart/form-data"   runat="server" style="float: right">    
+            <input type="submit" id="Submit10" value="Subir" runat="server" name="Submit1" style="float: right" cssclass="btn btn-success" />        
+    </formaction>
+ </div>
+ </div>
+ <br/>
+
+
+<br/>
+
+</fieldset>
+</center>
+
+
+
+
+
+<center>
+<fieldset>
+
+<!-- Form Name -->
+<legend>Documentos del Contratista</legend>
+
+<div class="form-group">
+    <div class="table-responsive">
+         <asp:GridView ID="GridView2" runat="server" Width="100%" AutoGenerateColumns="false" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
+            <Columns>
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" ItemStyle-Width="130" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Subir +" ItemStyle-Width="130" />
+             <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
+            <ItemTemplate>
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "P", "P.png", If(Eval("Estado").ToString() = "B", "B.png", "A.png"))) %>' runat="server" Height = "25" Width = "25" />
+            </ItemTemplate>
+            </asp:TemplateField> 
+            <asp:BoundField DataField="Codigo" HeaderText="Código" ItemStyle-Width="130" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Detalle" HeaderText="Detalle" ItemStyle-Width="500" ItemStyle-Wrap="false" />
+ 
+           
+    </Columns>
+            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+        </asp:GridView>
+ </div>
+</div>
+</fieldset>
+</center>
+
+
+
+					</div>
 
 
                     <div class="row">
@@ -1695,11 +1795,9 @@ fieldset[disabled] .btn-sample.active {
      <button style="float: right"; type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">+Agregar</button>
   
       <div class="input-group">
-<div class="widget-header widget-header-small">
-                                      <h4 class="widget-title smaller">
-										Listado de Trabajadores
-									</h4>
-								</div>
+
+                                    <center><legend>Listado de Trabajadores del Contratista</legend></center>
+						
      
       </div>
       </div>
