@@ -149,6 +149,22 @@ Partial Class CrearSolicitudGper
             conn.Close()
             dr.Close()
 
+
+            'Crear Aprobaciones
+
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "insert Into aprobaciones_m(id_mall,id_contratista,id_solicitud,usuario,comentario,fecha,estado) Values('" & Session("id_mall") & "','" & Session("id_contratista") & "','" & Label9.Text & "','contratista','Envío de Solicitud','" & Now() & "','1')"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+
+            conn.Close()
+            dr.Close()
+
             'Buscar Trabajadores
 
             conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
