@@ -35,38 +35,14 @@ Partial Class TiendasGper
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
-            Dim D1, D2, D3, D4, D5 As String
+
 
             dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
             While (dr.Read())
-                If dr.GetValue(8).ToString() = "no" Then
-                    D1 = "A"
-                Else
-                    D1 = "P"
-                End If
-                If dr.GetValue(9).ToString() = "no" Then
-                    D2 = "A"
-                Else
-                    D2 = "P"
-                End If
-                If dr.GetValue(10).ToString() = "no" Then
-                    D3 = "A"
-                Else
-                    D3 = "P"
-                End If
-                If dr.GetValue(11).ToString() = "no" Then
-                    D4 = "A"
-                Else
-                    D4 = "P"
-                End If
-                If dr.GetValue(12).ToString() = "no" Then
-                    D5 = "A"
-                Else
-                    D5 = "P"
-                End If
 
-                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), D1, D2, D3, D4, D5)
+
+                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString())
             End While
 
             GridView1.DataSource = dt
