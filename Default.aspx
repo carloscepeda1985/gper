@@ -56,6 +56,10 @@
 		<!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.min.js"></script>
 
+		<link href="css/sweetalert.css" rel="stylesheet" />
+		<script src="js/sweetalert.min.js"></script>
+
+
 	</head>
 	<body data-target="#header" data-spy="scroll" data-offset="100">
 
@@ -504,6 +508,12 @@
 			</footer>
 
 		</div>
+
+
+
+		<script src="vistas/sweetalert2/sweetalert2.all.js"></script>
+
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 		<!-- Vendor -->
 		<script src="vendor/jquery/jquery.min.js"></script>

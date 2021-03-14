@@ -20,7 +20,7 @@
     </asp:ContentPlaceHolder>
 
 </head>
-<body>
+<body style="height: auto; min-height: 100%;" >
 
 <style type="text/css">
     
@@ -38,7 +38,29 @@
   background-color: #0559a2;
   border-color: #0559a2;
 }
+
+
+
+/*.footer {
     
+        text-align: center;
+        font-family: sans-serif;
+        color: whitesmoke;
+        width: 100%;
+        bottom: 0;
+        position:absolute;
+        left:0px;
+
+  position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+*/
+
+  
 </style>
 
     <form id="Form1" runat="server">
@@ -62,8 +84,8 @@
         <div class="clear">
         </div>
 
-         <div class="footer" style="background-color: #01203c;">
-        <div class="container-fluid" style="background-color: #01203c;">
+         <div class="main-footer" style="background-color: #01203c;">
+       <div class="container-fluid" style="background-color: #01203c;">
         <div class="jumbotron" style="background-color: #01203c;">
 
         <div class="container">

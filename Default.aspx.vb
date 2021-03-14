@@ -175,7 +175,13 @@ Partial Class _Default
                     End If
 
                 Else
-                    ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+
+                    'ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+                    Dim message As String = "Hoja de vida guardada correctamente."
+                    Dim script As String = "window.onload = function(){ swal('Clave Invalida','Rut, Mail o Clave No Coinciden', 'warning')};"
+
+                    ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", script, True)
+
                 End If
 
             End If
