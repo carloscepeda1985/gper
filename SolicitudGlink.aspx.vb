@@ -57,6 +57,9 @@ Partial Class SolicitudGper
             I2 = 0
             If (dr2.Read()) Then
 
+                id_mall.Text = dr2.GetValue(1).ToString()
+                id_contratista.Text = dr2.GetValue(2).ToString()
+
                 TextBox10.Text = dr2.GetValue(4).ToString()
                 TextBox11.Text = dr2.GetValue(5).ToString()
                 TextBox12.Text = dr2.GetValue(6).ToString()
@@ -70,16 +73,25 @@ Partial Class SolicitudGper
                     alerta.Attributes.Add("class", "alert alert-warning")
                     LabelEstado.Text = "Pendiente"
                     panel_boton.Visible = True
+                    Div2.Attributes.Add("class", "alert alert-info")
+                    p2.Visible = True
+                    p1.Visible = False
                 End If
                 If dr2.GetValue(13).ToString() = "1" Then
                     alerta.Attributes.Add("class", "alert alert-success")
                     LabelEstado.Text = "Aprobada"
                     panel_boton.Visible = False
+                    Div2.Attributes.Add("class", "alert alert-success")
+                    p2.Visible = False
+                    p1.Visible = True
                 End If
                 If dr2.GetValue(13).ToString() = "2" Then
                     alerta.Attributes.Add("class", "alert alert-danger")
                     LabelEstado.Text = "Rechazada"
                     panel_boton.Visible = False
+                    Div2.Attributes.Add("class", "alert alert-danger")
+                    p2.Visible = False
+                    p1.Visible = True
                 End If
 
                 'Encargado
@@ -117,19 +129,68 @@ Partial Class SolicitudGper
 
                 conn3 = New OdbcConnection(conector3)
                 conn3.Open()
-                sql3 = "SELECT id, rut, nombre, apellido, mutual, celular, email, estado FROM encargado_m where rut = '" & dr2.GetValue(3).ToString() & "'"
+                sql3 = "SELECT id,id_mall,id_contratista,id_solicitud,usuario,comentario,fecha,estado FROM aprobaciones_m where id_solicitud = '" & LabelNumero.Text & "'"
                 comm3 = New OdbcCommand(sql3, conn3)
                 dr3 = comm3.ExecuteReader()
-                If (dr3.Read()) Then
+                While (dr3.Read())
 
-                    TextBox1.Text = dr3.GetValue(1).ToString()
-                    TextBox2.Text = dr3.GetValue(2).ToString()
-                    TextBox3.Text = dr3.GetValue(3).ToString()
-                    DropDownList4.SelectedValue = dr3.GetValue(4).ToString()
-                    TextBox5.Text = dr3.GetValue(5).ToString()
-                    TextBox6.Text = dr3.GetValue(6).ToString()
+                    If dr3.GetValue(4).ToString() = "tienda" Then
+                        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                        conector += "Database=w230416_glink;User=w230416_glink;"
+                        conector += "Pwd=Gorilla1985;Option=3;"
 
-                End If
+                        conn = New OdbcConnection(conector)
+                        conn.Open()
+                        sql = "SELECT nombre FROM tiendas_m where id ='" & dr3.GetValue(2).ToString() & "'"
+                        comm = New OdbcCommand(sql, conn)
+                        dr = comm.ExecuteReader()
+                        If dr.Read Then
+                            lbl_enviada.Text = dr.GetValue(0).ToString()
+                            lbl_fecha.Text = dr3.GetValue(6).ToString()
+                            lbl_comentario.Text = dr3.GetValue(5).ToString()
+                        End If
+
+                        conn.Close()
+                        dr.Close()
+                        comm.Dispose()
+                        conn.Dispose()
+                    End If
+                    If dr3.GetValue(4).ToString() = "contratista" Then
+                        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                        conector += "Database=w230416_glink;User=w230416_glink;"
+                        conector += "Pwd=Gorilla1985;Option=3;"
+
+                        conn = New OdbcConnection(conector)
+                        conn.Open()
+                        sql = "SELECT nombre FROM contratistas_m where id ='" & dr3.GetValue(2).ToString() & "'"
+                        comm = New OdbcCommand(sql, conn)
+                        dr = comm.ExecuteReader()
+
+                        If dr.Read Then
+                            lbl_enviada.Text = dr.GetValue(0).ToString()
+                            lbl_fecha.Text = dr3.GetValue(6).ToString()
+                            lbl_comentario.Text = dr3.GetValue(5).ToString()
+                        End If
+
+
+                        conn.Close()
+                        dr.Close()
+                        comm.Dispose()
+                        conn.Dispose()
+                    Else
+
+                        lbl_renviada.Text = dr3.GetValue(4).ToString()
+                        lbl_renviada.Text = dr3.GetValue(4).ToString()
+                        lbl_rfecha.Text = dr3.GetValue(6).ToString()
+                        lbl_rcomentario.Text = dr3.GetValue(5).ToString()
+
+                    End If
+
+
+
+
+
+                End While
 
                 conn3.Close()
                 dr3.Close()
@@ -303,11 +364,37 @@ Partial Class SolicitudGper
 
         conn.Close()
         dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+
+        'agrega rechazo
+
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "insert Into aprobaciones_m(id_mall,id_contratista,id_solicitud,usuario,comentario,fecha,estado) Values('" & id_mall.Text & "','" & id_contratista.Text & "','" & LabelNumero.Text & "','" & Session("nombr_pro") & " " & Session("apelli_pro") & "','" & TextBox4.Text & "','" & Now() & "','2')"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        If dr.Read Then
+            lbl_enviada.Text = dr.GetValue(0).ToString()
+        End If
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+
+
 
         Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        'cambia estado solicitud
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
         conector += "Database=w230416_glink;User=w230416_glink;"
@@ -321,6 +408,29 @@ Partial Class SolicitudGper
 
         conn.Close()
         dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+
+        'agrega rechazo
+
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "insert Into aprobaciones_m(id_mall,id_contratista,id_solicitud,usuario,comentario,fecha,estado) Values('" & id_mall.Text & "','" & id_contratista.Text & "','" & LabelNumero.Text & "','" & Session("nombr_pro") & " " & Session("apelli_pro") & "','" & TextBox7.Text & "','" & Now() & "','2')"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        If dr.Read Then
+            lbl_enviada.Text = dr.GetValue(0).ToString()
+        End If
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+
 
         Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
 

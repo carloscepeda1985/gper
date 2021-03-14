@@ -67,14 +67,23 @@ Partial Class SolicitudCon
             If dr2.GetValue(13).ToString() = "0" Then
                 alerta.Attributes.Add("class", "alert alert-warning")
                 LabelEstado.Text = "Pendiente"
+                Div2.Attributes.Add("class", "alert alert-info")
+                p2.Visible = True
+                p1.Visible = False
             End If
             If dr2.GetValue(13).ToString() = "1" Then
                 alerta.Attributes.Add("class", "alert alert-success")
                 LabelEstado.Text = "Aprobada"
+                Div2.Attributes.Add("class", "alert alert-success")
+                p2.Visible = False
+                p1.Visible = True
             End If
             If dr2.GetValue(13).ToString() = "2" Then
                 alerta.Attributes.Add("class", "alert alert-danger")
                 LabelEstado.Text = "Rechazada"
+                Div2.Attributes.Add("class", "alert alert-danger")
+                p2.Visible = False
+                p1.Visible = True
             End If
 
             'Encargado
@@ -98,6 +107,77 @@ Partial Class SolicitudCon
                 TextBox6.Text = dr3.GetValue(6).ToString()
 
             End If
+
+            conn3.Close()
+            dr3.Close()
+            comm3.Dispose()
+            conn3.Dispose()
+
+            'Aprobaciones
+
+            conector3 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector3 += "Database=w230416_glink;User=w230416_glink;"
+            conector3 += "Pwd=Gorilla1985;Option=3;"
+
+            conn3 = New OdbcConnection(conector3)
+            conn3.Open()
+            sql3 = "SELECT id,id_mall,id_contratista,id_solicitud,usuario,comentario,fecha,estado FROM aprobaciones_m where id_solicitud = '" & LabelNumero.Text & "'"
+            comm3 = New OdbcCommand(sql3, conn3)
+            dr3 = comm3.ExecuteReader()
+            While (dr3.Read())
+
+                If dr3.GetValue(4).ToString() = "tienda" Then
+                    conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                    conector += "Database=w230416_glink;User=w230416_glink;"
+                    conector += "Pwd=Gorilla1985;Option=3;"
+
+                    conn = New OdbcConnection(conector)
+                    conn.Open()
+                    sql = "SELECT nombre FROM tiendas_m where id ='" & dr3.GetValue(2).ToString() & "'"
+                    comm = New OdbcCommand(sql, conn)
+                    dr = comm.ExecuteReader()
+                    If dr.Read Then
+                        lbl_enviada.Text = dr.GetValue(0).ToString()
+                        lbl_fecha.Text = dr3.GetValue(6).ToString()
+                        lbl_comentario.Text = dr3.GetValue(5).ToString()
+                    End If
+
+                    conn.Close()
+                    dr.Close()
+                    comm.Dispose()
+                    conn.Dispose()
+                End If
+                If dr3.GetValue(4).ToString() = "contratista" Then
+                    conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                    conector += "Database=w230416_glink;User=w230416_glink;"
+                    conector += "Pwd=Gorilla1985;Option=3;"
+
+                    conn = New OdbcConnection(conector)
+                    conn.Open()
+                    sql = "SELECT nombre FROM contratistas_m where id ='" & dr3.GetValue(2).ToString() & "'"
+                    comm = New OdbcCommand(sql, conn)
+                    dr = comm.ExecuteReader()
+
+                    If dr.Read Then
+                        lbl_enviada.Text = dr.GetValue(0).ToString()
+                        lbl_fecha.Text = dr3.GetValue(6).ToString()
+                        lbl_comentario.Text = dr3.GetValue(5).ToString()
+                    End If
+
+
+                    conn.Close()
+                    dr.Close()
+                    comm.Dispose()
+                    conn.Dispose()
+                Else
+
+                    lbl_renviada.Text = dr3.GetValue(4).ToString()
+                    lbl_rfecha.Text = dr3.GetValue(6).ToString()
+                    lbl_rcomentario.Text = dr3.GetValue(5).ToString()
+
+                End If
+
+            End While
 
             conn3.Close()
             dr3.Close()

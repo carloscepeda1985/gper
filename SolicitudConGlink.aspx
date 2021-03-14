@@ -474,51 +474,30 @@ color: #fff;
 									<div id="collapse_4" class="panel-collapse collapse">
 										<div class="panel-body">
 											
-     <div class="table-responsive">
-        <asp:GridView ID="GridView3" runat="server" Width="100%" AutoGenerateColumns="false" 
-            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
-            <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
-            <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Numero" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
-            <asp:BoundField DataField="Cargo" HeaderText="Cargo" ItemStyle-Width="150" ItemStyle-Wrap="false" />
- 
-            <asp:TemplateField HeaderText="CDT" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
-            <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CDT").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
-            </ItemTemplate>
-            </asp:TemplateField>
+<div class="alert alert-warning" role="alert" id="Div1" style="font-size:12pt; width:70%;" runat="server">
 
-            <asp:TemplateField HeaderText="CAFP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
-            <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CAFP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
-            </ItemTemplate>
-            </asp:TemplateField>
+		<small><strong>Enviada por: </strong><asp:Label ID="lbl_enviada" runat="server"></asp:Label></small><br />
+        <small><strong>Fecha envío: </strong><asp:Label ID="lbl_fecha" runat="server"></asp:Label></small><br />
+        <small><strong>Comentario: </strong><asp:Label ID="lbl_comentario" runat="server"></asp:Label></small>
+               
+</div>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img alt="flecha" src="Images/flecha_n.png" style=" float:left; margin-left: 33px;"/>
 
-            <asp:TemplateField HeaderText="AFC" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
-            <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("AFC").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
-            </ItemTemplate>
-            </asp:TemplateField>
+<div role="alert" id="Div2" style="font-size:12pt; float:left; width:70%;" runat="server">
 
-            <asp:TemplateField HeaderText="INP" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
-            <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("INP").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
-            </ItemTemplate>
-            </asp:TemplateField>
+    <p id="p1" runat="server">
+        <small><strong>Enviada por: </strong><asp:Label ID="lbl_renviada" runat="server"></asp:Label></small><br />
+        <small><strong>Fecha envío: </strong><asp:Label ID="lbl_rfecha" runat="server"></asp:Label></small><br />
+        <small><strong>Comentario: </strong><asp:Label ID="lbl_rcomentario" runat="server"></asp:Label></small>
+    </p>
+    <p id="p2" runat="server">
+        <small><strong>&#9432; Información: </strong> Esta solicitud NO ha sido Aprobada o Rechazada por la Administración </small>
+       
+    </p>
+		
+       
+</div>
 
-            <asp:TemplateField HeaderText="CCAF" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
-            <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("CCAF").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />
-            </ItemTemplate>
-            </asp:TemplateField>
-
-    </Columns>
-            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
-        </asp:GridView>
- </div>
 </div>
 									</div>
 								</div>	
@@ -564,7 +543,10 @@ color: #fff;
                                 						
 							</div>
 						</div>
-                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> </center>
+                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" />
+                          <asp:Label ID="id_mall" runat="server" Visible="False"></asp:Label>
+                         <asp:Label ID="id_contratista" runat="server" Visible="False"></asp:Label>
+                     </center>
                         
     <br/>
 

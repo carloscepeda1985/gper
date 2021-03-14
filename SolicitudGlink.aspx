@@ -542,16 +542,33 @@ color: #fff;
                                  
 									<div id="collapse_4" class="panel-collapse collapse">
 										<div class="panel-body">
+
 											
-<div class="alert alert-warning" role="alert" id="Div1" style="font-size=12pt" runat="server">
-<p>
-		<strong>Enviada por:<asp:Label ID="lbl_enviada" runat="server"></asp:Label></strong>
-        <strong>Fecha envío:<asp:Label ID="lbl_fecha" runat="server"></asp:Label></strong><br />
-        <strong>Comentario:<asp:Label ID="lbl_comentario" runat="server"></asp:Label></strong>
-        </p>
-           
-        <br/>
+<div class="alert alert-warning" role="alert" id="Div1" style="font-size:12pt; width:70%;" runat="server">
+
+		<small><strong>Enviada por: </strong><asp:Label ID="lbl_enviada" runat="server"></asp:Label></small><br />
+        <small><strong>Fecha envío: </strong><asp:Label ID="lbl_fecha" runat="server"></asp:Label></small><br />
+        <small><strong>Comentario: </strong><asp:Label ID="lbl_comentario" runat="server"></asp:Label></small>
+               
 </div>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img alt="flecha" src="Images/flecha_n.png" style=" float:left; margin-left: 33px;"/>
+
+<div role="alert" id="Div2" style="font-size:12pt; float:left; width:70%;" runat="server">
+
+    <p id="p1" runat="server">
+        <small><strong>Enviada por: </strong><asp:Label ID="lbl_renviada" runat="server"></asp:Label></small><br />
+        <small><strong>Fecha envío: </strong><asp:Label ID="lbl_rfecha" runat="server"></asp:Label></small><br />
+        <small><strong>Comentario: </strong><asp:Label ID="lbl_rcomentario" runat="server"></asp:Label></small>
+    </p>
+    <p id="p2" runat="server">
+       <small> <strong>&#9432; Información: </strong> Esta solicitud NO ha sido Aprobada o Rechazada por la Administración</small>
+       
+    </p>
+		
+       
+</div>
+
+
 </div>
 									</div>
 								</div>	
@@ -596,7 +613,10 @@ color: #fff;
                                 						
 							</div>
 						</div>
-                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> </center>
+                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> 
+                         <asp:Label ID="id_mall" runat="server" Visible="False"></asp:Label>
+                         <asp:Label ID="id_contratista" runat="server" Visible="False"></asp:Label>
+    </center>
                         
     <br/>
 
