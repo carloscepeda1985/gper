@@ -26,20 +26,24 @@ Partial Class CrearSolicitudGper
 
         Dim valores, sql_tra As String
 
-        valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
+        If valores <> "" Then
 
-        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-        conector += "Database=w230416_glink;User=w230416_glink;"
-        conector += "Pwd=Gorilla1985;Option=3;"
+            valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
 
-        conn = New OdbcConnection(conector)
-        conn.Open()
-        sql_tra = "insert Into trabajador_solicitud(id_mall,id_contratista,id_solicitud,rut,estado) Values" & valores
-        comm = New OdbcCommand(sql_tra, conn)
-        dr = comm.ExecuteReader()
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
-        conn.Close()
-        dr.Close()
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql_tra = "insert Into trabajador_solicitud(id_mall,id_contratista,id_solicitud,rut,estado) Values" & valores
+            comm = New OdbcCommand(sql_tra, conn)
+            dr = comm.ExecuteReader()
+
+            conn.Close()
+            dr.Close()
+
+        End If
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
         conector += "Database=w230416_glink;User=w230416_glink;"
