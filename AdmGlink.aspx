@@ -6,11 +6,21 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
 	<script type="text/javascript">
+
+     
+
 	    //Put your JavaScript code here.
     </script>
 	
+<%--  <style>
 
-<style>
+ a:hover {
+  color: #07d544;
+  cursor: pointer;
+}
+  </style>--%>
+
+<%--<style>
 
 body
 {
@@ -37,10 +47,10 @@ color: #fff;
 
 
 
-</style>
+</style>--%>
 
-<style type="text/css">
-    .btn-sample {
+<%--<style type="text/css">
+/*    .btn-sample {
  color: #FFFFFF;
   background-color: #123740;
   border-color: #123740;
@@ -74,7 +84,7 @@ color: #fff;
 
 
  .btn-primary {
- color: #FFFFFF;
+ color: #01203C;
   background-color: #0559a2;
   border-color: #0559a2;
 }
@@ -84,7 +94,7 @@ color: #fff;
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: #FFFFFF;
+  color: #01203C;
   background-color: #0559a2;
   border-color: #0559a2;
 }
@@ -166,10 +176,10 @@ fieldset[disabled] .btn-sample.active {
  color: #FFFFFF;
   background-color: #72CFBF;
   border-color: #3BBFA5;
-}
+}*/
 
 .btn-sample .badge {
- color: #FFFFFF;
+ color: #01203C;
   background-color: #72CFBF;
   border-color: #3BBFA5;
 }
@@ -207,7 +217,7 @@ fieldset[disabled] .btn-sample.active {
          color: #FFFFFF;
      }
      
-     .glyphicon2 {
+/*     .glyphicon2 {
     position: relative;
     top: 6px;
     display: inline-block;
@@ -217,26 +227,33 @@ fieldset[disabled] .btn-sample.active {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
+}*/
 
- </style>
+ </style>--%>
+
+      <style>
+        a:hover{
+          background-color: #286090 !important;
+          cursor:pointer;
+        }
+      </style>
 
    <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="media">
-                <ul class="nav nav-pills nav-stacked" background="#E9801E">
+                <ul class="nav nav-pills nav-stacked">
 
-                    <li><a href="SolicitudesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                    <li><a href="SolicitudesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
-                   <li><a href="TiendasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
+                   <li><a href="TiendasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Tiendas</span></a></li>
-                   <li><a href="ContratistasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                   <li><a href="ContratistasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
-                    <li><a href="EquiposGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
+                    <li><a href="EquiposGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
-                   <li><a href="ReportesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
-                       <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>  
+                   <li><a href="ReportesGlink.aspx" class="btn btn-primary btn-lg btn-block"  style="line-height: 2;"><span class="glyphicon glyphicon-dashboard"></span>
+                       <span>&nbsp;Reportes</span></a></li>  
                 </ul>               
               </div>
               <hr/>
@@ -254,7 +271,7 @@ fieldset[disabled] .btn-sample.active {
                        <br/>
                     </font>
                </div>
-                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-danger" width="80%" /></center>
+                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-primary" width="80%" /></center>
              </div>
            </div>
          </div>

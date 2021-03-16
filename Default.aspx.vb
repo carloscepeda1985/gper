@@ -176,9 +176,9 @@ Partial Class _Default
 
                 Else
 
-                    'ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alertIns", "alert('Rut, Mail o Clave No Coinciden');", True)
+                    'https://lipis.github.io/bootstrap-sweetalert/
                     Dim message As String = "Hoja de vida guardada correctamente."
-                    Dim script As String = "window.onload = function(){ swal('Clave Invalida','Rut, Mail o Clave No Coinciden', 'warning')};"
+                    Dim script As String = "window.onload = function(){ swal('Clave Invalida','Usuario o password incorrecto.', 'warning')};"
 
                     ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", script, True)
 

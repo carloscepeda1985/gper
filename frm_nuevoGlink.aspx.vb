@@ -82,60 +82,69 @@ Partial Class frm_nuevo
         End If
 
 
-            Dim dt As New DataTable()
+        Dim dt As New DataTable()
 
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector += "Database=w230416_glink;User=w230416_glink;"
-            conector += "Pwd=Gorilla1985;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
-            conn = New OdbcConnection(conector)
-            conn.Open()
+        conn = New OdbcConnection(conector)
+        conn.Open()
         sql = "UPDATE propietario_m set nombre = '" & TextBox1.Text & "', apellido_p = '" & TextBox2.Text & "', email = '" & TextBox3.Text & "', telefono = '" & TextBox4.Text & "', sitio = '" & TextBox5.Text & "', departamento = '" & TextBox6.Text & "', clave = '" & TextBox7.Text & "', status = '2', updates = '0' where rut = '" & Session("rut_pro") & "'"
-            comm = New OdbcCommand(sql, conn)
-            dr = comm.ExecuteReader()
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
 
-            conn.Close()
-            dr.Close()
-            comm.Dispose()
-            conn.Dispose()
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
 
-            'Acceso Propietarios
+        'Acceso Propietarios
 
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector += "Database=w230416_glink;User=w230416_glink;"
-            conector += "Pwd=Gorilla1985;Option=3;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
-            conn = New OdbcConnection(conector)
-            conn.Open()
+        conn = New OdbcConnection(conector)
+        conn.Open()
         sql = "SELECT id, rut, status, email, id_condominio, nombre, apellido_p, departamento, sitio, telefono, clave FROM propietario_m where rut = '" & Session("rut_pro") & "' and email = '" & TextBox3.Text & "' and deleted = '1'"
-            comm = New OdbcCommand(sql, conn)
-            dr = comm.ExecuteReader()
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
 
-            If (dr.Read()) Then
+        If (dr.Read()) Then
 
-                Session("rut_pro") = dr.GetValue(1).ToString()
-                Session("mail_pro") = dr.GetValue(3).ToString()
-                Session("idcond_pro") = dr.GetValue(4).ToString()
-                Session("nombr_pro") = dr.GetValue(5).ToString()
-                Session("apelli_pro") = dr.GetValue(6).ToString()
-                Session("depto_pro") = dr.GetValue(7).ToString()
-                Session("sitio_pro") = dr.GetValue(8).ToString()
+            Session("rut_pro") = dr.GetValue(1).ToString()
+            Session("mail_pro") = dr.GetValue(3).ToString()
+            Session("idcond_pro") = dr.GetValue(4).ToString()
+            Session("nombr_pro") = dr.GetValue(5).ToString()
+            Session("apelli_pro") = dr.GetValue(6).ToString()
+            Session("depto_pro") = dr.GetValue(7).ToString()
+            Session("sitio_pro") = dr.GetValue(8).ToString()
             Session("tele_pro") = dr.GetValue(9).ToString()
             Session("clave_pro") = dr.GetValue(10).ToString()
-                Session.Timeout = 50
+            Session.Timeout = 50
 
-            End If
+        End If
 
-            conn.Close()
-            dr.Close()
-            comm.Dispose()
-            conn.Dispose()
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
 
 
-        Response.Redirect("AdmGlink.aspx")
+        'https://lipis.github.io/bootstrap-sweetalert/
+        'Dim message As String = "Hoja de vida guardada correctamente."
+        'Dim script As String = "window.onload = function(){ swal('Clave Invalida','Usuario o password incorrecto.', 'warning')};"
+        'Response.Redirect("AdmGlink.aspx")
+        'ClientScript.RegisterStartupScript(Me.GetType(), "mensaje", "sweetAlertConfirm()", True)
+
+        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
+
 
 
     End Sub
+
+
 
     Protected Sub Page_LoadComplete(sender As Object, e As System.EventArgs) Handles Me.LoadComplete
 

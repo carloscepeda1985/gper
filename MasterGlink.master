@@ -73,7 +73,7 @@
             </div>
             <div class="loginDisplay">
                  <asp:Button ID="Button1" runat="server" Text="Cerrar Sesión" 
-                     CssClass="btn btn-info" Font-Bold="True" /> 
+                     CssClass="btn btn-primary" Font-Bold="True" /> 
             </div>
             <div class="clear hideSkiplink">
             </div>
@@ -92,7 +92,7 @@
              <center>
              <h4><font color="white">Información de Contacto</font></h4>
              
-              <h4><span class="glyphicon glyphicon-envelope"></span><font color="white">   soporte@glink.cl</font></h4>
+              <h4><span class="glyphicon glyphicon-envelope" style="color:white"></span><font color="white">   soporte@glink.cl</font></h4>
          
               <h6><font color="white">Copyright © 2021 Glink</font></h6>
              

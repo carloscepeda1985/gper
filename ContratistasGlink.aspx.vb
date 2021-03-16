@@ -129,7 +129,9 @@ Partial Class ContratistasGper
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("ContratistasGlink.aspx")
+                            'https://lipis.github.io/bootstrap-sweetalert/
+                            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
+                            'Response.Redirect("ContratistasGlink.aspx")
                         End If
                     End If
                 End If

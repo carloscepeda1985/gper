@@ -4,10 +4,6 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-	<script type="text/javascript">
-	    //Put your JavaScript code here.
-    </script>
-	
 
 <style>
 .bar
@@ -212,26 +208,117 @@ fieldset[disabled] .btn-sample.active {
 }
 
  </style>
+            <!-- sweetalert -->
+    <link href="css/sweetalert.css" rel="stylesheet" />
+    <script  src="js/sweetalert.min.js"></script>
+
+
+     <script type="text/javascript">
+
+
+         function successalert() {
+             swal({
+                 title: "Los cambios han sido guardados correctamente",
+                 type: "success",
+             },
+                 function (isConfirm) {
+                     if (isConfirm) {
+                         location.href = "TiendasGlink.aspx";
+                     }
+                 });
+         }
+
+         function checkTelefono(e) {
+             tecla = (document.all) ? e.keyCode : e.which;
+             if (tecla == 8) return true;
+             patron = /^[0-9-+]+$/;
+             te = String.fromCharCode(tecla);
+             return patron.test(te);
+         }
+
+         function checkTexto(e) {
+             tecla = (document.all) ? e.keyCode : e.which;
+             //Tecla de retroceso para borrar, siempre la permite
+             if(tecla == 8) return true;
+             // Patron de entrada, en este caso solo acepta numeros y letras
+             patron = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/;
+             tecla_final = String.fromCharCode(tecla);
+             return patron.test(tecla_final);
+         }
+
+         function checkRutValidacion(e) {
+             tecla = (document.all) ? e.keyCode : e.which;
+             //Tecla de retroceso para borrar, siempre la permite
+             if (tecla == 8) return true;
+             // Patron de entrada, en este caso solo acepta numeros y letras
+             patron = /^[0-9-kK]+$/;
+             tecla_final = String.fromCharCode(tecla);
+             return patron.test(tecla_final);
+         }
+
+         function checkCorreo(e) {
+             tecla = (document.all) ? e.keyCode : e.which;
+             //Tecla de retroceso para borrar, siempre la permite
+             if (tecla == 8) return true;
+             // Patron de entrada, en este caso solo acepta numeros y letras
+             patron = /^[a-zA-Z0-9-@_.]+$/;
+             tecla_final = String.fromCharCode(tecla);
+             return patron.test(tecla_final);
+         }
+
+         function checkRut(rut) {
+             // Despejar Puntos
+             var valor = rut.value.replace('.', '');
+             // Despejar Guión
+             valor = valor.replace('-', '');
+             // Aislar Cuerpo y Dígito Verificador
+             cuerpo = valor.slice(0, -1);
+             dv = valor.slice(-1).toUpperCase();
+             // Formatear RUN
+             rut.value = cuerpo + '-' + dv
+             // Si no cumple con el mínimo ej. (n.nnn.nnn)
+             if (cuerpo.length < 7) { rut.setCustomValidity("RUT Incompleto"); return false; }
+             // Calcular Dígito Verificador
+             suma = 0;
+             multiplo = 2;
+             // Para cada dígito del Cuerpo
+             for (i = 1; i <= cuerpo.length; i++) {
+                 // Obtener su Producto con el Múltiplo Correspondiente
+                 index = multiplo * valor.charAt(cuerpo.length - i);
+                 // Sumar al Contador General
+                 suma = suma + index;
+                 // Consolidar Múltiplo dentro del rango [2,7]
+                 if (multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+             }
+             // Calcular Dígito Verificador en base al Módulo 11
+             dvEsperado = 11 - (suma % 11);
+             // Casos Especiales (0 y K)
+             dv = (dv == 'K') ? 10 : dv;
+             dv = (dv == 0) ? 11 : dv;
+             // Validar que el Cuerpo coincide con su Dígito Verificador
+             if (dvEsperado != dv) { rut.setCustomValidity("RUT Inválido"); return false; }
+             // Si todo sale bien, eliminar errores (decretar que es válido)
+             rut.setCustomValidity('');
+         }
+
+     </script>
+
 
     <div class="col-md-9">
     <div class="bar">
 
-
-
-  
     <e class="letracolor"><span class="glyphicon2 glyphicon-shopping-cart" style="color:white"></span>&nbsp;Tiendas</e>
     
-
     </div>
    
-   
+ 
     <div container>
      <div>
-     <button style="float: right"; type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">+Agregar</button>
+     <button style="float: right"; type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ Agregar</button>
   
       <div class="input-group">
       <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150" placeholder="Ingrese Nombre"></asp:TextBox>&nbsp
-      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-info"/>
+      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-primary"/>
      
       </div>
       </div>
@@ -241,26 +328,70 @@ fieldset[disabled] .btn-sample.active {
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="background:#185189; color: white;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Ingrese datos de la Tienda</h4>
         </div>
         <div class="modal-body">
           <p>
-          Rut:<asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox> 
-          Nombre:<asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox> 
-          Contacto:<asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox> 
-          Teléfono:<asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
-          Email:<asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
-          Contraseña:<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+
+                    <div class="form-group"> <label>Rut</label>
+                        <div class="input-group">
+                       
+                            <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon-align-justify"></i></span>
+                           <asp:TextBox ID="TextBox6" runat="server" ClientIDMode="static" CssClass="form-control" placeholder="Ingresar rut"  maxlength="12" onkeypress="return checkRutValidacion(event);"  onkeyup="checkRut(this)"  required = "required" ></asp:TextBox> 
+                        </div>
+
+                    </div>
+                    <div class="form-group"> <label>Nombre</label>
+                        <div class="input-group">
+                       
+                          <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon-shopping-cart"></i></span>
+                          <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="Ingresar nombre de la tienda" onkeypress="return checkTexto(event);"  required = "required"></asp:TextBox>
+                        </div>
+
+                    </div>
+                    <div class="form-group"> <label>Contacto</label>
+                        <div class="input-group">
+                       
+                          <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon-user"></i></span>
+                          <asp:TextBox ID="TextBox3" runat="server" ClientIDMode="static" CssClass="form-control" placeholder="Ingresar contacto" onkeypress="return checkTexto(event);" required = "required"></asp:TextBox> 
+                        </div>
+
+                    </div>
+                    <div class="form-group"> <label>Teléfono</label>
+                        <div class="input-group">
+                       
+                          <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon-earphone"></i></span>
+                          <asp:TextBox  ID="TextBox4" runat="server"  ClientIdMode="static" CssClass="form-control placeholder  phonemask" placeholder="Ingresar teléfono" minlength="8" maxlength="12" onkeypress="return checkTelefono(event);"  required="required"></asp:TextBox>
+                        </div>
+
+                    </div>
+                    <div class="form-group"> <label>Email</label>
+                        <div class="input-group">
+                       
+                          <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon-envelope"></i></span>
+                          <asp:TextBox  type="email" ID="TextBox7" runat="server" CssClass="form-control" placeholder="Ingresar email" onkeypress="return checkCorreo(event);"  required = "required"></asp:TextBox>
+                        </div>
+
+                    </div>
+                   <div class="form-group"> <label>Contraseña</label>
+                        <div class="input-group">
+                       
+                          <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon-eye-close"></i></span>
+                          <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" placeholder="Ingresar contraseña" onkeypress="return checkTexto(event);" required = "required"></asp:TextBox>
+                        </div>
+
+                    </div>
+              
           <br/>
           </p>
          
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-danger" />
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancelar</button>
+            <asp:Button ID="Button1" runat="server" Text="Guardar cambios" CssClass="btn btn-primary btn-flat" />
         </div>
       </div>
       
@@ -274,7 +405,7 @@ fieldset[disabled] .btn-sample.active {
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Editar" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Editar" />
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contacto" HeaderText="Contacto" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -313,6 +444,8 @@ fieldset[disabled] .btn-sample.active {
                </ul>
 				   
     </div>
+
+
 
 </asp:Content>
 

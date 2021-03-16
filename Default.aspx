@@ -56,8 +56,11 @@
 		<!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.min.js"></script>
 
+		<!-- sweetalert -->
 		<link href="css/sweetalert.css" rel="stylesheet" />
 		<script src="js/sweetalert.min.js"></script>
+
+
 
 
 	</head>
