@@ -205,7 +205,7 @@ Partial Class SolicitudCon
 
         conn2 = New OdbcConnection(conector2)
         conn2.Open()
-        sql2 = "SELECT rut FROM trabajador_solicitud where id_solicitud = " & Request.QueryString("dato")
+        sql2 = "SELECT rut FROM trabajador_solicitud where id_solicitud = " & Request.QueryString("dato") & " and id_contratista='" & Session("id_contratista") & "'"
         comm2 = New OdbcCommand(sql2, conn2)
         dr2 = comm2.ExecuteReader()
         I2 = 0

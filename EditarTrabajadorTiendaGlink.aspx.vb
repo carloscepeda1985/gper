@@ -12,6 +12,7 @@ Partial Class EditarTrabajadorContratista
     Dim conector As String
     Dim sql As String
     Dim I As Integer
+    Dim id_tienda As String
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
@@ -28,7 +29,29 @@ Partial Class EditarTrabajadorContratista
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1'"
+            sql = "SELECT id FROM tiendas_m where rut = '" & Request.QueryString("rut") & "'"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+            I = 0
+            If (dr.Read()) Then
+
+                id_tienda = dr.GetValue(0).ToString()
+
+            End If
+
+            conn.Close()
+            dr.Close()
+            dt.Clear()
+            comm.Dispose()
+            conn.Dispose()
+
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1' and id_contratista='" & id_tienda & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0

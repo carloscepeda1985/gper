@@ -28,7 +28,7 @@ Partial Class EditarTrabajadorContratista
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1'"
+            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1' and id_contratista='" & Session("id_contratista") & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
