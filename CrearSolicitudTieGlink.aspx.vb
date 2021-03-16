@@ -62,7 +62,7 @@ Partial Class CrearSolicitudGper
 
             conn2 = New OdbcConnection(conector2)
             conn2.Open()
-            sql2 = "UPDATE encargado_m SET rut='" & Hrutenc.Value & "',nombre='" & Hnomenc.Value & "',apellido='" & Hapeenc.Value & "',mutual='" & Hmutenc.Value & "',celular='" & Hcelenc.Value & "',email='" & Hemaenc.Value & "'"
+            sql2 = "UPDATE encargado_m SET rut='" & Hrutenc.Value & "',nombre='" & Hnomenc.Value & "',apellido='" & Hapeenc.Value & "',mutual='" & Hmutenc.Value & "',celular='" & Hcelenc.Value & "',email='" & Hemaenc.Value & "' where rut='" & Hrutenc.Value & "'"
             comm2 = New OdbcCommand(sql2, conn2)
             dr2 = comm2.ExecuteReader()
         Else
