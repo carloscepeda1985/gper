@@ -8,6 +8,7 @@ Partial Class SolicitudesGper
     Dim conector As String
     Dim sql As String
     Dim I As Integer
+    Dim dt As New DataTable()
 
     Dim conn2 As OdbcConnection
     Dim comm2 As OdbcCommand
@@ -22,9 +23,10 @@ Partial Class SolicitudesGper
     Public msApe As String 'ap
 
     Private Sub SolicitudesGper_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If Not Me.IsPostBack Then
 
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        dt.Clear()
+
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                 conector += "Database=w230416_glink;User=w230416_glink;"
                 conector += "Pwd=Gorilla1985;Option=3;"
 
@@ -36,7 +38,6 @@ Partial Class SolicitudesGper
                 I = 0
             Dim Estado As String
 
-            Dim dt As New DataTable()
             dt.Columns.AddRange(New DataColumn(8) {New DataColumn("Estado"), New DataColumn("N_Solicitud"), New DataColumn("Empresa"), New DataColumn("Resumen"), New DataColumn("Lugar"), New DataColumn("Fecha Inicio"), New DataColumn("Hora Entrada"), New DataColumn("Telefono"), New DataColumn("Email")})
 
             While (dr.Read())
@@ -60,7 +61,7 @@ Partial Class SolicitudesGper
                 dr.Close()
                 comm.Dispose()
                 conn.Dispose()
-            End If
+
 
     End Sub
 
@@ -78,5 +79,14 @@ Partial Class SolicitudesGper
         dato = GridView1.Rows(x).Cells(2).Text
 
         Response.Redirect("SolicitudGlink.aspx?dato=" + dato)
+    End Sub
+    Protected Sub GridView1_PageIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles GridView1.PageIndexChanging
+
+        Me.GridView1.PageIndex = e.NewPageIndex
+        With Me.GridView1
+            .DataSource = dt
+            .DataBind()
+        End With
+
     End Sub
 End Class

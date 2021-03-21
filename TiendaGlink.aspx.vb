@@ -11,6 +11,7 @@ Partial Class FichaContratista
     Dim conector As String
     Dim sql As String
     Dim I As Integer
+    Dim dt As New DataTable()
 
     Dim conn2 As OdbcConnection
     Dim comm2 As OdbcCommand
@@ -26,98 +27,106 @@ Partial Class FichaContratista
     Public va As String
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        If Not Me.IsPostBack Then
 
-            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector2 += "Database=w230416_glink;User=w230416_glink;"
-            conector2 += "Pwd=Gorilla1985;Option=3;"
+        dt.Clear()
 
-            conn2 = New OdbcConnection(conector2)
-            conn2.Open()
-            sql2 = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where rut = '" & Request.QueryString("rut") & "'"
-            comm2 = New OdbcCommand(sql2, conn2)
-            dr2 = comm2.ExecuteReader()
+        conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector2 += "Database=w230416_glink;User=w230416_glink;"
+        conector2 += "Pwd=Gorilla1985;Option=3;"
 
-            If (dr2.Read()) Then
-                Session("id_contratista") = dr2.GetValue(0).ToString()
-                Label10.Text = dr2.GetValue(3).ToString()
-                Label1.Text = dr2.GetValue(2).ToString()
-                Label2.Text = dr2.GetValue(4).ToString()
-                Label3.Text = dr2.GetValue(5).ToString()
-                Label4.Text = dr2.GetValue(6).ToString()
-                Label5.Text = dr2.GetValue(7).ToString()
-                TextBox8.Text = dr2.GetValue(3).ToString()
+        conn2 = New OdbcConnection(conector2)
+        conn2.Open()
+        sql2 = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where rut = '" & Request.QueryString("rut") & "'"
+        comm2 = New OdbcCommand(sql2, conn2)
+        dr2 = comm2.ExecuteReader()
 
-                If dr2.GetValue(3).ToString() = "Calderas Anwo" Then
-                    Image1.ImageUrl = "anwo_logo.png"
+        If (dr2.Read()) Then
+            Session("id_contratista") = dr2.GetValue(0).ToString()
+            Label10.Text = dr2.GetValue(3).ToString()
+            Label1.Text = dr2.GetValue(2).ToString()
+            Label2.Text = dr2.GetValue(4).ToString()
+            Label3.Text = dr2.GetValue(5).ToString()
+            Label4.Text = dr2.GetValue(6).ToString()
+            Label5.Text = dr2.GetValue(7).ToString()
+            TextBox8.Text = dr2.GetValue(3).ToString()
+
+            If dr2.GetValue(3).ToString() = "Calderas Anwo" Then
+                Image1.ImageUrl = "anwo_logo.png"
+            Else
+                If dr2.GetValue(3).ToString() = "Ascensores Schindler" Then
+                    Image1.ImageUrl = "logo_schindler.png"
                 Else
-                    If dr2.GetValue(3).ToString() = "Ascensores Schindler" Then
-                        Image1.ImageUrl = "logo_schindler.png"
-                    Else
-                        Image1.ImageUrl = "default_logo.png"
-                    End If
+                    Image1.ImageUrl = "default_logo.png"
                 End If
-
-                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-                conector += "Database=w230416_glink;User=w230416_glink;"
-                conector += "Pwd=Gorilla1985;Option=3;"
-
-                conn = New OdbcConnection(conector)
-                conn.Open()
-                sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
-                comm = New OdbcCommand(sql, conn)
-                dr = comm.ExecuteReader()
-                I = 0
-                Dim CDT, CAFP, AFC, INP, CCAF As String
-
-                Dim dt As New DataTable()
-                dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
-
-                While (dr.Read())
-                    If dr.GetValue(5).ToString() = "no" Then
-                        CDT = "A"
-                    Else
-                        CDT = "P"
-                    End If
-                    If dr.GetValue(6).ToString() = "no" Then
-                        CAFP = "A"
-                    Else
-                        CAFP = "P"
-                    End If
-                    If dr.GetValue(7).ToString() = "no" Then
-                        AFC = "A"
-                    Else
-                        AFC = "P"
-                    End If
-                    If dr.GetValue(8).ToString() = "no" Then
-                        INP = "A"
-                    Else
-                        INP = "P"
-                    End If
-                    If dr.GetValue(9).ToString() = "no" Then
-                        CCAF = "A"
-                    Else
-                        CCAF = "P"
-                    End If
-
-                    dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
-                End While
-
-                GridView1.DataSource = dt
-                GridView1.DataBind()
-
-                conn.Close()
-                dr.Close()
-                comm.Dispose()
-                conn.Dispose()
             End If
 
-            conn2.Close()
-            dr2.Close()
-            comm2.Dispose()
-            conn2.Dispose()
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+            I = 0
+            Dim CDT, CAFP, AFC, INP, CCAF As String
+
+
+            dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
+
+            While (dr.Read())
+                If dr.GetValue(5).ToString() = "no" Then
+                    CDT = "A"
+                Else
+                    CDT = "P"
+                End If
+                If dr.GetValue(6).ToString() = "no" Then
+                    CAFP = "A"
+                Else
+                    CAFP = "P"
+                End If
+                If dr.GetValue(7).ToString() = "no" Then
+                    AFC = "A"
+                Else
+                    AFC = "P"
+                End If
+                If dr.GetValue(8).ToString() = "no" Then
+                    INP = "A"
+                Else
+                    INP = "P"
+                End If
+                If dr.GetValue(9).ToString() = "no" Then
+                    CCAF = "A"
+                Else
+                    CCAF = "P"
+                End If
+
+                dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
+            End While
+
+            GridView1.DataSource = dt
+            GridView1.DataBind()
+
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
         End If
+
+        conn2.Close()
+        dr2.Close()
+        comm2.Dispose()
+        conn2.Dispose()
+
+    End Sub
+    Protected Sub GridView1_PageIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles GridView1.PageIndexChanging
+
+        Me.GridView1.PageIndex = e.NewPageIndex
+        With Me.GridView1
+            .DataSource = dt
+            .DataBind()
+        End With
 
     End Sub
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged

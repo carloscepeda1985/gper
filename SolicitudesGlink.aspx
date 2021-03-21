@@ -268,8 +268,8 @@ fieldset[disabled] .btn-sample.active {
       
       <br />--%>
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" 
-            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
+        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
 
             <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" >

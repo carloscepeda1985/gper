@@ -24,12 +24,9 @@ Partial Class TiendasGper
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
+        dt.Clear()
 
-
-
-        If Not Me.IsPostBack Then
-
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
             conector += "Database=w230416_glink;User=w230416_glink;"
             conector += "Pwd=Gorilla1985;Option=3;"
 
@@ -55,10 +52,8 @@ Partial Class TiendasGper
             conn.Close()
             dr.Close()
             comm.Dispose()
-            conn.Dispose()
-            dt.Clear()
+        conn.Dispose()
 
-        End If
 
     End Sub
 
@@ -136,7 +131,7 @@ Partial Class TiendasGper
                             dr.Close()
                             'https://lipis.github.io/bootstrap-sweetalert/
                             ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
-                            'Response.Redirect("TiendasGlink.aspx")
+                            Response.Redirect("TiendasGlink.aspx")
                         End If
                     End If
                 End If
@@ -289,7 +284,16 @@ Partial Class TiendasGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
-        dt.Clear()
+
+    End Sub
+
+    Protected Sub GridView1_PageIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles GridView1.PageIndexChanging
+
+        Me.GridView1.PageIndex = e.NewPageIndex
+        With Me.GridView1
+            .DataSource = dt
+            .DataBind()
+        End With
 
     End Sub
 End Class

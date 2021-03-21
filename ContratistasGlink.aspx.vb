@@ -23,36 +23,43 @@ Partial Class ContratistasGper
 
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        If Not Me.IsPostBack Then
 
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector += "Database=w230416_glink;User=w230416_glink;"
-            conector += "Pwd=Gorilla1985;Option=3;"
+        dt.Clear()
 
-            conn = New OdbcConnection(conector)
-            conn.Open()
-            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "'"
-            comm = New OdbcCommand(sql, conn)
-            dr = comm.ExecuteReader()
-            I = 0
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
 
-            dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM contratistas_m where estado = '1' and id_mall='" & Session("idcond_pro") & "'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        I = 0
 
-            While (dr.Read())
+        dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
-                dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString())
-            End While
+        While (dr.Read())
 
-            GridView1.DataSource = dt
-            GridView1.DataBind()
+            dt.Rows.Add(dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString())
+        End While
 
-            conn.Close()
-            dr.Close()
-            comm.Dispose()
-            conn.Dispose()
-            dt.Clear()
+        GridView1.DataSource = dt
+        GridView1.DataBind()
 
-        End If
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+
+    End Sub
+    Protected Sub GridView1_PageIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles GridView1.PageIndexChanging
+
+        Me.GridView1.PageIndex = e.NewPageIndex
+        With Me.GridView1
+            .DataSource = dt
+            .DataBind()
+        End With
 
     End Sub
 
@@ -284,7 +291,6 @@ Partial Class ContratistasGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
-        dt.Clear()
 
     End Sub
 End Class
