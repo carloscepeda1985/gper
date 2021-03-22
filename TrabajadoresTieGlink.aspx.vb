@@ -11,6 +11,7 @@ Partial Class TrabajadoresCon
     Dim conector As String
     Dim sql As String
     Dim I As Integer
+    Dim dt As New DataTable()
 
     Public dv_p As String 'digito validador
     Public msRutSinDig As String 'rut sin guion, punto y digito validador para realizar consultas
@@ -22,9 +23,9 @@ Partial Class TrabajadoresCon
 
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        If Not Me.IsPostBack Then
 
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        dt.Clear()
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
             conector += "Database=w230416_glink;User=w230416_glink;"
             conector += "Pwd=Gorilla1985;Option=3;"
 
@@ -36,8 +37,8 @@ Partial Class TrabajadoresCon
             I = 0
             Dim CDT, CAFP, AFC, INP, CCAF As String
 
-            Dim dt As New DataTable()
-            dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
+
+        dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
 
             While (dr.Read())
                 If dr.GetValue(5).ToString() = "no" Then
@@ -77,7 +78,7 @@ Partial Class TrabajadoresCon
             comm.Dispose()
             conn.Dispose()
 
-        End If
+
 
     End Sub
 
@@ -237,7 +238,6 @@ Partial Class TrabajadoresCon
 
     Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
 
-        Dim dt As New DataTable()
         dt.Clear()
         GridView1.DataSource = dt
 
@@ -292,6 +292,15 @@ Partial Class TrabajadoresCon
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+    End Sub
+    Protected Sub GridView1_PageIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles GridView1.PageIndexChanging
+
+        Me.GridView1.PageIndex = e.NewPageIndex
+        With Me.GridView1
+            .DataSource = dt
+            .DataBind()
+        End With
 
     End Sub
 End Class
