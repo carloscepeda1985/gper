@@ -198,7 +198,12 @@ Partial Class FichaContratista
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("ContratistaGlink.aspx?rut=" & Request.QueryString("rut"))
+                            'Response.Redirect("ContratistaGlink.aspx?rut=" & Request.QueryString("rut"))
+
+                            Dim rutTienda = Request.QueryString("rut")
+
+                            'https://lipis.github.io/bootstrap-sweetalert/
+                            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert('" & rutTienda & "');", True)
                         End If
                     End If
                 End If

@@ -27,7 +27,8 @@ Partial Class TiendasGper
         dt.Clear()
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector += "Database=w230416_glink;User=w230416_glink;"
+
+        conector += "Database=w230416_glink;User=w230416_glink;"
             conector += "Pwd=Gorilla1985;Option=3;"
 
             conn = New OdbcConnection(conector)
@@ -228,6 +229,8 @@ Partial Class TiendasGper
     End Function
 
     Protected Sub Button2_Click(sender As Object, e As System.EventArgs) Handles Button2.Click
+
+
 
         Dim dt As New DataTable()
         dt.Clear()

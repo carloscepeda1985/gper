@@ -60,20 +60,54 @@
 }
 */
 
-  
-</style>
+        img{
+          background-color: white !important;
+          cursor:pointer;
+        }
+
+       </style>
+    	<script type="text/javascript">
+
+            function pagina() {
+
+                var URLactual = window.location.pathname;
+                var palabra = "TieGlink";
+                var index = URLactual.indexOf(palabra);
+
+                if (index >= 0) {
+                    location.href = "TieGlink.aspx";
+                }
+                else {
+            
+                    var palabra = "ConGlink";
+                    var index = URLactual.indexOf(palabra);
+
+                    if (index >= 0) {
+                        location.href = "ConGlink.aspx";
+                    }
+                    else {
+                        location.href = "AdmGlink.aspx";
+
+
+                    }
+ 
+                }
+            }
+        </script>
+
 
     <form id="Form1" runat="server">
     <div class="page">
         <div class="header_Gper" style="border-bottom: 5px solid #01203c;">
-            <div class="title">
-              
-                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Logo_Glink.png" />
-               
+            <div class="title">               
+              <a href="javascript:pagina()"  >
+                   <img alt="Glink" src="Logo_Glink.png" />
+              </a>                   
             </div>
+
             <div class="loginDisplay">
                  <asp:Button ID="Button1" runat="server" Text="Cerrar Sesión" 
-                     CssClass="btn btn-primary" Font-Bold="True" /> 
+                     CssClass="btn btn-danger" Font-Bold="True"  CausesValidation="false" /> 
             </div>
             <div class="clear hideSkiplink">
             </div>

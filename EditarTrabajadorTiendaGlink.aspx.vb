@@ -162,13 +162,22 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+                'Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut")) 
+
+                Dim datoTrabajador = Request.QueryString("dato")
+                Dim rutTrabajador = Request.QueryString("rut")
+                Dim textoFinal = datoTrabajador & "&rut=" & rutTrabajador
+
+                'https://lipis.github.io/bootstrap-sweetalert/
+                ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','El archivo ha sido guardados correctamente');", True)
+
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
         Else
-            Response.Write("Please select a file to upload.")
+            'Response.Write("Please select a file to upload.")
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
         End If
 
     End Sub
@@ -195,13 +204,21 @@ Partial Class EditarTrabajadorContratista
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+                'Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+
+                Dim datoTrabajador = Request.QueryString("dato")
+                Dim rutTrabajador = Request.QueryString("rut")
+                Dim textoFinal = datoTrabajador & "&rut=" & rutTrabajador
+
+                'https://lipis.github.io/bootstrap-sweetalert/
+                ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','El archivo ha sido guardados correctamente');", True)
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
         Else
-            Response.Write("Please select a file to upload.")
+            'Response.Write("Please select a file to upload.")
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
         End If
     End Sub
 
@@ -234,13 +251,21 @@ Partial Class EditarTrabajadorContratista
 
                 conn.Close()
                 dr.Close()
-                Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+                'Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+
+                Dim datoTrabajador = Request.QueryString("dato")
+                Dim rutTrabajador = Request.QueryString("rut")
+                Dim textoFinal = datoTrabajador & "&rut=" & rutTrabajador
+
+                'https://lipis.github.io/bootstrap-sweetalert/
+                ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','El archivo ha sido guardados correctamente');", True)
 
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
         Else
-            Response.Write("Please select a file to upload.")
+            'Response.Write("Please select a file to upload.")
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
         End If
     End Sub
 
@@ -267,12 +292,20 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+                'Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+
+                Dim datoTrabajador = Request.QueryString("dato")
+                Dim rutTrabajador = Request.QueryString("rut")
+                Dim textoFinal = datoTrabajador & "&rut=" & rutTrabajador
+
+                'https://lipis.github.io/bootstrap-sweetalert/
+                ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','El archivo ha sido guardados correctamente');", True)
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
         Else
-            Response.Write("Please select a file to upload.")
+            ' Response.Write("Please select a file to upload.")
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
         End If
     End Sub
 
@@ -299,12 +332,20 @@ Partial Class EditarTrabajadorContratista
                 conn.Close()
                 dr.Close()
 
-                Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+                'Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+
+                Dim datoTrabajador = Request.QueryString("dato")
+                Dim rutTrabajador = Request.QueryString("rut")
+                Dim textoFinal = datoTrabajador & "&rut=" & rutTrabajador
+
+                'https://lipis.github.io/bootstrap-sweetalert/
+                ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','El archivo ha sido guardados correctamente');", True)
             Catch Exc As Exception
                 Response.Write("Error: " & Exc.Message)
             End Try
         Else
-            Response.Write("Please select a file to upload.")
+            'Response.Write("Please select a file to upload.")
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
         End If
     End Sub
 
@@ -361,6 +402,16 @@ Partial Class EditarTrabajadorContratista
         conn.Close()
         dr.Close()
 
-        Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+        ' Response.Redirect("EditarTrabajadorTiendaGlink.aspx?dato=" + Request.QueryString("dato") + "&rut=" + Request.QueryString("rut"))
+
+        Dim datoTrabajador = Request.QueryString("dato")
+        Dim rutTrabajador = Request.QueryString("rut")
+        Dim textoFinal = datoTrabajador & "&rut=" & rutTrabajador
+
+        'https://lipis.github.io/bootstrap-sweetalert/
+        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','Los cambios han sido guardados correctamente');", True)
+
+
+
     End Sub
 End Class
