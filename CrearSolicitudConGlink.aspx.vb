@@ -26,9 +26,8 @@ Partial Class CrearSolicitudGper
 
         Dim valores, sql_tra As String
 
-        valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
-
-        If valores <> "" Then
+        If Htra.Value <> "" Then
+            valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
 
             conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
             conector += "Database=w230416_glink;User=w230416_glink;"
