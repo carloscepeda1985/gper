@@ -147,7 +147,10 @@ Partial Class TrabajadoresCon
                             conn.Close()
                             dr.Close()
 
-                            Response.Redirect("TrabajadoresTieGlink.aspx?rut=" & Request.QueryString("rut"))
+                            ' Response.Redirect("TrabajadoresTieGlink.aspx?rut=" & Request.QueryString("rut"))
+                            'https://lipis.github.io/bootstrap-sweetalert/
+                            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
+
                         End If
                     End If
                 End If

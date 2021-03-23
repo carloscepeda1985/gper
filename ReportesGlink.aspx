@@ -222,6 +222,13 @@ fieldset[disabled] .btn-sample.active {
 }
 
  </style>
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+</style>
+
 
     <div class="col-md-9">
     <div class="bar">
@@ -245,7 +252,7 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-success" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
         </asp:GridView>
@@ -268,7 +275,7 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table"  AllowPaging="True" PageSize="6" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-success" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
         </asp:GridView>

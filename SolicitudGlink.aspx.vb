@@ -397,7 +397,15 @@ Partial Class SolicitudGper
 
 
 
-        Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
+        ' Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
+
+
+        Dim textoFinal = LabelNumero.Text
+
+        'https://lipis.github.io/bootstrap-sweetalert/
+        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert('" & textoFinal & "','La solicitud N° " & textoFinal & " ha sido autorizada','success');", True)
+
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -440,7 +448,11 @@ Partial Class SolicitudGper
         conn.Dispose()
 
 
-        Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
+        ' Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
+        Dim textoFinal = LabelNumero.Text
+
+        'https://lipis.github.io/bootstrap-sweetalert/
+        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert('" & textoFinal & "','La solicitud N° " & textoFinal & " ha sido rechazada','error');", True)
 
     End Sub
 End Class

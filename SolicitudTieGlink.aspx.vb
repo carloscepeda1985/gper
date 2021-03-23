@@ -55,6 +55,8 @@ Partial Class SolicitudCon
         I2 = 0
         If (dr2.Read()) Then
 
+
+
             TextBox10.Text = dr2.GetValue(4).ToString()
             TextBox11.Text = dr2.GetValue(5).ToString()
             TextBox12.Text = dr2.GetValue(6).ToString()

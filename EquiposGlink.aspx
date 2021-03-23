@@ -223,6 +223,14 @@ fieldset[disabled] .btn-sample.active {
 
  </style>
 
+ <style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+</style>
+
+
     <div class="col-md-9">
     <div class="bar">
 
@@ -232,10 +240,10 @@ fieldset[disabled] .btn-sample.active {
    
     <div container>
     <div>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="float:right;">+Agregar</button>
+     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="float:right;">+ Agregar</button>
       <div class="input-group">
       <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150"  placeholder="Ingrese Ubicación"></asp:TextBox>&nbsp
-      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-warning"/>
+      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-success"/>
      
       </div>
      
@@ -246,7 +254,7 @@ fieldset[disabled] .btn-sample.active {
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header"style="background:#185189; color: white;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Ingrese datos del Equipo</h4>
         </div>
@@ -262,8 +270,8 @@ fieldset[disabled] .btn-sample.active {
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-danger" />
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancelar</button>
+            <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-success btn-flat" />
         </div>
       </div>
       
@@ -279,7 +287,7 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-info" SelectText="Ficha" HeaderText='<span class="glyphicon glyphicon-list-alt" style="color:white"></span>' />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-success" SelectText="Ficha" HeaderText='<span class="glyphicon glyphicon-list-alt" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>

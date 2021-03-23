@@ -108,10 +108,10 @@ color: #fff;
 </style>
     <form action="#" class="form-horizontal" id="submit_form" runat="server">
 
-        <div class="header_Gper" style="border-bottom: 5px solid #112f60;">
+        <div class="header_Gper" style="border-bottom: 5px solid #01203c;">
                 <div class="loginDisplay" style="float:right;margin-right: 15px;">
                 <asp:Button ID="Button1" runat="server" useSubmitBehavior="false"  Text="Cerrar Sesión" 
-                     CssClass="btn btn-info" Font-Bold="True" /> 
+                     CssClass="btn btn-danger" Font-Bold="True" /> 
                                 </div>
             <div class="title"> 
               

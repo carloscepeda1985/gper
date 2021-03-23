@@ -213,6 +213,13 @@ fieldset[disabled] .btn-sample.active {
 
  </style>
 
+    <style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+</style>
+
     <div class="col-md-9">
     <div class="bar">
 
@@ -289,9 +296,9 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
 
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" >
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Ver" >
 
-<ControlStyle CssClass="btn btn-info"></ControlStyle>
+<ControlStyle CssClass="btn btn-success"></ControlStyle>
                 </asp:CommandField>
 
             <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">

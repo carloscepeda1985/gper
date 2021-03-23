@@ -210,6 +210,13 @@ fieldset[disabled] .btn-sample.active {
 }
 
  </style>
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+</style>
+
 
    <div class="container">
         <div class="row">
@@ -233,7 +240,7 @@ fieldset[disabled] .btn-sample.active {
               <hr/>
             </div>
             <div class="col-md-4">
-              <div class="well" style="background-color: #a9a2a6;">
+              <div class="well" style="background-color: #103b65;">
                     <font color="white"><center><h4>Tu Perfil</h4></center>
                     <div class="input-group">
                     <h5>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user"></span>     Rut:   <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></h5>
@@ -244,7 +251,7 @@ fieldset[disabled] .btn-sample.active {
                        <br/>
                     </font>
                </div>
-                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-danger" width="80%" /></center>
+                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-success" width="80%" /></center>
              </div>
            </div>
          </div>

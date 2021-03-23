@@ -108,7 +108,9 @@ Partial Class CrearSolicitudGper
         conn.Close()
         dr.Close()
 
-        Response.Redirect("SolicitudesConGlink.aspx")
+        ' Response.Redirect("SolicitudesConGlink.aspx")
+        'https://lipis.github.io/bootstrap-sweetalert/
+        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
 
     End Sub
 

@@ -8,6 +8,118 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
+<link href="css/sweetalert.css" rel="stylesheet">
+ <script src="js/sweetalert.min.js"></script>
+
+    	
+
+    <script type="text/javascript">
+
+
+        function successalert() {
+            swal({
+                title: "La solicitud ha sido enviada correctamente",
+                type: "success",
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "SolicitudesConGlink.aspx";
+                    }
+                });
+        }
+
+
+        function checkTelefono(e) {
+
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla == 8) return true;
+            patron = /^[0-9-+]+$/;
+            te = String.fromCharCode(tecla);
+
+            return patron.test(te);
+        }
+
+        function checkTexto(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) return true;
+            // Patron de entrada, en este caso solo acepta numeros y letras
+            patron = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+
+        function checkRutValidacion(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) return true;
+            // Patron de entrada, en este caso solo acepta numeros y letras
+            patron = /^[0-9-kK]+$/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+
+        function checkCorreo(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) return true;
+            // Patron de entrada, en este caso solo acepta numeros y letras
+            patron = /^[a-zA-Z0-9-@_.]+$/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+
+
+        }
+
+        function validarEmail(source, arguments) {
+
+
+            expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (!expr.test(arguments.Value)) {
+
+
+                arguments.IsValid = false;
+            } else {
+
+
+                arguments.IsValid = true;
+
+            }
+        }
+
+
+        function validar_rut(source, arguments) {
+            var rut = arguments.Value; suma = 0; mul = 2; i = 0;
+
+            for (i = rut.length - 3; i >= 0; i--) {
+                suma = suma + parseInt(rut.charAt(i)) * mul;
+                mul = mul == 7 ? 2 : mul + 1;
+            }
+
+            var dvr = '' + (11 - suma % 11);
+            if (dvr == '10') dvr = 'K'; else if (dvr == '11') dvr = '0';
+
+            if (rut.charAt(rut.length - 2) != "-" || rut.charAt(rut.length - 1).toUpperCase() != dvr)
+                arguments.IsValid = false;
+            else
+                arguments.IsValid = true;
+        }
+
+        function checkRut(rut) {
+
+            var valor = rut.value.replace('.', '');
+            valor = valor.replace('-', '');
+
+            cuerpo = valor.slice(0, -1);
+            dv = valor.slice(-1).toUpperCase();
+
+            rut.value = cuerpo + '-' + dv
+
+        }
+
+    </script>
+
     <div class="page">   
         <div class="row">
 				<div class="col-md-12" style="width:98%; margin:18px auto; margin-left:12px;">  
@@ -86,7 +198,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="empcon" id="empcon" />
+														<input type="text" class="form-control" name="empcon" id="empcon" onkeypress="return checkTexto(event);" />
 														<span class="help-block">
 															 Ingrese nombre de empresa contratista
 														</span>
@@ -100,7 +212,7 @@
 													</span>
                                                     </label>
 													<div class="col-md-4">
-														<textarea class="form-control" rows="3" name="restra" id="restra"></textarea>
+														<textarea class="form-control" rows="3" name="restra" id="restra" onkeypress="return checkTexto(event);"></textarea>
                                                         <span class="help-block">
 															 Ingrese resumen del trabajo
 														</span>
@@ -114,7 +226,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="lug" id="lug"/>
+														<input type="text" class="form-control" name="lug" id="lug" onkeypress="return checkTexto(event);"/>
 														<span class="help-block">
 															 Ingrese el lugar del trabajo 
 														</span>
@@ -210,7 +322,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="teleme" id="teleme"/>
+														<input type="text" class="form-control" name="teleme" id="teleme"  maxlength="12"  onkeypress="return checkTelefono(event);"/>
 														<span class="help-block">
 															 Ingrese el teléfono de emergancia
 														</span>
@@ -225,7 +337,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="ema" id="ema"/>
+														<input type="text" class="form-control" name="ema" id="ema" onkeypress="return checkCorreo(event);"/>
 														<span class="help-block">
 															 Ingrese su email
 														</span>
@@ -244,7 +356,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="rutenc" id="rutenc"/>
+														<input type="text" class="form-control" name="rutenc" id="rutenc" onkeypress="return checkRutValidacion(event);" onkeyup="checkRut(this)"/>
 														<span class="help-block">
 															 Ingrese RUT del encargado
 														</span>
@@ -258,7 +370,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="nomenc" id="nomenc"/>
+														<input type="text" class="form-control" name="nomenc" id="nomenc" onkeypress="return checkTexto(event);"/>
 														<span class="help-block">
 															 Ingrese nombre del encargado
 														</span>
@@ -272,7 +384,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="apeenc" id="apeenc"/>
+														<input type="text" class="form-control" name="apeenc" id="apeenc" onkeypress="return checkTexto(event);"/>
 														<span class="help-block">
 															 Ingrese apellido del encargado
 														</span>
@@ -304,7 +416,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="celenc" id="celenc"/>
+														<input type="text" class="form-control" name="celenc" id="celenc" maxlength="12"  onkeypress="return checkTelefono(event);"/>
 														<span class="help-block">
 															 Ingrese n° celular del encargado
 														</span>
@@ -318,7 +430,7 @@
 													</span>
 													</label>
 													<div class="col-md-4">
-														<input type="text" class="form-control" name="emaenc" id="emaenc"/>
+														<input type="text" class="form-control" name="emaenc" id="emaenc" onkeypress="return checkCorreo(event);"/>
 														<span class="help-block">
 															 Ingrese email del encargado
 														</span>
@@ -569,9 +681,9 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="col-md-offset-3 col-md-9" style="margin:0px auto;">
-													&nbsp&nbsp<a href="javascript:;" class="btn btn-default button-previous">
+													&nbsp&nbsp<a href="javascript:;" class="btn btn-danger button-previous">
 													<i class="m-icon-swapleft"></i> Volver </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-													<a href="javascript:;" class="btn btn-info button-next">
+													<a href="javascript:;" class="btn btn-success button-next">
 													Continuar <i class="m-icon-swapright m-icon-white"></i>
 													</a>
 													<a href="javascript:;" class="btn btn-success button-submit">
@@ -589,7 +701,7 @@
                 </div>
             </div>
           </div>
-           <center> <asp:Button ID="Button2" runat="server" useSubmitBehavior="false" Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> </center>                   
+           <center> <asp:Button ID="Button2" runat="server" useSubmitBehavior="false" Text="volver" class="btn btn-danger btn-lg btn-block"  width="40%" /> </center>                   
     <br/>
         </div>
 

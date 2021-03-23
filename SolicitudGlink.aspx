@@ -2,6 +2,37 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 
+    
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <script src="js/sweetalert.min.js"></script>  
+    
+    <script type="text/javascript">
+
+        function successalert(numSolicitud, mensaje,tipoAlerta) {
+
+            swal({
+                title: mensaje,
+                type: tipoAlerta,
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "SolicitudGlink.aspx?dato=" + numSolicitud;
+                    }
+                });
+
+            function checkTexto(e) {
+                tecla = (document.all) ? e.keyCode : e.which;
+                //Tecla de retroceso para borrar, siempre la permite
+                if (tecla == 8) return true;
+                // Patron de entrada, en este caso solo acepta numeros y letras
+                patron = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/;
+                tecla_final = String.fromCharCode(tecla);
+                return patron.test(tecla_final);
+            }
+        }
+
+    </script>
+
     <style type="text/css">
         table {
             border: solid 1px black;
@@ -113,7 +144,7 @@ color: #fff;
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header"style="background:#185189; color: white;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Aceptar Solicitud</h4>
         </div>
@@ -122,7 +153,7 @@ color: #fff;
           Comentario:<div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
   <asp:TextBox 
-                                        ID="TextBox4" runat="server" class="form-control" rows="3" TextMode="MultiLine"  Font-Size="12pt"></asp:TextBox>
+                                        ID="TextBox4" runat="server" class="form-control" rows="3" TextMode="MultiLine"  Font-Size="12pt" placeholder="Ingresar comentario" onkeypress="return checkTexto(event);" ></asp:TextBox>
    </div>
           <br/>
           </p>
@@ -144,7 +175,7 @@ color: #fff;
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header"style="background:#185189; color: white;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Rechazar Solicitud</h4>
         </div>
@@ -153,7 +184,7 @@ color: #fff;
           Comentario:<div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
   <asp:TextBox 
-                                        ID="TextBox7" runat="server" class="form-control" rows="3" TextMode="MultiLine"  Font-Size="12pt"></asp:TextBox>
+                                        ID="TextBox7" runat="server" class="form-control" rows="3" TextMode="MultiLine"  Font-Size="12pt" placeholder="Ingresar comentario" onkeypress="return checkTexto(event);"></asp:TextBox>
    </div>
           <br/>
           </p>
@@ -613,7 +644,7 @@ color: #fff;
                                 						
 							</div>
 						</div>
-                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" /> 
+                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-danger btn-lg btn-block"  width="40%" /> 
                          <asp:Label ID="id_mall" runat="server" Visible="False"></asp:Label>
                          <asp:Label ID="id_contratista" runat="server" Visible="False"></asp:Label>
     </center>
