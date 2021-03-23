@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/MasterGlink.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="frm_nuevoGlink.aspx.vb" Inherits="frm_nuevo" Title="Glink" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterGlink.Master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="frm_nuevoTieGlink.aspx.vb" Inherits="frm_nuevo" Title="Glink" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -268,7 +268,7 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label  text-right">Nombres</label>
+                    <label class="col-md-4 control-label  text-right">Rut</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -286,7 +286,7 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label text-right">Apellidos</label>
+                    <label class="col-md-4 control-label text-right">Nombre</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -300,7 +300,7 @@
                 </br>
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label text-right">Email</label>
+                    <label class="col-md-4 control-label text-right">Contacto</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -332,7 +332,7 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label text-right">Cargo</label>
+                    <label class="col-md-4 control-label text-right">Email</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -340,22 +340,6 @@
                         </div>
                         <div class="form-group" style="text-align: left">
                             <asp:RequiredFieldValidator ID="reqCargo" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox5" Display="Dynamic" ErrorMessage="Debe ingresar cargo" />
-                        </div>
-                    </div>
-                </div>
-                </br>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label text-right">Empresa</label>
-                    <div class="col-md-5 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" placeholder="Ingresar empresa" onkeypress="return checkTexto(event);"></asp:TextBox>
-                        </div>
-                        <div class="form-group" style="text-align: left">
-                            <asp:RequiredFieldValidator ID="requEmpresa" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox6" Display="Dynamic" ErrorMessage="Debe ingresar empresa" />
                         </div>
                     </div>
                 </div>

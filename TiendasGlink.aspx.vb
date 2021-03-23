@@ -232,7 +232,6 @@ Partial Class TiendasGper
 
 
 
-        Dim dt As New DataTable()
         dt.Clear()
         GridView1.DataSource = dt
 
@@ -247,8 +246,6 @@ Partial Class TiendasGper
         dr = comm.ExecuteReader()
         I = 0
         Dim D1, D2, D3, D4, D5 As String
-
-        dt.Columns.AddRange(New DataColumn(11) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Contacto"), New DataColumn("Telefono"), New DataColumn("Email"), New DataColumn("Contraseña"), New DataColumn("D1"), New DataColumn("D2"), New DataColumn("D3"), New DataColumn("D4"), New DataColumn("D5"), New DataColumn("Estado")})
 
         While (dr.Read())
             If dr.GetValue(8).ToString() = "no" Then

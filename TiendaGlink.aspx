@@ -1665,9 +1665,10 @@
                             <br/>
                                <div container>
                                <br/>
-     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Actualizar Logo</button>
+     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Actualizar Logo</button><br />
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModaleli" style="margin-top:10px">Eliminar Tienda</button>
        
-     <!-- Modal -->
+     <!-- Modal Logo -->
   <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -1696,6 +1697,37 @@
       
     </div>
   </div>
+
+
+ <!-- Modal Eliminar-->
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModaleli" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background:#185189; color: white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Eliminar Tienda</h4>
+        </div>
+        <div class="modal-body">
+          <br/>
+          <p>
+          
+        ¿Esta seguro que desea eliminar ésta tienda?
+          </p>
+          <br/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal" >Cancelar</button>
+            <asp:Button ID="Button3" runat="server" Text="Eliminar"  CssClass="btn btn-success btn-flat" CausesValidation="false" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
 
     </div>
     

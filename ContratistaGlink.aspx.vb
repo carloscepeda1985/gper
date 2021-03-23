@@ -291,4 +291,23 @@ Partial Class FichaContratista
         va = DVRUT1
         Return va
     End Function
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        sql = "Update contratistas_m SET estado=0 where id_mall='" & Session("idcond_pro") & "' and rut='" & Request.QueryString("rut") & "'"
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+
+        conn.Close()
+        dr.Close()
+
+        Response.Redirect("ContratistasGlink.aspx")
+
+
+    End Sub
 End Class

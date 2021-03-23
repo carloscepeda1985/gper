@@ -247,13 +247,12 @@ Partial Class TrabajadoresCon
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and nombre Like '%" & TextBox5.Text & "%'"
+        sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and id_contratista='" & Session("id_contratista") & "' and nombre Like '%" & TextBox5.Text & "%'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
         Dim CDT, CAFP, AFC, INP, CCAF As String
 
-        dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
 
         While (dr.Read())
             If dr.GetValue(5).ToString() = "si" Then

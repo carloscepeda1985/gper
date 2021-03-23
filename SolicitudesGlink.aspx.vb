@@ -89,4 +89,60 @@ Partial Class SolicitudesGper
         End With
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        dt.Clear()
+
+        sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro")
+
+        If TextBox5.Text <> "" Then
+            sql += "' and id  Like '%" & TextBox5.Text & "%"
+        End If
+
+        If DropDownList1.SelectedValue = "0" Then
+            sql += "' and estado >='0' order by fecha_inicio desc"
+        End If
+        If DropDownList1.SelectedValue = "1" Then
+            sql += "' and estado ='1' order by fecha_inicio desc"
+        End If
+        If DropDownList1.SelectedValue = "2" Then
+            sql += "' and estado ='0' order by fecha_inicio desc"
+        End If
+        If DropDownList1.SelectedValue = "3" Then
+            sql += "' and estado ='2' order by fecha_inicio desc"
+        End If
+
+        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+        conector += "Database=w230416_glink;User=w230416_glink;"
+        conector += "Pwd=Gorilla1985;Option=3;"
+
+        conn = New OdbcConnection(conector)
+        conn.Open()
+        comm = New OdbcCommand(sql, conn)
+        dr = comm.ExecuteReader()
+        I = 0
+        Dim Estado As String
+
+        While (dr.Read())
+            If dr.GetValue(10).ToString() = "0" Then
+                Estado = "M"
+            Else
+                If dr.GetValue(10).ToString() = "1" Then
+                    Estado = "P"
+                Else
+                    Estado = "A"
+                End If
+            End If
+
+            dt.Rows.Add(Estado, dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
+        End While
+
+        GridView1.DataSource = dt
+        GridView1.DataBind()
+
+        conn.Close()
+        dr.Close()
+        comm.Dispose()
+        conn.Dispose()
+    End Sub
 End Class

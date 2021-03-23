@@ -19,4 +19,13 @@ Partial Class ConGper
         Label11.Text = Session("email_contratista")
 
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If Session("rut_contratista") = "" Then
+            Response.Redirect("Default.aspx")
+            Exit Sub
+        End If
+
+        Response.Redirect("frm_nuevoTieGlink.aspx?dato=" + Session("rut_contratista"))
+    End Sub
 End Class

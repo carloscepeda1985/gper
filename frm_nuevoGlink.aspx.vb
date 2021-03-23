@@ -15,6 +15,7 @@ Partial Class frm_nuevo
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
+        Button2.Attributes.Add("onclick", "history.back(); return false;")
         Session("rut_pro") = Request.QueryString("dato")
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
@@ -167,6 +168,8 @@ Partial Class frm_nuevo
         Cooki.Expires = exp
         Response.Cookies.Add(Cooki)
     End Sub
+
+
 
 
 End Class
