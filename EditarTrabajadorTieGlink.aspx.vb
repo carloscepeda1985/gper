@@ -28,7 +28,7 @@ Partial Class EditarTrabajadorContratista
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1' and id_contratista='" & Session("id_contratista") & "'"
+            sql = "SELECT rut,nombre,apellido,telefono,direccion,funcion,empresa FROM trabajadores_tienda_m where rut = '" & Request.QueryString("dato") & "' and deleted = '1' and id_contratista='" & Session("id_contratista") & "'"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -37,8 +37,9 @@ Partial Class EditarTrabajadorContratista
                 TextBox1.Text = dr.GetValue(1).ToString()
                 TextBox2.Text = dr.GetValue(2).ToString()
                 TextBox3.Text = dr.GetValue(3).ToString()
-                TextBox4.Text = dr.GetValue(4).ToString()
-                TextBox5.Text = dr.GetValue(5).ToString()
+                TextBox6.Text = dr.GetValue(4).ToString()
+                TextBox4.Text = dr.GetValue(5).ToString()
+                TextBox5.Text = dr.GetValue(6).ToString()
 
             End If
 
@@ -343,7 +344,9 @@ Partial Class EditarTrabajadorContratista
 
         While (dr.Read())
             If dr.GetValue(0).ToString() <> "no" Then
-                Response.Redirect("https://glink.cl/login/Data/" & Request.QueryString("dato") & "/Doc/" & dr.GetValue(0).ToString())
+                Dim urldoc As String
+                urldoc = "https://glink.cl/login/Data/" & Request.QueryString("dato") & "/Doc/" & dr.GetValue(0).ToString()
+                Response.Write("<script>window.open('" & urldoc & "','_blank');</script>")
             End If
 
         End While
@@ -363,7 +366,7 @@ Partial Class EditarTrabajadorContratista
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "Update trabajadores_tienda_m Set nombre='" & TextBox1.Text() & "', apellido='" & TextBox2.Text() & "',telefono='" & TextBox3.Text() & "', funcion='" & TextBox4.Text() & "', empresa='" & TextBox5.Text() & "' Where rut='" & Request.QueryString("dato") & "'"
+        sql = "Update trabajadores_tienda_m Set nombre='" & TextBox1.Text() & "', apellido='" & TextBox2.Text() & "',telefono='" & TextBox3.Text() & "',direccion='" & TextBox6.Text() & "', funcion='" & TextBox4.Text() & "', empresa='" & TextBox5.Text() & "' Where rut='" & Request.QueryString("dato") & "'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
 

@@ -31,46 +31,46 @@ Partial Class TrabajadoresCon
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and id_contratista='" & Session("id_contratista") & "'"
-            comm = New OdbcCommand(sql, conn)
+        sql = "SELECT rut,nombre,apellido,telefono,direccion,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and id_contratista='" & Session("id_contratista") & "'"
+        comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
             Dim CDT, CAFP, AFC, INP, CCAF As String
 
 
-        dt.Columns.AddRange(New DataColumn(9) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
+        dt.Columns.AddRange(New DataColumn(10) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Direc"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
 
-            While (dr.Read())
-                If dr.GetValue(5).ToString() = "no" Then
-                    CDT = "A"
-                Else
-                    CDT = "P"
-                End If
-                If dr.GetValue(6).ToString() = "no" Then
-                    CAFP = "A"
-                Else
-                    CAFP = "P"
-                End If
-                If dr.GetValue(7).ToString() = "no" Then
-                    AFC = "A"
-                Else
-                    AFC = "P"
-                End If
-                If dr.GetValue(8).ToString() = "no" Then
-                    INP = "A"
-                Else
-                    INP = "P"
-                End If
-                If dr.GetValue(9).ToString() = "no" Then
-                    CCAF = "A"
-                Else
-                    CCAF = "P"
-                End If
+        While (dr.Read())
+            If dr.GetValue(6).ToString() = "no" Then
+                CDT = "A"
+            Else
+                CDT = "P"
+            End If
+            If dr.GetValue(7).ToString() = "no" Then
+                CAFP = "A"
+            Else
+                CAFP = "P"
+            End If
+            If dr.GetValue(8).ToString() = "no" Then
+                AFC = "A"
+            Else
+                AFC = "P"
+            End If
+            If dr.GetValue(9).ToString() = "no" Then
+                INP = "A"
+            Else
+                INP = "P"
+            End If
+            If dr.GetValue(10).ToString() = "no" Then
+                CCAF = "A"
+            Else
+                CCAF = "P"
+            End If
 
-                dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
-            End While
+            dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), CDT, CAFP, AFC, INP, CCAF)
+        End While
 
-            GridView1.DataSource = dt
+        GridView1.DataSource = dt
             GridView1.DataBind()
 
             conn.Close()
@@ -140,7 +140,7 @@ Partial Class TrabajadoresCon
 
                             conn = New OdbcConnection(conector)
                             conn.Open()
-                            sql = "insert Into trabajadores_contratista_m(id_condominio, id_contratista, rut, nombre, apellido, telefono, funcion, empresa, CDT, CAFP, AFC, INP, CCAF, estado, updates, deleted) Values('" & Session("id_mall") & "','" & Session("id_contratista") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1','2','1')"
+                            sql = "insert Into trabajadores_contratista_m(id_condominio, id_contratista, rut, nombre, apellido, telefono, direccion, funcion, empresa, CDT, CAFP, AFC, INP, CCAF, estado, updates, deleted) Values('" & Session("id_mall") & "','" & Session("id_contratista") & "','" & TextBox6.Text & "','" & TextBox2.Text & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox1.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','no','no','no','no','no','1','2','1')"
                             comm = New OdbcCommand(sql, conn)
                             dr = comm.ExecuteReader()
 
@@ -247,7 +247,7 @@ Partial Class TrabajadoresCon
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT rut,nombre,apellido,telefono,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and id_contratista='" & Session("id_contratista") & "' and nombre Like '%" & TextBox5.Text & "%'"
+        sql = "SELECT rut,nombre,apellido,telefono,direccion,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_contratista_m where estado = '1' and id_contratista='" & Session("id_contratista") & "' and nombre Like '%" & TextBox5.Text & "%'"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
@@ -255,33 +255,33 @@ Partial Class TrabajadoresCon
 
 
         While (dr.Read())
-            If dr.GetValue(5).ToString() = "si" Then
-                CDT = "P"
-            Else
+            If dr.GetValue(6).ToString() = "no" Then
                 CDT = "A"
-            End If
-            If dr.GetValue(6).ToString() = "si" Then
-                CAFP = "P"
             Else
+                CDT = "P"
+            End If
+            If dr.GetValue(7).ToString() = "no" Then
                 CAFP = "A"
-            End If
-            If dr.GetValue(7).ToString() = "si" Then
-                AFC = "P"
             Else
+                CAFP = "P"
+            End If
+            If dr.GetValue(8).ToString() = "no" Then
                 AFC = "A"
-            End If
-            If dr.GetValue(8).ToString() = "si" Then
-                INP = "P"
             Else
+                AFC = "P"
+            End If
+            If dr.GetValue(9).ToString() = "no" Then
                 INP = "A"
-            End If
-            If dr.GetValue(8).ToString() = "si" Then
-                CCAF = "P"
             Else
+                INP = "P"
+            End If
+            If dr.GetValue(10).ToString() = "no" Then
                 CCAF = "A"
+            Else
+                CCAF = "P"
             End If
 
-            dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), CDT, CAFP, AFC, INP, CCAF)
+            dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), CDT, CAFP, AFC, INP, CCAF)
         End While
 
         GridView1.DataSource = dt

@@ -1879,6 +1879,16 @@
                           <asp:RequiredFieldValidator id="reqTelefono" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox4" Display="Dynamic" ErrorMessage="Debe ingresar teléfono"/>
                     </div>
 
+                 <div class="form-group"> <label>Dirección</label>
+                        <div class="input-group">
+                       
+                          <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon glyphicon-home"></i></span>
+       
+                           <asp:TextBox type="text" ID="TextBox1" runat="server" CssClass="form-control" placeholder="Ingresar cargo" onkeypress="return checkTexto(event);"  ></asp:TextBox> 
+                        </div>
+                        <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox7" Display="Dynamic" ErrorMessage="Debe ingresar cargo"/>
+                    </div>
+
                     <div class="form-group"> <label>Cargo</label>
                         <div class="input-group">
                        
@@ -1930,6 +1940,7 @@
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Numero" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" />
+            <asp:BoundField DataField="Direc" HeaderText="Dirección" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Cargo" HeaderText="Cargo" ItemStyle-Width="150" ItemStyle-Wrap="false" />
  
             <asp:TemplateField HeaderText="CDT" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">

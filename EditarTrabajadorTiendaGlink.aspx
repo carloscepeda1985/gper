@@ -358,12 +358,30 @@
                     <label class="col-md-4 control-label  text-right">Teléfono</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                             <asp:TextBox
                                 ID="TextBox3" runat="server" CssClass="form-control" placeholder="Ingresar teléfono"  maxlength="12"  onkeypress="return checkTelefono(event);"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
                             <asp:RequiredFieldValidator ID="reqTelefono" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Debe ingresar Teléfono" />
+
+                        </div>
+                    </div>
+                </div>
+                </br>
+
+                                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label  text-right">Dirección</label>
+                    <div class="col-md-5 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                            <asp:TextBox
+                                ID="TextBox6" runat="server" CssClass="form-control" placeholder="Ingresar dirección" onkeypress="return checkTexto(event);"></asp:TextBox>
+                        </div>
+                        <div class="form-group" style="text-align: left">
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox4" Display="Dynamic" ErrorMessage="Debe ingresar dirección" />
 
                         </div>
                     </div>
@@ -376,7 +394,7 @@
                     <label class="col-md-4 control-label  text-right">Cargo</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
                             <asp:TextBox
                                 ID="TextBox4" runat="server" CssClass="form-control" placeholder="Ingresar cargo" onkeypress="return checkTexto(event);"></asp:TextBox>
                         </div>
