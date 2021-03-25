@@ -460,7 +460,7 @@
                 <div class="form-group" runat="server">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-5">
-                        <asp:Button ID="Button2" runat="server" Text="Cancelar" CssClass="btn btn-default btn-flat" Width="40%" />
+                        <asp:Button ID="Button2" runat="server" Text="Volver" CssClass="btn btn-danger btn-flat" Width="40%" />
                     
                         &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Guardar cambios" CssClass="btn btn-success btn-flat" Width="40%" />
                     </div>

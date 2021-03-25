@@ -30,7 +30,6 @@ Partial Class frm_nuevo
 
         If (dr.Read()) Then
 
-            Session("rut_pro") =
             TextBox1.Text = dr.GetValue(2).ToString()
             TextBox2.Text = dr.GetValue(3).ToString()
             TextBox3.Text = dr.GetValue(4).ToString()
