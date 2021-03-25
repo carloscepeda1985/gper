@@ -4,12 +4,39 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-	<script type="text/javascript">
-	    //Put your JavaScript code here.
-    </script>
-	
 
-<style>
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <script src="js/sweetalert.min.js"></script>  
+    <script type="text/javascript">
+
+        function checkNumero(e) {
+
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla == 8) return true;
+            patron = /^[0-9]+$/;
+            te = String.fromCharCode(tecla);
+
+            return patron.test(te);
+        }
+
+        function successalert( mensaje, tipoAlerta) {
+
+            swal({
+                title: mensaje,
+                type: tipoAlerta,
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "SolicitudesGlink.aspx";
+                    }
+                });
+
+        }
+
+
+    </script>
+
+<%--<style>
 .bar
 {
 list-style-type:none;
@@ -27,6 +54,8 @@ padding-left:20px;
 color: #fff;
 
 }
+
+
 
 </style>
 
@@ -218,6 +247,38 @@ fieldset[disabled] .btn-sample.active {
         background-color: #286090 !important;
         cursor: pointer;
     }
+</style>--%>
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+    .glyphicon2 {
+        position: relative;
+        top: 6px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    e.letracolor {
+        padding-left: 20px;
+        color: #fff;
+    }
+    .bar {
+        list-style-type: none;
+        height: 38px;
+        background-image: -webkit-linear-gradient(top,#01203c 0,#01203c 0%);
+        background-image: linear-gradient(to bottom,#01203c 0,#01203c 0%);
+        font-size: 40px;
+        font: 26px Tahoma, Verdana, Arial, sans-serif;
+        border-radius: 4px;
+        margin-bottom: 11px;
+    }
+
 </style>
 
     <div class="col-md-9">
@@ -231,7 +292,7 @@ fieldset[disabled] .btn-sample.active {
 <div class="input-group">
     
       <div style="float:left">
-     <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="100" placeholder="N° Solicitud"></asp:TextBox>&nbsp
+     <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="100" placeholder="N° Solicitud"  maxlength="8"  onkeypress="return checkNumero(event);" ></asp:TextBox>&nbsp
      </div>&nbsp&nbsp
      <div  style="float:left">
      <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
@@ -242,7 +303,7 @@ fieldset[disabled] .btn-sample.active {
      </asp:DropDownList>
       </div>&nbsp&nbsp
         <div style="float:left">
-            &nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-warning"/>
+            &nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-primary"/>
        </div>
     </div>
         <br />
@@ -298,7 +359,7 @@ fieldset[disabled] .btn-sample.active {
 
             <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Ver" >
 
-<ControlStyle CssClass="btn btn-success"></ControlStyle>
+<ControlStyle CssClass="btn btn-primary"></ControlStyle>
                 </asp:CommandField>
 
             <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
@@ -348,17 +409,17 @@ fieldset[disabled] .btn-sample.active {
 
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                  <li><a href="AdmGlink.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+                  <li><a href="AdmGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
-                   <li><a href="SolicitudesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                   <li><a href="SolicitudesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
-                   <li><a href="TiendasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
+                   <li><a href="TiendasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Tiendas</span></a></li>
-                   <li><a href="ContratistasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                   <li><a href="ContratistasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
-                    <li><a href="EquiposGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
+                    <li><a href="EquiposGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
-                   <li><a href="ReportesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
+                   <li><a href="ReportesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li> 
                   
 

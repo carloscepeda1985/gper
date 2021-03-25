@@ -120,7 +120,7 @@
     </style>
 
     <style type="text/css">
-        .btn-sample {
+   /*     .btn-sample {
             color: #FFFFFF;
             background-color: #0559a2;
             border-color: #0559a2;
@@ -224,7 +224,7 @@
                 background-color: #0559a2;
                 border-color: #0559a2;
             }
-
+*/
 
 
         .btn-sample:active,
@@ -429,7 +429,7 @@
                     <div class="col-md-4">
                         <asp:Button ID="Button2" runat="server" Text="Volver" CssClass="btn btn-danger" CausesValidation="False"
                             Width="40%" />
-                        &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Enviar Datos" CssClass="btn btn-success" Width="40%" />
+                        &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Guardar cambios" CssClass="btn btn-success" Width="40%" />
                     </div>
                 </div>
 
@@ -521,7 +521,7 @@
                         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false"
                             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
                             <Columns>
-                                <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-info" SelectText="Ver" ItemStyle-Width="130" />
+                                <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Ver" ItemStyle-Width="130" />
                                 <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height="25" Width="25" />

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-    <style>
+   <%-- <style>
         .bar {
             list-style-type: none;
             height: 38px;
@@ -191,13 +191,47 @@
         .nuevoEstilo8 {
             color: #FFFFFF;
         }
-    </style>
+    </style>--%>
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+    .glyphicon2 {
+        position: relative;
+        top: 6px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    e.letracolor {
+        padding-left: 20px;
+        color: #fff;
+    }
+    .bar {
+        list-style-type: none;
+        height: 38px;
+        background-image: -webkit-linear-gradient(top,#01203c 0,#01203c 0%);
+        background-image: linear-gradient(to bottom,#01203c 0,#01203c 0%);
+        font-size: 40px;
+        font: 26px Tahoma, Verdana, Arial, sans-serif;
+        border-radius: 4px;
+        margin-bottom: 11px;
+    }
 
-    <!-- sweetalert -->
-    <link href="css/sweetalert.css" rel="stylesheet" />
-    <script src="js/sweetalert.min.js"></script>
+</style>
+
+ <link href="css/sweetalert.css" rel="stylesheet">
+ <script src="js/sweetalert.min.js"></script>
+
+    	
 
     <script type="text/javascript">
+
 
         function successalert() {
             swal({
@@ -206,15 +240,33 @@
             },
                 function (isConfirm) {
                     if (isConfirm) {
-                        location.href = "AdmGlink.aspx";
+                        location.href = "TiendasGlink.aspx";
                     }
                 });
         }
+
+        function successalert2(mensaje, tipoAlerta) {
+
+            swal({
+                title: mensaje,
+                type: tipoAlerta,
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "TiendasGlink.aspx";
+                    }
+                });
+
+        }
+
+
         function checkTelefono(e) {
+
             tecla = (document.all) ? e.keyCode : e.which;
             if (tecla == 8) return true;
             patron = /^[0-9-+]+$/;
             te = String.fromCharCode(tecla);
+
             return patron.test(te);
         }
 
@@ -227,6 +279,17 @@
             tecla_final = String.fromCharCode(tecla);
             return patron.test(tecla_final);
         }
+
+        function checkRutValidacion(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) return true;
+            // Patron de entrada, en este caso solo acepta numeros y letras
+            patron = /^[0-9-kK]+$/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+
         function checkCorreo(e) {
             tecla = (document.all) ? e.keyCode : e.which;
             //Tecla de retroceso para borrar, siempre la permite
@@ -235,6 +298,8 @@
             patron = /^[a-zA-Z0-9-@_.]+$/;
             tecla_final = String.fromCharCode(tecla);
             return patron.test(tecla_final);
+
+
         }
 
         function validarEmail(source, arguments) {
@@ -253,7 +318,39 @@
 
             }
         }
+
+
+        function validar_rut(source, arguments) {
+            var rut = arguments.Value; suma = 0; mul = 2; i = 0;
+
+            for (i = rut.length - 3; i >= 0; i--) {
+                suma = suma + parseInt(rut.charAt(i)) * mul;
+                mul = mul == 7 ? 2 : mul + 1;
+            }
+
+            var dvr = '' + (11 - suma % 11);
+            if (dvr == '10') dvr = 'K'; else if (dvr == '11') dvr = '0';
+
+            if (rut.charAt(rut.length - 2) != "-" || rut.charAt(rut.length - 1).toUpperCase() != dvr)
+                arguments.IsValid = false;
+            else
+                arguments.IsValid = true;
+        }
+
+        function checkRut(rut) {
+
+            var valor = rut.value.replace('.', '');
+            valor = valor.replace('-', '');
+
+            cuerpo = valor.slice(0, -1);
+            dv = valor.slice(-1).toUpperCase();
+
+            rut.value = cuerpo + '-' + dv
+
+        }
+
     </script>
+
 
 
 
@@ -272,10 +369,12 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" placeholder="Ingresar nombres" onkeypress="return checkTexto(event);"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" placeholder="Ingresar rut" onkeypress="return checkRutValidacion(event);" onkeyup="checkRut(this)"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
-                            <asp:RequiredFieldValidator ID="reqNombre" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="Debe ingresar nombre" />
+                          <asp:RequiredFieldValidator id="reqRut" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="Debe ingresar Rut"/>
+
+                          <asp:CustomValidator id="customRut" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="red" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="El rut no es valido" ClientValidationFunction="validar_rut" />
                         </div>
                     </div>
                 </div>
@@ -362,9 +461,9 @@
                 <div class="form-group" runat="server">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-5">
-                        <asp:Button ID="Button2" runat="server" Text="Volver" CssClass="btn btn-success btn-flat" Width="40%" />
+                        <asp:Button ID="Button2" runat="server" Text="Volver" CssClass="btn btn-danger btn-flat" Width="40%" />
                     
-                        &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Enviar Datos" CssClass="btn btn-success btn-flat" Width="40%" />
+                        &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Guardar Cambios" CssClass="btn btn-success btn-flat" Width="40%" />
                     </div>
                 </div>
 

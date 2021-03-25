@@ -122,8 +122,10 @@ Partial Class SolicitudesGper
         dr = comm.ExecuteReader()
         I = 0
         Dim Estado As String
+        Dim cantRegistros As Integer = 0
 
         While (dr.Read())
+            cantRegistros = cantRegistros + 1
             If dr.GetValue(10).ToString() = "0" Then
                 Estado = "M"
             Else
@@ -137,6 +139,7 @@ Partial Class SolicitudesGper
             dt.Rows.Add(Estado, dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
         End While
 
+
         GridView1.DataSource = dt
         GridView1.DataBind()
 
@@ -144,5 +147,12 @@ Partial Class SolicitudesGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+        If (cantRegistros = 0) Then
+            'https://lipis.github.io/bootstrap-sweetalert/
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert('Información no encontrada, utilice otro parámetro de búsqueda','error');", True)
+
+        End If
+
     End Sub
 End Class

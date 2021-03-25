@@ -543,7 +543,7 @@ color: #fff;
                                 						
 							</div>
 						</div>
-                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-info btn-lg btn-block"  width="40%" />
+                     <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-danger btn-lg btn-block"  width="30%" />
                           <asp:Label ID="id_mall" runat="server" Visible="False"></asp:Label>
                          <asp:Label ID="id_contratista" runat="server" Visible="False"></asp:Label>
                      </center>

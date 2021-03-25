@@ -250,8 +250,10 @@ Partial Class ContratistasGper
         dr = comm.ExecuteReader()
         I = 0
         Dim D1, D2, D3, D4, D5 As String
+        Dim cantRegistros As Integer = 0
 
         While (dr.Read())
+            cantRegistros = cantRegistros + 1
             If dr.GetValue(8).ToString() = "no" Then
                 D1 = "A"
             Else
@@ -288,6 +290,13 @@ Partial Class ContratistasGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+
+        If (cantRegistros = 0) Then
+            'https://lipis.github.io/bootstrap-sweetalert/
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('Información no encontrada, utilice otro parámetro de búsqueda','error');", True)
+
+        End If
 
     End Sub
 End Class

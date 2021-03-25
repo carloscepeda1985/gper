@@ -122,7 +122,7 @@ color: #fff;
 </style>
 
 <style type="text/css">
-    .btn-sample {
+ /*   .btn-sample {
  color: #FFFFFF;
   background-color: #0559a2;
   border-color: #0559a2;
@@ -225,7 +225,7 @@ color: #fff;
   color: #FFFFFF;
   background-color: #0559a2;
   border-color: #0559a2;
-}
+}*/
 
 
 
@@ -380,7 +380,7 @@ fieldset[disabled] .btn-sample.active {
                                 ID="TextBox6" runat="server" CssClass="form-control" placeholder="Ingresar dirección" onkeypress="return checkTexto(event);"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox4" Display="Dynamic" ErrorMessage="Debe ingresar dirección" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox6" Display="Dynamic" ErrorMessage="Debe ingresar dirección" />
 
                         </div>
                     </div>
@@ -428,7 +428,7 @@ fieldset[disabled] .btn-sample.active {
   <div class="col-md-4">
   <asp:Button ID="Button2" runat="server" Text="Volver" cssclass="btn btn-danger"  CausesValidation="False"
           width="40%"/>
-  &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Enviar Datos" cssclass="btn btn-success" width="40%"/>
+  &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Guardar cambios" cssclass="btn btn-success" width="40%"/>
   </div>
 </div>
 
@@ -517,7 +517,7 @@ fieldset[disabled] .btn-sample.active {
          <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Ver" ItemStyle-Width="130" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Ver" ItemStyle-Width="130" />
              <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
                 <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height = "25" Width = "25" />

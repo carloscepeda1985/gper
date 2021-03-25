@@ -27,6 +27,20 @@
                 });
         }
 
+        function successalert2(mensaje, tipoAlerta) {
+
+            swal({
+                title: mensaje,
+                type: tipoAlerta,
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "TiendasGlink.aspx";
+                    }
+                });
+
+        }
+
 
         function checkTelefono(e) {
 
@@ -124,11 +138,37 @@
         background-color: #286090 !important;
         cursor: pointer;
     }
+    .glyphicon2 {
+        position: relative;
+        top: 6px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    e.letracolor {
+        padding-left: 20px;
+        color: #fff;
+    }
+    .bar {
+        list-style-type: none;
+        height: 38px;
+        background-image: -webkit-linear-gradient(top,#01203c 0,#01203c 0%);
+        background-image: linear-gradient(to bottom,#01203c 0,#01203c 0%);
+        font-size: 40px;
+        font: 26px Tahoma, Verdana, Arial, sans-serif;
+        border-radius: 4px;
+        margin-bottom: 11px;
+    }
+
 </style>
 
 	
 
-<style>
+<%--<style>
     .bar {
         list-style-type: none;
         height: 38px;
@@ -325,7 +365,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-</style>
+</style>--%>
 
  
     <div class="col-md-9">
@@ -342,12 +382,12 @@
    
     <div container>
      <div>
-     <button style="float: right"; type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">+ Agregar</button>
+     <button style="float: right"; type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ Agregar</button>
   
       <div class="input-group">
       <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150" placeholder="Ingrese Nombre" onkeypress="return checkTexto(event);"></asp:TextBox>&nbsp
 
-      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-success"  CausesValidation="false" />
+      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-primary"  CausesValidation="false" />
      
       </div>
       </div>
@@ -474,7 +514,7 @@
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Editar" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Editar" />
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Contacto" HeaderText="Contacto" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -493,17 +533,17 @@
 
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                <li><a href="AdmGlink.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+                <li><a href="AdmGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
-                   <li><a href="SolicitudesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                   <li><a href="SolicitudesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
-                   <li><a href="TiendasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
+                   <li><a href="TiendasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Tiendas</span></a></li>
-                   <li><a href="ContratistasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                   <li><a href="ContratistasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
-                    <li><a href="EquiposGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
+                    <li><a href="EquiposGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
-                   <li><a href="ReportesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
+                   <li><a href="ReportesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>
                   
                   

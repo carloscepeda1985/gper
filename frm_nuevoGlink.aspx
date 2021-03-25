@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-    <style>
+   <%-- <style>
         .bar {
             list-style-type: none;
             height: 38px;
@@ -191,7 +191,39 @@
         .nuevoEstilo8 {
             color: #FFFFFF;
         }
-    </style>
+    </style>--%>
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+    .glyphicon2 {
+        position: relative;
+        top: 6px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    e.letracolor {
+        padding-left: 20px;
+        color: #fff;
+    }
+    .bar {
+        list-style-type: none;
+        height: 38px;
+        background-image: -webkit-linear-gradient(top,#01203c 0,#01203c 0%);
+        background-image: linear-gradient(to bottom,#01203c 0,#01203c 0%);
+        font-size: 40px;
+        font: 26px Tahoma, Verdana, Arial, sans-serif;
+        border-radius: 4px;
+        margin-bottom: 11px;
+    }
+
+</style>
 
     <!-- sweetalert -->
     <link href="css/sweetalert.css" rel="stylesheet" />
@@ -378,9 +410,9 @@
                 <div class="form-group" runat="server">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-5">
-                        <asp:Button ID="Button2" runat="server" Text="Volver" CssClass="btn btn-success btn-flat" Width="40%" />
+                        <asp:Button ID="Button2" runat="server" Text="Cancelar" CssClass="btn btn-default btn-flat" Width="40%" />
                     
-                        &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Enviar Datos" CssClass="btn btn-success btn-flat" Width="40%" />
+                        &nbsp&nbsp&nbsp<asp:Button ID="Button1" runat="server" Text="Guardar cambios" CssClass="btn btn-success btn-flat" Width="40%" />
                     </div>
                 </div>
 

@@ -306,8 +306,9 @@ Partial Class FichaContratista
         conn.Close()
         dr.Close()
 
-        Response.Redirect("ContratistasGlink.aspx")
-
+        ' Response.Redirect("ContratistasGlink.aspx")
+        'https://lipis.github.io/bootstrap-sweetalert/
+        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2();", True)
 
     End Sub
 End Class

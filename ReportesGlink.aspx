@@ -19,7 +19,7 @@
     </script>
 	
 
-<style>
+<%--<style>
 .bar
 {
 list-style-type:none;
@@ -227,6 +227,38 @@ fieldset[disabled] .btn-sample.active {
         background-color: #286090 !important;
         cursor: pointer;
     }
+</style>--%>
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+    .glyphicon2 {
+        position: relative;
+        top: 6px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    e.letracolor {
+        padding-left: 20px;
+        color: #fff;
+    }
+    .bar {
+        list-style-type: none;
+        height: 38px;
+        background-image: -webkit-linear-gradient(top,#01203c 0,#01203c 0%);
+        background-image: linear-gradient(to bottom,#01203c 0,#01203c 0%);
+        font-size: 40px;
+        font: 26px Tahoma, Verdana, Arial, sans-serif;
+        border-radius: 4px;
+        margin-bottom: 11px;
+    }
+
 </style>
 
 
@@ -252,7 +284,7 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-success" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-primary" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
         </asp:GridView>
@@ -275,7 +307,7 @@ fieldset[disabled] .btn-sample.active {
             CssClass="table table-bordered bs-table"  AllowPaging="True" PageSize="6" >
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-success" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
+                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-primary" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
             </Columns>
             <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
         </asp:GridView>
@@ -298,17 +330,17 @@ fieldset[disabled] .btn-sample.active {
 
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
-                   <li><a href="AdmGlink.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+                   <li><a href="AdmGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
-                   <li><a href="SolicitudesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                   <li><a href="SolicitudesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
-                   <li><a href="TiendasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
+                   <li><a href="TiendasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Tiendas</span></a></li>
-                   <li><a href="ContratistasGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
+                   <li><a href="ContratistasGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-hand-right" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Contratistas</span></a></li>
-                    <li><a href="EquiposGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
+                    <li><a href="EquiposGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-scale" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Equipos</span></a></li>
-                   <li><a href="ReportesGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
+                   <li><a href="ReportesGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-dashboard" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Reportes</span></a></li>
                </ul>
 				   

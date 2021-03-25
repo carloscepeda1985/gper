@@ -130,9 +130,10 @@ Partial Class TiendasGper
 
                             conn.Close()
                             dr.Close()
+                            ' Response.Redirect("TiendasGlink.aspx")
                             'https://lipis.github.io/bootstrap-sweetalert/
                             ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
-                            Response.Redirect("TiendasGlink.aspx")
+
                         End If
                     End If
                 End If
@@ -246,8 +247,10 @@ Partial Class TiendasGper
         dr = comm.ExecuteReader()
         I = 0
         Dim D1, D2, D3, D4, D5 As String
+        Dim cantRegistros As Integer = 0
 
         While (dr.Read())
+            cantRegistros = cantRegistros + 1
             If dr.GetValue(8).ToString() = "no" Then
                 D1 = "A"
             Else
@@ -284,6 +287,13 @@ Partial Class TiendasGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+
+        If (cantRegistros = 0) Then
+            'https://lipis.github.io/bootstrap-sweetalert/
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('Información no encontrada, utilice otro parámetro de búsqueda','error');", True)
+
+        End If
 
     End Sub
 

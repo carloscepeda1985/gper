@@ -22,6 +22,18 @@
                     }
                 });
         }
+        function successalert2() {
+
+            swal({
+                title: "La tienda ha sido eliminada correctamente",
+                type: "success",
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "TiendasGlink.aspx";
+                    }
+                });
+        }
 
         function checkTelefono(e) {
             tecla = (document.all) ? e.keyCode : e.which;
@@ -116,7 +128,7 @@
 </style>
 
 <style type="text/css">
-    .btn-sample {
+   /* .btn-sample {
         color: #FFFFFF;
         background-color: #123740;
         border-color: #123740;
@@ -219,7 +231,7 @@
             color: #FFFFFF;
             background-color: #0559a2;
             border-color: #0559a2;
-        }
+        }*/
 
 
 
@@ -1665,8 +1677,8 @@
                             <br/>
                                <div container>
                                <br/>
-     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Actualizar Logo</button><br />
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModaleli" style="margin-top:10px">Eliminar Tienda</button>
+     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Actualizar Logo</button><br />
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModaleli" style="margin-top:10px">Eliminar Tienda</button>
        
      <!-- Modal Logo -->
   <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" role="dialog">
@@ -1719,7 +1731,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-flat" data-dismiss="modal" >Cancelar</button>
-            <asp:Button ID="Button3" runat="server" Text="Eliminar"  CssClass="btn btn-success btn-flat" CausesValidation="false" />
+            <asp:Button ID="Button3" runat="server" Text="Eliminar"  CssClass="btn btn-danger btn-flat" CausesValidation="false" />
         </div>
       </div>
       
@@ -1810,7 +1822,7 @@
 
                              <div container>
      <div>
-     <button style="float: right"; type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2">+ Agregar</button>
+     <button style="float: right"; type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">+ Agregar</button>
   
       <div class="input-group">
 <div class="widget-header widget-header-small">
@@ -1935,7 +1947,7 @@
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Editar" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Editar" />
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -1983,7 +1995,7 @@
 					</div>
 
 
-                  <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-danger btn-lg btn-block"  width="40%" CausesValidation="False"/> </center>
+                  <center> <asp:Button ID="Button2" runat="server"  Text="Volver" class="btn btn-danger"  width="30%" CausesValidation="False"/> </center>
 
 
 				</div><!-- /#home -->

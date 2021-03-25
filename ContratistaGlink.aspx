@@ -22,6 +22,18 @@
                     }
                 });
         }
+        function successalert2() {
+
+            swal({
+                title: "El contratista ha sido eliminado correctamente",
+                type: "success",
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "ContratistasGlink.aspx";
+                    }
+                });
+        }
 
         function checkTelefono(e) {
             tecla = (document.all) ? e.keyCode : e.which;
@@ -97,7 +109,7 @@
 	
 
 
-<style>
+<%--<style>
     .bar {
         list-style-type: none;
         height: 38px;
@@ -113,33 +125,33 @@
         padding-left: 20px;
         color: #fff;
     }
-</style>
+</style>--%>
 
 <style type="text/css">
-    .btn-sample {
+/*    .btn-sample {
         color: #FFFFFF;
         background-color: #0559a2;
         border-color: #0559a2;
     }
+*/
 
-
-        .btn-sample:focus,
+      /*  .btn-sample:focus,
         .btn-sample:active,
         .btn-sample.active,
         .open .dropdown-toggle.btn-sample {
             color: #FFFFFF;
             background-color: #0559a2;
             border-color: #0559a2;
-        }
+        }*/
 
-    .btn-info {
+/*    .btn-info {
         color: #FFFFFF;
         background-color: #0559a2;
         border-color: #0559a2;
     }
+*/
 
-
-        .btn-info:focus,
+/*        .btn-info:focus,
         .btn-info:active,
         .btn-info.active,
         .open .dropdown-toggle.btn-info {
@@ -147,53 +159,53 @@
             background-color: #0559a2;
             border-color: #0559a2;
         }
+*/
 
 
-
-    .btn-primary {
+/*    .btn-primary {
         color: #FFFFFF;
         background-color: #0559a2;
         border-color: #0559a2;
-    }
+    }*/
 
 
-        .btn-primary:focus,
+/*        .btn-primary:focus,
         .btn-primary:active,
         .btn-primary.active,
         .open .dropdown-toggle.btn-primary {
             color: #FFFFFF;
             background-color: #0559a2;
             border-color: #0559a2;
-        }
+        }*/
 
 
 
-    .btn-warning {
+/*    .btn-warning {
         color: #FFFFFF;
         background-color: #0559a2;
         border-color: #0559a2;
     }
+*/
 
-
-        .btn-warning:focus,
+/*        .btn-warning:focus,
         .btn-warning:active,
         .btn-warning.active,
         .open .dropdown-toggle.btn-warning {
             color: #FFFFFF;
             background-color: #0559a2;
             border-color: #0559a2;
-        }
+        }*/
 
 
-
+/*
     .btn-danger {
         color: #FFFFFF;
         background-color: #0559a2;
         border-color: #0559a2;
     }
+*/
 
-
-        .btn-danger:focus,
+/*        .btn-danger:focus,
         .btn-danger:active,
         .btn-danger.active,
         .open .dropdown-toggle.btn-danger {
@@ -201,25 +213,25 @@
             background-color: #0559a2;
             border-color: #0559a2;
         }
+*/
 
 
-
-
+/*
     .btn-success {
         color: #FFFFFF;
         background-color: #0559a2;
         border-color: #0559a2;
     }
+*/
 
-
-        .btn-success:focus,
+/*        .btn-success:focus,
         .btn-successr:active,
         .btn-success.active,
         .open .dropdown-toggle.btn-success {
             color: #FFFFFF;
             background-color: #0559a2;
             border-color: #0559a2;
-        }
+        }*/
 
 
 
@@ -1650,7 +1662,10 @@
     .grey {
         color: #777 !important
     }
+
 </style>
+
+
 
 
 
@@ -1665,8 +1680,8 @@
                             <br/>
                                <div container>
                                <br/>
-     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Actualizar Logo</button><br />
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModaleli" style="margin-top:10px">Eliminar Contratista</button>
+     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Actualizar Logo</button><br />
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModaleli" style="margin-top:10px">Eliminar Contratista</button>
        
        
      <!-- Modal -->
@@ -1720,7 +1735,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-flat" data-dismiss="modal" >Cancelar</button>
-            <asp:Button ID="Button3" runat="server" Text="Eliminar"  CssClass="btn btn-success btn-flat" CausesValidation="false" />
+            <asp:Button ID="Button3" runat="server" Text="Eliminar"  CssClass="btn btn-danger btn-flat" CausesValidation="false" />
         </div>
       </div>
       
@@ -1809,7 +1824,7 @@
 
                              <div container>
      <div>
-     <button style="float: right"; type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2">+ Agregar</button>
+     <button style="float: right"; type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">+ Agregar</button>
   
       <div class="input-group">
 <div class="widget-header widget-header-small">
@@ -1922,7 +1937,7 @@
         
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <asp:Button ID="Button4" runat="server" Text="Aceptar" CssClass="btn btn-success" />
+            <asp:Button ID="Button4" runat="server" Text="Guardar Cambios" CssClass="btn btn-success" />
         </div>
       </div>
       
@@ -1935,7 +1950,7 @@
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Editar" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Editar" />
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -1983,7 +1998,7 @@
 					</div>
 
 
-                  <center> <asp:Button ID="Button2" runat="server"  Text="volver" class="btn btn-danger btn-lg btn-block"  CausesValidation="false"  width="40%" /> </center>
+                  <center> <asp:Button ID="Button2" runat="server"  Text="Volver" class="btn btn-danger"  CausesValidation="false" Width="30%" /> </center>
 
 
 				</div><!-- /#home -->

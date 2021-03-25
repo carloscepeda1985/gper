@@ -701,7 +701,7 @@
                 </div>
             </div>
           </div>
-           <center> <asp:Button ID="Button2" runat="server" useSubmitBehavior="false" Text="volver" class="btn btn-danger btn-lg btn-block"  width="40%" /> </center>                   
+           <center> <asp:Button ID="Button2" runat="server" useSubmitBehavior="false" Text="Eliminar borrador" class="btn btn-danger btn-lg btn-block"  width="30%" /> </center>                   
     <br/>
         </div>
 

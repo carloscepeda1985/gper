@@ -96,7 +96,7 @@
 
     </script>
 
-<style>
+<%--<style>
     a:hover {
         background-color: #286090 !important;
         cursor: pointer;
@@ -305,7 +305,43 @@ fieldset[disabled] .btn-sample.active {
     -moz-osx-font-smoothing: grayscale;
 }
 
- </style>
+ </style>--%>
+
+<style>
+    a:hover {
+        background-color: #286090 !important;
+        cursor: pointer;
+    }
+.bar
+{
+list-style-type:none;
+height:38px;
+background-image: -webkit-linear-gradient(top,#01203c  0,#01203c  0%);
+background-image: linear-gradient(to bottom,#01203c  0,#01203c  0%);
+font-size:40px;
+font: 26px Tahoma, Verdana, Arial, sans-serif;
+border-radius:4px;
+margin-bottom:11px;
+}
+
+e.letracolor{
+padding-left:20px;
+color: #fff;
+
+}
+
+     .glyphicon2 {
+    position: relative;
+    top: 6px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+</style>
 
     <div class="col-md-9">
     <div class="bar">
@@ -318,11 +354,11 @@ fieldset[disabled] .btn-sample.active {
    
     <div container>
      <div>
-     <button style="float: right"; type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">+ Agregar</button>
+     <button style="float: right"; type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ Agregar</button>
   
       <div class="input-group">
       <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="150" placeholder="Ingrese Nombre"  onkeypress="return checkTexto(event);"></asp:TextBox>&nbsp
-      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-success" CausesValidation="false"/>
+      <asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-primary" CausesValidation="false"/>
      
       </div>
       </div>
@@ -389,9 +425,9 @@ fieldset[disabled] .btn-sample.active {
                        
                           <span class="input-group-addon"><i style="width: 20px" class="glyphicon glyphicon glyphicon-home"></i></span>
        
-                           <asp:TextBox type="text" ID="TextBox1" runat="server" CssClass="form-control" placeholder="Ingresar cargo" onkeypress="return checkTexto(event);"  ></asp:TextBox> 
+                           <asp:TextBox type="text" ID="TextBox1" runat="server" CssClass="form-control" placeholder="Ingresar dirección" onkeypress="return checkTexto(event);"  ></asp:TextBox> 
                         </div>
-                        <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox7" Display="Dynamic" ErrorMessage="Debe ingresar cargo"/>
+                        <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox7" Display="Dynamic" ErrorMessage="Debe ingresar dirección"/>
                     </div>
 
                     <div class="form-group"> <label>Cargo</label>
@@ -428,7 +464,7 @@ fieldset[disabled] .btn-sample.active {
         
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <asp:Button ID="Button1" runat="server" Text="Aceptar" CssClass="btn btn-success" />
+            <asp:Button ID="Button1" runat="server" Text="Guardar cambios" CssClass="btn btn-success" />
         </div>
       </div>
       
@@ -442,7 +478,7 @@ fieldset[disabled] .btn-sample.active {
         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-success" SelectText="Editar" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-edit" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Editar" />
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150" ItemStyle-Wrap="false" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="150" ItemStyle-Wrap="false" />
@@ -493,16 +529,16 @@ fieldset[disabled] .btn-sample.active {
      <ul class="nav nav-pills nav-stacked" background="#E9801E">
 
 
-                    <li><a href="ConGlink.aspx" class="btn btn-info btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
+                    <li><a href="ConGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-home" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Menú Principal</span></a></li>
 
-                    <li><a href="CrearSolicitudConGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
+                    <li><a href="CrearSolicitudConGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>
 
-                    <li><a href="SolicitudesConGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                    <li><a href="SolicitudesConGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
 
-                   <li><a href="TrabajadoresConGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+                   <li><a href="TrabajadoresConGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
          
 

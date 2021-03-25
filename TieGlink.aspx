@@ -9,7 +9,7 @@
     </script>
 	
 
-<style>
+<%--<style>
 .bar
 {
 list-style-type:none;
@@ -209,7 +209,7 @@ fieldset[disabled] .btn-sample.active {
     -moz-osx-font-smoothing: grayscale;
 }
 
- </style>
+ </style>--%>
 
 <style>
     a:hover {
@@ -227,13 +227,13 @@ fieldset[disabled] .btn-sample.active {
 
                      
 
-                    <li><a href="CrearSolicitudTieGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
+                    <li><a href="CrearSolicitudTieGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-share" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Nueva Solicitud</span></a></li>
 
-                    <li><a href="SolicitudesTieGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
+                    <li><a href="SolicitudesTieGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-log-in" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Solicitudes</span></a></li>
 
-                   <li><a href="TrabajadoresTieGlink.aspx" class="btn btn-danger btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
+                   <li><a href="TrabajadoresTieGlink.aspx" class="btn btn-primary btn-lg btn-block" style="line-height: 2;"><span class="glyphicon glyphicon-briefcase" style="color:white"></span>
                        <span class="nuevoEstilo3">&nbsp;Trabajadores</span></a></li>
          
                 </ul>               
@@ -252,7 +252,7 @@ fieldset[disabled] .btn-sample.active {
                        <br/>
                     </font>
                </div>
-                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-success" width="80%" /></center>
+                      <center><asp:Button ID="Button3" runat="server" Text="Editar Cuenta" CssClass="btn btn-primary" width="80%" /></center>
              </div>
            </div>
          </div>
