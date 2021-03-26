@@ -23,19 +23,21 @@ Partial Class SolicitudesGper
     Public msApe As String 'ap
 
     Private Sub SolicitudesGper_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Not Me.IsPostBack Then
 
-        dt.Clear()
 
-        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-                conector += "Database=w230416_glink;User=w230416_glink;"
-                conector += "Pwd=Gorilla1985;Option=3;"
+            dt.Clear()
 
-                conn = New OdbcConnection(conector)
-                conn.Open()
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
             sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado >='0' order by fecha_inicio desc"
             comm = New OdbcCommand(sql, conn)
-                dr = comm.ExecuteReader()
-                I = 0
+            dr = comm.ExecuteReader()
+            I = 0
             Dim Estado As String
 
             dt.Columns.AddRange(New DataColumn(8) {New DataColumn("Estado"), New DataColumn("N_Solicitud"), New DataColumn("Empresa"), New DataColumn("Resumen"), New DataColumn("Lugar"), New DataColumn("Fecha Inicio"), New DataColumn("Hora Entrada"), New DataColumn("Telefono"), New DataColumn("Email")})
@@ -54,15 +56,15 @@ Partial Class SolicitudesGper
                 dt.Rows.Add(Estado, dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
             End While
 
-                GridView1.DataSource = dt
-                GridView1.DataBind()
+            GridView1.DataSource = dt
+            GridView1.DataBind()
 
-                conn.Close()
-                dr.Close()
-                comm.Dispose()
-                conn.Dispose()
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
 
-
+        End If
     End Sub
 
     Private Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
@@ -123,6 +125,8 @@ Partial Class SolicitudesGper
         I = 0
         Dim Estado As String
         Dim cantRegistros As Integer = 0
+
+        dt.Columns.AddRange(New DataColumn(8) {New DataColumn("Estado"), New DataColumn("N_Solicitud"), New DataColumn("Empresa"), New DataColumn("Resumen"), New DataColumn("Lugar"), New DataColumn("Fecha Inicio"), New DataColumn("Hora Entrada"), New DataColumn("Telefono"), New DataColumn("Email")})
 
         While (dr.Read())
             cantRegistros = cantRegistros + 1
