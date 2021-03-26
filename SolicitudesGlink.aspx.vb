@@ -76,7 +76,11 @@ Partial Class SolicitudesGper
         Dim x As Integer
         Dim dato As String
 
+
+
         x = GridView1.SelectedIndex()
+
+        Dim valor = GridView1.SelectedRow.Cells(1).Text
 
         dato = GridView1.Rows(x).Cells(2).Text
 
@@ -94,6 +98,8 @@ Partial Class SolicitudesGper
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         dt.Clear()
+
+
 
         sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro")
 
@@ -126,7 +132,9 @@ Partial Class SolicitudesGper
         Dim Estado As String
         Dim cantRegistros As Integer = 0
 
+
         dt.Columns.AddRange(New DataColumn(8) {New DataColumn("Estado"), New DataColumn("N_Solicitud"), New DataColumn("Empresa"), New DataColumn("Resumen"), New DataColumn("Lugar"), New DataColumn("Fecha Inicio"), New DataColumn("Hora Entrada"), New DataColumn("Telefono"), New DataColumn("Email")})
+
 
         While (dr.Read())
             cantRegistros = cantRegistros + 1
@@ -140,8 +148,11 @@ Partial Class SolicitudesGper
                 End If
             End If
 
+
             dt.Rows.Add(Estado, dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
         End While
+
+
 
 
         GridView1.DataSource = dt

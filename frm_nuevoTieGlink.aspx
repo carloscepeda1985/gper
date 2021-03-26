@@ -241,7 +241,7 @@
             },
                 function (isConfirm) {
                     if (isConfirm) {
-                        location.href = "TiendasGlink.aspx";
+                        location.href = "TieGlink.aspx";
                     }
                 });
         }
@@ -254,7 +254,7 @@
             },
                 function (isConfirm) {
                     if (isConfirm) {
-                        location.href = "TiendasGlink.aspx";
+                        location.href = "TieGlink.aspx";
                     }
                 });
 
@@ -384,11 +384,11 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label text-right">Nombre</label>
+                    <label class="col-md-4 control-label text-right">Nombre Tienda</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="Ingresar nombre" onkeypress="return checkTexto(event);"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="Ingresar nombre de la tienda" onkeypress="return checkTexto(event);"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
                         <asp:RequiredFieldValidator id="reqTienda" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="Debe ingresar nombre de la tienda"/>

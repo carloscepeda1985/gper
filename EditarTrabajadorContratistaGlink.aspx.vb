@@ -148,7 +148,7 @@ Partial Class EditarTrabajadorContratista
             Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("dato") & "\Doc\CDT" & fn
             Try
                 File6.PostedFile.SaveAs(SaveLocation)
-                Response.Write("The file has been uploaded.")
+                ' Response.Write("The file has been uploaded.")
 
                 conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                 conector += "Database=w230416_glink;User=w230416_glink;"
@@ -190,7 +190,7 @@ Partial Class EditarTrabajadorContratista
             Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("dato") & "\Doc\CAFP" & fn
             Try
                 File7.PostedFile.SaveAs(SaveLocation)
-                Response.Write("The file has been uploaded.")
+                '  Response.Write("The file has been uploaded.")
 
                 conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                 conector += "Database=w230416_glink;User=w230416_glink;"
@@ -237,7 +237,7 @@ Partial Class EditarTrabajadorContratista
             Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("dato") & "\Doc\AFC" & fn
             Try
                 File8.PostedFile.SaveAs(SaveLocation)
-                Response.Write("The file has been uploaded.")
+                '  Response.Write("The file has been uploaded.")
 
                 conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                 conector += "Database=w230416_glink;User=w230416_glink;"
@@ -276,7 +276,7 @@ Partial Class EditarTrabajadorContratista
             Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("dato") & "\Doc\INP" & fn
             Try
                 File9.PostedFile.SaveAs(SaveLocation)
-                Response.Write("The file has been uploaded.")
+                '  Response.Write("The file has been uploaded.")
 
                 conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                 conector += "Database=w230416_glink;User=w230416_glink;"
@@ -309,7 +309,7 @@ Partial Class EditarTrabajadorContratista
             Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("dato") & "\Doc\CCAF" & fn
             Try
                 File10.PostedFile.SaveAs(SaveLocation)
-                Response.Write("The file has been uploaded.")
+                ' Response.Write("The file has been uploaded.")
 
                 conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
                 conector += "Database=w230416_glink;User=w230416_glink;"

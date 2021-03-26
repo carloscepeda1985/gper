@@ -240,7 +240,7 @@
             },
                 function (isConfirm) {
                     if (isConfirm) {
-                        location.href = "TiendasGlink.aspx";
+                        location.href = "ConGlink.aspx";
                     }
                 });
         }
@@ -253,7 +253,7 @@
             },
                 function (isConfirm) {
                     if (isConfirm) {
-                        location.href = "TiendasGlink.aspx";
+                        location.href = "ConGlink.aspx";
                     }
                 });
 
@@ -385,14 +385,14 @@
                 <!-- Text input-->
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label text-right">Nombre</label>
+                    <label class="col-md-4 control-label text-right">Nombre Empresa</label>
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="Ingresar apellidos" onkeypress="return checkTexto(event);"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="Ingresar nombre de la empresa" onkeypress="return checkTexto(event);"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
-                            <asp:RequiredFieldValidator ID="reqApellido" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="Debe ingresar apellido" />
+                            <asp:RequiredFieldValidator ID="reqApellido" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox2" Display="Dynamic" ErrorMessage="Debe ingresar nombre de la empresa" />
                         </div>
                     </div>
                 </div>
@@ -403,11 +403,10 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <asp:TextBox type="text" ID="TextBox3" runat="server" CssClass="form-control" placeholder="Ingresar email" onkeypress="return checkCorreo(event);"></asp:TextBox>
+                            <asp:TextBox type="text" ID="TextBox3" runat="server" CssClass="form-control" placeholder="Ingresar contacto" onkeypress="return checkTexto(event);"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
-                            <asp:RequiredFieldValidator ID="reqEmail" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Debe ingresar email" />
-                            <asp:CustomValidator ID="customEmail" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="red" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Formato del correo es invalido" ClientValidationFunction="validarEmail" />
+                            <asp:RequiredFieldValidator ID="reqContacto" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Debe ingresar contacto" />
                         </div>
                     </div>
                 </div>
@@ -435,10 +434,11 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" placeholder="Ingresar cargo" onkeypress="return checkTexto(event);"></asp:TextBox>
+                            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" placeholder="Ingresar email" onkeypress="return checkCorreo(event);"></asp:TextBox>
                         </div>
                         <div class="form-group" style="text-align: left">
-                            <asp:RequiredFieldValidator ID="reqCargo" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox5" Display="Dynamic" ErrorMessage="Debe ingresar cargo" />
+                         <asp:RequiredFieldValidator id="reqEmail" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="Red" ControlToValidate="TextBox5" Display="Dynamic" ErrorMessage="Debe ingresar email"/>
+                         <asp:CustomValidator id="customEmail" runat="server" CssClass="form-control" Font-Italic="True" ForeColor="red" ControlToValidate="TextBox5" Display="Dynamic" ErrorMessage="Formato del correo es invalido" ClientValidationFunction="validarEmail" />
                         </div>
                     </div>
                 </div>
