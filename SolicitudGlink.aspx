@@ -513,7 +513,7 @@ color: #fff;
 										<div class="panel-body">
 											
      <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Width="100%"
+        <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="15">
             <Columns>
             <asp:BoundField DataField="Rut" HeaderText="Rut" ItemStyle-Width="130" ItemStyle-Wrap="false" />
