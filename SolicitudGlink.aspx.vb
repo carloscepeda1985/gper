@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Data
 Imports System.Data.Odbc
 Imports System.Xml
+Imports System.Web.Mail
 
 Partial Class SolicitudGper
     Inherits System.Web.UI.Page
@@ -375,7 +376,7 @@ Partial Class SolicitudGper
         comm.Dispose()
         conn.Dispose()
 
-        'agrega rechazo
+        'agrega apruebo
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
         conector += "Database=w230416_glink;User=w230416_glink;"
@@ -395,7 +396,27 @@ Partial Class SolicitudGper
         comm.Dispose()
         conn.Dispose()
 
+        'envio email
 
+        Dim fromAddress = "alertas.glink@gmail.com"
+        Dim toAddress = TextBox18.Text
+        Const fromPassword As String = "UI@X5s#8gLc%"
+        Dim subject As String = "Su solicitud a sido Aceptada"
+        Dim body As String = "Le informamos que su solicitud de trabajo N°" & Request.QueryString("dato") & " a sido Aceptada" & vbCrLf
+        body += "Comentario: " & TextBox4.Text
+        Dim smtp = New System.Net.Mail.SmtpClient()
+
+        If True Then
+            smtp.Credentials = New System.Net.NetworkCredential(fromAddress, fromPassword)
+            smtp.EnableSsl = True
+            smtp.Host = "smtp.gmail.com"
+            smtp.Port = 587
+            smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network
+
+            smtp.Timeout = 20000
+        End If
+
+        smtp.Send(fromAddress, toAddress, subject, body)
 
         ' Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)
 
@@ -446,6 +467,28 @@ Partial Class SolicitudGper
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+        'envio email
+
+        Dim fromAddress = "alertas.glink@gmail.com"
+        Dim toAddress = TextBox18.Text
+        Const fromPassword As String = "UI@X5s#8gLc%"
+        Dim subject As String = "Su solicitud a sido Rechazada"
+        Dim body As String = "Le informamos que su solicitud de trabajo N°" & Request.QueryString("dato") & " a sido Rechazada" & vbCrLf
+        body += "Comentario: " & TextBox7.Text
+        Dim smtp = New System.Net.Mail.SmtpClient()
+
+        If True Then
+            smtp.Credentials = New System.Net.NetworkCredential(fromAddress, fromPassword)
+            smtp.EnableSsl = True
+            smtp.Host = "smtp.gmail.com"
+            smtp.Port = 587
+            smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network
+
+            smtp.Timeout = 20000
+        End If
+
+        smtp.Send(fromAddress, toAddress, subject, body)
 
 
         ' Response.Redirect("SolicitudGlink.aspx?dato=" + LabelNumero.Text)

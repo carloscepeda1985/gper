@@ -14,8 +14,9 @@ Partial Class frm_nuevo
     Dim x As String = "1"
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        If Not Me.IsPostBack Then
 
-        Button2.Attributes.Add("onclick", "history.back(); return false;")
+            Button2.Attributes.Add("onclick", "history.back(); return false;")
         Session("rut_pro") = Request.QueryString("dato")
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
@@ -44,6 +45,7 @@ Partial Class frm_nuevo
         comm.Dispose()
         conn.Dispose()
 
+        End If
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
@@ -91,6 +93,11 @@ Partial Class frm_nuevo
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+        Session("nombre_contratista") = TextBox2.Text
+        Session("contacto_contratista") = TextBox3.Text
+        Session("telefono_contratista") = TextBox4.Text
+        Session("email_contratista") = TextBox5.Text
 
         ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
 

@@ -15,35 +15,39 @@ Partial Class frm_nuevo
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
-        Button2.Attributes.Add("onclick", "history.back(); return false;")
-        Session("rut_pro") = Request.QueryString("dato")
+        If Not Me.IsPostBack Then
 
-        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-        conector += "Database=w230416_glink;User=w230416_glink;"
-        conector += "Pwd=Gorilla1985;Option=3;"
 
-        conn = New OdbcConnection(conector)
-        conn.Open()
-        sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where rut = '" & Session("rut_contratista") & "'"
-        comm = New OdbcCommand(sql, conn)
-        dr = comm.ExecuteReader()
 
-        If (dr.Read()) Then
+            Button2.Attributes.Add("onclick", "history.back(); return false;")
+            Session("rut_pro") = Request.QueryString("dato")
 
-            TextBox1.Text = dr.GetValue(2).ToString()
-            TextBox2.Text = dr.GetValue(3).ToString()
-            TextBox3.Text = dr.GetValue(4).ToString()
-            TextBox4.Text = dr.GetValue(5).ToString()
-            TextBox5.Text = dr.GetValue(6).ToString()
-            TextBox7.Text = dr.GetValue(7).ToString()
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT id, id_mall, rut, nombre, contacto, telefono, email, pass, D1, D2, D3, D4, D5, estado FROM tiendas_m where rut = '" & Session("rut_contratista") & "'"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+
+            If (dr.Read()) Then
+
+                TextBox1.Text = dr.GetValue(2).ToString()
+                TextBox2.Text = dr.GetValue(3).ToString()
+                TextBox3.Text = dr.GetValue(4).ToString()
+                TextBox4.Text = dr.GetValue(5).ToString()
+                TextBox5.Text = dr.GetValue(6).ToString()
+                TextBox7.Text = dr.GetValue(7).ToString()
+
+            End If
+
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
         End If
-
-        conn.Close()
-        dr.Close()
-        comm.Dispose()
-        conn.Dispose()
-
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As System.EventArgs) Handles Button1.Click
@@ -91,6 +95,12 @@ Partial Class frm_nuevo
         dr.Close()
         comm.Dispose()
         conn.Dispose()
+
+
+        Session("nombre_contratista") = TextBox2.Text
+        Session("contacto_contratista") = TextBox3.Text
+        Session("telefono_contratista") = TextBox4.Text
+        Session("email_contratista") = TextBox5.Text
 
         ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
 

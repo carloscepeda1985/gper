@@ -24,12 +24,29 @@ Partial Class CrearSolicitudGper
 
     Protected Sub myBtn_Click(sender As Object, e As System.EventArgs) Handles myBtn.Click
 
+
+
         Dim valores, sql_tra As String
 
 
-        If Htra.Value <> "" Then
+            If Htra.Value <> "" Then
 
-            valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
+                valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
+
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
+
+                conn = New OdbcConnection(conector)
+                conn.Open()
+                sql_tra = "insert Into trabajador_solicitud(id_mall,id_contratista,id_solicitud,rut,estado) Values" & valores
+                comm = New OdbcCommand(sql_tra, conn)
+                dr = comm.ExecuteReader()
+
+                conn.Close()
+                dr.Close()
+
+            End If
 
             conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
             conector += "Database=w230416_glink;User=w230416_glink;"
@@ -37,84 +54,103 @@ Partial Class CrearSolicitudGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql_tra = "insert Into trabajador_solicitud(id_mall,id_contratista,id_solicitud,rut,estado) Values" & valores
-            comm = New OdbcCommand(sql_tra, conn)
+            sql = "SELECT * FROM encargado_m WHERE rut = '" & Hrutenc.Value & "'"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+
+            If dr.Read() Then
+                conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector2 += "Database=w230416_glink;User=w230416_glink;"
+                conector2 += "Pwd=Gorilla1985;Option=3;"
+
+                conn2 = New OdbcConnection(conector2)
+                conn2.Open()
+                sql2 = "UPDATE encargado_m SET rut='" & Hrutenc.Value & "',nombre='" & Hnomenc.Value & "',apellido='" & Hapeenc.Value & "',mutual='" & Hmutenc.Value & "',celular='" & Hcelenc.Value & "',email='" & Hemaenc.Value & "' where rut='" & Hrutenc.Value & "'"
+                comm2 = New OdbcCommand(sql2, conn2)
+                dr2 = comm2.ExecuteReader()
+            Else
+                conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector2 += "Database=w230416_glink;User=w230416_glink;"
+                conector2 += "Pwd=Gorilla1985;Option=3;"
+
+                conn2 = New OdbcConnection(conector2)
+                conn2.Open()
+                sql2 = "insert Into encargado_m(rut,nombre,apellido,mutual,celular,email,estado) Values('" & Hrutenc.Value & "','" & Hnomenc.Value & "','" & Hapeenc.Value & "','" & Hmutenc.Value & "','" & Hcelenc.Value & "','" & Hemaenc.Value & "','1')"
+                comm2 = New OdbcCommand(sql2, conn2)
+                dr2 = comm2.ExecuteReader()
+            End If
+
+            conn2.Close()
+            dr2.Close()
+            conn.Close()
+            dr.Close()
+
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
+
+            Dim fecha_ini, fecha_dia, fecha_mes, fecha_ano, fecha_fin As String
+
+            fecha_dia = Mid(Hfecini.Value, 1, 2)
+            fecha_mes = Mid(Hfecini.Value, 4, 2)
+            fecha_ano = Mid(Hfecini.Value, 7, 4)
+
+            fecha_ini = fecha_mes + "-" + fecha_dia + "-" + fecha_ano
+
+            fecha_dia = Mid(Hfecfin.Value, 1, 2)
+            fecha_mes = Mid(Hfecfin.Value, 4, 2)
+            fecha_ano = Mid(Hfecfin.Value, 7, 4)
+
+            fecha_fin = fecha_mes + "-" + fecha_dia + "-" + fecha_ano
+
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "UPDATE solicitud_m set id_encargado= '" & Hrutenc.Value & "',empresa_contratista='" & Hempcon.Value & "',resumen_trabajo='" & Hrestra.Value & "',lugar='" & Hlug.Value & "',fecha_inicio='" & fecha_ini & "',fecha_fin='" & fecha_fin & "',hora_entrada='" & Hhorent.Value & "',duracion='" & Hdur.Value & "',telefono_emergencia='" & Hteleme.Value & "',email='" & Hema.Value & "', estado='0' WHERE id='" & Label9.Text & "'"
+            comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
 
             conn.Close()
             dr.Close()
 
-        End If
+        'envio email
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-        conector += "Database=w230416_glink;User=w230416_glink;"
-        conector += "Pwd=Gorilla1985;Option=3;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
 
-        conn = New OdbcConnection(conector)
-        conn.Open()
-        sql = "SELECT * FROM encargado_m WHERE rut = '" & Hrutenc.Value & "'"
-        comm = New OdbcCommand(sql, conn)
-        dr = comm.ExecuteReader()
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT email FROM propietario_m WHERE id_condominio = '" & Session("id_mall") & "'"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+            Dim toAddress As String = "soporte@glink.cl"
+            If dr.Read() Then
+                toAddress = dr.GetValue(0).ToString()
+            End If
 
-        If dr.Read() Then
-            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector2 += "Database=w230416_glink;User=w230416_glink;"
-            conector2 += "Pwd=Gorilla1985;Option=3;"
+            Dim fromAddress = "alertas.glink@gmail.com"
+            Const fromPassword As String = "UI@X5s#8gLc%"
+            Dim subject As String = "Solicitud de trabajo"
+            Dim body As String = "Le informamos que la solicitud de trabajo N°" & Label9.Text & " se encuantra Pendiente" & vbCrLf
+            Dim smtp = New System.Net.Mail.SmtpClient()
 
-            conn2 = New OdbcConnection(conector2)
-            conn2.Open()
-            sql2 = "UPDATE encargado_m SET rut='" & Hrutenc.Value & "',nombre='" & Hnomenc.Value & "',apellido='" & Hapeenc.Value & "',mutual='" & Hmutenc.Value & "',celular='" & Hcelenc.Value & "',email='" & Hemaenc.Value & "' where rut='" & Hrutenc.Value & "'"
-            comm2 = New OdbcCommand(sql2, conn2)
-            dr2 = comm2.ExecuteReader()
-        Else
-            conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector2 += "Database=w230416_glink;User=w230416_glink;"
-            conector2 += "Pwd=Gorilla1985;Option=3;"
+            If True Then
+                smtp.Credentials = New System.Net.NetworkCredential(fromAddress, fromPassword)
+                smtp.EnableSsl = True
+                smtp.Host = "smtp.gmail.com"
+                smtp.Port = 587
+                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network
 
-            conn2 = New OdbcConnection(conector2)
-            conn2.Open()
-            sql2 = "insert Into encargado_m(rut,nombre,apellido,mutual,celular,email,estado) Values('" & Hrutenc.Value & "','" & Hnomenc.Value & "','" & Hapeenc.Value & "','" & Hmutenc.Value & "','" & Hcelenc.Value & "','" & Hemaenc.Value & "','1')"
-            comm2 = New OdbcCommand(sql2, conn2)
-            dr2 = comm2.ExecuteReader()
-        End If
+                smtp.Timeout = 20000
+            End If
 
-        conn2.Close()
-        dr2.Close()
-        conn.Close()
-        dr.Close()
+            smtp.Send(fromAddress, toAddress, subject, body)
 
-        conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-        conector += "Database=w230416_glink;User=w230416_glink;"
-        conector += "Pwd=Gorilla1985;Option=3;"
+            '  Response.Redirect("SolicitudesTieGlink.aspx")
 
-        Dim fecha_ini, fecha_dia, fecha_mes, fecha_ano, fecha_fin As String
-
-        fecha_dia = Mid(Hfecini.Value, 1, 2)
-        fecha_mes = Mid(Hfecini.Value, 4, 2)
-        fecha_ano = Mid(Hfecini.Value, 7, 4)
-
-        fecha_ini = fecha_mes + "-" + fecha_dia + "-" + fecha_ano
-
-        fecha_dia = Mid(Hfecfin.Value, 1, 2)
-        fecha_mes = Mid(Hfecfin.Value, 4, 2)
-        fecha_ano = Mid(Hfecfin.Value, 7, 4)
-
-        fecha_fin = fecha_mes + "-" + fecha_dia + "-" + fecha_ano
-
-
-        conn = New OdbcConnection(conector)
-        conn.Open()
-        sql = "UPDATE solicitud_m set id_encargado= '" & Hrutenc.Value & "',empresa_contratista='" & Hempcon.Value & "',resumen_trabajo='" & Hrestra.Value & "',lugar='" & Hlug.Value & "',fecha_inicio='" & fecha_ini & "',fecha_fin='" & fecha_fin & "',hora_entrada='" & Hhorent.Value & "',duracion='" & Hdur.Value & "',telefono_emergencia='" & Hteleme.Value & "',email='" & Hema.Value & "', estado='0' WHERE id='" & Label9.Text & "'"
-        comm = New OdbcCommand(sql, conn)
-        dr = comm.ExecuteReader()
-
-        conn.Close()
-        dr.Close()
-
-        '  Response.Redirect("SolicitudesTieGlink.aspx")
-
-        'https://lipis.github.io/bootstrap-sweetalert/
-        ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
+            'https://lipis.github.io/bootstrap-sweetalert/
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
 
     End Sub
 

@@ -136,6 +136,30 @@ Partial Class ContratistasGper
                             conn.Close()
                             dr.Close()
 
+                            'envio email
+
+                            Dim fromAddress = "alertas.glink@gmail.com"
+                            Dim toAddress = TextBox7.Text
+                            Const fromPassword As String = "UI@X5s#8gLc%"
+                            Dim subject As String = "Su cuenta Glink ya está lista"
+                            Dim body As String = "Le informamos que su cuenta de usuario ya está activada, sus credenciales de acceso son:" & vbCrLf & vbCrLf
+                            body += "email: " & TextBox7.Text & vbCrLf
+                            body += "contraseña: " & TextBox8.Text & vbCrLf & vbCrLf
+                            body += "Equipo Glink "
+                            Dim smtp = New System.Net.Mail.SmtpClient()
+
+                            If True Then
+                                smtp.Credentials = New System.Net.NetworkCredential(fromAddress, fromPassword)
+                                smtp.EnableSsl = True
+                                smtp.Host = "smtp.gmail.com"
+                                smtp.Port = 587
+                                smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network
+
+                                smtp.Timeout = 20000
+                            End If
+
+                            smtp.Send(fromAddress, toAddress, subject, body)
+
                             'https://lipis.github.io/bootstrap-sweetalert/
                             ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
                             'Response.Redirect("ContratistasGlink.aspx")

@@ -262,6 +262,26 @@ color: #fff;
     
 
     </div>
+
+        <div class="input-group">
+    
+      <div style="float:left">
+     <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="100" placeholder="N° Solicitud"  maxlength="8"  onkeypress="return checkNumero(event);" ></asp:TextBox>&nbsp
+     </div>&nbsp&nbsp
+     <div  style="float:left">
+     <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+     <asp:listitem text="Todas" value="0"></asp:listitem>
+     <asp:listitem text="Aceptadas" value="1"></asp:listitem>
+     <asp:listitem text="Pendientes" value="2"></asp:listitem>
+     <asp:listitem text="Rechazadas" value="3"></asp:listitem>
+     </asp:DropDownList>
+      </div>&nbsp&nbsp
+        <div style="float:left">
+            &nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="Buscar" CssClass="btn btn-primary"/>
+       </div>
+    </div>
+        <br />
+   
    
    
 <%--    <div container>
