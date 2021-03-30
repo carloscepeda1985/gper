@@ -21,11 +21,13 @@ Partial Class CrearSolicitudGper
     Dim I2 As Integer
     Dim dt As New DataTable()
     Dim dt2 As New DataTable()
-
+    Dim enviada As String = "no"
     Protected Sub myBtn_Click(sender As Object, e As System.EventArgs) Handles myBtn.Click
 
 
         Dim valores, sql_tra As String
+        If enviada = "no" Then
+
 
             If Htra.Value <> "" Then
                 valores = Mid(Htra.Value, 1, Len(Htra.Value) - 1)
@@ -144,11 +146,11 @@ Partial Class CrearSolicitudGper
             End If
 
             smtp.Send(fromAddress, toAddress, subject, body)
-
+            enviada = "si"
             ' Response.Redirect("SolicitudesConGlink.aspx")
             'https://lipis.github.io/bootstrap-sweetalert/
             ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
-
+        End If
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
