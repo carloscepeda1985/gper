@@ -28,4 +28,8 @@ Partial Class ConGper
 
         Response.Redirect("frm_nuevoTieGlink.aspx?dato=" + Session("rut_contratista"))
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Response.Redirect("CrearSolicitudTieGlink.aspx")
+    End Sub
 End Class
