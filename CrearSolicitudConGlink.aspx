@@ -400,8 +400,10 @@
 													</label>
 													<div class="col-md-4">
 														<select class="form-control" name="mutenc" id="mutenc">
-											            <option>ACHS</option>
-											            <option>Mutual de Seguridad</option>
+											            <option>Asociación Chilena de Seguridad (ACHS)</option>
+											            <option>Mutual de Seguridad CChC (MUSEG)</option>
+                                                        <option>Instituto de Seguridad del Trabajo (IST)</option>
+                                                        <option>Instituto de Seguridad Laboral (ISL)</option>
 										                </select>
 														<span class="help-block">
 															 Seleccione mutual de encargado
