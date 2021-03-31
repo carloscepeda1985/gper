@@ -42,79 +42,76 @@ Partial Class FichaContratista
 
         If (dr2.Read()) Then
             Session("id_contratista") = dr2.GetValue(0).ToString()
+            If dr2.GetValue(8).ToString() <> "no" Then
+                Dim urldoc As String
+                urldoc = "https://glink.cl/login/Data/" & Request.QueryString("rut") & "/Doc/" & dr2.GetValue(8).ToString()
+                Image1.ImageUrl = urldoc
+            Else
+                Image1.ImageUrl = "default_logo.png"
+            End If
             Label10.Text = dr2.GetValue(3).ToString()
             Label1.Text = dr2.GetValue(2).ToString()
-            Label2.Text = dr2.GetValue(4).ToString()
-            Label3.Text = dr2.GetValue(5).ToString()
-            Label4.Text = dr2.GetValue(6).ToString()
-            Label5.Text = dr2.GetValue(7).ToString()
+                Label2.Text = dr2.GetValue(4).ToString()
+                Label3.Text = dr2.GetValue(5).ToString()
+                Label4.Text = dr2.GetValue(6).ToString()
+                Label5.Text = dr2.GetValue(7).ToString()
             TextBox8.Text = dr2.GetValue(3).ToString()
 
-            If dr2.GetValue(3).ToString() = "Calderas Anwo" Then
-                Image1.ImageUrl = "anwo_logo.png"
-            Else
-                If dr2.GetValue(3).ToString() = "Ascensores Schindler" Then
-                    Image1.ImageUrl = "logo_schindler.png"
-                Else
-                    Image1.ImageUrl = "default_logo.png"
-                End If
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
+
+                conn = New OdbcConnection(conector)
+                conn.Open()
+                sql = "SELECT rut,nombre,apellido,telefono,direccion,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
+                comm = New OdbcCommand(sql, conn)
+                dr = comm.ExecuteReader()
+                I = 0
+                Dim CDT, CAFP, AFC, INP, CCAF As String
+
+
+                dt.Columns.AddRange(New DataColumn(10) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Direc"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
+
+                While (dr.Read())
+                    If dr.GetValue(6).ToString() = "no" Then
+                        CDT = "A"
+                    Else
+                        CDT = "P"
+                    End If
+                    If dr.GetValue(7).ToString() = "no" Then
+                        CAFP = "A"
+                    Else
+                        CAFP = "P"
+                    End If
+                    If dr.GetValue(8).ToString() = "no" Then
+                        AFC = "A"
+                    Else
+                        AFC = "P"
+                    End If
+                    If dr.GetValue(9).ToString() = "no" Then
+                        INP = "A"
+                    Else
+                        INP = "P"
+                    End If
+                    If dr.GetValue(10).ToString() = "no" Then
+                        CCAF = "A"
+                    Else
+                        CCAF = "P"
+                    End If
+
+                    dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), CDT, CAFP, AFC, INP, CCAF)
+                End While
+
+                GridView1.DataSource = dt
+                GridView1.DataBind()
+
+                conn.Close()
+                dr.Close()
+                comm.Dispose()
+                conn.Dispose()
             End If
 
-            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-            conector += "Database=w230416_glink;User=w230416_glink;"
-            conector += "Pwd=Gorilla1985;Option=3;"
-
-            conn = New OdbcConnection(conector)
-            conn.Open()
-            sql = "SELECT rut,nombre,apellido,telefono,direccion,funcion,CDT,CAFP,AFC,INP,CCAF FROM trabajadores_tienda_m where estado = '1' and id_contratista = '" & Session("id_contratista") & "'"
-            comm = New OdbcCommand(sql, conn)
-            dr = comm.ExecuteReader()
-            I = 0
-            Dim CDT, CAFP, AFC, INP, CCAF As String
-
-
-            dt.Columns.AddRange(New DataColumn(10) {New DataColumn("Rut"), New DataColumn("Nombre"), New DataColumn("Apellido"), New DataColumn("Numero"), New DataColumn("Direc"), New DataColumn("Cargo"), New DataColumn("CDT"), New DataColumn("CAFP"), New DataColumn("AFC"), New DataColumn("INP"), New DataColumn("CCAF")})
-
-            While (dr.Read())
-                If dr.GetValue(6).ToString() = "no" Then
-                    CDT = "A"
-                Else
-                    CDT = "P"
-                End If
-                If dr.GetValue(7).ToString() = "no" Then
-                    CAFP = "A"
-                Else
-                    CAFP = "P"
-                End If
-                If dr.GetValue(8).ToString() = "no" Then
-                    AFC = "A"
-                Else
-                    AFC = "P"
-                End If
-                If dr.GetValue(9).ToString() = "no" Then
-                    INP = "A"
-                Else
-                    INP = "P"
-                End If
-                If dr.GetValue(10).ToString() = "no" Then
-                    CCAF = "A"
-                Else
-                    CCAF = "P"
-                End If
-
-                dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(1).ToString(), dr.GetValue(2).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), CDT, CAFP, AFC, INP, CCAF)
-            End While
-
-            GridView1.DataSource = dt
-            GridView1.DataBind()
-
-            conn.Close()
-            dr.Close()
-            comm.Dispose()
-            conn.Dispose()
-        End If
-
-        conn2.Close()
+            conn2.Close()
         dr2.Close()
         comm2.Dispose()
         conn2.Dispose()
@@ -308,6 +305,50 @@ Partial Class FichaContratista
         'Response.Redirect("TiendasGlink.aspx")
         'https://lipis.github.io/bootstrap-sweetalert/
         ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2();", True)
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        If Not File1.PostedFile Is Nothing And File1.PostedFile.ContentLength > 0 Then
+
+            Dim fn As String = System.IO.Path.GetExtension(File1.PostedFile.FileName)
+            System.IO.Directory.CreateDirectory(Server.MapPath("Data\" & Request.QueryString("rut") & "\Doc\"))
+            Dim SaveLocation As String = Server.MapPath("Data") & "\" & Request.QueryString("rut") & "\Doc\D1" & fn
+            Try
+                File1.PostedFile.SaveAs(SaveLocation)
+
+                'Response.Write("The file has been uploaded.")
+
+                conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+                conector += "Database=w230416_glink;User=w230416_glink;"
+                conector += "Pwd=Gorilla1985;Option=3;"
+
+                conn = New OdbcConnection(conector)
+                conn.Open()
+                sql = "Update tiendas_m Set D1='D1" & fn & "' Where rut='" & Request.QueryString("rut") & "'"
+                comm = New OdbcCommand(sql, conn)
+                dr = comm.ExecuteReader()
+
+                conn.Close()
+                dr.Close()
+
+                ' Response.Redirect("EditarTrabajadorTieGlink.aspx?dato=" + Request.QueryString("dato"))
+
+                Dim datoTrabajador = Request.QueryString("rut")
+                Dim textoFinal = datoTrabajador
+
+                'https://lipis.github.io/bootstrap-sweetalert/
+                ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert2('" & textoFinal & "','El archivo ha sido guardado correctamente');", True)
+
+
+            Catch Exc As Exception
+                Response.Write("Error: " & Exc.Message)
+            End Try
+        Else
+            'Response.Write("Please select a file to upload.")
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "successalert();", True)
+        End If
 
     End Sub
 End Class

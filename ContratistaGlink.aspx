@@ -1705,7 +1705,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancelar</button>
             <formaction id="Form1" enctype="multipart/form-data"   runat="server" CssClass="btn btn-danger">    
-             <asp:Button ID="Button1" runat="server" Text="Subir Foto" CssClass="btn btn-success" />
+             <asp:Button ID="Button1" runat="server" Text="Subir Foto" CssClass="btn btn-success"  CausesValidation="false"  />
             <%--<input type="submit" id="Submit1" value="Subir" runat="server" name="Submit1" CssClass="btn btn-danger"/> --%>       
     </formaction>
         </div>
