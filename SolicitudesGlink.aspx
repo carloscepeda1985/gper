@@ -364,7 +364,7 @@ fieldset[disabled] .btn-sample.active {
 
             <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign = "Center">
             <ItemTemplate>
-                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "M", "M.png", If(Eval("Estado").ToString() = "P", "P.png", "A.png"))) %>' runat="server" Height = "25" Width = "25" />
+                <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "M", "M.png", If(Eval("Estado").ToString() = "P", "P.png", "A.png"))) %>' ToolTip ='<%# If(Eval("Estado").ToString() = "M", "Pendiente", If(Eval("Estado").ToString() = "P", "Aprobada", "Rechazada")) %>' runat="server" Height = "25" Width = "25" />
             </ItemTemplate>
 
 <ItemStyle HorizontalAlign="Center" Width="100px"></ItemStyle>
@@ -401,8 +401,11 @@ fieldset[disabled] .btn-sample.active {
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
  </div>
- 
-   </div>
+        <br />
+ &nbsp&nbsp&nbsp<small><img src="Images/P.png" alt="Aprobada" style="width:21px; height:21px;"/>&nbsp= Aprobada,&nbsp&nbsp <img src="Images/M.png" alt="Pendiente" style="width:21px; height:21px;"/>&nbsp= Pendiente,&nbsp&nbsp <img src="Images/A.png" alt="Rechazada" style="width:21px; height:21px;" />&nbsp= Rechazada.</small>
+   <br />
+        <br />
+    </div>
 
     <div class="col-md-3">
 
