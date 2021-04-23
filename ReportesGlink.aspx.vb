@@ -39,6 +39,11 @@ Partial Class ReportesGper
         If Not Me.IsPostBack Then
 
             RadDatePicker2.SelectedDate = Date.Today
+            Dim dia, mes, ano As String
+            dia = Mid(RadDatePicker2.DateInput.Text, 9, 2)
+            mes = Mid(RadDatePicker2.DateInput.Text, 6, 2)
+            ano = Mid(RadDatePicker2.DateInput.Text, 1, 4)
+
 
             dt.Clear()
 
@@ -48,7 +53,7 @@ Partial Class ReportesGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & RadDatePicker2.SelectedDate & "'order by fecha_inicio desc"
+            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & mes & "-" & dia & "-" & ano & "'order by fecha_inicio desc"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -92,13 +97,19 @@ Partial Class ReportesGper
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         dt.Clear()
 
+        Dim dia, mes, ano As String
+        dia = Mid(RadDatePicker2.DateInput.Text, 9, 2)
+        mes = Mid(RadDatePicker2.DateInput.Text, 6, 2)
+        ano = Mid(RadDatePicker2.DateInput.Text, 1, 4)
+
+
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
         conector += "Database=w230416_glink;User=w230416_glink;"
         conector += "Pwd=Gorilla1985;Option=3;"
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & RadDatePicker2.SelectedDate & "'order by fecha_inicio desc"
+        sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & mes & "-" & dia & "-" & ano & "'order by fecha_inicio desc"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0

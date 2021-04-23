@@ -269,9 +269,11 @@ fieldset[disabled] .btn-sample.active {
     
     </div>
 
-        Trabajos Autorizados del día:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large"></telerik:RadDatePicker>
+        Trabajos Autorizados del día:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large" DateInput-DateFormat="MM-dd-yyyy"></telerik:RadDatePicker>
         <asp:Button ID="Button2" runat="server" Font-Size="Small" Text="Buscar" 
             CssClass="btn btn-primary" />
+         <asp:Button ID="Button3" runat="server" Font-Size="Small" Text="Exportar a PDF" 
+            CssClass="btn btn-warning" />
         <br />
         <br />
 
@@ -279,8 +281,7 @@ fieldset[disabled] .btn-sample.active {
             <center>
 		<strong>Atención : </strong>No se encontraron solicitudes aceptadas para la fecha seleccionada<br />
                </center>
-        </div>
-					
+        </div>	
     <div class="table-responsive">
 <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
@@ -316,10 +317,9 @@ fieldset[disabled] .btn-sample.active {
     </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
-            <center><asp:Button ID="Button3" runat="server" Font-Size="Small" Text="Exportar a PDF" 
-            CssClass="btn btn-warning" Font-Bold="True" /></center>
-    </div>
 
+    </div>
+           
    </div>
 
     <div class="col-md-3">
