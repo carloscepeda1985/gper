@@ -3,6 +3,9 @@ Imports System.IO
 Imports System.Data
 Imports System.Data.Odbc
 Imports System.Xml
+Imports iTextSharp.text
+Imports iTextSharp.text.html.simpleparser
+Imports iTextSharp.text.pdf
 Partial Class ReportesGper
     Inherits System.Web.UI.Page
 
@@ -33,6 +36,61 @@ Partial Class ReportesGper
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
+        If Not Me.IsPostBack Then
+
+            RadDatePicker2.SelectedDate = Date.Today
+
+            dt.Clear()
+
+            conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
+            conector += "Database=w230416_glink;User=w230416_glink;"
+            conector += "Pwd=Gorilla1985;Option=3;"
+
+            conn = New OdbcConnection(conector)
+            conn.Open()
+            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & RadDatePicker2.SelectedDate & "'order by fecha_inicio desc"
+            comm = New OdbcCommand(sql, conn)
+            dr = comm.ExecuteReader()
+            I = 0
+            Dim Estado As String
+
+            dt.Columns.AddRange(New DataColumn(8) {New DataColumn("Estado"), New DataColumn("N_Solicitud"), New DataColumn("Empresa"), New DataColumn("Resumen"), New DataColumn("Lugar"), New DataColumn("Fecha Inicio"), New DataColumn("Hora Entrada"), New DataColumn("Telefono"), New DataColumn("Email")})
+
+            While (dr.Read())
+                If dr.GetValue(10).ToString() = "0" Then
+                    Estado = "M"
+                Else
+                    If dr.GetValue(10).ToString() = "1" Then
+                        Estado = "P"
+                    Else
+                        Estado = "A"
+                    End If
+                End If
+
+                dt.Rows.Add(Estado, dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
+            End While
+
+            GridView1.DataSource = dt
+            GridView1.DataBind()
+
+            conn.Close()
+            dr.Close()
+            comm.Dispose()
+            conn.Dispose()
+
+            If GridView1.Rows.Count = 0 Then
+                Div1.Visible = True
+            Else
+                Div1.Visible = False
+            End If
+
+        End If
+
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        dt.Clear()
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
         conector += "Database=w230416_glink;User=w230416_glink;"
@@ -40,148 +98,62 @@ Partial Class ReportesGper
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id, fecha, rut_usuario, porcentaje, comentario FROM checklists_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1'"
+        sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & RadDatePicker2.SelectedDate & "'order by fecha_inicio desc"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
+
+        dt.Columns.AddRange(New DataColumn(7) {New DataColumn("N_Solicitud"), New DataColumn("Empresa"), New DataColumn("Resumen"), New DataColumn("Lugar"), New DataColumn("Fecha Inicio"), New DataColumn("Hora Entrada"), New DataColumn("Telefono"), New DataColumn("Email")})
+
         While (dr.Read())
 
-            If dt.Columns.Count = 0 Then
-                dt.Columns.Add(" ID ", GetType(String))
-                dt.Columns.Add(" Fecha ", GetType(String))
-                dt.Columns.Add(" Rut Usuario ", GetType(String))
-                dt.Columns.Add(" Porcentaje ", GetType(String))
-                dt.Columns.Add(" Comentario ", GetType(String))
-            End If
-
-            Dim NewRow As DataRow = dt.NewRow()
-            NewRow(0) = dr.GetValue(0).ToString()
-            NewRow(1) = dr.GetValue(1).ToString()
-            NewRow(2) = dr.GetValue(2).ToString()
-            NewRow(3) = dr.GetValue(3).ToString()
-            NewRow(4) = dr.GetValue(4).ToString()
-            dt.Rows.Add(NewRow)
-
-            I = I + 1
+            dt.Rows.Add(dr.GetValue(0).ToString(), dr.GetValue(3).ToString(), dr.GetValue(4).ToString(), dr.GetValue(5).ToString(), dr.GetValue(6).ToString(), dr.GetValue(7).ToString(), dr.GetValue(8).ToString(), dr.GetValue(9).ToString())
         End While
 
-        If I = 0 Then
-
-            If dt.Columns.Count = 0 Then
-                dt.Columns.Add(" ID ", GetType(String))
-                dt.Columns.Add(" Fecha ", GetType(String))
-                dt.Columns.Add(" Rut Usuario ", GetType(String))
-                dt.Columns.Add(" Porcentaje ", GetType(String))
-                dt.Columns.Add(" Comentario ", GetType(String))
-            End If
-
-            Dim NewRow As DataRow = dt.NewRow()
-
-            dt.Rows.Add(NewRow)
-            GridView1.DataSource = dt
-            GridView1.DataBind()
-        Else
-            GridView1.DataSource = dt
-            GridView1.DataBind()
-
-        End If
+        GridView1.DataSource = dt
+        GridView1.DataBind()
 
         conn.Close()
         dr.Close()
         comm.Dispose()
         conn.Dispose()
-
-        '_________________________________________________________-
-
-
-        conector2 = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
-        conector2 += "Database=w230416_glink;User=w230416_glink;"
-        conector2 += "Pwd=Gorilla1985;Option=3;"
-
-        conn2 = New OdbcConnection(conector2)
-        conn2.Open()
-        sql2 = "SELECT id_equipo, fecha, rut_empresa, nombre_empresa, tipo, SUBSTR( descripcion, 1, 20 ) FROM mantenciones_m where id_mall = '" & Session("idcond_pro") & "' and estado = '1' ORDER BY fecha DESC"
-        comm2 = New OdbcCommand(sql2, conn2)
-        dr2 = comm2.ExecuteReader()
-        I2 = 0
-        While (dr2.Read())
-
-            If dt2.Columns.Count = 0 Then
-                dt2.Columns.Add(" N° Equipo ", GetType(String))
-                dt2.Columns.Add(" Fecha ", GetType(String))
-                dt2.Columns.Add(" Rut Empresa ", GetType(String))
-                dt2.Columns.Add(" Nombre Empresa ", GetType(String))
-                dt2.Columns.Add(" Tipo ", GetType(String))
-                dt2.Columns.Add(" Descripción ", GetType(String))
-            End If
-
-
-            Dim NewRow As DataRow = dt2.NewRow()
-            NewRow(0) = dr2.GetValue(0).ToString()
-            NewRow(1) = dr2.GetValue(1).ToString()
-            NewRow(2) = dr2.GetValue(2).ToString()
-            NewRow(3) = dr2.GetValue(3).ToString()
-            NewRow(4) = dr2.GetValue(4).ToString()
-            NewRow(5) = dr2.GetValue(5).ToString() & "..."
-            dt2.Rows.Add(NewRow)
-
-            I2 = I2 + 1
-        End While
-
-        If I2 = 0 Then
-
-            If dt2.Columns.Count = 0 Then
-                dt2.Columns.Add(" N° Equipo ", GetType(String))
-                dt2.Columns.Add(" Fecha ", GetType(String))
-                dt2.Columns.Add(" Rut Empresa ", GetType(String))
-                dt2.Columns.Add(" Nombre Empresa ", GetType(String))
-                dt2.Columns.Add(" Tipo ", GetType(String))
-                dt2.Columns.Add(" Descripción ", GetType(String))
-            End If
-
-            Dim NewRow As DataRow = dt2.NewRow()
-
-            dt2.Rows.Add(NewRow)
-            GridView2.DataSource = dt2
-            GridView2.DataBind()
-
-
+        If GridView1.Rows.Count = 0 Then
+            Div1.Visible = True
         Else
-            GridView2.DataSource = dt2
-            GridView2.DataBind()
-
-
-
+            Div1.Visible = False
         End If
-
-
-        conn2.Close()
-        dr2.Close()
-        comm2.Dispose()
-        conn2.Dispose()
-
 
     End Sub
 
-    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
-        If Session("rut_pro") = "" Then
-            Response.Redirect("Default.aspx")
-            Exit Sub
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If GridView1.Rows.Count > 0 Then
+            Using sw As New StringWriter()
+                Using hw As New HtmlTextWriter(sw)
+                    'To Export all pages
+                    GridView1.AllowPaging = False
+
+                    GridView1.RenderControl(hw)
+                    Dim sr As New StringReader(sw.ToString())
+                    Dim pdfDoc As New Document(PageSize.A2, 10.0F, 10.0F, 10.0F, 0.0F)
+                    Dim htmlparser As New HTMLWorker(pdfDoc)
+                    PdfWriter.GetInstance(pdfDoc, Response.OutputStream)
+                    pdfDoc.Open()
+                    htmlparser.Parse(sr)
+                    pdfDoc.Close()
+
+                    Response.ContentType = "application/pdf"
+                    Response.AddHeader("content-disposition", "attachment;filename=Trabajos_autorizados_del_dia_" & RadDatePicker2.SelectedDate & ".pdf")
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache)
+                    Response.Write(pdfDoc)
+                    Response.[End]()
+                End Using
+            End Using
+
         End If
 
-        Dim x As Integer
-        Dim id, fecha, rut_usuario, porcentaje, comentario As String
-
-        x = GridView1.SelectedIndex()
-
-        id = GridView1.Rows(x).Cells(1).Text
-        fecha = GridView1.Rows(x).Cells(2).Text
-        rut_usuario = GridView1.Rows(x).Cells(3).Text
-        porcentaje = GridView1.Rows(x).Cells(4).Text
-        comentario = GridView1.Rows(x).Cells(5).Text
-
-        Response.Redirect("HomeCheckGlink.aspx?id=" + id + "&fecha=" + fecha + "&rut_usuario=" + rut_usuario + "&porcentaje=" + porcentaje + "&comentario=" + comentario)
     End Sub
-
+    Public Overrides Sub VerifyRenderingInServerForm(control As Control)
+        ' Verifies that the control is rendered 
+    End Sub
 
 End Class

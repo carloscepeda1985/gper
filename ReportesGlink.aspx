@@ -269,59 +269,56 @@ fieldset[disabled] .btn-sample.active {
     
     </div>
 
+        Trabajos Autorizados del día:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large"></telerik:RadDatePicker>
+        <asp:Button ID="Button2" runat="server" Font-Size="Small" Text="Buscar" 
+            CssClass="btn btn-primary" />
+        <br />
+        <br />
 
-     <div class="widget-box transparent">
-			<div class="widget-header widget-header-small">
-				<h4 class="widget-title smaller">
-					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-					Últimos Checklists 
-					</h4>
-			</div>
-
-						
+        <div class="alert alert-info" role="alert" id="Div1" runat="server">
+            <center>
+		<strong>Atención : </strong>No se encontraron solicitudes aceptadas para la fecha seleccionada<br />
+               </center>
+        </div>
+					
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="6" >
+<asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
+            CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
-                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-primary" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
-            </Columns>
-            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
+
+            <asp:BoundField DataField="N_Solicitud" HeaderText="N° Solicitud" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+                <HeaderStyle Wrap="False" />
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Empresa" HeaderText="Empresa" ItemStyle-Width="130" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="130px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Resumen" HeaderText="Resumen" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Lugar" HeaderText="Lugar" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Hora Entrada" HeaderText="Hora" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Telefono" HeaderText="Teléfono" ItemStyle-Width="150" ItemStyle-Wrap="false" >
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150" ItemStyle-Wrap="false" >     
+
+<ItemStyle Wrap="False" Width="150px"></ItemStyle>
+                </asp:BoundField>
+
+    </Columns>
+            <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
+            <center><asp:Button ID="Button3" runat="server" Font-Size="Small" Text="Exportar a PDF" 
+            CssClass="btn btn-warning" Font-Bold="True" /></center>
     </div>
-
-	</div>
-
-
-     <div class="widget-box transparent">
-			<div class="widget-header widget-header-small">
-				<h4 class="widget-title smaller">
-					<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-					Accesos del día
-					</h4>
-			</div>
-
-						
-    <div class="table-responsive">
-        <asp:GridView ID="GridView2" runat="server" Width="100%" 
-            CssClass="table table-bordered bs-table"  AllowPaging="True" PageSize="6" >
-            <Columns>
-                <asp:CommandField ButtonType="Button" ShowSelectButton="True" 
-                    SelectImageUrl="~/editar.png" ControlStyle-CssClass="btn btn-primary" SelectText="Ver"  HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' />
-            </Columns>
-            <HeaderStyle BackColor="#a9a2a6" ForeColor="White" />
-        </asp:GridView>
-    </div>
-
-	</div>
-
-
-
-
-
-
-
-
 
    </div>
 
