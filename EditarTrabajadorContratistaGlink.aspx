@@ -519,7 +519,7 @@
                                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" HeaderText='<span class="glyphicon glyphicon-eye-open" style="color:white"></span>' ControlStyle-CssClass="btn btn-primary" SelectText="Ver" ItemStyle-Width="130" />
                                 <asp:TemplateField HeaderText="Estado" ItemStyle-Width="100" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "P", "P.png", "A.png")) %>' runat="server" Height="25" Width="25" />
+                                        <asp:Image ID="Image1" ImageUrl='<%# "~/Images/" & (If(Eval("Estado").ToString() = "P", "cd.svg", "sd.svg")) %>' runat="server" Height="25" Width="25" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="Codigo" HeaderText="Código" ItemStyle-Width="130" ItemStyle-Wrap="false" />

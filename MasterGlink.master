@@ -1,8 +1,8 @@
 ﻿<%@ Master Language="VB" CodeFile="MasterGlink.master.vb" Inherits="MasterGper"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es_CL">
 <head id="Head1" runat="server">
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/ico/Logo-Glink.png"/>
