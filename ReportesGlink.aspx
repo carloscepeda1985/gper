@@ -260,16 +260,40 @@ fieldset[disabled] .btn-sample.active {
     }
 
 </style>
-
+    <%--  --%>
 
     <div class="col-md-9">
+
     <div class="bar">
 
     <e class="letracolor"><span class="glyphicon2 glyphicon-dashboard" style="color:white"></span>&nbsp;Reportes</e>
     
     </div>
+       
+      <div class="table-responsive" >
+          <div   style="min-width:490px;">
+<ul class="nav nav-tabs">
+ <li role="presentation" class="active"><a href="#">Trabajos Autorizados</a></li>
+  <li role="presentation"><a href="#">Trabajadores Autorizados</a></li>
+   <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Buscar <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+    <li><a href="#">Tiendas</a></li>
+    <li><a href="#">Contratistas</a></li>
+    <li><a href="#">Trabajadores de Tiendas</a></li>
+    <li><a href="#">Trabajadores de Contratistas</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Accesos Trabajadores</a></li>
+    </ul>
+  </li>
+</ul>
 
-        Trabajos Autorizados del día:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large" DateInput-DateFormat="MM-dd-yyyy"></telerik:RadDatePicker>
+
+        <br />		
+
+        Fecha:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large" DateInput-DateFormat="MM-dd-yyyy"></telerik:RadDatePicker>
         <asp:Button ID="Button2" runat="server" Font-Size="Small" Text="Buscar" 
             CssClass="btn btn-primary" />
          <asp:Button ID="Button3" runat="server" Font-Size="Small" Text="Exportar a PDF" 
@@ -282,7 +306,7 @@ fieldset[disabled] .btn-sample.active {
 		<strong>Atención : </strong>No se encontraron solicitudes aceptadas para la fecha seleccionada<br />
                </center>
         </div>	
-    <div class="table-responsive">
+
 <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="false" 
             CssClass="table table-bordered bs-table" AllowPaging="True" PageSize="10">
             <Columns>
@@ -318,10 +342,10 @@ fieldset[disabled] .btn-sample.active {
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
 
-    </div>
-           
-   </div>
-
+        <hr />
+        </div>
+    </div>        
+</div>
     <div class="col-md-3">
 
 
