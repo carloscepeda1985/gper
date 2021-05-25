@@ -270,11 +270,12 @@ fieldset[disabled] .btn-sample.active {
     
     </div>
        
-      <div class="table-responsive" >
+      <div class="table-responsive" style="border:none;" >
           <div   style="min-width:490px;">
+
 <ul class="nav nav-tabs">
- <li role="presentation" class="active"><a href="#">Trabajos Autorizados</a></li>
-  <li role="presentation"><a href="#">Trabajadores Autorizados</a></li>
+ <li role="presentation" class="active"><a href="ReportesGlink.aspx"><b>Trabajos Autorizados</b></a></li>
+  <li role="presentation"><a href="ReportesTraAutGlink.aspx">Trabajadores Autorizados</a></li>
    <li role="presentation" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       Buscar <span class="caret"></span>
@@ -293,17 +294,18 @@ fieldset[disabled] .btn-sample.active {
 
         <br />		
 
-        Fecha:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large" DateInput-DateFormat="MM-dd-yyyy"></telerik:RadDatePicker>
-        <asp:Button ID="Button2" runat="server" Font-Size="Small" Text="Buscar" 
+         Desde:&nbsp<telerik:RadDatePicker ID="RadDatePicker2" runat="server" Skin="Metro" Font-Size="Large" DateInput-DateFormat="MM-dd-yyyy"></telerik:RadDatePicker>
+         Hasta:&nbsp<telerik:RadDatePicker ID="RadDatePicker1" runat="server" Skin="Metro" Font-Size="Large" DateInput-DateFormat="MM-dd-yyyy"></telerik:RadDatePicker>
+        
+              <asp:Button ID="Button2" runat="server" Font-Size="Small" Text="Buscar" 
             CssClass="btn btn-primary" />
-         <asp:Button ID="Button3" runat="server" Font-Size="Small" Text="Exportar a PDF" 
-            CssClass="btn btn-warning" />
+
         <br />
         <br />
 
         <div class="alert alert-info" role="alert" id="Div1" runat="server">
             <center>
-		<strong>Atención : </strong>No se encontraron solicitudes aceptadas para la fecha seleccionada<br />
+		<strong>Atención : </strong>No se encontraron solicitudes aprobadas para las fechas seleccionadas<br />
                </center>
         </div>	
 
@@ -341,7 +343,8 @@ fieldset[disabled] .btn-sample.active {
     </Columns>
             <HeaderStyle BackColor="#185189" ForeColor="White" />
         </asp:GridView>
-
+                    <asp:Button ID="Button3" runat="server" Font-Size="Small" Text="Exportar a PDF" 
+            CssClass="btn btn-warning" />
         <hr />
         </div>
     </div>        

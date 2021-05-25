@@ -44,6 +44,12 @@ Partial Class ReportesGper
             mes = Mid(RadDatePicker2.DateInput.Text, 6, 2)
             ano = Mid(RadDatePicker2.DateInput.Text, 1, 4)
 
+            RadDatePicker1.SelectedDate = Date.Today
+            Dim dia_h, mes_h, ano_h As String
+            dia_h = Mid(RadDatePicker1.DateInput.Text, 9, 2)
+            mes_h = Mid(RadDatePicker1.DateInput.Text, 6, 2)
+            ano_h = Mid(RadDatePicker1.DateInput.Text, 1, 4)
+
 
             dt.Clear()
 
@@ -53,7 +59,7 @@ Partial Class ReportesGper
 
             conn = New OdbcConnection(conector)
             conn.Open()
-            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & mes & "-" & dia & "-" & ano & "'order by fecha_inicio desc"
+            sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio BETWEEN'" & mes & "-" & dia & "-" & ano & "' AND '" & mes_h & "-" & dia_h & "-" & ano_h & "' order by fecha_inicio desc"
             comm = New OdbcCommand(sql, conn)
             dr = comm.ExecuteReader()
             I = 0
@@ -85,7 +91,9 @@ Partial Class ReportesGper
 
             If GridView1.Rows.Count = 0 Then
                 Div1.Visible = True
+                Button3.Visible = False
             Else
+                Button3.Visible = True
                 Div1.Visible = False
             End If
 
@@ -102,6 +110,11 @@ Partial Class ReportesGper
         mes = Mid(RadDatePicker2.DateInput.Text, 6, 2)
         ano = Mid(RadDatePicker2.DateInput.Text, 1, 4)
 
+        Dim dia_h, mes_h, ano_h As String
+        dia_h = Mid(RadDatePicker1.DateInput.Text, 9, 2)
+        mes_h = Mid(RadDatePicker1.DateInput.Text, 6, 2)
+        ano_h = Mid(RadDatePicker1.DateInput.Text, 1, 4)
+
 
         conector = "driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;"
         conector += "Database=w230416_glink;User=w230416_glink;"
@@ -109,7 +122,7 @@ Partial Class ReportesGper
 
         conn = New OdbcConnection(conector)
         conn.Open()
-        sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio='" & mes & "-" & dia & "-" & ano & "'order by fecha_inicio desc"
+        sql = "SELECT id, id_mall, id_contratista, empresa_contratista, resumen_trabajo, lugar, fecha_inicio, hora_entrada, telefono_emergencia, email, estado FROM solicitud_m where id_mall = '" & Session("idcond_pro") & "' and estado ='1' and fecha_inicio BETWEEN'" & mes & "-" & dia & "-" & ano & "' AND '" & mes_h & "-" & dia_h & "-" & ano_h & "' order by fecha_inicio desc"
         comm = New OdbcCommand(sql, conn)
         dr = comm.ExecuteReader()
         I = 0
@@ -130,8 +143,10 @@ Partial Class ReportesGper
         conn.Dispose()
         If GridView1.Rows.Count = 0 Then
             Div1.Visible = True
+            Button3.Visible = False
         Else
             Div1.Visible = False
+            Button3.Visible = True
         End If
 
     End Sub
